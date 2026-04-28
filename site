@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>styleme.fr — Ton agent IA du matin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg-primary: #F5F1EB;
+      --bg-light: #FEFCF8;
+      --text-dark: #2A2622;
+      --text-muted: #6B6560;
+      --accent: #8B7D6B;
+      --accent-light: #D4CBC0;
+      --card-bg: #FAFAF7;
+      --border: rgba(0,0,0,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-light) 100%);
+      background-attachment: fixed;
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.8;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Texture en relief subtile */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        repeating-linear-gradient(
+          0deg,
+          rgba(255,255,255,.05) 0px,
+          rgba(255,255,255,.05) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 50px;
+      background: rgba(245, 241, 235, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    nav .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: var(--text-dark);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .menu-item {
+      position: relative;
+      padding: 12px 20px;
+      cursor: pointer;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .menu-item:hover {
+      color: var(--accent);
+    }
+
+    .menu-item-dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle::after {
+      content: '▼';
+      font-size: 10px;
+      margin-left: 6px;
+      transition: transform 0.3s;
+    }
+
+    .menu-item-dropdown:hover .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      z-index: 1000;
+    }
+
+    .menu-item-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 20px;
+      color: var(--text-dark);
+      text-decoration: none;
+      font-size: 13px;
+      transition: background 0.2s;
+    }
+
+    .dropdown-menu a:first-child {
+      border-radius: 8px 8px 0 0;
+    }
+
+    .dropdown-menu a:last-child {
+      border-radius: 0 0 8px 8px;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--bg-primary);
+      color: var(--accent);
+    }
+
+    .cta-nav {
+      background: var(--text-dark);
+      color: white;
+      padding: 12px 28px !important;
+      border-radius: 30px;
+      font-size: 12px !important;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: background 0.3s, transform 0.2s;
+      margin-left: 20px;
+    }
+
+    .cta-nav:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 40px 80px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo-hero {
+      margin-bottom: 50px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    .logo-hero img {
+      max-width: 200px;
+      height: auto;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+      transition: transform 0.3s;
+    }
+
+    .logo-hero img:hover {
+      transform: scale(1.05);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 300;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.4;
+      margin-bottom: 24px;
+      max-width: 700px;
+      color: var(--text-dark);
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .hero h1 .highlight {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .hero p.sub {
+      font-size: clamp(16px, 2vw, 18px);
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 40px;
+      font-weight: 400;
+      line-height: 1.8;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .hero .cta-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+
+    .btn-main {
+      background: var(--text-dark);
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 16px 44px;
+      border-radius: 40px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-main:hover {
+      background: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(42,38,34,0.15);
+    }
+
+    .btn-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ── SECTION COMMON ── */
+    section {
+      padding: 100px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(28px, 4vw, 42px);
+      margin-bottom: 50px;
+      text-align: center;
+      color: var(--text-dark);
+    }
+
+    section h2 .highlight {
+      color: var(--accent);
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    /* ── PROBLEM ── */
+    .problem {
+      border-top: 1px solid var(--border);
+    }
+
+    .problem-text {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto 40px;
+      text-align: center;
+      font-weight: 400;
+      line-height: 1.9;
+    }
+
+    .thought-bubbles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .thought {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 26px;
+      font-size: 15px;
+      color: var(--text-muted);
+      font-style: italic;
+      transition: all 0.3s;
+      max-width: 220px;
+    }
+
+    .thought:hover {
+      border-color: var(--accent);
+      background: white;
+      transform: translateY(-4px);
+    }
+
+    .problem-punchline {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 18px;
+      color: var(--text-dark);
+      font-weight: 500;
+      line-height: 1.8;
+    }
+
+    .problem-punchline strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── STEPS ── */
+    .steps {
+      border-top: 1px solid var(--border);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+      margin-top: 30px;
+    }
+
+    .step-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .step-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .step-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 22px;
+      margin-bottom: 14px;
+      color: var(--text-dark);
+    }
+
+    .step-card p {
+      color: var(--text-muted);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    /* ── DIFFERENCE ── */
+    .difference {
+      border-top: 1px solid var(--border);
+    }
+
+    .diff-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .diff-table th,
+    .diff-table td {
+      padding: 20px 24px;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    .diff-table thead th {
+      background: var(--accent-light);
+      color: white;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .diff-table tbody tr {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .diff-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .diff-table tbody tr:hover {
+      background: var(--bg-primary);
+    }
+
+    .diff-table td:first-child {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .diff-table td:last-child {
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    /* ── FOR YOU ── */
+    .for-you {
+      border-top: 1px solid var(--border);
+    }
+
+    .checks {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .check-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: white;
+      font-weight: 700;
+    }
+
+    .for-you-note {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .for-you-note strong {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    /* ── SIGNUP ── */
+    .signup {
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .signup-box {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 50px 40px;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .signup-box p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 30px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .form-row input {
+      flex: 1;
+      min-width: 240px;
+      padding: 14px 20px;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-row input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(139, 125, 107, 0.1);
+    }
+
+    .form-row input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form-row button {
+      white-space: nowrap;
+    }
+
+    .perks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+      margin-top: 28px;
+    }
+
+    .perk {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .perk span {
+      font-size: 16px;
+    }
+
+    .signup-note {
+      margin-top: 20px;
+      margin-bottom: 0;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-list {
+      max-width: 660px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 26px 0;
+      cursor: pointer;
+    }
+
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-dark);
+      transition: color 0.3s;
+    }
+
+    .faq-item:hover .faq-q {
+      color: var(--accent);
+    }
+
+    .faq-q .arrow {
+      font-size: 18px;
+      color: var(--accent);
+      transition: transform 0.3s;
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      color: var(--text-muted);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.8;
+      transition: max-height 0.4s ease, padding-top 0.4s ease;
+      padding-top: 0;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 250px;
+      padding-top: 16px;
+    }
+
+    .faq-item.open .arrow {
+      transform: rotate(45deg);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 60px 40px;
+      color: var(--text-muted);
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 2;
+    }
+
+    footer p {
+      margin-bottom: 8px;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: var(--text-dark);
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(120px);
+      background: var(--text-dark);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transition: all 0.5s;
+      pointer-events: none;
+      z-index: 300;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav {
+        padding: 16px 20px;
+      }
+
+      nav .brand {
+        font-size: 16px;
+        letter-spacing: 1.5px;
+      }
+
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        gap: 0;
+        width: 100%;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+
+      .menu-item {
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--border);
+        text-align: left;
+      }
+
+      .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        border: none;
+        box-shadow: none;
+        background: var(--bg-primary);
+        min-width: auto;
+      }
+
+      .menu-item-dropdown:hover .dropdown-menu {
+        transform: none;
+      }
+
+      .cta-nav {
+        margin-left: 0;
+        width: calc(100% - 40px);
+        margin: 10px 20px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding: 120px 20px 60px;
+      }
+
+      .logo-hero img {
+        max-width: 140px;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+
+      .signup-box {
+        padding: 36px 24px;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+
+      .form-row input,
+      .form-row button {
+        width: 100%;
+        min-width: auto;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="brand">STYLE ME</div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="nav-menu">
+      <a href="#accueil" class="menu-item">Accueil</a>
+      
+      <div class="menu-item-dropdown">
+        <a href="#" class="menu-item dropdown-toggle">Comment ça marche</a>
+        <div class="dropdown-menu">
+          <a href="#steps">3 étapes simples</a>
+          <a href="#difference">Notre différence</a>
+          <a href="#faq">Questions fréquentes</a>
+        </div>
+      </div>
+
+      <div class="menu-item-dropdown">
+        <a href="#" class="menu-item dropdown-toggle">À propos</a>
+        <div class="dropdown-menu">
+          <a href="#for-you">C'est pour toi si...</a>
+          <a href="mailto:bonjour@styleme.fr">Nous contacter</a>
+          <a href="#">Blog</a>
+        </div>
+      </div>
+
+      <a href="#faq" class="menu-item">FAQ</a>
+      <a href="#signup" class="menu-item cta-nav">Rejoindre la liste</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="accueil">
+    <div class="logo-hero">
+      <img src="styleme-logo.png" alt="Style Me - Ton agent IA du matin" width="200" height="214">
+    </div>
+
+    <h1>Qu'est-ce que je mets <span class="highlight">demain matin</span> ?</h1>
+    <p class="sub">Ton agent IA qui t'aide à t'habiller chaque jour — sans stress, sans pub, sans te pousser à acheter. Comme une copine stylée, disponible à 7h du matin.</p>
+    <div class="cta-box">
+      <a href="#signup" class="btn-main">Je veux tester en avant-première</a>
+      <span class="btn-sub">Gratuit · Pas de spam · Juste un email quand c'est prêt</span>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <h2>Tu connais <span class="highlight">ce moment</span> ?</h2>
+    <p class="problem-text">7h12. Tu es en retard. Tu ouvres ton armoire. Tu regardes. Tu ne sais pas quoi mettre. Tu essayes un haut, tu changes, tu re-changes. Tu finis par remettre la même chose qu'hier.</p>
+    <div class="thought-bubbles">
+      <div class="thought">« Je n'ai rien à me mettre »</div>
+      <div class="thought">« Est-ce que ça va ensemble ? »</div>
+      <div class="thought">« C'est trop habillé ? Pas assez ? »</div>
+      <div class="thought">« Tant pis, je mets un truc »</div>
+    </div>
+    <p class="problem-punchline">Ce n'est pas un problème de vêtements.<br>C'est un problème de <strong>charge mentale</strong>.</p>
+  </section>
+
+  <!-- STEPS -->
+  <section class="steps" id="steps">
+    <h2>Comment ça <span class="highlight">marche</span> ?</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Tu te montres</h3>
+        <p>Prends une photo de ta tenue du jour ou de ce que tu hésites à mettre. Ça prend 5 secondes.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>L'IA te répond</h3>
+        <p>Comme un miroir bienveillant : ce qui fonctionne, un petit changement qui améliore tout, une idée pour demain.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Ton style se construit</h3>
+        <p>Au fil des jours, styleme.fr apprend tes goûts, retient tes tenues préférées et te les ressort quand tu en as besoin.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENCE -->
+  <section class="difference" id="difference">
+    <h2>On ne va pas te <span class="highlight">vendre de vêtements</span></h2>
+    <table class="diff-table">
+      <thead>
+        <tr>
+          <th>Les autres apps</th>
+          <th>styleme.fr</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Te montrent 50 tenues par jour</td>
+          <td>✨ Te propose 2-3 max</td>
+        </tr>
+        <tr>
+          <td>Veulent que tu achètes</td>
+          <td>👗 T'aide avec ce que tu as déjà</td>
+        </tr>
+        <tr>
+          <td>Sont remplies de pubs</td>
+          <td>🚫 Zéro pub</td>
+        </tr>
+        <tr>
+          <td>Oublient coiffure et maquillage</td>
+          <td>💄 Les intègre (bientôt)</td>
+        </tr>
+        <tr>
+          <td>Sont en anglais</td>
+          <td>🇫🇷 En français, pour ta vraie vie</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- FOR YOU -->
+  <section class="for-you" id="for-you">
+    <h2>styleme.fr est fait <span class="highlight">pour toi</span> si…</h2>
+    <div class="checks">
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <div>Tu perds du temps chaque matin devant ton armoire</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <div>Tu as l'impression de ne jamais porter la moitié de tes vêtements</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <div>Tu aimerais avoir du style sans y penser pendant des heures</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <div>Tu en as marre des applis qui veulent juste te faire acheter</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <div>Tu voudrais un avis honnête et bienveillant sur ta tenue</div>
+      </div>
+    </div>
+    <p class="for-you-note">Que tu sois en jean-baskets ou fan de mode — styleme.fr s'adapte à <strong>ton</strong> style, homme ou femme.</p>
+  </section>
+
+  <!-- SIGNUP -->
+  <section class="signup" id="signup">
+    <h2>Sois parmi les <span class="highlight">premiers à tester</span></h2>
+    <div class="signup-box">
+      <p>styleme.fr ouvre bientôt en bêta privée pour un petit groupe de testeurs.</p>
+      <div class="form-row">
+        <input type="email" id="emailInput" placeholder="Ton adresse email" />
+        <button class="btn-main" onclick="submitEmail()">Je veux être dedans →</button>
+      </div>
+      <div class="perks">
+        <div class="perk"><span>🎁</span> Accès gratuit pendant le test</div>
+        <div class="perk"><span>💬</span> Influence les fonctionnalités</div>
+        <div class="perk"><span>🔒</span> Prioritaire à l'ouverture</div>
+      </div>
+      <p class="signup-note">On ne partage ton email avec personne. Promis.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <h2>Questions <span class="highlight">fréquentes</span></h2>
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          C'est gratuit ?
+          <span class="arrow">+</span>
+        </div>
+        <div class="faq-a">La bêta est 100% gratuite. Ensuite, l'idée est un petit abonnement mensuel abordable, avec une version gratuite qui reste disponible.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          Est-ce que mes photos sont en sécurité ?
+          <span class="arrow">+</span>
+        </div>
+        <div class="faq-a">Oui. Tes photos sont privées, chiffrées, jamais partagées avec des marques. Tu peux tout supprimer en un clic.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          Il faut photographier toute ma garde-robe ?
+          <span class="arrow">+</span>
+        </div>
+        <div class="faq-a">Non ! Tu commences avec une seule photo de ta tenue du jour. Le vestiaire se construit naturellement au fil du temps.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          C'est une appli à télécharger ?
+          <span class="arrow">+</span>
+        </div>
+        <div class="faq-a">Pour commencer, c'est un site web accessible depuis ton téléphone. Pas besoin de télécharger quoi que ce soit.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          Et pour les conseils coiffure et maquillage ?
+          <span class="arrow">+</span>
+        </div>
+        <div class="faq-a">C'est prévu pour bientôt ! Les premiers testeurs pourront nous dire exactement ce qu'ils veulent.</div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          C'est pour les hommes aussi ?
+          <span class="arrow">+</span>
+        </div>
+        <div class="faq-a">Bien sûr ! styleme.fr fonctionne pour tout le monde. Qu'importe ton style, ton genre ou tes goûts — l'IA s'adapte à toi.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-brand">styleme.fr</p>
+    <p>Ton agent IA du matin</p>
+    <p style="margin-top: 16px;">
+      <a href="mailto:bonjour@styleme.fr">bonjour@styleme.fr</a>
+    </p>
+    <p style="margin-top: 20px;">© 2026 styleme.fr · <a href="#">Mentions légales</a> · <a href="#">Confidentialité</a></p>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">🎉 Bienvenue ! Tu es sur la liste d'attente.</div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.nav-menu');
+      menu.classList.toggle('active');
+    }
+
+    // Fermer le menu quand on clique sur un lien
+    document.querySelectorAll('.nav-menu a:not(.dropdown-toggle)').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelector('.nav-menu').classList.remove('active');
+      });
+    });
+
+    function toggleFaq(el) {
+      el.classList.toggle('open');
+    }
+
+    function submitEmail() {
+      const input = document.getElementById('emailInput');
+      const email = input.value.trim();
+      
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        input.style.borderColor = '#8B7D6B';
+        input.setAttribute('placeholder', 'Entre une adresse email valide');
+        setTimeout(() => { 
+          input.style.borderColor = 'rgba(0,0,0,0.08)'; 
+        }, 2000);
+        return;
+      }
+
+      // Montrer le toast
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      input.value = '';
+      input.setAttribute('placeholder', 'Merci ! 💕');
+      
+      setTimeout(() => { 
+        toast.classList.remove('show'); 
+      }, 3500);
+    }
+
+    // Soumettre au clavier Enter
+    document.getElementById('emailInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') submitEmail();
+    });
+
+    // Animation au scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section:not(.hero)').forEach((sec, index) => {
+      sec.style.opacity = '0';
+      sec.style.transform = 'translateY(30px)';
+      sec.style.transition = `opacity 0.7s ease ${index * 0.1}s, transform 0.7s ease ${index * 0.1}s`;
+      observer.observe(sec);
+    });
+  </script>
+
+</body>
+</html>
