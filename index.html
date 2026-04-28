@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleMe - Échange de Vêtements Écoresponsable</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="language-selector">
+            <select id="lang-select">
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+                <option value="de">Deutsch</option>
+                <option value="es">Español</option>
+            </select>
+        </div>
+        <div id="logo">
+            <!-- Placeholder for logo -->
+            <img src="https://via.placeholder.com/100x50?text=StyleMe" alt="StyleMe Logo">
+        </div>
+        <h1 id="title">StyleMe</h1>
+        <p id="subtitle">Plateforme d'échange de vêtements anti-fast-fashion et écoresponsable</p>
+    </header>
+    <section id="banner">
+        <h2 id="banner-text">Découvrez StyleMe : L'alternative écoresponsable à la fast-fashion ! Échangez vos vêtements et contribuez à un avenir durable.</h2>
+    </section>
+    <section id="images">
+        <h2 id="images-title">Inspiration</h2>
+        <img src="https://source.unsplash.com/featured/?modern-closet" alt="Placard moderne">
+        <img src="https://source.unsplash.com/featured/?hands-exchanging-clothes" alt="Mains échangeant des vêtements">
+    </section>
+    <section id="contact">
+        <h2 id="contact-title">Contactez-nous</h2>
+        <form action="mailto:mehtapkeles@msn.com" method="post" enctype="text/plain">
+            <label for="name" id="name-label">Nom:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email" id="email-label">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="message" id="message-label">Message:</label>
+            <textarea id="message" name="message" required></textarea><br>
+            <input type="submit" value="Envoyer" id="submit-btn">
+        </form>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
