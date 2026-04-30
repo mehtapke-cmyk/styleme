@@ -1,734 +1,390 @@
-+   1 <!DOCTYPE html>
-+   2 <html lang="fr">
-+   3 <head>
-+   4   <meta charset="UTF-8">
-+   5   <meta name="viewport" content="width=device-width, initial-scale=1">
-+   6   <title>styleme.fr — Ton agent IA du matin</title>
-+   7   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-+   8   <style>
-+   9     * { margin: 0; padding: 0; box-sizing: border-box; }
-+  10 
-+  11     :root {
-+  12       --bg: #060606;
-+  13       --cream: #F8F4ED;
-+  14       --beige: #E8E4D9;
-+  15       --pink: #FF6B6B;
-+  16       --yellow: #FECA57;
-+  17       --blue: #48DBFB;
-+  18       --magenta: #FF9FF3;
-+  19       --gray: #888;
-+  20       --card: #111;
-+  21     }
-+  22 
-+  23     html { scroll-behavior: smooth; }
-+  24 
-+  25     body {
-+  26       background: var(--bg);
-+  27       color: var(--cream);
-+  28       font-family: 'Inter', sans-serif;
-+  29       line-height: 1.7;
-+  30       overflow-x: hidden;
-+  31     }
-+  32 
-+  33     /* ── NAV ── */
-+  34     nav {
-+  35       position: fixed; top: 0; width: 100%; z-index: 100;
-+  36       display: flex; justify-content: space-between; align-items: center;
-+  37       padding: 18px 40px;
-+  38       background: rgba(6,6,6,0.85);
-+  39       backdrop-filter: blur(12px);
-+  40       border-bottom: 1px solid rgba(255,255,255,0.05);
-+  41     }
-+  42     nav .logo-nav {
-+  43       height: 50px;
-+  44       width: auto;
-+  45       transition: transform 0.3s;
-+  46     }
-+  47     nav .logo-nav:hover {
-+  48       transform: scale(1.05);
-+  49     }
-+  50     nav .lang-selector {
-+  51       display: flex;
-+  52       gap: 8px;
-+  53       margin-right: 20px;
-+  54     }
-+  55     nav .lang-btn {
-+  56       background: rgba(255,255,255,0.05);
-+  57       border: 1px solid rgba(255,255,255,0.1);
-+  58       color: #888;
-+  59       padding: 6px 12px;
-+  60       border-radius: 20px;
-+  61       font-size: 11px;
-+  62       cursor: pointer;
-+  63       transition: all 0.3s;
-+  64       text-transform: uppercase;
-+  65       letter-spacing: 1px;
-+  66     }
-+  67     nav .lang-btn.active {
-+  68       background: linear-gradient(135deg, var(--pink), var(--magenta));
-+  69       color: #fff;
-+  70       border-color: transparent;
-+  71     }
-+  72     nav .lang-btn:hover:not(.active) {
-+  73       border-color: var(--pink);
-+  74       color: var(--cream);
-+  75     }
-+  76     nav .nav-right {
-+  77       display: flex;
-+  78       align-items: center;
-+  79       gap: 20px;
-+  80     }
-+  81     nav a.cta-nav {
-+  82       background: linear-gradient(135deg, var(--pink), var(--magenta));
-+  83       color: #fff; text-decoration: none;
-+  84       padding: 10px 24px; border-radius: 30px;
-+  85       font-size: 13px; font-weight: 500; letter-spacing: 1px;
-+  86       transition: transform 0.3s, box-shadow 0.3s;
-+  87     }
-+  88     nav a.cta-nav:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,107,0.4); }
-+  89 
-+  90     /* ── HERO ── */
-+  91     .hero {
-+  92       min-height: 100vh;
-+  93       display: flex; flex-direction: column;
-+  94       align-items: center; justify-content: center;
-+  95       text-align: center;
-+  96       padding: 120px 24px 80px;
-+  97       position: relative;
-+  98     }
-+  99     .hero::after {
-+ 100       content: '';
-+ 101       position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-+ 102       width: 600px; height: 600px;
-+ 103       background: radial-gradient(circle, rgba(255,107,107,0.08) 0%, transparent 70%);
-+ 104       pointer-events: none;
-+ 105     }
-+ 106 
-+ 107     .logo-hero {
-+ 108       width: 280px;
-+ 109       height: auto;
-+ 110       margin-bottom: 40px;
-+ 111       filter: drop-shadow(0 0 20px rgba(255,107,107,0.15));
-+ 112       transition: transform 0.4s;
-+ 113       position: relative;
-+ 114       z-index: 1;
-+ 115     }
-+ 116     .logo-hero:hover {
-+ 117       transform: scale(1.05) translateY(-8px);
-+ 118     }
-+ 119 
-+ 120     .hero h1 {
-+ 121       font-family: 'Playfair Display', serif;
-+ 122       font-weight: 300;
-+ 123       font-size: clamp(28px, 5vw, 52px);
-+ 124       line-height: 1.3;
-+ 125       margin-bottom: 24px;
-+ 126       max-width: 700px;
-+ 127       position: relative;
-+ 128       z-index: 1;
-+ 129     }
-+ 130     .hero h1 em {
-+ 131       font-style: italic;
-+ 132       background: linear-gradient(135deg, var(--pink), var(--yellow), var(--blue), var(--magenta));
-+ 133       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-+ 134       background-clip: text;
-+ 135     }
-+ 136     .hero p.sub {
-+ 137       font-size: clamp(15px, 2vw, 18px);
-+ 138       color: var(--gray);
-+ 139       max-width: 560px;
-+ 140       margin-bottom: 40px;
-+ 141       font-weight: 300;
-+ 142       position: relative;
-+ 143       z-index: 1;
-+ 144     }
-+ 145     .hero .cta-box {
-+ 146       display: flex; flex-direction: column; align-items: center; gap: 12px;
-+ 147       position: relative;
-+ 148       z-index: 1;
-+ 149     }
-+ 150     .btn-main {
-+ 151       background: linear-gradient(135deg, var(--pink), var(--magenta));
-+ 152       color: #fff; border: none; cursor: pointer;
-+ 153       padding: 16px 40px; border-radius: 50px;
-+ 154       font-size: 16px; font-weight: 500; letter-spacing: 1px;
-+ 155       font-family: 'Inter', sans-serif;
-+ 156       transition: transform 0.3s, box-shadow 0.3s;
-+ 157       text-decoration: none; display: inline-block;
-+ 158     }
-+ 159     .btn-main:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(255,107,107,0.4); }
-+ 160     .btn-sub { font-size: 12px; color: #555; letter-spacing: 1px; }
-+ 161 
-+ 162     /* ── SECTION COMMON ── */
-+ 163     section { padding: 100px 24px; max-width: 900px; margin: 0 auto; }
-+ 164     section h2 {
-+ 165       font-family: 'Playfair Display', serif;
-+ 166       font-weight: 400;
-+ 167       font-size: clamp(24px, 4vw, 38px);
-+ 168       margin-bottom: 40px;
-+ 169       text-align: center;
-+ 170     }
-+ 171     section h2 span {
-+ 172       background: linear-gradient(135deg, var(--pink), var(--magenta));
-+ 173       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-+ 174       background-clip: text;
-+ 175     }
-+ 176 
-+ 177     /* ── PROBLEM ── */
-+ 178     .problem { border-top: 1px solid rgba(255,255,255,0.05); }
-+ 179     .problem-text {
-+ 180       font-size: 17px; color: #bbb;
-+ 181       max-width: 600px; margin: 0 auto 30px;
-+ 182       text-align: center; font-weight: 300;
-+ 183     }
-+ 184     .thought-bubbles {
-+ 185       display: flex; flex-wrap: wrap; gap: 14px;
-+ 186       justify-content: center; margin-top: 30px;
-+ 187     }
-+ 188     .thought {
-+ 189       background: var(--card);
-+ 190       border: 1px solid rgba(255,255,255,0.06);
-+ 191       border-radius: 16px;
-+ 192       padding: 14px 22px;
-+ 193       font-size: 14px; color: #ccc;
-+ 194       font-style: italic;
-+ 195       transition: border-color 0.3s;
-+ 196     }
-+ 197     .thought:hover { border-color: var(--pink); }
-+ 198     .problem-punchline {
-+ 199       text-align: center; margin-top: 40px;
-+ 200       font-size: 16px; color: var(--cream);
-+ 201       font-weight: 500;
-+ 202     }
-+ 203 
-+ 204     /* ── STORY ── */
-+ 205     .story { border-top: 1px solid rgba(255,255,255,0.05); background: linear-gradient(180deg, transparent 0%, rgba(255,107,107,0.02) 100%); }
-+ 206     .story-grid {
-+ 207       display: grid;
-+ 208       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-+ 209       gap: 40px;
-+ 210       margin-top: 30px;
-+ 211     }
-+ 212     .story-moment {
-+ 213       text-align: center;
-+ 214       padding: 30px 20px;
-+ 215     }
-+ 216     .story-icon {
-+ 217       font-size: 48px;
-+ 218       margin-bottom: 20px;
-+ 219       display: block;
-+ 220     }
-+ 221     .story-moment h3 {
-+ 222       font-family: 'Playfair Display', serif;
-+ 223       font-size: 20px;
-+ 224       margin-bottom: 12px;
-+ 225       color: var(--cream);
-+ 226     }
-+ 227     .story-moment p {
-+ 228       color: #999;
-+ 229       font-size: 14px;
-+ 230       line-height: 1.7;
-+ 231     }
-+ 232 
-+ 233     /* ── STEPS ── */
-+ 234     .steps { border-top: 1px solid rgba(255,255,255,0.05); }
-+ 235     .steps-grid {
-+ 236       display: grid;
-+ 237       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-+ 238       gap: 30px; margin-top: 20px;
-+ 239     }
-+ 240     .step-card {
-+ 241       background: var(--card);
-+ 242       border: 1px solid rgba(255,255,255,0.06);
-+ 243       border-radius: 20px;
-+ 244       padding: 36px 28px;
-+ 245       text-align: center;
-+ 246       transition: transform 0.3s, border-color 0.3s;
-+ 247     }
-+ 248     .step-card:hover { transform: translateY(-6px); border-color: rgba(255,107,107,0.3); }
-+ 249     .step-num {
-+ 250       display: inline-flex; align-items: center; justify-content: center;
-+ 251       width: 44px; height: 44px; border-radius: 50%;
-+ 252       background: linear-gradient(135deg, var(--pink), var(--magenta));
-+ 253       color: #fff; font-weight: 600; font-size: 16px;
-+ 254       margin-bottom: 18px;
-+ 255     }
-+ 256     .step-card h3 { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 20px; margin-bottom: 12px; }
-+ 257     .step-card p { color: #999; font-size: 14px; font-weight: 300; line-height: 1.6; }
-+ 258 
-+ 259     /* ── TIPS (NEW) ── */
-+ 260     .tips { border-top: 1px solid rgba(255,255,255,0.05); }
-+ 261     .tips-intro {
-+ 262       text-align: center;
-+ 263       color: #999;
-+ 264       font-size: 15px;
-+ 265       margin-bottom: 40px;
-+ 266       max-width: 600px;
-+ 267       margin-left: auto;
-+ 268       margin-right: auto;
-+ 269     }
-+ 270     .tips-grid {
-+ 271       display: grid;
-+ 272       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-+ 273       gap: 24px;
-+ 274       margin-top: 30px;
-+ 275     }
-+ 276     .tip-card {
-+ 277       background: var(--card);
-+ 278       border: 1px solid rgba(255,255,255,0.06);
-+ 279       border-radius: 18px;
-+ 280       padding: 28px 24px;
-+ 281       transition: transform 0.3s, border-color 0.3s;
-+ 282     }
-+ 283     .tip-card:hover {
-+ 284       transform: translateY(-4px);
-+ 285       border-color: rgba(255,107,107,0.25);
-+ 286     }
-+ 287     .tip-icon {
-+ 288       font-size: 32px;
-+ 289       margin-bottom: 14px;
-+ 290       display: block;
-+ 291     }
-+ 292     .tip-card h3 {
-+ 293       font-family: 'Playfair Display', serif;
-+ 294       font-size: 18px;
-+ 295       margin-bottom: 10px;
-+ 296       color: var(--cream);
-+ 297     }
-+ 298     .tip-card p {
-+ 299       color: #888;
-+ 300       font-size: 13px;
-+ 301       line-height: 1.6;
-+ 302     }
-+ 303 
-+ 304     /* ── DIFFERENCE ── */
-+ 305     .difference { border-top: 1px solid rgba(255,255,255,0.05); }
-+ 306     .diff-table {
-+ 307       width: 100%; border-collapse: collapse; margin-top: 20px;
-+ 308       border-radius: 16px; overflow: hidden;
-+ 309     }
-+ 310     .diff-table th, .diff-table td { padding: 18px 20px; text-align: left; font-size: 14px; }
-+ 311     .diff-table thead th {
-+ 312       background: rgba(255,107,107,0.1);
-+ 313       font-weight: 500; letter-spacing: 1px; font-size: 12px; text-transform: uppercase;
-+ 314     }
-+ 315     .diff-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.04); }
-+ 316     .diff-table tbody tr:hover { background: rgba(255,255,255,0.02); }
-+ 317     .diff-table td:first-child { color: #666; }
-+ 318     .diff-table td:last-child { color: var(--cream); }
-+ 319 
-+ 320     /* ── FOR YOU ── */
-+ 321     .for-you { border-top: 1px solid rgba(255,255,255,0.05); }
-+ 322     .checks {
-+ 323       display: flex; flex-direction: column; gap: 16px;
-+ 324       max-width: 560px; margin: 0 auto;
-+ 325     }
-+ 326     .check-item {
-+ 327       display: flex; align-items: flex-start; gap: 14px;
-+ 328       font-size: 15px; color: #ccc; font-weight: 300;
-+ 329     }
-+ 330     .check-icon {
-+ 331       flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
-+ 332       background: linear-gradient(135deg, var(--pink), var(--magenta));
-+ 333       display: flex; align-items: center; justify-content: center;
-+ 334       font-size: 13px; color: #fff;
-+ 335     }
-+ 336 
-+ 337     /* ── SIGNUP ── */
-+ 338     .signup {
-+ 339       border-top: 1px solid rgba(255,255,255,0.05);
-+ 340       text-align: center;
-+ 341     }
-+ 342     .signup-box {
-+ 343       background: var(--card);
-+ 344       border: 1px solid rgba(255,255,255,0.08);
-+ 345       border-radius: 24px;
-+ 346       padding: 50px 36px;
-+ 347       max-width: 520px; margin: 0 auto;
-+ 348     }
-+ 349     .signup-box p { color: #999; font-size: 14px; margin-bottom: 28px; font-weight: 300; }
-+ 350     .form-row {
-+ 351       display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
-+ 352     }
-+ 353     .form-row input {
-+ 354       flex: 1; min-width: 200px;
-+ 355       padding: 14px 20px; border-radius: 50px;
-+ 356       border: 1px solid rgba(255,255,255,0.1);
-+ 357       background: rgba(255,255,255,0.04);
-+ 358       color: var(--cream); font-size: 15px;
-+ 359       font-family: 'Inter', sans-serif;
-+ 360       outline: none; transition: border-color 0.3s;
-+ 361     }
-+ 362     .form-row input:focus { border-color: var(--pink); }
-+ 363     .form-row input::placeholder { color: #555; }
-+ 364     .form-row button { white-space: nowrap; }
-+ 365     .perks {
-+ 366       display: flex; flex-wrap: wrap; gap: 16px;
-+ 367       justify-content: center; margin-top: 24px;
-+ 368     }
-+ 369     .perk { font-size: 12px; color: #666; display: flex; align-items: center; gap: 6px; }
-+ 370     .perk span { font-size: 14px; }
-+ 371 
-+ 372     /* ── FAQ ── */
-+ 373     .faq { border-top: 1px solid rgba(255,255,255,0.05); }
-+ 374     .faq-list { max-width: 640px; margin: 0 auto; }
-+ 375     .faq-item {
-+ 376       border-bottom: 1px solid rgba(255,255,255,0.05);
-+ 377       padding: 24px 0; cursor: pointer;
-+ 378     }
-+ 379     .faq-q {
-+ 380       display: flex; justify-content: space-between; align-items: center;
-+ 381       font-size: 16px; font-weight: 400;
-+ 382     }
-+ 383     .faq-q .arrow { font-size: 20px; color: var(--pink); transition: transform 0.3s; }
-+ 384     .faq-a {
-+ 385       max-height: 0; overflow: hidden;
-+ 386       color: #888; font-size: 14px; font-weight: 300; line-height: 1.7;
-+ 387       transition: max-height 0.4s ease, padding-top 0.4s ease;
-+ 388       padding-top: 0;
-+ 389     }
-+ 390     .faq-item.open .faq-a { max-height: 200px; padding-top: 14px; }
-+ 391     .faq-item.open .arrow { transform: rotate(45deg); }
-+ 392 
-+ 393     /* ── FOOTER ── */
-+ 394     footer {
-+ 395       border-top: 1px solid rgba(255,255,255,0.05);
-+ 396       text-align: center; padding: 50px 24px;
-+ 397       color: #444; font-size: 12px; letter-spacing: 1px;
-+ 398     }
-+ 399     footer .logo-footer {
-+ 400       width: 120px;
-+ 401       height: auto;
-+ 402       margin-bottom: 20px;
-+ 403       opacity: 0.4;
-+ 404     }
-+ 405     footer a { color: #666; text-decoration: none; }
-+ 406     footer a:hover { color: var(--pink); }
-+ 407     footer .lang-notice {
-+ 408       margin-top: 16px;
-+ 409       color: #555;
-+ 410       font-size: 11px;
-+ 411     }
-+ 412 
-+ 413     /* ── TOAST ── */
-+ 414     .toast {
-+ 415       position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(80px);
-+ 416       background: linear-gradient(135deg, var(--pink), var(--magenta));
-+ 417       color: #fff; padding: 16px 32px; border-radius: 50px;
-+ 418       font-size: 14px; font-weight: 500;
-+ 419       opacity: 0; transition: all 0.5s; pointer-events: none; z-index: 200;
-+ 420     }
-+ 421     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-+ 422     .toast.error {
-+ 423       background: linear-gradient(135deg, #e74c3c, #c0392b);
-+ 424     }
-+ 425 
-+ 426     /* ── RESPONSIVE ── */
-+ 427     @media (max-width: 600px) {
-+ 428       nav { padding: 14px 20px; flex-wrap: wrap; }
-+ 429       nav .logo-nav { height: 40px; }
-+ 430       nav .nav-right { width: 100%; justify-content: center; margin-top: 10px; }
-+ 431       nav .lang-selector { margin-right: 10px; }
-+ 432       nav a.cta-nav { padding: 8px 16px; font-size: 11px; }
-+ 433       .logo-hero { width: 200px; }
-+ 434       section { padding: 70px 20px; }
-+ 435       .signup-box { padding: 36px 24px; }
-+ 436       .form-row { flex-direction: column; }
-+ 437       .form-row button { width: 100%; }
-+ 438     }
-+ 439   </style>
-+ 440 </head>
-+ 441 <body>
-+ 442 
-+ 443   <!-- NAV -->
-+ 444   <nav>
-+ 445     <img src="https://pfst.cf2.poecdn.net/base/image/a291b422223f6878e4bd48cb85bbb90a852b797b0066b01ca380f88dde09309e?w=562&h=622" alt="Style Me" class="logo-nav">
-+ 446     <div class="nav-right">
-+ 447       <div class="lang-selector">
-+ 448         <button class="lang-btn active" data-lang="fr">FR</button>
-+ 449         <button class="lang-btn" data-lang="en">EN</button>
-+ 450         <button class="lang-btn" data-lang="es">ES</button>
-+ 451       </div>
-+ 452       <a href="#signup" class="cta-nav">REJOINDRE LA LISTE →</a>
-+ 453     </div>
-+ 454   </nav>
-+ 455 
-+ 456   <!-- HERO -->
-+ 457   <section class="hero">
-+ 458     <img src="https://pfst.cf2.poecdn.net/base/image/a291b422223f6878e4bd48cb85bbb90a852b797b0066b01ca380f88dde09309e?w=562&h=622" alt="Style Me" class="logo-hero">
-+ 459 
-+ 460     <h1>« Qu'est-ce que je mets <em>demain matin</em> ? »</h1>
-+ 461     <p class="sub">Votre agent IA qui vous aide à vous habiller chaque jour — sans stress, sans pub, sans vous pousser à acheter. Comme un·e ami·e stylé·e, disponible à 7h du matin.</p>
-+ 462     <div class="cta-box">
-+ 463       <a href="#signup" class="btn-main">Je veux tester en avant-première</a>
-+ 464       <span class="btn-sub">Gratuit · Pas de spam · Juste un email quand c'est prêt</span>
-+ 465     </div>
-+ 466   </section>
-+ 467 
-+ 468   <!-- PROBLEM -->
-+ 469   <section class="problem">
-+ 470     <h2>Vous connaissez <span>ce moment</span> ?</h2>
-+ 471     <p class="problem-text">7h12. Vous êtes en retard. Vous ouvrez votre armoire. Vous regardez. Vous ne savez pas quoi mettre. Vous essayez un haut, vous changez, vous re-changez. Vous finissez par remettre la même chose qu'hier.</p>
-+ 472     <div class="thought-bubbles">
-+ 473       <div class="thought">« Je n'ai rien à me mettre »</div>
-+ 474       <div class="thought">« Est-ce que ça va ensemble ? »</div>
-+ 475       <div class="thought">« C'est trop habillé ? Pas assez ? »</div>
-+ 476       <div class="thought">« Tant pis, je mets un truc »</div>
-+ 477     </div>
-+ 478     <p class="problem-punchline">Ce n'est pas un problème de vêtements.<br>C'est un problème de <strong>charge mentale</strong>.</p>
-+ 479   </section>
-+ 480 
-+ 481   <!-- STORY -->
-+ 482   <section class="story">
-+ 483     <h2>Imaginez votre journée <span>avec styleme.fr</span></h2>
-+ 484     <div class="story-grid">
-+ 485       <div class="story-moment">
-+ 486         <span class="story-icon">☀️</span>
-+ 487         <h3>7h du matin</h3>
-+ 488         <p>Vous vous réveillez. Au lieu de paniquer devant votre armoire, vous ouvrez styleme.fr. L'IA vous a préparé 2 tenues basées sur vos vêtements préférés et la météo.</p>
-+ 489       </div>
-+ 490       <div class="story-moment">
-+ 491         <span class="story-icon">📸</span>
-+ 492         <h3>Avant de partir</h3>
-+ 493         <p>Vous prenez une photo de votre tenue. L'IA vous dit : "Parfait ! Changez juste les baskets pour vos bottines noires." Une suggestion simple, qui change tout.</p>
-+ 494       </div>
-+ 495       <div class="story-moment">
-+ 496         <span class="story-icon">✨</span>
-+ 497         <h3>Le soir</h3>
-+ 498         <p>Vous rentrez confiant·e. Quelqu'un vous a complimenté·e sur votre tenue. styleme.fr l'enregistre dans vos "favoris" pour vous la reproposer au bon moment.</p>
-+ 499       </div>
-+ 500     </div>
-+ 501   </section>
-+ 502 
-+ 503   <!-- STEPS -->
-+ 504   <section class="steps">
-+ 505     <h2>Comment ça <span>marche</span> ?</h2>
-+ 506     <div class="steps-grid">
-+ 507       <div class="step-card">
-+ 508         <div class="step-num">1</div>
-+ 509         <h3>Vous vous montrez</h3>
-+ 510         <p>Prenez une photo de votre tenue du jour ou de ce que vous hésitez à mettre. Ça prend 5 secondes.</p>
-+ 511       </div>
-+ 512       <div class="step-card">
-+ 513         <div class="step-num">2</div>
-+ 514         <h3>L'IA vous répond</h3>
-+ 515         <p>Comme un miroir bienveillant : ce qui fonctionne, un petit changement qui améliore tout, une idée pour demain.</p>
-+ 516       </div>
-+ 517       <div class="step-card">
-+ 518         <div class="step-num">3</div>
-+ 519         <h3>Votre style se construit</h3>
-+ 520         <p>Au fil des jours, styleme.fr apprend vos goûts, retient vos tenues préférées et vous les ressort quand vous en avez besoin.</p>
-+ 521       </div>
-+ 522     </div>
-+ 523   </section>
-+ 524 
-+ 525   <!-- TIPS (NEW) -->
-+ 526   <section class="tips">
-+ 527     <h2>Nos <span>conseils style</span></h2>
-+ 528     <p class="tips-intro">Quelques astuces pour tirer le meilleur de votre garde-robe, que vous utilisiez styleme.fr ou non.</p>
-+ 529     <div class="tips-grid">
-+ 530       <div class="tip-card">
-+ 531         <span class="tip-icon">👔</span>
-+ 532         <h3>La règle des 3 couleurs</h3>
-+ 533         <p>Limitez-vous à 3 couleurs max par tenue : 1 dominante, 1 secondaire, 1 accent. Votre look sera automatiquement plus cohérent.</p>
-+ 534       </div>
-+ 535       <div class="tip-card">
-+ 536         <span class="tip-icon">📸</span>
-+ 537         <h3>Photographiez vos réussites</h3>
-+ 538         <p>Quand une tenue fonctionne bien, prenez-la en photo. Vous oublierez les bonnes combinaisons sinon.</p>
-+ 539       </div>
-+ 540       <div class="tip-card">
-+ 541         <span class="tip-icon">🔄</span>
-+ 542         <h3>La méthode du cintre inversé</h3>
-+ 543         <p>Retournez vos cintres après chaque port. Après 6 mois, les vêtements non-portés = à donner.</p>
-+ 544       </div>
-+ 545       <div class="tip-card">
-+ 546         <span class="tip-icon">✨</span>
-+ 547         <h3>Les basiques avant tout</h3>
-+ 548         <p>80% de votre garde-robe devrait être des basiques intemporels, 20% des pièces tendance ou colorées.</p>
-+ 549       </div>
-+ 550       <div class="tip-card">
-+ 551         <span class="tip-icon">🌡️</span>
-+ 552         <h3>Préparez la veille</h3>
-+ 553         <p>Choisir sa tenue le soir évite le stress du matin et permet de vérifier si tout est propre et repassé.</p>
-+ 554       </div>
-+ 555       <div class="tip-card">
-+ 556         <span class="tip-icon">🎨</span>
-+ 557         <h3>Trouvez vos couleurs</h3>
-+ 558         <p>Notez les couleurs qui vous font le plus de compliments. Ce sont "vos" couleurs — investissez dedans.</p>
-+ 559       </div>
-+ 560     </div>
-+ 561   </section>
-+ 562 
-+ 563   <!-- DIFFERENCE -->
-+ 564   <section class="difference">
-+ 565     <h2>On ne va pas vous <span>vendre de vêtements</span></h2>
-+ 566     <table class="diff-table">
-+ 567       <thead>
-+ 568         <tr><th>Les autres apps</th><th>styleme.fr</th></tr>
-+ 569       </thead>
-+ 570       <tbody>
-+ 571         <tr><td>Vous montrent 50 tenues par jour</td><td>✨ Vous propose 2-3 max</td></tr>
-+ 572         <tr><td>Veulent que vous achetiez</td><td>👗 Vous aide avec ce que vous avez déjà</td></tr>
-+ 573         <tr><td>Sont remplies de pubs</td><td>🚫 Zéro pub</td></tr>
-+ 574         <tr><td>Oublient coiffure et maquillage</td><td>💄 Les intègre (bientôt)</td></tr>
-+ 575         <tr><td>Sont en anglais</td><td>🌍 En français, anglais, espagnol</td></tr>
-+ 576       </tbody>
-+ 577     </table>
-+ 578   </section>
-+ 579 
-+ 580   <!-- FOR YOU -->
-+ 581   <section class="for-you">
-+ 582     <h2>styleme.fr est fait <span>pour vous</span> si…</h2>
-+ 583     <div class="checks">
-+ 584       <div class="check-item"><div class="check-icon">✓</div><div>Vous perdez du temps chaque matin devant votre armoire</div></div>
-+ 585       <div class="check-item"><div class="check-icon">✓</div><div>Vous avez l'impression de ne jamais porter la moitié de vos vêtements</div></div>
-+ 586       <div class="check-item"><div class="check-icon">✓</div><div>Vous aimeriez avoir du style sans y penser pendant des heures</div></div>
-+ 587       <div class="check-item"><div class="check-icon">✓</div><div>Vous en avez marre des applis qui veulent juste vous faire acheter</div></div>
-+ 588       <div class="check-item"><div class="check-icon">✓</div><div>Vous voudriez un avis honnête et bienveillant sur votre tenue</div></div>
-+ 589     </div>
-+ 590     <p style="text-align:center; margin-top:30px; color:#666; font-size:14px;">Que vous soyez en jean-baskets ou fan de mode — styleme.fr s'adapte à <strong style="color:#F8F4ED;">votre</strong> style.</p>
-+ 591   </section>
-+ 592 
-+ 593   <!-- SIGNUP -->
-+ 594   <section class="signup" id="signup">
-+ 595     <h2>Soyez parmi les <span>premiers</span> à tester</h2>
-+ 596     <div class="signup-box">
-+ 597       <p>styleme.fr ouvre bientôt en bêta privée pour un petit groupe de testeur·euses.</p>
-+ 598       <form id="signupForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-+ 599         <div class="form-row">
-+ 600           <input type="email" name="email" id="emailInput" placeholder="Votre adresse email" required />
-+ 601           <button type="submit" class="btn-main">Je veux être dans les premiers →</button>
-+ 602         </div>
-+ 603       </form>
-+ 604       <div class="perks">
-+ 605         <div class="perk"><span>🎁</span> Accès gratuit pendant le test</div>
-+ 606         <div class="perk"><span>💬</span> Influence les fonctionnalités</div>
-+ 607         <div class="perk"><span>🔒</span> Prioritaire à l'ouverture</div>
-+ 608       </div>
-+ 609       <p style="margin-top:20px; margin-bottom:0; font-size:11px; color:#444;">On ne partage votre email avec personne. Promis.</p>
-+ 610     </div>
-+ 611   </section>
-+ 612 
-+ 613   <!-- FAQ -->
-+ 614   <section class="faq">
-+ 615     <h2>Questions <span>fréquentes</span></h2>
-+ 616     <div class="faq-list">
-+ 617       <div class="faq-item" onclick="toggleFaq(this)">
-+ 618         <div class="faq-q">C'est gratuit ?<span class="arrow">+</span></div>
-+ 619         <div class="faq-a">La bêta est 100% gratuite. Ensuite, l'idée est un petit abonnement mensuel abordable, avec une version gratuite qui reste disponible.</div>
-+ 620       </div>
-+ 621       <div class="faq-item" onclick="toggleFaq(this)">
-+ 622         <div class="faq-q">Est-ce que mes photos sont en sécurité ?<span class="arrow">+</span></div>
-+ 623         <div class="faq-a">Oui. Vos photos sont privées, chiffrées, jamais partagées avec des marques. Vous pouvez tout supprimer en un clic.</div>
-+ 624       </div>
-+ 625       <div class="faq-item" onclick="toggleFaq(this)">
-+ 626         <div class="faq-q">Il faut photographier toute ma garde-robe ?<span class="arrow">+</span></div>
-+ 627         <div class="faq-a">Non ! Vous commencez avec une seule photo de votre tenue du jour. Le vestiaire se construit naturellement au fil du temps.</div>
-+ 628       </div>
-+ 629       <div class="faq-item" onclick="toggleFaq(this)">
-+ 630         <div class="faq-q">C'est une appli à télécharger ?<span class="arrow">+</span></div>
-+ 631         <div class="faq-a">Pour commencer, c'est un site web accessible depuis votre téléphone. Pas besoin de télécharger quoi que ce soit.</div>
-+ 632       </div>
-+ 633       <div class="faq-item" onclick="toggleFaq(this)">
-+ 634         <div class="faq-q">styleme.fr sera disponible dans quelles langues ?<span class="arrow">+</span></div>
-+ 635         <div class="faq-a">Le site sera disponible en français, anglais et espagnol dès le lancement de la bêta.</div>
-+ 636       </div>
-+ 637       <div class="faq-item" onclick="toggleFaq(this)">
-+ 638         <div class="faq-q">Et pour les conseils coiffure et maquillage ?<span class="arrow">+</span></div>
-+ 639         <div class="faq-a">C'est prévu pour bientôt ! Les premiers testeur·euses pourront nous dire exactement ce qu'ils/elles veulent.</div>
-+ 640       </div>
-+ 641     </div>
-+ 642   </section>
-+ 643 
-+ 644   <!-- FOOTER -->
-+ 645   <footer>
-+ 646     <img src="https://pfst.cf2.poecdn.net/base/image/a291b422223f6878e4bd48cb85bbb90a852b797b0066b01ca380f88dde09309e?w=562&h=622" alt="Style Me" class="logo-footer">
-+ 647     <p style="margin-bottom:8px; font-family:'Playfair Display',serif; font-size:16px; color:#666;">styleme.fr</p>
-+ 648     <p>Votre agent IA du matin 👗</p>
-+ 649     <p class="lang-notice">🌍 Bientôt disponible en : Français · English · Español</p>
-+ 650     <p style="margin-top:16px;">
-+ 651       <a href="mailto:bonjour@styleme.fr">bonjour@styleme.fr</a>
-+ 652     </p>
-+ 653     <p style="margin-top:20px;">© 2026 styleme.fr · <a href="#">Mentions légales</a> · <a href="#">Confidentialité</a></p>
-+ 654   </footer>
-+ 655 
-+ 656   <!-- TOAST -->
-+ 657   <div class="toast" id="toast"></div>
-+ 658 
-+ 659   <script>
-+ 660     // Language selector (visual only for now)
-+ 661     document.querySelectorAll('.lang-btn').forEach(btn => {
-+ 662       btn.addEventListener('click', function() {
-+ 663         document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-+ 664         this.classList.add('active');
-+ 665         // In production, this would trigger actual translation
-+ 666         showToast('🌍 Traduction ' + this.dataset.lang.toUpperCase() + ' bientôt disponible !', false);
-+ 667       });
-+ 668     });
-+ 669 
-+ 670     function toggleFaq(el) {
-+ 671       el.classList.toggle('open');
-+ 672     }
-+ 673 
-+ 674     function showToast(message, isError = false) {
-+ 675       const toast = document.getElementById('toast');
-+ 676       toast.textContent = message;
-+ 677       if (isError) {
-+ 678         toast.classList.add('error');
-+ 679       } else {
-+ 680         toast.classList.remove('error');
-+ 681       }
-+ 682       toast.classList.add('show');
-+ 683       setTimeout(() => { toast.classList.remove('show'); }, 3500);
-+ 684     }
-+ 685 
-+ 686     // Form submission
-+ 687     document.getElementById('signupForm').addEventListener('submit', function(e) {
-+ 688       e.preventDefault();
-+ 689       const email = document.getElementById('emailInput').value.trim();
-+ 690       
-+ 691       if (!email || !email.includes('@') || !email.includes('.')) {
-+ 692         showToast('⚠️ Entrez une adresse email valide', true);
-+ 693         return;
-+ 694       }
-+ 695 
-+ 696       // Send to Formspree (you need to replace YOUR_FORM_ID)
-+ 697       fetch(this.action, {
-+ 698         method: 'POST',
-+ 699         body: new FormData(this),
-+ 700         headers: {
-+ 701           'Accept': 'application/json'
-+ 702         }
-+ 703       }).then(response => {
-+ 704         if (response.ok) {
-+ 705           showToast('🎉 Bienvenue ! Vous êtes sur la liste d\'attente.', false);
-+ 706           document.getElementById('emailInput').value = '';
-+ 707         } else {
-+ 708           showToast('❌ Erreur. Réessayez ou écrivez-nous directement.', true);
-+ 709         }
-+ 710       }).catch(error => {
-+ 711         showToast('❌ Erreur de connexion. Réessayez plus tard.', true);
-+ 712       });
-+ 713     });
-+ 714 
-+ 715     // Scroll animation
-+ 716     const observer = new IntersectionObserver((entries) => {
-+ 717       entries.forEach(entry => {
-+ 718         if (entry.isIntersecting) {
-+ 719           entry.target.style.opacity = '1';
-+ 720           entry.target.style.transform = 'translateY(0)';
-+ 721         }
-+ 722       });
-+ 723     }, { threshold: 0.1 });
-+ 724 
-+ 725     document.querySelectorAll('section:not(.hero)').forEach(sec => {
-+ 726       sec.style.opacity = '0';
-+ 727       sec.style.transform = 'translateY(40px)';
-+ 728       sec.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-+ 729       observer.observe(sec);
-+ 730     });
-+ 731   </script>
-+ 732 
-+ 733 </body>
-+ 734 </html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="styleme.fr, ton agent IA du matin pour t’aider à t’habiller avec ce que tu as déjà, sans stress, sans pub et sans pression d’achat.">
+  <title>styleme.fr — Ton agent IA du matin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #F4EFE6;
+      --cream: #FCF8F2;
+      --beige: #F8F3EC;
+      --pink: #B97A56;
+      --yellow: #D9BEA8;
+      --blue: #4F6B60;
+      --magenta: #A96845;
+      --gray: #6E6A63;
+      --card: #FFFDF9;
+
+      --forest: #2F5144;
+      --forest-soft: #4F6B60;
+      --text-dark: #24382F;
+      --border: rgba(47, 81, 68, 0.12);
+      --shadow: rgba(36, 56, 47, 0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: linear-gradient(135deg, var(--bg) 0%, var(--cream) 100%);
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      background: rgba(244,239,230,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .logo-nav {
+      height: 46px;
+      width: auto;
+      transition: transform 0.3s;
+    }
+
+    nav .logo-nav:hover {
+      transform: scale(1.03);
+    }
+
+    nav .lang-selector {
+      display: flex;
+      gap: 8px;
+      margin-right: 20px;
+    }
+
+    nav .lang-btn {
+      background: rgba(47,81,68,0.05);
+      border: 1px solid rgba(47,81,68,0.12);
+      color: var(--gray);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    nav .lang-btn.active {
+      background: var(--forest);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    nav .lang-btn:hover:not(.active) {
+      border-color: var(--pink);
+      color: var(--text-dark);
+    }
+
+    nav .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a.cta-nav {
+      background: var(--forest);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+
+    nav a.cta-nav:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--shadow);
+      background: var(--pink);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(185,122,86,0.08) 0%, transparent 72%);
+      pointer-events: none;
+      filter: blur(8px);
+    }
+
+    .logo-hero {
+      width: min(170px, 40vw);
+      height: auto;
+      margin: 0 auto 26px;
+      display: block;
+      position: relative;
+      z-index: 1;
+      opacity: 0.9;
+      filter: none;
+      object-fit: contain;
+      transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    .logo-hero:hover {
+      transform: translateY(-4px) scale(1.02);
+      opacity: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 300;
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.22;
+      margin-bottom: 20px;
+      max-width: 760px;
+      position: relative;
+      z-index: 1;
+      letter-spacing: -0.02em;
+      color: var(--forest);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--pink), var(--yellow), var(--blue), var(--magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p.sub {
+      font-size: clamp(15px, 2vw, 18px);
+      color: var(--gray);
+      max-width: 640px;
+      margin: 0 auto 36px;
+      font-weight: 300;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .cta-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-main {
+      background: var(--forest);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      font-family: 'Inter', sans-serif;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px var(--shadow);
+      background: var(--pink);
+    }
+
+    .btn-sub {
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: 1px;
+    }
+
+    section {
+      padding: 100px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      scroll-margin-top: 90px;
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(24px, 4vw, 38px);
+      margin-bottom: 40px;
+      text-align: center;
+      color: var(--forest);
+    }
+
+    section h2 span {
+      background: linear-gradient(135deg, var(--pink), var(--magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .problem,
+    .story,
+    .steps,
+    .difference,
+    .for-you,
+    .signup,
+    .faq {
+      border-top: 1px solid var(--border);
+    }
+
+    .problem-text {
+      font-size: 17px;
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto 30px;
+      text-align: center;
+      font-weight: 300;
+    }
+
+    .thought-bubbles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .thought {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 22px;
+      font-size: 14px;
+      color: var(--gray);
+      font-style: italic;
+      transition: border-color 0.3s, transform 0.3s;
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    .thought:hover {
+      border-color: var(--pink);
+      transform: translateY(-2px);
+    }
+
+    .problem-punchline {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 16px;
+      color: var(--forest);
+      font-weight: 500;
+    }
+
+    .story {
+      background: linear-gradient(180deg, transparent 0%, rgba(185,122,86,0.03) 100%);
+    }
+
+    .story-grid,
+    .steps-grid,
+    .checks {
+      display: grid;
+      gap: 30px;
+    }
+
+    .story-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .story-moment {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .story-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .story-moment h3,
+    .step-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--text-dark);
+    }
+
+    .story-moment p,
+    .step-card p {
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .steps-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-top: 20px;
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    .step-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(185,122,86,0.35);
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--pink);
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    .difference-intro {
+      text-align: center;
+      color: var(--gray);
+      font-size: 15px;
+      max-width: 620px;
+      margin: 0 auto 24px;
+    }
+
+    .diff-table {
+      w
