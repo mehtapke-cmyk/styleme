@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StyleMe.fr — Ton agent IA du matin</title>
+  <title>StyleMe.fr — Ton styliste personnel du matin</title>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW5GNM9Q2Y"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -78,7 +78,7 @@
     }
 
     nav .nav-logo {
-      height: 58px;
+      height: 70px;
       width: auto;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,0.08));
       transition: transform 0.3s;
@@ -344,7 +344,7 @@
     }
 
     .logo-hero img {
-      max-width: 200px;
+      max-width: 220px;
       height: auto;
       filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
       transition: transform 0.3s;
@@ -418,6 +418,106 @@
       height: 96px;
       object-fit: contain;
       filter: drop-shadow(0 16px 26px rgba(0,0,0,0.22));
+    }
+
+    .mood-gallery {
+      padding: 96px 40px;
+      position: relative;
+      z-index: 2;
+      background: rgba(250,250,247,.72);
+    }
+
+    .mood-head {
+      max-width: 760px;
+      margin: 0 auto 44px;
+      text-align: center;
+    }
+
+    .mood-head h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+
+    .mood-head p {
+      color: var(--text-muted);
+      font-size: 17px;
+    }
+
+    .mood-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .mood-card {
+      min-height: 430px;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      box-shadow: 0 24px 60px rgba(24,45,40,.14);
+      background: var(--card-bg);
+    }
+
+    .mood-card:nth-child(2) { transform: translateY(26px); }
+    .mood-card:nth-child(3) { transform: translateY(-18px); }
+    .mood-card:nth-child(4) { transform: translateY(18px); }
+
+    .mood-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 430px;
+      object-fit: cover;
+      filter: saturate(1.03) contrast(.98);
+    }
+
+    .mood-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(15,22,20,.82) 100%);
+      z-index: 1;
+    }
+
+    .mood-copy {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      color: #fff;
+      z-index: 2;
+      text-align: left;
+    }
+
+    .mood-word {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.28);
+      font-family: 'Syne', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-bottom: 10px;
+    }
+
+    .mood-copy h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      line-height: 1.05;
+      margin-bottom: 6px;
+    }
+
+    .mood-copy p {
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: .88;
     }
 
     .manifesto-kicker {
@@ -637,53 +737,125 @@
     /* ── DIFFERENCE ── */
     .difference {
       border-top: 2px solid var(--accent-light);
+      max-width: 1120px;
     }
 
-    .diff-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 30px;
-      border-radius: 12px;
+    .diff-duel {
+      display: grid;
+      grid-template-columns: .9fr 1.15fr;
+      gap: 24px;
+      margin-top: 32px;
+      align-items: stretch;
+    }
+
+    .diff-side {
+      border-radius: 28px;
+      padding: 26px;
+      position: relative;
       overflow: hidden;
       border: 2px solid var(--accent-light);
     }
 
-    .diff-table th,
-    .diff-table td {
-      padding: 20px 24px;
+    .diff-side.other {
+      background: rgba(255,255,255,.62);
+      color: var(--text-muted);
+    }
+
+    .diff-side.styleme {
+      background: linear-gradient(135deg, #0F766E, #123C35);
+      color: #fff;
+      box-shadow: 0 26px 70px rgba(15,118,110,.22);
+    }
+
+    .diff-label {
+      font-family: 'Syne', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 12px;
+      margin-bottom: 22px;
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.82);
+      color: var(--text-dark);
+    }
+
+    .diff-side.styleme .diff-label {
+      background: rgba(255,255,255,.16);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.22);
+    }
+
+    .diff-stack {
+      display: grid;
+      gap: 14px;
+      list-style: none;
+    }
+
+    .diff-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(15,118,110,.14);
       text-align: left;
+      min-height: 74px;
+    }
+
+    .diff-side.styleme .diff-item {
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.2);
+      transform: translateX(0);
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .diff-side.styleme .diff-item:hover {
+      transform: translateX(8px);
+      background: rgba(255,255,255,.2);
+    }
+
+    .diff-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-weight: 800;
       font-size: 15px;
     }
 
-    .diff-table thead th {
-      background: var(--accent);
-      color: white;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      font-size: 13px;
-      text-transform: uppercase;
+    .diff-side.styleme .diff-icon {
+      background: #F2E7C9;
+      color: #123C35;
     }
 
-    .diff-table tbody tr {
-      border-bottom: 1px solid var(--accent-light);
+    .diff-item strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.35;
     }
 
-    .diff-table tbody tr:last-child {
-      border-bottom: none;
-    }
-
-    .diff-table tbody tr:hover {
-      background: var(--accent-light);
-    }
-
-    .diff-table td:first-child {
+    .diff-side.other .diff-item strong {
       color: var(--text-muted);
-      font-weight: 500;
+      font-weight: 600;
     }
 
-    .diff-table td:last-child {
-      color: var(--text-dark);
-      font-weight: 500;
+    .diff-side.styleme .diff-item strong {
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .diff-note {
+      margin: 22px auto 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 620px;
     }
 
     /* ── FOR YOU ── */
@@ -1019,24 +1191,30 @@
     /* ── FOOTER ── */
     footer {
       border-top: 2px solid var(--accent-light);
-      text-align: center;
       padding: 60px 40px;
       color: var(--text-muted);
       font-size: 13px;
       letter-spacing: 0.5px;
       position: relative;
       z-index: 2;
+      background: rgba(250,250,247,.78);
+    }
+
+    .footer-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr .8fr .8fr 1.1fr;
+      gap: 28px;
+      text-align: left;
+      align-items: start;
     }
 
     .footer-logo {
-      width: 104px;
+      width: 118px;
       height: auto;
-      margin: 0 auto 14px;
+      margin: 0 0 14px;
       filter: drop-shadow(0 8px 18px rgba(15,118,110,0.16));
-    }
-
-    footer p {
-      margin-bottom: 8px;
     }
 
     footer a {
@@ -1058,10 +1236,25 @@
       font-weight: 800;
     }
 
+    .footer-label {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 11px;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+    }
+
+    .footer-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
     .footer-powered {
-      margin-top: 32px;
-      padding-top: 32px;
-      border-top: 2px solid var(--accent-light);
+      display: grid;
+      gap: 8px;
     }
 
     .footer-powered-text {
@@ -1074,23 +1267,20 @@
       letter-spacing: 0.3px;
     }
 
-    .footer-powered-text a {
-      color: var(--text-dark);
-      font-weight: 500;
-      border-bottom: 1.5px solid var(--accent);
-      transition: all 0.3s;
-    }
-
-    .footer-powered-text a:hover {
-      color: var(--accent);
-    }
-
     .vimb-logo {
       display: block;
-      width: 150px;
+      width: 154px;
       height: auto;
-      margin: 0 auto 10px;
+      margin: 0;
       filter: drop-shadow(0 10px 18px rgba(24,45,40,0.12));
+    }
+
+    .footer-bottom {
+      max-width: 1120px;
+      margin: 32px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid var(--accent-light);
+      color: var(--text-muted);
     }
 
     /* ── TOAST ── */
@@ -1235,6 +1425,24 @@
         grid-template-columns: 1fr;
       }
 
+      .diff-duel,
+      .mood-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mood-card,
+      .mood-card:nth-child(2),
+      .mood-card:nth-child(3),
+      .mood-card:nth-child(4) {
+        transform: none;
+      }
+
+      .mood-card,
+      .mood-card img {
+        min-height: 340px;
+      }
+
       .footer-powered-text {
         font-size: 14px;
       }
@@ -1263,7 +1471,7 @@
           <a href="#" class="menu-item dropdown-toggle" translate-key="nav_about">À propos</a>
           <div class="dropdown-menu">
             <a href="#for-you" translate-key="nav_foryou">C'est pour toi si...</a>
-            <a href="#conseil" translate-key="nav_conseil">Conseils IA</a>
+            <a href="#conseil" translate-key="nav_conseil">Conseils style</a>
             <a href="#communaute" translate-key="nav_community">Communauté</a>
             <a href="mailto:bonjour@styleme.fr" translate-key="nav_contact">Nous contacter</a>
           </div>
@@ -1318,11 +1526,11 @@
   <!-- HERO -->
   <section class="hero" id="accueil">
     <div class="logo-hero">
-      <img src="assets/styleme-logo.png" alt="StyleMe.fr - Ton agent IA du matin" width="200" height="203">
+      <img src="assets/styleme-logo.png" alt="StyleMe.fr - Ton styliste personnel du matin" width="200" height="203">
     </div>
 
     <h1><span translate-key="hero_h1_p1">Qu'est-ce que je mets</span> <span class="highlight" translate-key="hero_h1_p2">demain matin</span> <span translate-key="hero_h1_p3">?</span></h1>
-    <p class="sub" translate-key="hero_sub">Ton agent IA qui t'aide à t'habiller chaque jour — sans stress, sans pub, sans te pousser à acheter. Comme une copine stylée, disponible à 7h du matin.</p>
+    <p class="sub" translate-key="hero_sub">Ton styliste personnel qui t'aide à t'habiller chaque jour — sans stress, sans pub, sans te pousser à acheter. Comme une copine stylée, disponible à 7h du matin.</p>
     <div class="cta-box">
       <a href="#signup" class="btn-main" translate-key="hero_cta">Je veux tester en avant-première</a>
       <span class="btn-sub" translate-key="hero_sub2">Gratuit · Pas de spam · Juste un email quand c'est prêt</span>
@@ -1336,7 +1544,48 @@
         <p class="manifesto-kicker">StyleMe.fr · bêta privée</p>
         <h2 class="manifesto-title">L'autre fashion : une autre manière de s'habiller.</h2>
       </div>
-      <p class="manifesto-text">Engage-toi contre la fast fashion. Redécouvre ton dressing, affirme ton style et teste une IA qui valorise ce que tu possèdes déjà.</p>
+      <p class="manifesto-text">Engage-toi contre la fast fashion. Redécouvre ton dressing, affirme ton style et teste un styliste personnel qui valorise ce que tu possèdes déjà.</p>
+    </div>
+  </section>
+
+  <section class="mood-gallery" aria-label="Inspirations StyleMe">
+    <div class="mood-head">
+      <h2>Un style pour chaque humeur.</h2>
+      <p>Chaque image devient une intention claire : moins de photos posées au hasard, plus de repères pour sentir ce que tu veux montrer.</p>
+    </div>
+    <div class="mood-grid">
+      <article class="mood-card">
+        <img src="assets/moods/sans-tracas.jpeg" alt="Tenue denim simple et organisée">
+        <div class="mood-copy">
+          <span class="mood-word">Sans tracas</span>
+          <h3>Un matin fluide.</h3>
+          <p>Deux ou trois options nettes, pas cinquante hésitations.</p>
+        </div>
+      </article>
+      <article class="mood-card">
+        <img src="assets/moods/cool-detendu.jpeg" alt="Portrait mode cool et détendu">
+        <div class="mood-copy">
+          <span class="mood-word">Cool</span>
+          <h3>Détendu, mais affirmé.</h3>
+          <p>Ton style reste naturel, avec juste le détail qui change tout.</p>
+        </div>
+      </article>
+      <article class="mood-card">
+        <img src="assets/moods/osez-vous-montrer.jpeg" alt="Portrait mode avec lunettes colorées">
+        <div class="mood-copy">
+          <span class="mood-word">Osez</span>
+          <h3>Vous montrer.</h3>
+          <p>Couleur, accessoire, attitude : le style devient une prise de parole.</p>
+        </div>
+      </article>
+      <article class="mood-card">
+        <img src="assets/moods/slow-fashion.jpeg" alt="Illustration slow fashion et recyclage">
+        <div class="mood-copy">
+          <span class="mood-word">Responsable</span>
+          <h3>Moins acheter, mieux porter.</h3>
+          <p>On commence avec ton dressing, pas avec un panier shopping.</p>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -1364,7 +1613,7 @@
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
-        <h3 translate-key="steps_2_h3">L'IA te répond</h3>
+        <h3 translate-key="steps_2_h3">Ton styliste personnel te répond</h3>
         <p translate-key="steps_2_p">Comme un miroir bienveillant : ce qui fonctionne, un petit changement qui améliore tout, une idée pour demain.</p>
       </div>
       <div class="step-card">
@@ -1378,36 +1627,30 @@
   <!-- DIFFERENCE -->
   <section class="difference" id="difference">
     <h2><span translate-key="diff_h2_p1">On ne va pas te</span> <span class="highlight" translate-key="diff_h2_p2">vendre de vêtements</span></h2>
-    <table class="diff-table">
-      <thead>
-        <tr>
-          <th translate-key="diff_table_h1">Les autres apps</th>
-          <th translate-key="diff_table_h2">styleme.fr</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td translate-key="diff_row1_1">Te montrent 50 tenues par jour</td>
-          <td><span translate-key="diff_row1_2">✨ Te propose 2 ou 3 looks maximum</span></td>
-        </tr>
-        <tr>
-          <td translate-key="diff_row2_1">Veulent que tu achètes</td>
-          <td><span translate-key="diff_row2_2">👗 T'aide avec ce que tu as déjà</span></td>
-        </tr>
-        <tr>
-          <td translate-key="diff_row3_1">Sont remplies de pubs</td>
-          <td><span translate-key="diff_row3_2">🚫 Zéro pub</span></td>
-        </tr>
-        <tr>
-          <td translate-key="diff_row4_1">Oublient coiffure et maquillage</td>
-          <td><span translate-key="diff_row4_2">💄 Les intègre (bientôt)</span></td>
-        </tr>
-        <tr>
-          <td translate-key="diff_row5_1">Sont en anglais</td>
-          <td><span translate-key="diff_row5_2">🇫🇷 En français, pour ta vraie vie</span></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="diff-duel" aria-label="Comparaison entre les autres applications et StyleMe.fr">
+      <div class="diff-side other">
+        <span class="diff-label" translate-key="diff_table_h1">Les autres apps</span>
+        <ul class="diff-stack">
+          <li class="diff-item"><span class="diff-icon">×</span><strong translate-key="diff_row1_1">Te montrent 50 tenues par jour</strong></li>
+          <li class="diff-item"><span class="diff-icon">×</span><strong translate-key="diff_row2_1">Veulent que tu achètes</strong></li>
+          <li class="diff-item"><span class="diff-icon">×</span><strong translate-key="diff_row3_1">Sont remplies de pubs</strong></li>
+          <li class="diff-item"><span class="diff-icon">×</span><strong translate-key="diff_row4_1">Oublient coiffure et maquillage</strong></li>
+          <li class="diff-item"><span class="diff-icon">×</span><strong translate-key="diff_row5_1">Sont en anglais</strong></li>
+        </ul>
+      </div>
+
+      <div class="diff-side styleme">
+        <span class="diff-label" translate-key="diff_table_h2">StyleMe.fr</span>
+        <ul class="diff-stack">
+          <li class="diff-item"><span class="diff-icon">1</span><strong translate-key="diff_row1_2">✨ Te propose 2 ou 3 looks maximum</strong></li>
+          <li class="diff-item"><span class="diff-icon">2</span><strong translate-key="diff_row2_2">👗 T'aide avec ce que tu as déjà</strong></li>
+          <li class="diff-item"><span class="diff-icon">3</span><strong translate-key="diff_row3_2">🚫 Zéro pub</strong></li>
+          <li class="diff-item"><span class="diff-icon">4</span><strong translate-key="diff_row4_2">💄 Les intègre (bientôt)</strong></li>
+          <li class="diff-item"><span class="diff-icon">5</span><strong translate-key="diff_row5_2">🇫🇷 En français, pour ta vraie vie</strong></li>
+        </ul>
+      </div>
+    </div>
+    <p class="diff-note">Moins de bruit, plus de clarté : StyleMe.fr choisit avec toi, pas à ta place.</p>
   </section>
 
   <!-- FOR YOU -->
@@ -1440,12 +1683,12 @@
 
   <!-- CONSEIL -->
   <section class="conseil" id="conseil">
-    <h2><span translate-key="conseil_h2_p1">Conseils IA</span> <span class="highlight" translate-key="conseil_h2_p2">personnalisés</span></h2>
+    <h2><span translate-key="conseil_h2_p1">Conseils style</span> <span class="highlight" translate-key="conseil_h2_p2">personnalisés</span></h2>
     <div class="conseil-grid">
       <div class="conseil-card">
         <div class="conseil-icon">🎨</div>
         <h3 translate-key="conseil_1_h3">Découvre ton color code</h3>
-        <p translate-key="conseil_1_p">L'IA analyse quelles couleurs te mettent en valeur en fonction de ton teint et de ta morphologie.</p>
+        <p translate-key="conseil_1_p">Ton styliste personnel analyse quelles couleurs te mettent en valeur en fonction de ton teint et de ta morphologie.</p>
       </div>
       <div class="conseil-card">
         <div class="conseil-icon">👗</div>
@@ -1460,7 +1703,7 @@
       <div class="conseil-card">
         <div class="conseil-icon">📅</div>
         <h3 translate-key="conseil_4_h3">Style selon la météo et l’occasion</h3>
-        <p translate-key="conseil_4_p">L'IA adapte tes suggestions à ton calendrier, la météo et le type de journée que tu vas avoir.</p>
+        <p translate-key="conseil_4_p">Ton styliste personnel adapte tes suggestions à ton calendrier, la météo et le type de journée que tu vas avoir.</p>
       </div>
       <div class="conseil-card">
         <div class="conseil-icon">💫</div>
@@ -1588,28 +1831,47 @@
           <span translate-key="faq_6_q">Est-ce aussi pour les hommes ?</span>
           <span class="arrow">+</span>
         </div>
-        <div class="faq-a" translate-key="faq_6_a">Oui. styleme.fr fonctionne pour tout le monde. Quels que soient ton style, ton genre ou tes goûts, l’IA s’adapte à toi.</div>
+        <div class="faq-a" translate-key="faq_6_a">Oui. styleme.fr fonctionne pour tout le monde. Quels que soient ton style, ton genre ou tes goûts, le styliste personnel s’adapte à toi.</div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <img class="footer-logo" src="assets/styleme-logo.png" alt="StyleMe.fr">
-    <p class="footer-brand">StyleMe.fr</p>
-    <p translate-key="footer_tagline">Ton agent IA du matin</p>
-    <p style="margin-top: 16px;">
-      <a href="mailto:bonjour@styleme.fr">bonjour@styleme.fr</a>
-    </p>
-    
-    <div class="footer-powered">
-      <img class="vimb-logo" src="assets/vimb-logo.png" alt="Vimb by Mehtap Keles">
-      <p class="footer-powered-text">
-        <span translate-key="footer_powered">Propulsé par</span> Vimb by Mehtap Keles
-      </p>
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="assets/styleme-logo.png" alt="StyleMe.fr">
+        <p translate-key="footer_tagline">Ton styliste personnel du matin</p>
+        <p style="margin-top: 16px;">
+          <a href="mailto:bonjour@styleme.fr">bonjour@styleme.fr</a>
+        </p>
+      </div>
+
+      <div>
+        <span class="footer-label">Pages</span>
+        <ul class="footer-list">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#difference">Notre différence</a></li>
+          <li><a href="#communaute">Communauté</a></li>
+          <li><a href="#signup">Bêta privée</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <span class="footer-label">Légal</span>
+        <ul class="footer-list">
+          <li><a href="mentions-legales.html" translate-key="footer_legal">Mentions légales</a></li>
+          <li><a href="confidentialite.html" translate-key="footer_privacy">Confidentialité</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-powered">
+        <p class="footer-powered-text"><span translate-key="footer_powered">Propulsé par</span></p>
+        <img class="vimb-logo" src="assets/vimb-logo.png" alt="Vimb by Mehtap Keles">
+      </div>
     </div>
 
-    <p style="margin-top: 20px;">© 2026 styleme.fr · <a href="#" translate-key="footer_legal">Mentions légales</a> · <a href="#" translate-key="footer_privacy">Confidentialité</a></p>
+    <p class="footer-bottom">© 2026 styleme.fr · Tous droits réservés.</p>
   </footer>
 
   <div id="google_translate_element" aria-hidden="true"></div>
@@ -1630,7 +1892,7 @@
         'nav_faq': 'Questions fréquentes',
         'nav_about': 'À propos',
         'nav_foryou': 'C\'est pour toi si...',
-        'nav_conseil': 'Conseils IA',
+        'nav_conseil': 'Conseils style',
         'nav_community': 'Communauté',
         'nav_contact': 'Nous contacter',
         'nav_faq2': 'FAQ',
@@ -1638,7 +1900,7 @@
         'hero_h1_p1': 'Qu\'est-ce que je mets',
         'hero_h1_p2': 'demain matin',
         'hero_h1_p3': '?',
-        'hero_sub': 'Ton agent IA qui t\'aide à t\'habiller chaque jour — sans stress, sans pub, sans te pousser à acheter. Comme une copine stylée, disponible à 7h du matin.',
+        'hero_sub': 'Ton styliste personnel qui t\'aide à t\'habiller chaque jour — sans stress, sans pub, sans te pousser à acheter. Comme une copine stylée, disponible à 7h du matin.',
         'hero_cta': 'Je veux tester en avant-première',
         'hero_sub2': 'Gratuit · Pas de spam · Juste un email quand c\'est prêt',
         'problem_h2_p1': 'Tu connais',
@@ -1657,7 +1919,7 @@
         'steps_h2_p3': '?',
         'steps_1_h3': 'Tu te montres',
         'steps_1_p': 'Prends une photo de ta tenue du jour ou de ce que tu hésites à mettre. Ça prend 5 secondes.',
-        'steps_2_h3': 'L\'IA te répond',
+        'steps_2_h3': 'Ton styliste personnel te répond',
         'steps_2_p': 'Comme un miroir bienveillant : ce qui fonctionne, un petit changement qui améliore tout, une idée pour demain.',
         'steps_3_h3': 'Ton style se construit',
         'steps_3_p': 'Au fil des jours, styleme.fr apprend tes goûts, retient tes tenues préférées et te les ressort quand tu en as besoin.',
@@ -1686,16 +1948,16 @@
         'foryou_note_p1': 'Que tu sois en jean-baskets ou fan de mode — styleme.fr s\'adapte à',
         'foryou_note_p2': 'ton',
         'foryou_note_p3': 'style, homme ou femme.',
-        'conseil_h2_p1': 'Conseils IA',
+        'conseil_h2_p1': 'Conseils style',
         'conseil_h2_p2': 'personnalisés',
         'conseil_1_h3': 'Découvre ton color code',
-        'conseil_1_p': 'L\'IA analyse quelles couleurs te mettent en valeur en fonction de ton teint et de ta morphologie.',
+        'conseil_1_p': 'Ton styliste personnel analyse quelles couleurs te mettent en valeur en fonction de ton teint et de ta morphologie.',
         'conseil_2_h3': 'Combine tes pièces intelligemment',
         'conseil_2_p': 'Reçois des suggestions pour mixer tes vêtements de manières que tu n\'aurais jamais osé essayer.',
         'conseil_3_h3': 'Accessoires et détails',
         'conseil_3_p': 'Des idées pour parfaire ta tenue : le bon bijou, la bonne ceinture, le bon sac au bon moment.',
         'conseil_4_h3': 'Style selon la météo et l\'occasion',
-        'conseil_4_p': 'L\'IA adapte tes suggestions à ton calendrier, la météo et le type de journée que tu vas avoir.',
+        'conseil_4_p': 'Ton styliste personnel adapte tes suggestions à ton calendrier, la météo et le type de journée que tu vas avoir.',
         'conseil_5_h3': 'Tendances vs. intemporel',
         'conseil_5_p': 'Apprends la différence entre ce qui te plaît vraiment et ce qui n\'est qu\'une tendance passagère.',
         'conseil_6_h3': 'Confiance et affirmation',
@@ -1738,8 +2000,8 @@
         'faq_5_q': 'Et pour les conseils coiffure et maquillage ?',
         'faq_5_a': 'C\'est prévu pour bientôt ! Les premiers testeurs pourront nous dire exactement ce qu\'ils veulent.',
         'faq_6_q': 'Est-ce aussi pour les hommes ?',
-        'faq_6_a': 'Oui. styleme.fr fonctionne pour tout le monde. Quels que soient ton style, ton genre ou tes goûts, l’IA s’adapte à toi.',
-        'footer_tagline': 'Ton agent IA du matin',
+        'faq_6_a': 'Oui. styleme.fr fonctionne pour tout le monde. Quels que soient ton style, ton genre ou tes goûts, le styliste personnel s’adapte à toi.',
+        'footer_tagline': 'Ton styliste personnel du matin',
         'footer_powered': 'Propulsé par',
         'footer_legal': 'Mentions légales',
         'footer_privacy': 'Confidentialité',
@@ -1761,7 +2023,7 @@
         'hero_h1_p1': 'What should I wear',
         'hero_h1_p2': 'tomorrow morning',
         'hero_h1_p3': '?',
-        'hero_sub': 'Your AI assistant that helps you dress every day — no stress, no ads, no pressure to buy. Like a stylish friend, available at 7am.',
+        'hero_sub': 'Your personal stylist that helps you dress every day — no stress, no ads, no pressure to buy. Like a stylish friend, available at 7am.',
         'hero_cta': 'I want to test it first',
         'hero_sub2': 'Free · No spam · Just an email when it\'s ready',
         'problem_h2_p1': 'Do you know',
@@ -1861,8 +2123,8 @@
         'faq_5_q': 'What about hair and makeup advice?',
         'faq_5_a': 'Coming soon! Early testers can tell us exactly what they want.',
         'faq_6_q': 'Is it for men too?',
-        'faq_6_a': 'Of course! styleme.fr works for everyone. No matter your style, gender, or taste — the AI adapts to you.',
-        'footer_tagline': 'Your AI assistant every morning',
+        'faq_6_a': 'Of course! styleme.fr works for everyone. No matter your style, gender, or taste — the personal stylist adapts to you.',
+        'footer_tagline': 'Your personal stylist every morning',
         'footer_powered': 'Powered by',
         'footer_legal': 'Legal',
         'footer_privacy': 'Privacy',
@@ -1876,7 +2138,7 @@
         'nav_faq': 'Preguntas frecuentes',
         'nav_about': 'Acerca de',
         'nav_foryou': '¿Es para ti?',
-        'nav_conseil': 'Consejos IA',
+        'nav_conseil': 'Consejos de estilo',
         'nav_community': 'Comunidad',
         'nav_contact': 'Contáctanos',
         'nav_faq2': 'Preguntas',
@@ -1884,7 +2146,7 @@
         'hero_h1_p1': '¿Qué me pongo',
         'hero_h1_p2': 'mañana por la mañana',
         'hero_h1_p3': '?',
-        'hero_sub': 'Tu asistente IA que te ayuda a vestirte cada día — sin estrés, sin anuncios, sin presión de compra. Como una amiga elegante, disponible a las 7am.',
+        'hero_sub': 'Tu estilista personal que te ayuda a vestirte cada día — sin estrés, sin anuncios, sin presión de compra. Como una amiga elegante, disponible a las 7am.',
         'hero_cta': 'Quiero probarlo primero',
         'hero_sub2': 'Gratis · Sin spam · Solo un correo cuando esté listo',
         'problem_h2_p1': '¿Conoces',
@@ -1903,7 +2165,7 @@
         'steps_h2_p3': '?',
         'steps_1_h3': 'Te muestras',
         'steps_1_p': 'Toma una foto de tu atuendo o de lo que dudes. Toma 5 segundos.',
-        'steps_2_h3': 'La IA responde',
+        'steps_2_h3': 'Tu estilista personal responde',
         'steps_2_p': 'Como un espejo amable: qué funciona, un pequeño cambio que mejora todo, una idea para mañana.',
         'steps_3_h3': 'Tu estilo se desarrolla',
         'steps_3_p': 'Con el tiempo, styleme.fr aprende tu gusto, recuerda tus atuendos favoritos y te los sugiere cuando los necesitas.',
@@ -1932,16 +2194,16 @@
         'foryou_note_p1': 'Ya sea en jeans y zapatillas o fanático de la moda — styleme.fr se adapta a',
         'foryou_note_p2': 'tu',
         'foryou_note_p3': 'estilo, hombre o mujer.',
-        'conseil_h2_p1': 'Consejos IA',
+        'conseil_h2_p1': 'Consejos de estilo',
         'conseil_h2_p2': 'personalizados',
         'conseil_1_h3': 'Descubre tu código de color',
-        'conseil_1_p': 'La IA analiza qué colores te favorecen según tu tono de piel y forma.',
+        'conseil_1_p': 'Tu estilista personal analiza qué colores te favorecen según tu tono de piel y forma.',
         'conseil_2_h3': 'Combina tus piezas inteligentemente',
         'conseil_2_p': 'Obtén sugerencias para mezclar tu ropa de formas que nunca te atreverías a intentar.',
         'conseil_3_h3': 'Accesorios y detalles',
         'conseil_3_p': 'Ideas para perfeccionar tu atuendo: la joyería correcta, cinturón, bolso en el momento adecuado.',
         'conseil_4_h3': 'Estilo según clima y ocasión',
-        'conseil_4_p': 'La IA adapta sugerencias a tu calendario, clima y tipo de día que tendrás.',
+        'conseil_4_p': 'Tu estilista personal adapta sugerencias a tu calendario, clima y tipo de día que tendrás.',
         'conseil_5_h3': 'Tendencias vs. atemporal',
         'conseil_5_p': 'Aprende la diferencia entre lo que realmente te gusta y lo que es solo una tendencia pasajera.',
         'conseil_6_h3': 'Confianza y afirmación',
@@ -1984,8 +2246,8 @@
         'faq_5_q': '¿Qué hay de consejos de cabello y maquillaje?',
         'faq_5_a': '¡Próximamente! Los probadores iniciales pueden decirnos exactamente lo que quieren.',
         'faq_6_q': '¿Es también para hombres?',
-        'faq_6_a': '¡Por supuesto! styleme.fr funciona para todos. Sin importar tu estilo, género o gusto — la IA se adapta a ti.',
-        'footer_tagline': 'Tu asistente IA cada mañana',
+        'faq_6_a': '¡Por supuesto! styleme.fr funciona para todos. Sin importar tu estilo, género o gusto — el estilista personal se adapta a ti.',
+        'footer_tagline': 'Tu estilista personal cada mañana',
         'footer_powered': 'Impulsado por',
         'footer_legal': 'Legal',
         'footer_privacy': 'Privacidad',
