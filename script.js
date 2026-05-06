@@ -554,16 +554,19 @@ document.querySelectorAll(".lang-btn").forEach((button) => {
   button.addEventListener("click", () => applyLanguage(button.dataset.lang));
 });
 
-document.getElementById("signupForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const email = document.getElementById("emailInput").value.trim();
-  const profile = document.getElementById("profileInput").value.trim();
-  const lang = document.documentElement.lang || "fr";
-  const subject = encodeURIComponent("Demande d'accès Styleme.fr");
-  const body = encodeURIComponent(`Bonjour,\n\nJe souhaite rejoindre la liste Styleme.fr.\n\nE-mail : ${email}\nBesoin style : ${profile || "Non précisé"}\nLangue : ${lang}\n\nMerci !`);
-  window.location.href = `mailto:bonjour@styleme.fr?cc=mehtap.keles@icloud.com&subject=${subject}&body=${body}`;
-  showToast(translations[lang]?.toast || translations.fr.toast);
-});
+const signupForm = document.getElementById("signupForm");
+if (signupForm) {
+  signupForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = document.getElementById("emailInput")?.value.trim() || "";
+    const profile = document.getElementById("profileInput")?.value.trim() || "";
+    const lang = document.documentElement.lang || "fr";
+    const subject = encodeURIComponent("Demande d'accès Styleme.fr");
+    const body = encodeURIComponent(`Bonjour,\n\nJe souhaite rejoindre la liste Styleme.fr.\n\nE-mail : ${email || "Non renseigné"}\nBesoin style : ${profile || "Non précisé"}\nLangue : ${lang}\n\nMerci !`);
+    window.location.href = `mailto:bonjour@styleme.fr?cc=mehtap.keles@icloud.com&subject=${subject}&body=${body}`;
+    showToast(translations[lang]?.toast || translations.fr.toast);
+  });
+}
 
 function showToast(message) {
   const toast = document.getElementById("toast");

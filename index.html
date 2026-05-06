@@ -15,12 +15,12 @@
 
   <header class="site-header">
     <nav class="nav shell" aria-label="Navigation principale">
-      <a class="brand" href="#top" aria-label="Styleme.fr accueil"><span class="brand-mark" aria-hidden="true">SM</span><span>Styleme.fr</span></a>
+      <a class="brand" href="index.html" aria-label="Styleme.fr accueil"><span class="brand-mark" aria-hidden="true">SM</span><span>Styleme.fr</span></a>
       <div class="nav-links">
-        <a href="#comment-ca-marche" data-i18n="nav_how">Comment ça marche</a>
-        <a href="#conseils" data-i18n="nav_advice">Conseils</a>
-        <a href="#comparaison" data-i18n="nav_compare">Comparaison</a>
-        <a href="#signup" data-i18n="nav_join">Rejoindre</a>
+        <a href="comment-ca-marche.html" data-i18n="nav_how">Comment ça marche</a>
+        <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
+        <a href="comparaison.html" data-i18n="nav_compare">Comparaison</a>
+        <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
       </div>
       <div class="lang-switch" aria-label="Changer la langue">
         <button class="lang-btn is-active" data-lang="fr" type="button">FR</button>
@@ -44,8 +44,8 @@
         <h1 data-i18n-html="hero_title">« Qu'est-ce que je mets <em>ce matin</em> ? »</h1>
         <p class="hero-sub" data-i18n="hero_sub">Ton agent IA qui t'aide à t'habiller chaque jour sans stress, sans pub, sans te pousser à acheter.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#signup" data-i18n="hero_cta">Je veux tester en avant-première</a>
-          <a class="btn btn-secondary" href="#comment-ca-marche" data-i18n="hero_secondary">Voir le principe</a>
+          <a class="btn btn-primary" href="rejoindre.html" data-i18n="hero_cta">Je veux tester en avant-première</a>
+          <a class="btn btn-secondary" href="comment-ca-marche.html" data-i18n="hero_secondary">Voir le principe</a>
         </div>
       </div>
     </section>
@@ -92,6 +92,10 @@
       </div>
     </section>
 
+    <figure class="photo-break">
+      <img src="assets/horizontal-style-atelier.jpeg" alt="Sélection de vêtements et accessoires dans un esprit mode">
+    </figure>
+
     <section class="steps" id="comment-ca-marche">
       <div class="shell">
         <div class="section-head centered">
@@ -121,6 +125,10 @@
       </div>
     </section>
 
+    <figure class="photo-break photo-break--right">
+      <img src="assets/horizontal-community-style.jpeg" alt="Styles partagés dans une ambiance mode et communauté">
+    </figure>
+
     <section class="advice section-band" id="conseils">
       <div class="shell advice-grid">
         <div class="advice-copy">
@@ -139,6 +147,10 @@
         </div>
       </div>
     </section>
+
+    <figure class="photo-break">
+      <img src="assets/horizontal-slow-fashion.jpeg" alt="Mode durable et pièces de qualité">
+    </figure>
 
     <section class="difference" id="comparaison">
       <div class="shell">
@@ -247,7 +259,7 @@
         <h2 data-i18n-html="signup_title">Sois parmi les <span>premiers</span> à tester.</h2>
         <p data-i18n="signup_text">Laisse ton e-mail et quelques mots : le formulaire prépare un message vers bonjour@styleme.fr pour rejoindre la liste.</p>
         <form id="signupForm" class="signup-form">
-          <input type="email" name="email" id="emailInput" placeholder="Ton adresse e-mail" required data-i18n-placeholder="email_placeholder">
+          <input type="email" name="email" id="emailInput" placeholder="Ton adresse e-mail" data-i18n-placeholder="email_placeholder">
           <input type="text" name="profile" id="profileInput" placeholder="Ton besoin style du moment" data-i18n-placeholder="profile_placeholder">
           <button class="btn btn-primary" type="submit" data-i18n="signup_cta">Envoyer ma demande</button>
         </form>
@@ -259,14 +271,22 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div>
-        <a class="footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">SM</span><span>Styleme.fr</span></a>
+        <a class="footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true">SM</span><span>Styleme.fr</span></a>
         <p data-i18n="footer_tagline">Matin simplifié. Dressing optimisé. Styles partagés. Communauté engagée.</p>
+        <p class="powered-line">
+          <span>Propulsé par</span>
+          <img src="assets/vimb-logo-custom.png" alt="Vimb">
+          <em>by Mehtap Keles</em>
+          <span>à Argelès-sur-Mer</span>
+          <span class="flag-fr" aria-label="France">🇫🇷</span>
+        </p>
       </div>
       <div>
         <span class="footer-label" data-i18n="footer_pages">Pages</span>
-        <a href="#comment-ca-marche" data-i18n="nav_how">Comment ça marche</a>
-        <a href="#conseils" data-i18n="nav_advice">Conseils</a>
-        <a href="#comparaison" data-i18n="nav_compare">Comparaison</a>
+        <a href="comment-ca-marche.html" data-i18n="nav_how">Comment ça marche</a>
+        <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
+        <a href="comparaison.html" data-i18n="nav_compare">Comparaison</a>
+        <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
       </div>
       <div>
         <span class="footer-label" data-i18n="footer_contact">Contact</span>
