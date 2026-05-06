@@ -1,404 +1,575 @@
 const translations = {
   fr: {
-    meta_title: "styleme.fr — Ton styliste personnel du matin",
-    nav_cta: "REJOINDRE LA LISTE →",
-    hero_title: "« Qu'est-ce que je vais mettre <em>aujourdhui</em> ? »",
-    hero_sub: "Ton styliste personnel qui t'aide à t'habiller chaque jour sans stress, sans pub, sans te pousser à acheter.",
+    nav_how: "Comment ça marche",
+    nav_advice: "Conseils",
+    nav_compare: "Comparaison",
+    nav_join: "Rejoindre",
+    hero_eyebrow: "Ton agent IA du matin",
+    hero_title: "« Qu'est-ce que je mets <em>ce matin</em> ? »",
+    hero_sub: "Ton agent IA qui t'aide à t'habiller chaque jour sans stress, sans pub, sans te pousser à acheter.",
     hero_cta: "Je veux tester en avant-première",
-    hero_note: "Gratuit · Pas de spam · Juste un email quand c'est prêt",
+    hero_secondary: "Voir le principe",
+    problem_eyebrow: "Le matin, tout va vite",
     problem_title: "Tu connais <span>ce moment</span> ?",
-    problem_text: "7h12. Tu es déjà en retard. Tu ouvres ton armoire. Tu regardes. Tu soupires : tu ne sais pas quoi mettre. Tu essayes un haut, tu changes, tu re-changes. Tu finis par remettre les mêmes vêtements que la semaine passée. ",
-    thought_1: "« Je n'ai rien à me mettre »",
+    problem_text: "7h12. Tu es en retard. Tu ouvres ton armoire. Tu regardes. Tu hésites. Et la même petite phrase revient.",
+    thought_1: "« Je n'ai rien à me mettre. »",
     thought_2: "« Est-ce que ça va ensemble ? »",
     thought_3: "« C'est trop habillé ? Pas assez ? »",
-    thought_4: "« Tant pis, je mets un truc »",
-    problem_punchline: "Ce n'est pas un problème de vêtements.<br>C'est un problème de <strong>charge mentale</strong>.",
-    steps_title: "Comment ça <span>marche</span> ?",
-    step_1_title: "Tu te montres",
-    step_1_text: "Prends une photo de ta tenue du jour ou de ce que tu hésites à mettre. Ça prend 5 secondes.",
-    step_2_title: "Ton styliste personnel te répond",
-    step_2_text: "Comme un miroir bienveillant : ce qui fonctionne, un petit changement qui améliore tout, une idée pour demain.",
-    step_3_title: "Ton style se construit",
-    step_3_text: "Au fil des jours, styleme.fr apprend tes goûts, retient tes tenues préférées et te les ressort quand tu en as besoin.",
-    difference_title: "On ne va pas te <span>vendre de vêtements</span>",
-    difference_intro: "En deux mots, pourquoi styleme.fr n’est pas une énième appli shopping.",
+    thought_4: "« Bon... je ne sais pas quoi porter... Allez, je remets la même tenue que la semaine dernière. »",
+    problem_punchline: "Chaque matin difficile ajoute un stress avant même que la journée commence. Ce n'est pas un problème de vêtements, c'est un problème de <strong>charge mentale</strong>.",
+    story_eyebrow: "Dressing optimisé",
+    story_title: "Ton styliste personnel part de ta vraie vie.",
+    story_text: "Pas besoin de refaire ta garde-robe. Styleme.fr s’appuie sur tes habitudes, tes essentiels et tes pièces marquantes. Ta tenue sera adaptée à la météo, au rythme de ta journée et à ton agenda. Ton styliste personnel te proposera toujours une tenue stylée et facile à porter.",
+    story_wake: "Styleme.fr réveille tes vêtements oubliés :",
+    metric_1: "+ de variété dans tes tenues",
+    metric_2: "- d'usure de tes pièces préférées",
+    metric_3: "- d'hésitation matinale",
+    metric_4: "- d'achats inutiles",
+    metric_5: "0 panier forcé",
+    metric_6: "Conseils personnalisés",
+    steps_eyebrow: "Comment ça marche",
+    steps_title: "Simple, visuel, <span>utile tout de suite</span>.",
+    step_1_title: "Tu montres ta tenue",
+    step_1_text: "Une photo de ta tenue, de ton armoire ou d'une pièce que tu veux porter.",
+    step_2_title: "Ton assistant mode répond",
+    step_2_text: "Un avis court, bienveillant, avec un ajustement concret : couleur, chaussure, veste, accessoire.",
+    step_3_title: "Ton dressing apprend",
+    step_3_text: "Ton styliste personnel retient ce que tu aimes et ressort les bonnes idées au bon moment.",
+    advice_eyebrow: "Conseil de style",
+    advice_title: "Des conseils précis, pas des leçons de mode.",
+    advice_text: "Mon assistant beauté peut varier selon ton besoin : ton styliste personnel, styliste personnelle, assistant mode ou miroir bienveillant. Le ton reste simple, direct et adapté à toi.",
+    advice_1: "Harmoniser une couleur avec ton teint ou ton humeur.",
+    advice_2: "Transformer une tenue basique avec un seul détail.",
+    advice_3: "Préparer une silhouette pour le travail, un dîner ou une sortie.",
+    difference_eyebrow: "Pas une appli shopping",
+    difference_title: "Contre la <span>fast fashion</span>, Styleme.fr défend une autre manière de s'habiller.",
+    difference_intro: "<strong>Styleme.fr</strong> s'engage pour une consommation de la mode plus consciente : <span>Matin simplifié.</span> <span>Dressing optimisé.</span> <span>Styles partagés.</span> <span>Communauté engagée.</span>",
+    impact_lede: "Notre projet aide à révolutionner les habitudes des consommateurs : mieux utiliser ce que l'on possède déjà, limiter les achats réflexes et se positionner clairement contre la fast fashion.",
+    impact_stat_1_number: "2,6 milliards",
+    impact_stat_1_text: "de vêtements vendus chaque année en France, soit 39 par personne.",
+    impact_stat_2_number: "2 à 8 %",
+    impact_stat_2_text: "des émissions mondiales de gaz à effet de serre seraient liées au textile.",
+    impact_stat_3_number: "1 camion/seconde",
+    impact_stat_3_text: "de vêtements est brûlé ou envoyé en décharge dans le monde.",
+    impact_sources: "Sources : <a href=\"https://infos.ademe.fr/magazine-juillet-2025/quels-sont-les-enjeux-dune-mode-plus-durable/\" target=\"_blank\" rel=\"noreferrer\">ADEME</a>, <a href=\"https://www.unep.org/annualreport/2025/stories/minimizing-fashions-environmental-footprint\" target=\"_blank\" rel=\"noreferrer\">UNEP</a>, <a href=\"https://www.ellenmacarthurfoundation.org/fashion-and-the-circular-economy-deep-dive\" target=\"_blank\" rel=\"noreferrer\">Ellen MacArthur Foundation</a>.",
     diff_head_1: "Les autres apps",
-    diff_head_2: "styleme.fr",
-    diff_1_left: "Te montrent 50 tenues par jour",
-    diff_1_right: "Te proposent 2-3 max",
-    diff_2_left: "Veulent que tu achètes",
-    diff_2_right: "T’aide avec ce que tu as déjà",
-    diff_3_left: "Sont remplies de pubs",
-    diff_3_right: "Zéro pub",
-    diff_4_left: "Oublient coiffure et maquillage",
-    diff_4_right: "Les intègre bientôt",
-    diff_5_left: "Sont en anglais",
-    diff_5_right: "En français, pour ta vraie vie",
-    for_you_title: "styleme.fr est fait <span>pour toi</span> si…",
-    check_1: "Tu perds du temps chaque matin devant ton armoire",
-    check_2: "Tu as l’impression de ne jamais porter la moitié de tes vêtements",
-    check_3: "Tu aimerais avoir du style sans y penser pendant des heures",
-    check_4: "Tu en as marre des applis qui veulent juste te faire acheter",
-    check_5: "Tu voudrais un avis honnête et bienveillant sur ta tenue",
-    for_you_note: "Que tu sois en jean-baskets ou fan de mode, styleme.fr s’adapte à ton style, homme ou femme.",
-    signup_title: "Sois parmi les <span>premiers</span> à tester",
-    signup_text: "styleme.fr ouvre bientôt en bêta privée pour un petit groupe de testeurs.",
-    signup_cta: "Je veux être dedans →",
-    email_placeholder: "Ton adresse email",
-    perk_1: "Accès gratuit pendant le test",
-    perk_2: "Influence les fonctionnalités",
-    perk_3: "Prioritaire à l'ouverture",
-    signup_privacy: "On ne partage ton email avec personne. Promis.",
-    faq_title: "Questions <span>fréquentes</span>",
-    faq_1_q: "C’est gratuit ?",
-    faq_1_a: "La bêta est 100% gratuite. Ensuite, l’idée est un petit abonnement mensuel abordable, avec une version gratuite qui reste disponible.",
-    faq_2_q: "Est-ce que mes photos sont en sécurité ?",
-    faq_2_a: "Oui. Tes photos sont privées, chiffrées, jamais partagées avec des marques. Tu peux tout supprimer en un clic.",
-    faq_3_q: "Il faut photographier toute ma garde-robe ?",
-    faq_3_a: "Non. Tu commences avec une seule photo de ta tenue du jour. Le vestiaire se construit naturellement au fil du temps.",
-    faq_4_q: "C’est une appli à télécharger ?",
-    faq_4_a: "Pour commencer, c’est un site web accessible depuis ton téléphone. Pas besoin de télécharger quoi que ce soit.",
-    faq_5_q: "Et pour les conseils coiffure et maquillage ?",
-    faq_5_a: "C’est prévu pour bientôt. Les premiers testeurs pourront nous dire exactement ce qu’ils veulent.",
-    faq_6_q: "C’est pour les hommes aussi ?",
-    faq_6_a: "Bien sûr. styleme.fr fonctionne pour tout le monde. Qu’importe ton style, ton genre ou tes goûts, le styliste personnel s’adapte à toi.",
-    footer_tagline: "Ton styliste personnel du matin",
-    footer_legal: "© 2026 styleme.fr · <a href=\"#\">Mentions légales</a> · <a href=\"#\">Confidentialité</a>",
-    toast_lang: "🌍 Français activé",
-    toast_email_invalid: "⚠️ Entre une adresse email valide",
-    toast_success: "🎉 Bienvenue ! Tu es sur la liste d’attente.",
-    toast_error: "❌ Erreur. Réessaie ou écris-nous directement.",
-    toast_network: "❌ Erreur de connexion. Réessaie plus tard."
+    diff_head_2: "Styleme.fr",
+    diff_1_left: "Te montrent 50 tenues par jour.",
+    diff_1_right: "Te propose 2 ou 3 idées maximum.",
+    diff_2_left: "Veulent que tu achètes.",
+    diff_2_right: "T'aide avec ce que tu as déjà.",
+    diff_3_left: "Sont remplies de pubs.",
+    diff_3_right: "Zéro pub.",
+    diff_4_left: "Oublient coiffure et maquillage.",
+    diff_4_right: "Les intègre progressivement.",
+    diff_5_left: "Sont souvent en anglais.",
+    diff_5_right: "En français, pour ta vraie vie.",
+    community_eyebrow: "Communauté engagée",
+    community_title: "Des styles partagés, sans pression.",
+    community_text: "Inspire-toi de personnes qui te ressemblent, sauvegarde les tenues qui marchent et redécouvre ton dressing sans tomber dans la surconsommation.",
+    sustainable_eyebrow: "Slow fashion",
+    sustainable_title: "Acheter moins, porter mieux.",
+    sustainable_text: "Styleme.fr encourage les associations, les répétitions intelligentes et les pièces qui durent. Le meilleur achat est parfois celui que tu n'as pas besoin de faire.",
+    signup_eyebrow: "Accès en avant-première",
+    signup_title: "Sois parmi les <span>premiers</span> à tester.",
+    signup_text: "Laisse ton e-mail et quelques mots : le formulaire prépare un message vers bonjour@styleme.fr pour rejoindre la liste.",
+    signup_cta: "Envoyer ma demande",
+    signup_privacy: "Pas de spam. Juste une réponse quand le test ouvre.",
+    email_placeholder: "Ton adresse e-mail",
+    profile_placeholder: "Ton besoin style du moment",
+    faq_eyebrow: "Question fréquente",
+    faq_title: "Un site adapté à tous ?",
+    faq_answer: "Oui, <span class=\"brand-inline\"><span class=\"brand-mark brand-mark--small\" aria-hidden=\"true\">SM</span><strong>Styleme.fr</strong></span> fonctionne pour tous les adultes, quels que soient votre style, votre genre ou vos goûts : votre styliste personnel s’adapte à vous.",
+    footer_tagline: "Matin simplifié. Dressing optimisé. Styles partagés. Communauté engagée.",
+    footer_pages: "Pages",
+    footer_contact: "Contact",
+    toast: "Ton e-mail est prêt dans ton application mail."
   },
-
   en: {
-    meta_title: "styleme.fr — Your morning personal stylist",
-    nav_cta: "JOIN THE LIST →",
-    hero_title: "“What should I wear <em>tomorrow morning</em>?”",
-    hero_sub: "Your personal stylist helps you get dressed every day without stress, ads, or pressure to buy.",
-    hero_cta: "I want early access",
-    hero_note: "Free · No spam · Just one email when it’s ready",
-    problem_title: "Do you know <span>this moment</span>?",
-    problem_text: "7:12 a.m. You’re late. You open your closet. You look. You don’t know what to wear. You try one top, then another, then another. In the end, you wear the same thing as yesterday.",
-    thought_1: "“I have nothing to wear”",
-    thought_2: "“Does this go together?”",
-    thought_3: "“Is this too dressy? Not enough?”",
-    thought_4: "“Whatever, I’ll just wear something”",
-    problem_punchline: "It’s not a clothing problem.<br>It’s a <strong>mental load</strong> problem.",
-    steps_title: "How does it <span>work</span>?",
-    step_1_title: "Show yourself",
-    step_1_text: "Take a photo of today’s outfit or what you’re hesitating to wear. It takes 5 seconds.",
-    step_2_title: "The AI replies",
-    step_2_text: "Like a kind mirror: what works, one small change that improves everything, one idea for tomorrow.",
-    step_3_title: "Your style takes shape",
-    step_3_text: "Day after day, styleme.fr learns your taste, remembers your favorite outfits, and brings them back when you need them.",
-    difference_title: "We’re not here to <span>sell you clothes</span>",
-    difference_intro: "In short, why styleme.fr is not just another shopping app.",
+    nav_how: "How it works",
+    nav_advice: "Advice",
+    nav_compare: "Compare",
+    nav_join: "Join",
+    hero_eyebrow: "My personal morning stylist",
+    hero_title: "“What should I wear <em>this morning</em>?”",
+    hero_sub: "Your personal style advisor helps you get dressed with what you already own, without stress, ads, or pressure to buy.",
+    hero_cta: "Join the early list",
+    hero_secondary: "See how it works",
+    problem_eyebrow: "Mornings move fast",
+    problem_title: "You know <span>that moment</span>?",
+    problem_text: "7:12. You are late. You open your wardrobe. You stare. You hesitate. And the same little sentence comes back.",
+    thought_1: "I have nothing to wear.",
+    thought_2: "Does this go together?",
+    thought_3: "Too dressed up? Not enough?",
+    thought_4: "Fine... I do not know what to wear... I will wear the same outfit as last week.",
+    problem_punchline: "Every difficult morning adds stress before the day even starts. It is not a clothing problem, it is a <strong>mental load</strong> problem.",
+    story_eyebrow: "Optimized wardrobe",
+    story_title: "Your personal style advisor starts from your real life.",
+    story_text: "No need to rebuild your wardrobe. Styleme.fr uses your habits, essentials and standout pieces. Your outfit adapts to the weather, your daily rhythm and your schedule. Your personal stylist will always suggest a stylish outfit that is easy to wear.",
+    story_wake: "Styleme.fr wakes up your forgotten clothes:",
+    metric_1: "+ variety in your outfits",
+    metric_2: "- wear on favorite pieces",
+    metric_3: "- morning hesitation",
+    metric_4: "- unnecessary purchases",
+    metric_5: "0 forced cart",
+    metric_6: "Personalized advice",
+    steps_eyebrow: "How it works",
+    steps_title: "Simple, visual, <span>useful right away</span>.",
+    step_1_title: "Show your outfit",
+    step_1_text: "A photo of your outfit, wardrobe or the piece you want to wear.",
+    step_2_title: "Your style assistant answers",
+    step_2_text: "A short, kind opinion with one concrete tweak: color, shoes, jacket, accessory.",
+    step_3_title: "Your wardrobe learns",
+    step_3_text: "Your personal stylist remembers what you like and brings back the right ideas at the right time.",
+    advice_eyebrow: "Style advice",
+    advice_title: "Precise advice, not fashion lectures.",
+    advice_text: "Depending on your need, it can be a personal style advisor, a stylist, a beauty assistant or a kind mirror. The tone stays simple, direct and adapted to you.",
+    advice_1: "Match a color with your skin tone or mood.",
+    advice_2: "Upgrade a basic outfit with one detail.",
+    advice_3: "Prepare a silhouette for work, dinner or going out.",
+    difference_eyebrow: "Not a shopping app",
+    difference_title: "Against <span>fast fashion</span>, Styleme.fr stands for another way to get dressed.",
+    difference_intro: "<strong>Styleme.fr</strong> supports more conscious fashion habits: <span>Simpler mornings.</span> <span>Smarter wardrobe.</span> <span>Shared styles.</span> <span>Engaged community.</span>",
+    impact_lede: "The project helps shift consumer habits: use what you already own better, reduce impulse purchases and take a clear stance against fast fashion.",
+    impact_stat_1_number: "2.6 billion",
+    impact_stat_1_text: "garments are sold every year in France, about 39 per person.",
+    impact_stat_2_number: "2 to 8%",
+    impact_stat_2_text: "of global greenhouse gas emissions may be linked to textiles.",
+    impact_stat_3_number: "1 truck/second",
+    impact_stat_3_text: "of clothing is burned or sent to landfill worldwide.",
+    impact_sources: "Sources: <a href=\"https://infos.ademe.fr/magazine-juillet-2025/quels-sont-les-enjeux-dune-mode-plus-durable/\" target=\"_blank\" rel=\"noreferrer\">ADEME</a>, <a href=\"https://www.unep.org/annualreport/2025/stories/minimizing-fashions-environmental-footprint\" target=\"_blank\" rel=\"noreferrer\">UNEP</a>, <a href=\"https://www.ellenmacarthurfoundation.org/fashion-and-the-circular-economy-deep-dive\" target=\"_blank\" rel=\"noreferrer\">Ellen MacArthur Foundation</a>.",
     diff_head_1: "Other apps",
-    diff_head_2: "styleme.fr",
-    diff_1_left: "Show you 50 outfits a day",
-    diff_1_right: "Suggests only 2–3 max",
-    diff_2_left: "Want you to buy",
-    diff_2_right: "Helps you with what you already own",
-    diff_3_left: "Are full of ads",
-    diff_3_right: "Zero ads",
-    diff_4_left: "Ignore hair and makeup",
-    diff_4_right: "Will include them soon",
-    diff_5_left: "Are in English only",
-    diff_5_right: "In your real everyday language",
-    for_you_title: "styleme.fr is made <span>for you</span> if…",
-    check_1: "You lose time every morning in front of your closet",
-    check_2: "You feel like you never wear half your clothes",
-    check_3: "You’d love to have style without thinking for hours",
-    check_4: "You’re tired of apps that only want you to buy",
-    check_5: "You want honest and kind feedback on your outfit",
-    for_you_note: "Whether you wear jeans and sneakers or love fashion, styleme.fr adapts to your style, men and women alike.",
-    signup_title: "Be among the <span>first</span> to try it",
-    signup_text: "styleme.fr is opening soon in private beta for a small group of testers.",
-    signup_cta: "I want in →",
+    diff_head_2: "Styleme.fr",
+    diff_1_left: "Show you 50 outfits a day.",
+    diff_1_right: "Suggests 2 or 3 ideas maximum.",
+    diff_2_left: "Want you to buy.",
+    diff_2_right: "Helps with what you already own.",
+    diff_3_left: "Are full of ads.",
+    diff_3_right: "Zero ads.",
+    diff_4_left: "Forget hair and makeup.",
+    diff_4_right: "Adds them progressively.",
+    diff_5_left: "Are often in English.",
+    diff_5_right: "In French, for real life.",
+    community_eyebrow: "Engaged community",
+    community_title: "Shared styles, without pressure.",
+    community_text: "Get inspired by people like you, save outfits that work and rediscover your wardrobe without overconsumption.",
+    sustainable_eyebrow: "Slow fashion",
+    sustainable_title: "Buy less, wear better.",
+    sustainable_text: "Styleme.fr encourages combinations, smart repeats and clothes that last. Sometimes the best purchase is the one you do not need to make.",
+    signup_eyebrow: "Early access",
+    signup_title: "Be among the <span>first</span> testers.",
+    signup_text: "Leave your email and a few words: the form prepares a message to bonjour@styleme.fr to join the list.",
+    signup_cta: "Send my request",
+    signup_privacy: "No spam. Just an answer when testing opens.",
     email_placeholder: "Your email address",
-    perk_1: "Free access during testing",
-    perk_2: "Influence the features",
-    perk_3: "Priority access at launch",
-    signup_privacy: "We never share your email. Promise.",
-    faq_title: "<span>Frequently</span> asked questions",
-    faq_1_q: "Is it free?",
-    faq_1_a: "The beta is 100% free. Later, the idea is a small affordable monthly subscription, with a free version still available.",
-    faq_2_q: "Are my photos safe?",
-    faq_2_a: "Yes. Your photos are private, encrypted, and never shared with brands. You can delete everything in one click.",
-    faq_3_q: "Do I need to photograph my whole wardrobe?",
-    faq_3_a: "No. You start with just one photo of your outfit of the day. The wardrobe builds naturally over time.",
-    faq_4_q: "Is it an app to download?",
-    faq_4_a: "At first, it’s a website accessible from your phone. No need to download anything.",
-    faq_5_q: "What about hair and makeup advice?",
-    faq_5_a: "That’s coming soon. Early testers will tell us exactly what they want.",
-    faq_6_q: "Is it for men too?",
-    faq_6_a: "Of course. styleme.fr works for everyone. Whatever your style, gender, or taste, the personal stylist adapts to you.",
-    footer_tagline: "Your morning personal stylist",
-    footer_legal: "© 2026 styleme.fr · <a href=\"#\">Legal notice</a> · <a href=\"#\">Privacy</a>",
-    toast_lang: "🌍 English activated",
-    toast_email_invalid: "⚠️ Please enter a valid email address",
-    toast_success: "🎉 Welcome! You’re on the waitlist.",
-    toast_error: "❌ Error. Try again or contact us directly.",
-    toast_network: "❌ Connection error. Please try again later."
+    profile_placeholder: "Your current style need",
+    faq_eyebrow: "Frequently asked",
+    faq_title: "A site for everyone?",
+    faq_answer: "Yes, <span class=\"brand-inline\"><span class=\"brand-mark brand-mark--small\" aria-hidden=\"true\">SM</span><strong>Styleme.fr</strong></span> works for all adults, whatever your style, gender or taste: your personal stylist adapts to you.",
+    footer_tagline: "Simpler mornings. Smarter wardrobe. Shared styles. Engaged community.",
+    footer_pages: "Pages",
+    footer_contact: "Contact",
+    toast: "Your email is ready in your mail app."
   },
-
   es: {
-    meta_title: "styleme.fr — Tu estilista personal de la mañana",
-    nav_cta: "UNIRME A LA LISTA →",
-    hero_title: "“¿Qué me pongo <em>mañana por la mañana</em>?”",
-    hero_sub: "Tu estilista personal te ayuda a vestirte cada día sin estrés, sin anuncios y sin empujarte a comprar.",
-    hero_cta: "Quiero acceso anticipado",
-    hero_note: "Gratis · Sin spam · Solo un email cuando esté listo",
+    nav_how: "Cómo funciona",
+    nav_advice: "Consejos",
+    nav_compare: "Comparación",
+    nav_join: "Unirse",
+    hero_eyebrow: "Mi estilista personal de la mañana",
+    hero_title: "« ¿Qué me pongo <em>esta mañana</em>? »",
+    hero_sub: "Tu asesor de estilo te ayuda a vestirte con lo que ya tienes, sin estrés, sin anuncios y sin presión de compra.",
+    hero_cta: "Quiero probar antes",
+    hero_secondary: "Ver el principio",
+    problem_eyebrow: "Por la mañana todo va rápido",
     problem_title: "¿Conoces <span>ese momento</span>?",
-    problem_text: "7:12. Vas tarde. Abres el armario. Miras. No sabes qué ponerte. Pruebas una prenda, cambias, vuelves a cambiar. Al final, te pones lo mismo que ayer.",
-    thought_1: "“No tengo nada que ponerme”",
-    thought_2: "“¿Esto combina?”",
-    thought_3: "“¿Es demasiado arreglado? ¿No lo suficiente?”",
-    thought_4: "“Da igual, me pongo cualquier cosa”",
-    problem_punchline: "No es un problema de ropa.<br>Es un problema de <strong>carga mental</strong>.",
-    steps_title: "¿Cómo <span>funciona</span>?",
-    step_1_title: "Te muestras",
-    step_1_text: "Haz una foto de tu look del día o de lo que dudas en ponerte. Tarda 5 segundos.",
-    step_2_title: "Tu estilista personal responde",
-    step_2_text: "Como un espejo amable: qué funciona, un pequeño cambio que mejora todo y una idea para mañana.",
-    step_3_title: "Tu estilo se construye",
-    step_3_text: "Día tras día, styleme.fr aprende tus gustos, recuerda tus looks favoritos y te los vuelve a mostrar cuando los necesitas.",
-    difference_title: "No vamos a <span>venderte ropa</span>",
-    difference_intro: "En pocas palabras, por qué styleme.fr no es otra app de compras.",
+    problem_text: "7:12. Vas tarde. Abres el armario. Miras. Dudas. Y vuelve la misma frase.",
+    thought_1: "No tengo nada que ponerme.",
+    thought_2: "¿Esto combina?",
+    thought_3: "¿Demasiado arreglado? ¿Poco?",
+    thought_4: "Bueno... no sé qué ponerme... Me pongo el mismo conjunto de la semana pasada.",
+    problem_punchline: "Cada mañana difícil suma estrés antes de que empiece el día. No es un problema de ropa, es un problema de <strong>carga mental</strong>.",
+    story_eyebrow: "Armario optimizado",
+    story_title: "Tu asesor de estilo personal parte de tu vida real.",
+    story_text: "No necesitas rehacer tu armario. Styleme.fr se apoya en tus hábitos, tus esenciales y tus prendas más especiales. Tu look se adapta al clima, al ritmo del día y a tu agenda. Tu estilista personal siempre te propondrá un conjunto con estilo y fácil de llevar.",
+    story_wake: "Styleme.fr despierta tu ropa olvidada:",
+    metric_1: "+ variedad en tus looks",
+    metric_2: "- desgaste de tus prendas favoritas",
+    metric_3: "- dudas por la mañana",
+    metric_4: "- compras inútiles",
+    metric_5: "0 carrito forzado",
+    metric_6: "Consejos personalizados",
+    steps_eyebrow: "Cómo funciona",
+    steps_title: "Simple, visual, <span>útil desde el primer momento</span>.",
+    step_1_title: "Muestras tu look",
+    step_1_text: "Una foto de tu look, tu armario o la prenda que quieres llevar.",
+    step_2_title: "Tu asistente de moda responde",
+    step_2_text: "Una opinión breve y amable con un ajuste concreto: color, zapatos, chaqueta o accesorio.",
+    step_3_title: "Tu armario aprende",
+    step_3_text: "Tu estilista personal recuerda lo que te gusta y recupera las buenas ideas cuando las necesitas.",
+    advice_eyebrow: "Consejo de estilo",
+    advice_title: "Consejos precisos, no clases de moda.",
+    advice_text: "Según lo que necesites, puede ser asesor de estilo personal, estilista, asistente de belleza o espejo amable. El tono sigue siendo simple, directo y adaptado a ti.",
+    advice_1: "Armonizar un color con tu tono o tu ánimo.",
+    advice_2: "Transformar un look básico con un solo detalle.",
+    advice_3: "Preparar una silueta para trabajo, cena o salida.",
+    difference_eyebrow: "No es una app de compras",
+    difference_title: "Contra la <span>fast fashion</span>, Styleme.fr defiende otra forma de vestirse.",
+    difference_intro: "<strong>Styleme.fr</strong> apoya un consumo de moda más consciente: <span>Mañanas simples.</span> <span>Armario optimizado.</span> <span>Estilos compartidos.</span> <span>Comunidad comprometida.</span>",
+    impact_lede: "El proyecto ayuda a cambiar los hábitos de consumo: usar mejor lo que ya tienes, reducir las compras impulsivas y posicionarse claramente contra la fast fashion.",
+    impact_stat_1_number: "2,6 mil millones",
+    impact_stat_1_text: "de prendas se venden cada año en Francia, unas 39 por persona.",
+    impact_stat_2_number: "2 a 8 %",
+    impact_stat_2_text: "de las emisiones mundiales de gases de efecto invernadero podrían estar vinculadas al textil.",
+    impact_stat_3_number: "1 camión/segundo",
+    impact_stat_3_text: "de ropa se quema o se envía a vertederos en el mundo.",
+    impact_sources: "Fuentes: <a href=\"https://infos.ademe.fr/magazine-juillet-2025/quels-sont-les-enjeux-dune-mode-plus-durable/\" target=\"_blank\" rel=\"noreferrer\">ADEME</a>, <a href=\"https://www.unep.org/annualreport/2025/stories/minimizing-fashions-environmental-footprint\" target=\"_blank\" rel=\"noreferrer\">UNEP</a>, <a href=\"https://www.ellenmacarthurfoundation.org/fashion-and-the-circular-economy-deep-dive\" target=\"_blank\" rel=\"noreferrer\">Ellen MacArthur Foundation</a>.",
     diff_head_1: "Otras apps",
-    diff_head_2: "styleme.fr",
-    diff_1_left: "Te muestran 50 looks al día",
-    diff_1_right: "Te propone solo 2–3 máximo",
-    diff_2_left: "Quieren que compres",
-    diff_2_right: "Te ayuda con lo que ya tienes",
-    diff_3_left: "Están llenas de anuncios",
-    diff_3_right: "Cero anuncios",
-    diff_4_left: "Olvidan peinado y maquillaje",
-    diff_4_right: "Los integrará pronto",
-    diff_5_left: "Solo están en inglés",
-    diff_5_right: "En tu idioma real del día a día",
-    for_you_title: "styleme.fr está hecho <span>para ti</span> si…",
-    check_1: "Pierdes tiempo cada mañana delante del armario",
-    check_2: "Sientes que nunca usas la mitad de tu ropa",
-    check_3: "Te gustaría tener estilo sin pensarlo durante horas",
-    check_4: "Estás cansada o cansado de las apps que solo quieren que compres",
-    check_5: "Quieres una opinión honesta y amable sobre tu look",
-    for_you_note: "Tanto si vas en vaqueros y zapatillas como si amas la moda, styleme.fr se adapta a tu estilo, para hombres y mujeres.",
-    signup_title: "Sé de los <span>primeros</span> en probarlo",
-    signup_text: "styleme.fr abrirá pronto en beta privada para un pequeño grupo de testers.",
-    signup_cta: "Quiero entrar →",
-    email_placeholder: "Tu correo electrónico",
-    perk_1: "Acceso gratuito durante la prueba",
-    perk_2: "Influye en las funciones",
-    perk_3: "Prioridad en el lanzamiento",
-    signup_privacy: "No compartimos tu email con nadie. Lo prometemos.",
-    faq_title: "Preguntas <span>frecuentes</span>",
-    faq_1_q: "¿Es gratis?",
-    faq_1_a: "La beta es 100% gratuita. Después, la idea es una pequeña suscripción mensual asequible, con una versión gratuita que seguirá disponible.",
-    faq_2_q: "¿Mis fotos están seguras?",
-    faq_2_a: "Sí. Tus fotos son privadas, cifradas y nunca compartidas con marcas. Puedes borrar todo con un clic.",
-    faq_3_q: "¿Tengo que fotografiar todo mi armario?",
-    faq_3_a: "No. Empiezas con una sola foto de tu look del día. El vestuario se construye naturalmente con el tiempo.",
-    faq_4_q: "¿Es una app para descargar?",
-    faq_4_a: "Al principio, es un sitio web accesible desde tu teléfono. No necesitas descargar nada.",
-    faq_5_q: "¿Y los consejos de peinado y maquillaje?",
-    faq_5_a: "Está previsto para pronto. Los primeros testers podrán decirnos exactamente lo que quieren.",
-    faq_6_q: "¿También es para hombres?",
-    faq_6_a: "Claro. styleme.fr funciona para todo el mundo. Sea cual sea tu estilo, género o gustos, el estilista personal se adapta a ti.",
-    footer_tagline: "Tu estilista personal de la mañana",
-    footer_legal: "© 2026 styleme.fr · <a href=\"#\">Aviso legal</a> · <a href=\"#\">Privacidad</a>",
-    toast_lang: "🌍 Español activado",
-    toast_email_invalid: "⚠️ Introduce un correo válido",
-    toast_success: "🎉 ¡Bienvenido! Estás en la lista de espera.",
-    toast_error: "❌ Error. Inténtalo de nuevo o escríbenos directamente.",
-    toast_network: "❌ Error de conexión. Inténtalo más tarde."
+    diff_head_2: "Styleme.fr",
+    diff_1_left: "Te muestran 50 looks al día.",
+    diff_1_right: "Te propone 2 o 3 ideas como máximo.",
+    diff_2_left: "Quieren que compres.",
+    diff_2_right: "Te ayuda con lo que ya tienes.",
+    diff_3_left: "Están llenas de publicidad.",
+    diff_3_right: "Cero publicidad.",
+    diff_4_left: "Olvidan peinado y maquillaje.",
+    diff_4_right: "Los integra progresivamente.",
+    diff_5_left: "Suelen estar en inglés.",
+    diff_5_right: "En francés, para tu vida real.",
+    community_eyebrow: "Comunidad comprometida",
+    community_title: "Estilos compartidos, sin presión.",
+    community_text: "Inspírate en personas parecidas a ti, guarda los looks que funcionan y redescubre tu armario sin caer en el consumo excesivo.",
+    sustainable_eyebrow: "Slow fashion",
+    sustainable_title: "Comprar menos, vestir mejor.",
+    sustainable_text: "Styleme.fr fomenta combinaciones, repeticiones inteligentes y prendas duraderas. A veces la mejor compra es la que no necesitas hacer.",
+    signup_eyebrow: "Acceso anticipado",
+    signup_title: "Sé de los <span>primeros</span> en probar.",
+    signup_text: "Deja tu e-mail y unas palabras: el formulario prepara un mensaje a bonjour@styleme.fr para unirte a la lista.",
+    signup_cta: "Enviar mi solicitud",
+    signup_privacy: "Sin spam. Solo una respuesta cuando empiece la prueba.",
+    email_placeholder: "Tu e-mail",
+    profile_placeholder: "Tu necesidad de estilo ahora",
+    faq_eyebrow: "Pregunta frecuente",
+    faq_title: "¿Un sitio para todos?",
+    faq_answer: "Sí, <span class=\"brand-inline\"><span class=\"brand-mark brand-mark--small\" aria-hidden=\"true\">SM</span><strong>Styleme.fr</strong></span> funciona para todos los adultos, sea cual sea tu estilo, tu género o tus gustos: tu estilista personal se adapta a ti.",
+    footer_tagline: "Mañanas simples. Armario optimizado. Estilos compartidos. Comunidad comprometida.",
+    footer_pages: "Páginas",
+    footer_contact: "Contacto",
+    toast: "Tu e-mail está listo en tu aplicación de correo."
+  },
+  zh: {
+    nav_how: "如何运作",
+    nav_advice: "穿搭建议",
+    nav_compare: "对比",
+    nav_join: "加入",
+    hero_eyebrow: "你的早晨 AI 穿搭顾问",
+    hero_title: "“今天早上<em>穿什么</em>？”",
+    hero_sub: "你的个人风格顾问，帮你用已有衣橱轻松穿搭，不焦虑、无广告、不催你购买。",
+    hero_cta: "加入抢先体验名单",
+    hero_secondary: "查看原理",
+    problem_eyebrow: "早晨总是很赶",
+    problem_title: "你也有过<span>这个时刻</span>吗？",
+    problem_text: "7:12。你快迟到了。你打开衣柜，看着衣服，开始犹豫。同一句话又出现了。",
+    thought_1: "“我没有衣服穿。”",
+    thought_2: "“这样搭配可以吗？”",
+    thought_3: "“会不会太正式？还是不够？”",
+    thought_4: "“好吧... 我不知道穿什么... 那就穿上周那套吧。”",
+    problem_punchline: "每一个困难的早晨，都会在一天开始前增加压力。这不是衣服的问题，而是<strong>心理负担</strong>的问题。",
+    story_eyebrow: "优化你的衣橱",
+    story_title: "你的个人风格顾问从真实生活出发。",
+    story_text: "不需要重做整个衣橱。Styleme.fr 会基于你的习惯、必备单品和亮点服饰，并结合天气、一天的节奏和日程，为你推荐有风格又容易穿的搭配。",
+    story_wake: "Styleme.fr 唤醒你被遗忘的衣服：",
+    metric_1: "+ 更多穿搭变化",
+    metric_2: "- 最爱单品的磨损",
+    metric_3: "- 早晨犹豫",
+    metric_4: "- 不必要购买",
+    metric_5: "0 强制购物车",
+    metric_6: "个性化建议",
+    steps_eyebrow: "如何运作",
+    steps_title: "简单、直观、<span>马上有用</span>。",
+    step_1_title: "展示你的穿搭",
+    step_1_text: "上传一张穿搭、衣柜或你想穿的单品照片。",
+    step_2_title: "你的风格助手回复",
+    step_2_text: "给出简短、友善的建议，并提供一个具体调整：颜色、鞋子、外套或配饰。",
+    step_3_title: "你的衣橱会学习",
+    step_3_text: "你的个人造型师会记住你的喜好，在合适的时候重新提出好主意。",
+    advice_eyebrow: "风格建议",
+    advice_title: "精准建议，而不是时尚说教。",
+    advice_text: "根据你的需要，它可以是个人风格顾问、造型师、美妆助手，或一个友善的镜子。语气始终简单、直接，并适合你。",
+    advice_1: "让颜色与你的肤色或心情协调。",
+    advice_2: "用一个细节升级基础穿搭。",
+    advice_3: "为工作、晚餐或外出准备完整造型。",
+    difference_eyebrow: "不是购物应用",
+    difference_title: "反对<span>快时尚</span>，Styleme.fr 支持另一种穿衣方式。",
+    difference_intro: "<strong>Styleme.fr</strong> 支持更有意识的时尚消费：<span>早晨更简单。</span> <span>衣橱更优化。</span> <span>风格可分享。</span> <span>社区更投入。</span>",
+    impact_lede: "我们的项目帮助改变消费者习惯：更好地使用已经拥有的衣服，减少冲动购买，并明确反对快时尚。",
+    impact_stat_1_number: "26 亿件",
+    impact_stat_1_text: "法国每年售出的服装数量，约每人 39 件。",
+    impact_stat_2_number: "2% 到 8%",
+    impact_stat_2_text: "全球温室气体排放可能与纺织行业有关。",
+    impact_stat_3_number: "每秒 1 卡车",
+    impact_stat_3_text: "全球有相当于一卡车的衣物被焚烧或送往填埋场。",
+    impact_sources: "来源：<a href=\"https://infos.ademe.fr/magazine-juillet-2025/quels-sont-les-enjeux-dune-mode-plus-durable/\" target=\"_blank\" rel=\"noreferrer\">ADEME</a>、<a href=\"https://www.unep.org/annualreport/2025/stories/minimizing-fashions-environmental-footprint\" target=\"_blank\" rel=\"noreferrer\">UNEP</a>、<a href=\"https://www.ellenmacarthurfoundation.org/fashion-and-the-circular-economy-deep-dive\" target=\"_blank\" rel=\"noreferrer\">Ellen MacArthur Foundation</a>。",
+    diff_head_1: "其他应用",
+    diff_head_2: "Styleme.fr",
+    diff_1_left: "每天展示 50 套穿搭。",
+    diff_1_right: "最多推荐 2 到 3 个想法。",
+    diff_2_left: "希望你继续购买。",
+    diff_2_right: "帮助你用好已有衣服。",
+    diff_3_left: "充满广告。",
+    diff_3_right: "零广告。",
+    diff_4_left: "忽略发型和妆容。",
+    diff_4_right: "逐步把它们纳入建议。",
+    diff_5_left: "常常只有英语。",
+    diff_5_right: "用法语，更贴近日常生活。",
+    community_eyebrow: "投入的社区",
+    community_title: "分享风格，没有压力。",
+    community_text: "从与你相似的人身上获得灵感，保存有效穿搭，重新发现自己的衣橱，而不是陷入过度消费。",
+    sustainable_eyebrow: "慢时尚",
+    sustainable_title: "少买一点，穿得更好。",
+    sustainable_text: "Styleme.fr 鼓励组合、聪明重复和更耐穿的单品。有时最好的购买，就是不需要购买。",
+    signup_eyebrow: "抢先体验",
+    signup_title: "成为<span>第一批</span>体验者。",
+    signup_text: "留下你的邮箱和几句话：表单会准备一封发送到 bonjour@styleme.fr 的邮件，用于加入名单。",
+    signup_cta: "发送申请",
+    signup_privacy: "没有垃圾邮件。测试开放时只会给你回复。",
+    email_placeholder: "你的邮箱地址",
+    profile_placeholder: "你现在的穿搭需求",
+    faq_eyebrow: "常见问题",
+    faq_title: "这个网站适合所有人吗？",
+    faq_answer: "是的，<span class=\"brand-inline\"><span class=\"brand-mark brand-mark--small\" aria-hidden=\"true\">SM</span><strong>Styleme.fr</strong></span> 适合所有成年人，无论你的风格、性别或喜好如何：你的个人造型师都会适应你。",
+    footer_tagline: "早晨更简单。衣橱更优化。风格可分享。社区更投入。",
+    footer_pages: "页面",
+    footer_contact: "联系",
+    toast: "你的邮件已在邮件应用中准备好。"
+  },
+  ru: {
+    nav_how: "Как это работает",
+    nav_advice: "Советы",
+    nav_compare: "Сравнение",
+    nav_join: "Присоединиться",
+    hero_eyebrow: "Твой утренний AI-стилист",
+    hero_title: "«Что мне надеть <em>сегодня утром</em>?»",
+    hero_sub: "Твой персональный советник по стилю помогает одеваться из того, что уже есть в шкафу, без стресса, рекламы и давления покупать.",
+    hero_cta: "Хочу ранний доступ",
+    hero_secondary: "Посмотреть принцип",
+    problem_eyebrow: "Утром всё быстро",
+    problem_title: "Знаком <span>этот момент</span>?",
+    problem_text: "7:12. Ты опаздываешь. Открываешь шкаф. Смотришь. Сомневаешься. И снова появляется одна и та же мысль.",
+    thought_1: "«Мне нечего надеть.»",
+    thought_2: "«Это сочетается?»",
+    thought_3: "«Слишком нарядно? Или недостаточно?»",
+    thought_4: "«Ладно... я не знаю, что надеть... Надену тот же образ, что и на прошлой неделе.»",
+    problem_punchline: "Каждое сложное утро добавляет стресс ещё до начала дня. Это не проблема одежды, а проблема <strong>ментальной нагрузки</strong>.",
+    story_eyebrow: "Оптимизированный гардероб",
+    story_title: "Твой персональный советник по стилю исходит из реальной жизни.",
+    story_text: "Не нужно заново собирать гардероб. Styleme.fr опирается на твои привычки, базовые вещи и выразительные детали. Образ учитывает погоду, ритм дня и расписание. Твой персональный стилист всегда предложит стильный и удобный вариант.",
+    story_wake: "Styleme.fr пробуждает забытые вещи:",
+    metric_1: "+ больше разнообразия в образах",
+    metric_2: "- износ любимых вещей",
+    metric_3: "- утренние сомнения",
+    metric_4: "- лишние покупки",
+    metric_5: "0 навязанных корзин",
+    metric_6: "Персональные советы",
+    steps_eyebrow: "Как это работает",
+    steps_title: "Просто, визуально, <span>полезно сразу</span>.",
+    step_1_title: "Покажи свой образ",
+    step_1_text: "Фото образа, шкафа или вещи, которую хочется надеть.",
+    step_2_title: "Твой помощник по стилю отвечает",
+    step_2_text: "Короткий и доброжелательный совет с конкретной правкой: цвет, обувь, жакет или аксессуар.",
+    step_3_title: "Твой гардероб учится",
+    step_3_text: "Персональный стилист запоминает, что тебе нравится, и вовремя возвращает удачные идеи.",
+    advice_eyebrow: "Совет по стилю",
+    advice_title: "Точные советы, а не лекции о моде.",
+    advice_text: "В зависимости от задачи это может быть личный советник по стилю, стилист, beauty-помощник или доброжелательное зеркало. Тон остаётся простым, прямым и адаптированным к тебе.",
+    advice_1: "Согласовать цвет с тоном кожи или настроением.",
+    advice_2: "Преобразить базовый образ одной деталью.",
+    advice_3: "Подготовить силуэт для работы, ужина или выхода.",
+    difference_eyebrow: "Не shopping-приложение",
+    difference_title: "Против <span>fast fashion</span>: Styleme.fr выбирает другой способ одеваться.",
+    difference_intro: "<strong>Styleme.fr</strong> поддерживает более осознанное потребление моды: <span>Утро проще.</span> <span>Гардероб умнее.</span> <span>Стиль можно делиться.</span> <span>Сообщество вовлечено.</span>",
+    impact_lede: "Проект помогает менять потребительские привычки: лучше использовать уже имеющиеся вещи, сокращать импульсивные покупки и ясно выступать против fast fashion.",
+    impact_stat_1_number: "2,6 млрд",
+    impact_stat_1_text: "единиц одежды продаётся каждый год во Франции, около 39 на человека.",
+    impact_stat_2_number: "2–8 %",
+    impact_stat_2_text: "мировых выбросов парниковых газов могут быть связаны с текстилем.",
+    impact_stat_3_number: "1 грузовик/сек",
+    impact_stat_3_text: "одежды сжигается или отправляется на свалку в мире.",
+    impact_sources: "Источники: <a href=\"https://infos.ademe.fr/magazine-juillet-2025/quels-sont-les-enjeux-dune-mode-plus-durable/\" target=\"_blank\" rel=\"noreferrer\">ADEME</a>, <a href=\"https://www.unep.org/annualreport/2025/stories/minimizing-fashions-environmental-footprint\" target=\"_blank\" rel=\"noreferrer\">UNEP</a>, <a href=\"https://www.ellenmacarthurfoundation.org/fashion-and-the-circular-economy-deep-dive\" target=\"_blank\" rel=\"noreferrer\">Ellen MacArthur Foundation</a>.",
+    diff_head_1: "Другие приложения",
+    diff_head_2: "Styleme.fr",
+    diff_1_left: "Показывают 50 образов в день.",
+    diff_1_right: "Предлагает максимум 2–3 идеи.",
+    diff_2_left: "Хотят, чтобы ты покупал.",
+    diff_2_right: "Помогает с тем, что уже есть.",
+    diff_3_left: "Полны рекламы.",
+    diff_3_right: "Ноль рекламы.",
+    diff_4_left: "Забывают про волосы и макияж.",
+    diff_4_right: "Постепенно учитывает их.",
+    diff_5_left: "Часто доступны только на английском.",
+    diff_5_right: "На французском, для реальной жизни.",
+    community_eyebrow: "Вовлечённое сообщество",
+    community_title: "Образы для обмена, без давления.",
+    community_text: "Вдохновляйся людьми, похожими на тебя, сохраняй удачные образы и заново открывай свой гардероб без сверхпотребления.",
+    sustainable_eyebrow: "Slow fashion",
+    sustainable_title: "Покупать меньше, носить лучше.",
+    sustainable_text: "Styleme.fr поощряет сочетания, умные повторы и вещи, которые служат дольше. Иногда лучшая покупка — та, которую не нужно делать.",
+    signup_eyebrow: "Ранний доступ",
+    signup_title: "Будь среди <span>первых</span> тестировщиков.",
+    signup_text: "Оставь e-mail и пару слов: форма подготовит письмо на bonjour@styleme.fr для записи в список.",
+    signup_cta: "Отправить заявку",
+    signup_privacy: "Без спама. Только ответ, когда тест откроется.",
+    email_placeholder: "Твой e-mail",
+    profile_placeholder: "Твоя текущая задача по стилю",
+    faq_eyebrow: "Частый вопрос",
+    faq_title: "Сайт подходит всем?",
+    faq_answer: "Да, <span class=\"brand-inline\"><span class=\"brand-mark brand-mark--small\" aria-hidden=\"true\">SM</span><strong>Styleme.fr</strong></span> подходит всем взрослым, независимо от стиля, пола или вкусов: персональный стилист адаптируется к тебе.",
+    footer_tagline: "Утро проще. Гардероб умнее. Стиль можно делиться. Сообщество вовлечено.",
+    footer_pages: "Страницы",
+    footer_contact: "Контакт",
+    toast: "Письмо готово в почтовом приложении."
+  },
+  ar: {
+    nav_how: "كيف يعمل",
+    nav_advice: "نصائح",
+    nav_compare: "مقارنة",
+    nav_join: "انضمام",
+    hero_eyebrow: "مستشارك الصباحي بالذكاء الاصطناعي",
+    hero_title: "«ماذا أرتدي <em>هذا الصباح</em>؟»",
+    hero_sub: "مستشارك الشخصي في الأناقة يساعدك على ارتداء ما تملكه بالفعل، بلا توتر ولا إعلانات ولا ضغط للشراء.",
+    hero_cta: "أريد التجربة المبكرة",
+    hero_secondary: "شاهد الفكرة",
+    problem_eyebrow: "الصباح يمضي بسرعة",
+    problem_title: "هل تعرفين <span>هذه اللحظة</span>؟",
+    problem_text: "7:12. أنت متأخرة. تفتحين الخزانة. تنظرين. تترددين. وتعود الجملة نفسها.",
+    thought_1: "«ليس لدي ما أرتديه.»",
+    thought_2: "«هل هذه القطع متناسقة؟»",
+    thought_3: "«هل هو رسمي جداً؟ أم غير كاف؟»",
+    thought_4: "«حسناً... لا أعرف ماذا أرتدي... سأرتدي نفس إطلالة الأسبوع الماضي.»",
+    problem_punchline: "كل صباح صعب يضيف توتراً قبل أن يبدأ اليوم. ليست المشكلة في الملابس، بل في <strong>العبء الذهني</strong>.",
+    story_eyebrow: "خزانة محسّنة",
+    story_title: "مستشارك الشخصي في الأناقة يبدأ من حياتك الحقيقية.",
+    story_text: "لا حاجة لإعادة بناء خزانتك. يعتمد Styleme.fr على عاداتك وقطعك الأساسية والقطع المميزة لديك. ستتكيّف إطلالتك مع الطقس وإيقاع يومك وجدولك، وسيقترح مستشارك الشخصي دائماً إطلالة أنيقة وسهلة الارتداء.",
+    story_wake: "Styleme.fr يوقظ ملابسك المنسية:",
+    metric_1: "+ تنوع في إطلالاتك",
+    metric_2: "- استهلاك قطعك المفضلة",
+    metric_3: "- تردد صباحي",
+    metric_4: "- مشتريات غير ضرورية",
+    metric_5: "0 سلة شراء مفروضة",
+    metric_6: "نصائح شخصية",
+    steps_eyebrow: "كيف يعمل",
+    steps_title: "بسيط، بصري، <span>ومفيد فوراً</span>.",
+    step_1_title: "تُظهرين إطلالتك",
+    step_1_text: "صورة لإطلالتك أو خزانتك أو القطعة التي تريدين ارتداءها.",
+    step_2_title: "مساعد الأناقة يجيب",
+    step_2_text: "رأي قصير ولطيف مع تعديل عملي: لون، حذاء، سترة أو إكسسوار.",
+    step_3_title: "خزانتك تتعلم",
+    step_3_text: "يتذكر مستشارك الشخصي ما تحبينه ويعيد الأفكار المناسبة في الوقت المناسب.",
+    advice_eyebrow: "نصيحة أناقة",
+    advice_title: "نصائح دقيقة، لا دروس موضة.",
+    advice_text: "بحسب حاجتك، يمكن أن يكون مستشار أناقة شخصياً، أو منسق إطلالات، أو مساعد جمال، أو مرآة لطيفة. النبرة تبقى بسيطة ومباشرة ومناسبة لك.",
+    advice_1: "تنسيق لون مع بشرتك أو مزاجك.",
+    advice_2: "تحويل إطلالة بسيطة بتفصيل واحد.",
+    advice_3: "تحضير إطلالة للعمل أو عشاء أو خروج.",
+    difference_eyebrow: "ليس تطبيق تسوق",
+    difference_title: "ضد <span>الموضة السريعة</span>، يدافع Styleme.fr عن طريقة أخرى لارتداء الملابس.",
+    difference_intro: "<strong>Styleme.fr</strong> يدعم استهلاكاً أكثر وعياً للموضة: <span>صباح أبسط.</span> <span>خزانة أفضل.</span> <span>أنماط مشتركة.</span> <span>مجتمع ملتزم.</span>",
+    impact_lede: "يساعد مشروعنا على تغيير عادات المستهلكين: استخدام ما نملكه بالفعل بشكل أفضل، تقليل الشراء الاندفاعي، واتخاذ موقف واضح ضد الموضة السريعة.",
+    impact_stat_1_number: "2.6 مليار",
+    impact_stat_1_text: "قطعة ملابس تُباع سنوياً في فرنسا، أي نحو 39 قطعة لكل شخص.",
+    impact_stat_2_number: "2 إلى 8%",
+    impact_stat_2_text: "من انبعاثات غازات الدفيئة عالمياً قد تكون مرتبطة بالمنسوجات.",
+    impact_stat_3_number: "شاحنة/ثانية",
+    impact_stat_3_text: "من الملابس تُحرق أو تُرسل إلى المكبات حول العالم.",
+    impact_sources: "المصادر: <a href=\"https://infos.ademe.fr/magazine-juillet-2025/quels-sont-les-enjeux-dune-mode-plus-durable/\" target=\"_blank\" rel=\"noreferrer\">ADEME</a>، <a href=\"https://www.unep.org/annualreport/2025/stories/minimizing-fashions-environmental-footprint\" target=\"_blank\" rel=\"noreferrer\">UNEP</a>، <a href=\"https://www.ellenmacarthurfoundation.org/fashion-and-the-circular-economy-deep-dive\" target=\"_blank\" rel=\"noreferrer\">Ellen MacArthur Foundation</a>.",
+    diff_head_1: "تطبيقات أخرى",
+    diff_head_2: "Styleme.fr",
+    diff_1_left: "تعرض 50 إطلالة يومياً.",
+    diff_1_right: "يقترح فكرتين أو ثلاثاً كحد أقصى.",
+    diff_2_left: "تريد منك الشراء.",
+    diff_2_right: "يساعدك بما لديك بالفعل.",
+    diff_3_left: "مليئة بالإعلانات.",
+    diff_3_right: "صفر إعلانات.",
+    diff_4_left: "تنسى الشعر والمكياج.",
+    diff_4_right: "يدمجهما تدريجياً.",
+    diff_5_left: "غالباً تكون بالإنجليزية فقط.",
+    diff_5_right: "بالفرنسية، لحياتك الحقيقية.",
+    community_eyebrow: "مجتمع ملتزم",
+    community_title: "أنماط مشتركة بلا ضغط.",
+    community_text: "استلهمي من أشخاص يشبهونك، احفظي الإطلالات الناجحة، واكتشفي خزانتك من جديد بعيداً عن الإفراط في الاستهلاك.",
+    sustainable_eyebrow: "موضة بطيئة",
+    sustainable_title: "اشتري أقل، وارتدي أفضل.",
+    sustainable_text: "يشجع Styleme.fr على التنسيق، وإعادة ارتداء القطع بذكاء، واختيار الملابس التي تدوم. أحياناً أفضل شراء هو ما لا تحتاجين إلى شرائه.",
+    signup_eyebrow: "وصول مبكر",
+    signup_title: "كوني من <span>الأوائل</span> في التجربة.",
+    signup_text: "اتركي بريدك الإلكتروني وبعض الكلمات: سيحضّر النموذج رسالة إلى bonjour@styleme.fr للانضمام إلى القائمة.",
+    signup_cta: "إرسال الطلب",
+    signup_privacy: "لا رسائل مزعجة. فقط رد عندما تبدأ التجربة.",
+    email_placeholder: "بريدك الإلكتروني",
+    profile_placeholder: "حاجتك الحالية في الأناقة",
+    faq_eyebrow: "سؤال شائع",
+    faq_title: "هل الموقع مناسب للجميع؟",
+    faq_answer: "نعم، <span class=\"brand-inline\"><span class=\"brand-mark brand-mark--small\" aria-hidden=\"true\">SM</span><strong>Styleme.fr</strong></span> يعمل لكل البالغين، أياً كان أسلوبك أو جنسك أو ذوقك: مستشارك الشخصي يتكيف معك.",
+    footer_tagline: "صباح أبسط. خزانة أفضل. أنماط مشتركة. مجتمع ملتزم.",
+    footer_pages: "الصفحات",
+    footer_contact: "تواصل",
+    toast: "تم تجهيز البريد في تطبيق البريد."
   }
-};
-
-const languageMeta = {
-  fr: { short: "FR", full: "Français", flag: "🇫🇷" },
-  en: { short: "EN", full: "English", flag: "🇬🇧" },
-  es: { short: "ES", full: "Español", flag: "🇪🇸" }
 };
 
 function applyLanguage(lang) {
   const dict = translations[lang] || translations.fr;
   document.documentElement.lang = lang;
+  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
 
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.dataset.i18n;
-    if (dict[key]) el.textContent = dict[key];
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const key = node.dataset.i18n;
+    if (dict[key]) node.textContent = dict[key];
   });
 
-  document.querySelectorAll("[data-i18n-html]").forEach(el => {
-    const key = el.dataset.i18nHtml;
-    if (dict[key]) el.innerHTML = dict[key];
+  document.querySelectorAll("[data-i18n-html]").forEach((node) => {
+    const key = node.dataset.i18nHtml;
+    if (dict[key]) node.innerHTML = dict[key];
   });
 
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-    const key = el.dataset.i18nPlaceholder;
-    if (dict[key]) el.setAttribute("placeholder", dict[key]);
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+    const key = node.dataset.i18nPlaceholder;
+    if (dict[key]) node.placeholder = dict[key];
   });
 
-  const titleEl = document.querySelector("title[data-i18n]");
-  if (titleEl && dict[titleEl.dataset.i18n]) {
-    titleEl.textContent = dict[titleEl.dataset.i18n];
-  }
-
-  document.querySelectorAll(".lang-btn, .lang-mobile-option").forEach(btn => {
-    const active = btn.dataset.lang === lang;
-    btn.classList.toggle("active", active);
-    btn.setAttribute("aria-pressed", active ? "true" : "false");
+  document.querySelectorAll(".lang-btn").forEach((button) => {
+    const active = button.dataset.lang === lang;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-pressed", String(active));
   });
 
-  const currentFlag = document.getElementById("mobileCurrentFlag");
-  const currentLabel = document.getElementById("mobileCurrentLabel");
-  if (currentFlag) currentFlag.textContent = languageMeta[lang].flag;
-  if (currentLabel) currentLabel.textContent = languageMeta[lang].short;
+  document.querySelectorAll("[data-fr-only]").forEach((row) => {
+    row.hidden = lang === "en";
+  });
+
+  localStorage.setItem("styleme-language", lang);
 }
 
-function showToast(message, isError = false) {
+document.querySelectorAll(".lang-btn").forEach((button) => {
+  button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+});
+
+document.getElementById("signupForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const email = document.getElementById("emailInput").value.trim();
+  const profile = document.getElementById("profileInput").value.trim();
+  const lang = document.documentElement.lang || "fr";
+  const subject = encodeURIComponent("Demande d'accès Styleme.fr");
+  const body = encodeURIComponent(`Bonjour,\n\nJe souhaite rejoindre la liste Styleme.fr.\n\nE-mail : ${email}\nBesoin style : ${profile || "Non précisé"}\nLangue : ${lang}\n\nMerci !`);
+  window.location.href = `mailto:bonjour@styleme.fr?cc=mehtap.keles@icloud.com&subject=${subject}&body=${body}`;
+  showToast(translations[lang]?.toast || translations.fr.toast);
+});
+
+function showToast(message) {
   const toast = document.getElementById("toast");
-  if (!toast) return;
-
   toast.textContent = message;
-  toast.classList.toggle("error", isError);
-  toast.classList.add("show");
-
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 3500);
+  toast.classList.add("is-visible");
+  window.setTimeout(() => toast.classList.remove("is-visible"), 3200);
 }
 
-function closeLanguageMenu() {
-  const wrap = document.querySelector(".lang-mobile-wrap");
-  const trigger = document.getElementById("langMobileTrigger");
-  const menu = document.getElementById("langMobileMenu");
-  if (!wrap || !trigger || !menu) return;
-
-  wrap.classList.remove("open");
-  trigger.setAttribute("aria-expanded", "false");
-
-  setTimeout(() => {
-    if (!wrap.classList.contains("open")) {
-      menu.hidden = true;
-    }
-  }, 260);
-}
-
-function openLanguageMenu() {
-  const wrap = document.querySelector(".lang-mobile-wrap");
-  const trigger = document.getElementById("langMobileTrigger");
-  const menu = document.getElementById("langMobileMenu");
-  if (!wrap || !trigger || !menu) return;
-
-  menu.hidden = false;
-  requestAnimationFrame(() => {
-    wrap.classList.add("open");
-    trigger.setAttribute("aria-expanded", "true");
-  });
-}
-
-function toggleLanguageMenu() {
-  const wrap = document.querySelector(".lang-mobile-wrap");
-  if (!wrap) return;
-
-  if (wrap.classList.contains("open")) {
-    closeLanguageMenu();
-  } else {
-    openLanguageMenu();
-  }
-}
-
-document.querySelectorAll(".lang-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const lang = btn.dataset.lang;
-    applyLanguage(lang);
-    showToast(translations[lang].toast_lang, false);
-  });
-});
-
-document.querySelectorAll(".lang-mobile-option").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const lang = btn.dataset.lang;
-    applyLanguage(lang);
-    closeLanguageMenu();
-    showToast(translations[lang].toast_lang, false);
-  });
-});
-
-const langMobileTrigger = document.getElementById("langMobileTrigger");
-if (langMobileTrigger) {
-  langMobileTrigger.addEventListener("click", toggleLanguageMenu);
-}
-
-document.addEventListener("click", (e) => {
-  const wrap = document.querySelector(".lang-mobile-wrap");
-  if (!wrap) return;
-  if (!wrap.contains(e.target)) {
-    closeLanguageMenu();
-  }
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    closeLanguageMenu();
-  }
-});
-
-function toggleFaq(el) {
-  if (el) el.classList.toggle("open");
-}
-
-const signupForm = document.getElementById("signupForm");
-if (signupForm) {
-  signupForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const lang = document.documentElement.lang || "fr";
-    const dict = translations[lang] || translations.fr;
-    const emailInput = document.getElementById("emailInput");
-    const email = emailInput ? emailInput.value.trim() : "";
-
-    if (!email || !email.includes("@") || !email.includes(".")) {
-      showToast(dict.toast_email_invalid, true);
-      return;
-    }
-
-    fetch(this.action, {
-      method: "POST",
-      body: new FormData(this),
-      headers: { Accept: "application/json" }
-    })
-      .then(response => {
-        if (response.ok) {
-          showToast(dict.toast_success, false);
-          if (emailInput) emailInput.value = "";
-        } else {
-          showToast(dict.toast_error, true);
-        }
-      })
-      .catch(() => {
-        showToast(dict.toast_network, true);
-      });
-  });
-}
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll("section:not(.hero)").forEach(sec => {
-  sec.style.opacity = "0";
-  sec.style.transform = "translateY(40px)";
-  sec.style.transition = "opacity 0.8s ease, transform 0.8s ease";
-  observer.observe(sec);
-});
-
-applyLanguage("fr");
+applyLanguage(localStorage.getItem("styleme-language") || "fr");
