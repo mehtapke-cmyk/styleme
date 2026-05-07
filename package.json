@@ -1,0 +1,19 @@
+{
+  "name": "styleme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site statique Styleme.fr avec vérification navigateur et captures d'écran.",
+  "scripts": {
+    "browsers:install": "playwright install --with-deps chromium firefox webkit",
+    "test:browser": "playwright test",
+    "test:browser:chromium": "playwright test --project=chromium",
+    "test:screenshots": "playwright test --project=chromium tests/screenshot.spec.mjs",
+    "browsers:install:no-deps": "playwright install chromium firefox webkit",
+    "test:browser:firefox": "playwright test --project=firefox",
+    "test:browser:webkit": "playwright test --project=webkit",
+    "test:browser:mobile": "playwright test --project=mobile-chrome"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1"
+  }
+}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title id="title">Drapeau français</title>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M25 20 C19 37 20 64 24 99" stroke="#1f55b8" stroke-width="28"/>
+    <path d="M60 18 C56 39 57 65 60 101" stroke="#f7f7f2" stroke-width="28"/>
+    <path d="M95 20 C88 40 90 67 94 99" stroke="#d82018" stroke-width="28"/>
+  </g>
+</svg>
