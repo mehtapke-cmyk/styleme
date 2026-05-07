@@ -15,7 +15,7 @@
 
   <header class="site-header">
     <nav class="nav shell" aria-label="Navigation principale">
-      <a class="brand" href="index.html" aria-label="Styleme.fr accueil"><span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo.png" alt=""></span><span>Styleme.fr</span></a>
+      <a class="brand" href="index.html" aria-label="Styleme.fr accueil"><span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo.png" alt=""></span><span class="site-name">Styleme.fr</span></a>
       <div class="nav-links">
         <a href="comment-ca-marche.html" data-i18n="nav_how">Comment ça marche</a>
         <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
@@ -74,8 +74,8 @@
 
     <section class="image-story">
       <div class="shell story-grid">
-        <figure class="story-photo tall">
-          <img src="assets/morning-coat.jpeg" alt="Un homme ajuste son manteau le matin">
+        <figure class="story-photo story-photo--street tall">
+          <img src="assets/styleme-city-walk.jpeg" alt="Silhouette urbaine adaptée au quotidien">
         </figure>
         <div class="story-copy">
           <p class="eyebrow" data-i18n="story_eyebrow">Dressing optimisé</p>
@@ -91,14 +91,14 @@
             <span data-i18n="metric_6">Conseils personnalisés</span>
           </div>
         </div>
-        <figure class="story-photo">
-          <img src="assets/outfit-flatlay-classic.jpeg" alt="Tenue classique préparée à plat">
+        <figure class="story-photo story-photo--travel">
+          <img src="assets/styleme-travel-wardrobe.jpeg" alt="Valise et vêtements préparés selon le rythme de la journée">
         </figure>
       </div>
     </section>
 
-    <figure class="photo-break">
-      <img src="assets/horizontal-style-atelier.jpeg" alt="Sélection de vêtements et accessoires dans un esprit mode">
+    <figure class="photo-break photo-break--editorial">
+      <img src="assets/styleme-all-ages.jpeg" alt="Styles variés et inclusifs pour plusieurs générations">
     </figure>
 
     <section class="steps" id="comment-ca-marche">
@@ -107,7 +107,7 @@
           <p class="eyebrow" data-i18n="steps_eyebrow">Comment ça marche</p>
           <h2 data-i18n-html="steps_title">Simple, visuel, <span>utile tout de suite</span>.</h2>
         </div>
-        <div class="steps-grid">
+        <div class="steps-grid steps-carousel">
           <article class="step-card">
             <img src="assets/closet-choice.jpeg" alt="Choix de vêtements dans une garde-robe">
             <div class="step-pill">01</div>
@@ -130,8 +130,8 @@
       </div>
     </section>
 
-    <figure class="photo-break photo-break--right">
-      <img src="assets/horizontal-community-style.jpeg" alt="Styles partagés dans une ambiance mode et communauté">
+    <figure class="photo-break photo-break--right photo-break--pink">
+      <img src="assets/styleme-pink-beauty.jpeg" alt="Portrait mode coloré et expressif">
     </figure>
 
     <section class="advice section-band" id="conseils">
@@ -146,14 +146,15 @@
             <li data-i18n="advice_3">Préparer une silhouette pour le travail, un dîner ou une sortie.</li>
           </ul>
         </div>
-        <div class="advice-photos" aria-hidden="true">
-          <img src="assets/style-advice.jpeg" alt="">
-          <img src="assets/joyful-style-senior.jpeg" alt="">
+        <div class="advice-photos advice-collage" aria-hidden="true">
+          <img class="advice-main" src="assets/styleme-editorial-portrait.jpeg" alt="">
+          <img class="advice-poster advice-poster--fashion" src="assets/styleme-fashion-poster.png" alt="">
+          <img class="advice-poster advice-poster--spring" src="assets/styleme-spring-poster.png" alt="">
         </div>
       </div>
     </section>
 
-    <figure class="photo-break">
+    <figure class="photo-break photo-break--overlap">
       <img src="assets/horizontal-slow-fashion.jpeg" alt="Mode durable et pièces de qualité">
     </figure>
 
@@ -206,10 +207,6 @@
               <tr>
                 <td data-i18n="diff_4_left">Oublient coiffure et maquillage.</td>
                 <td data-i18n="diff_4_right">Les intègre progressivement.</td>
-              </tr>
-              <tr data-fr-only>
-                <td data-i18n="diff_5_left">Sont souvent en anglais.</td>
-                <td data-i18n="diff_5_right">En français, pour ta vraie vie.</td>
               </tr>
             </tbody>
           </table>
@@ -276,14 +273,14 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div>
-        <a class="footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo.png" alt=""></span><span>Styleme.fr</span></a>
+        <a class="footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo.png" alt=""></span><span class="site-name">Styleme.fr</span></a>
         <p data-i18n="footer_tagline">Matin simplifié. Dressing optimisé. Styles partagés. Communauté engagée.</p>
         <p class="powered-line">
           <span>Propulsé par</span>
           <img class="footer-logo" src="assets/vimb-logo-custom.png" alt="Vimb">
           <em>une création de Mehtap Keles</em>
           <span>à Argelès-sur-Mer</span>
-          <img class="footer-logo footer-flag" src="assets/drapeau-france-transparent.svg" alt="Drapeau français">
+          <img class="footer-logo footer-flag footer-signature-image" src="assets/styleme-global-style.jpeg" alt="Couple élégant en tenue traditionnelle">
         </p>
       </div>
       <div>
@@ -299,7 +296,7 @@
         <a href="mailto:mehtap.keles@icloud.com">mehtap.keles@icloud.com</a>
       </div>
     </div>
-    <div class="shell footer-bottom">© 2026 Styleme.fr</div>
+    <div class="shell footer-bottom">© 2026 <span class="site-name">Styleme.fr</span></div>
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

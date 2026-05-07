@@ -547,7 +547,37 @@ function applyLanguage(lang) {
     row.hidden = lang === "en";
   });
 
+  styleBrandNameMarks(document.body);
   localStorage.setItem("styleme-language", lang);
+}
+
+function styleBrandNameMarks(root) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      if (!node.nodeValue.includes("Styleme.fr")) return NodeFilter.FILTER_REJECT;
+      const parent = node.parentElement;
+      if (!parent || parent.closest(".site-name")) return NodeFilter.FILTER_REJECT;
+      if (["SCRIPT", "STYLE", "TEXTAREA", "INPUT"].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach((node) => {
+    const fragment = document.createDocumentFragment();
+    const parts = node.nodeValue.split("Styleme.fr");
+    parts.forEach((part, index) => {
+      if (part) fragment.appendChild(document.createTextNode(part));
+      if (index < parts.length - 1) {
+        const mark = document.createElement("span");
+        mark.className = "site-name";
+        mark.textContent = "Styleme.fr";
+        fragment.appendChild(mark);
+      }
+    });
+    node.parentNode.replaceChild(fragment, node);
+  });
 }
 
 document.querySelectorAll(".lang-btn").forEach((button) => {
