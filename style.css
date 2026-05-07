@@ -24,7 +24,7 @@
   --font-cool:var(--font-subtitle);
   --font-fact:var(--font-subtitle);
   --type-title:clamp(1.9rem,3.15vw,2.8rem);
-  --type-hero:clamp(1.7rem,2.55vw,2.65rem);
+  --type-hero:clamp(2.15rem,4.25vw,4.65rem);
   --type-subtitle:1.34rem;
   --type-paragraph:1.06rem;
 }
@@ -56,9 +56,9 @@ a{color:inherit;text-decoration:none}
 .hero-panel--left img{object-position:52% center}
 .hero-panel--right img{object-position:center}
 .hero-overlay{background:linear-gradient(90deg,rgba(247,251,255,.12),rgba(255,255,255,.42) 34%,rgba(255,255,255,.5) 50%,rgba(255,255,255,.42) 66%,rgba(247,251,255,.12)),linear-gradient(180deg,rgba(247,251,255,.02),rgba(247,251,255,.1) 74%,var(--bg))}
-.hero-inner{position:relative;display:grid;justify-items:center;padding:clamp(5.5rem,10vw,8rem) 0 clamp(4.5rem,7vw,6rem);color:var(--body-copy);text-align:center}
+.hero-inner{position:relative;display:grid;justify-items:center;padding:clamp(4.2rem,7vw,6.5rem) 0 clamp(4.5rem,7vw,6rem);color:var(--body-copy);text-align:center;transform:translateY(clamp(-5rem,-8vh,-2.4rem))}
 .eyebrow{display:inline-flex;align-items:center;gap:.55rem;margin:0 0 1rem;font-family:var(--font-subtitle);font-weight:900;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--subtitle)}
-.hero .eyebrow{color:var(--subtitle);justify-content:center;text-shadow:0 2px 16px rgba(255,255,255,.78)}
+.hero .eyebrow{color:var(--subtitle);justify-content:center;text-shadow:0 2px 16px rgba(255,255,255,.78);font-size:clamp(.82rem,1.2vw,1rem)}
 .eyebrow::before{content:none}
 h1,h2{margin:0;font-family:var(--font-display);line-height:1.06;letter-spacing:0;color:var(--headline);text-wrap:balance;overflow-wrap:break-word}
 h3{margin:0;font-family:var(--font-subtitle);line-height:1.08;letter-spacing:0;color:var(--subtitle);text-wrap:balance;overflow-wrap:break-word}
@@ -98,6 +98,8 @@ section{padding:clamp(2rem,4vw,3.6rem) 0}
 .photo-break--pink{width:min(980px,calc(100% - 32px));margin-top:-1.6rem;margin-bottom:-1rem;transform:rotate(-1deg)}
 .photo-break--pink img{height:clamp(190px,25vw,300px);object-position:right center}
 .photo-break--overlap{margin-top:-1.9rem;margin-bottom:-1.1rem;width:min(1020px,calc(100% - 32px));transform:rotate(.8deg)}
+.photo-break--hero{margin-top:clamp(-4rem,-5vw,-2rem);margin-bottom:clamp(-1.3rem,-2vw,-.45rem);width:min(1040px,calc(100% - 32px));transform:rotate(-.6deg)}
+.photo-break--hero img{height:clamp(170px,22vw,285px);object-position:center 58%}
 .story-grid{display:grid;grid-template-columns:.82fr 1fr .7fr;gap:1rem;align-items:center}
 .story-copy h2{font-family:var(--font-display)}
 .story-photo{margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#eaf7fc}
@@ -162,8 +164,8 @@ section{padding:clamp(2rem,4vw,3.6rem) 0}
 .impact-sources a{text-decoration:underline;text-underline-offset:3px;color:var(--headline)}
 .community-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:2rem;align-items:center}
 .community h2{font-family:var(--font-display)}
-.community-image{margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-.community-image img{width:100%;height:400px;object-fit:cover}
+.community-image{margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(135deg,#ffffff,#eaf7fc)}
+.community-image img{width:100%;height:400px;object-fit:contain;padding:clamp(.45rem,1.2vw,.85rem)}
 .sustainable-grid{display:grid;grid-template-columns:1fr .85fr .85fr;gap:1rem;align-items:center}
 .sustainable h2{font-family:var(--font-display)}
 .sustainable-grid figure{margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
@@ -213,6 +215,7 @@ html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)
   .nav{height:auto;min-height:74px;padding:.7rem 0;display:grid;grid-template-columns:1fr auto;align-items:center}
   .nav-links{grid-column:1/-1;order:3;width:100%;justify-content:center;flex-wrap:wrap;gap:12px;overflow:hidden}
   .hero{min-height:720px}
+  .hero-inner{transform:translateY(-2.4rem)}
   .hero-overlay{background:linear-gradient(90deg,rgba(247,251,255,.26),rgba(255,255,255,.72) 31%,rgba(255,255,255,.8) 50%,rgba(255,255,255,.72) 69%,rgba(247,251,255,.26)),linear-gradient(180deg,rgba(247,251,255,.03),rgba(247,251,255,.2) 68%,var(--bg))}
   .thought-bubbles,.story-grid,.steps-grid,.advice-grid,.community-grid,.sustainable-grid,.impact-stats,.footer-grid,.faq-list{grid-template-columns:1fr}
   h1{white-space:normal}
@@ -241,7 +244,7 @@ html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)
   .lang-switch{gap:2px;padding:3px;justify-content:flex-start;border-radius:18px}
   .lang-btn{padding:.42rem .48rem}
   .hero{min-height:690px}
-  .hero-inner{padding-bottom:4rem}
+  .hero-inner{padding-bottom:4rem;transform:translateY(-1.7rem)}
   h1{max-width:100%;font-size:clamp(1.82rem,7.4vw,2.3rem);line-height:1.08;overflow-wrap:break-word}
   .hero h1 .site-name,.hero-title-text{display:block}
   .hero-title-separator{display:none}
