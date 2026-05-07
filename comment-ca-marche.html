@@ -12,21 +12,29 @@
 <body>
   <header class="site-header">
     <nav class="nav shell" aria-label="Navigation principale">
-      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo.png" alt=""></span><span class="site-name">Styleme.fr</span></a>
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo.svg" alt=""></span><span class="site-name">Styleme.fr</span></a>
       <div class="nav-links">
-        <a href="comment-ca-marche.html">Comment ça marche</a>
-        <a href="conseils.html">Conseils</a>
-        <a href="comparaison.html">Comparaison</a>
-        <a href="rejoindre.html">Rejoindre</a>
+        <a href="comment-ca-marche.html" data-i18n="nav_how">Comment ça marche</a>
+        <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
+        <a href="comparaison.html" data-i18n="nav_compare">Comparaison</a>
+        <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
+      </div>
+      <div class="lang-switch" aria-label="Changer la langue">
+        <button class="lang-btn is-active" data-lang="fr" type="button">FR</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+        <button class="lang-btn" data-lang="es" type="button">ES</button>
+        <button class="lang-btn" data-lang="zh" type="button">中文</button>
+        <button class="lang-btn" data-lang="ru" type="button">RU</button>
+        <button class="lang-btn" data-lang="ar" type="button">AR</button>
       </div>
     </nav>
   </header>
   <main>
     <section class="page-hero section-band">
       <div class="shell section-head centered">
-        <p class="eyebrow">Comment ça marche</p>
-        <h1>Simple, visuel, utile tout de suite.</h1>
-        <p><span class="site-name">Styleme.fr</span> part de ta vraie vie : tes vêtements, ton agenda, la météo et ton humeur du matin.</p>
+        <p class="eyebrow" data-i18n="steps_eyebrow">Comment ça marche</p>
+        <h1 data-i18n-html="steps_title">Simple, visuel, utile tout de suite.</h1>
+        <p data-i18n-html="page_how_intro"><span class="site-name">Styleme.fr</span> part de ta vraie vie : tes vêtements, ton agenda, la météo et ton humeur du matin.</p>
       </div>
     </section>
     <figure class="photo-break"><img src="assets/horizontal-style-atelier.jpeg" alt="Sélection de vêtements et accessoires"></figure>
@@ -35,20 +43,20 @@
         <article class="step-card">
           <img src="assets/closet-choice.jpeg" alt="Choix dans une garde-robe">
           <div class="step-pill">01</div>
-          <h3>Tu montres ta tenue</h3>
-          <p>Une photo de ta tenue, de ton armoire ou d'une pièce que tu veux porter.</p>
+          <h3 data-i18n="step_1_title">Tu montres ta tenue</h3>
+          <p data-i18n="step_1_text">Une photo de ta tenue, de ton armoire ou d'une pièce que tu veux porter.</p>
         </article>
         <article class="step-card">
           <img src="assets/mobile-style.jpeg" alt="Conseil mode sur téléphone">
           <div class="step-pill">02</div>
-          <h3>Ton assistant mode répond</h3>
-          <p>Un avis court, concret et bienveillant : couleur, chaussure, veste, accessoire.</p>
+          <h3 data-i18n="step_2_title">Ton assistant mode répond</h3>
+          <p data-i18n="step_2_text">Un avis court, concret et bienveillant : couleur, chaussure, veste, accessoire.</p>
         </article>
         <article class="step-card">
           <img src="assets/outfit-flatlay-denim.jpeg" alt="Tenue préparée à plat">
           <div class="step-pill">03</div>
-          <h3>Ton dressing apprend</h3>
-          <p>Ton styliste personnel retient ce que tu aimes et ressort les bonnes idées au bon moment.</p>
+          <h3 data-i18n="step_3_title">Ton dressing apprend</h3>
+          <p data-i18n="step_3_text">Ton styliste personnel retient ce que tu aimes et ressort les bonnes idées au bon moment.</p>
         </article>
       </div>
     </section>
@@ -56,24 +64,25 @@
   <footer class="site-footer">
     <div class="shell footer-grid">
       <div>
-        <a class="footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo.png" alt=""></span><span class="site-name">Styleme.fr</span></a>
-        <p>Matin simplifié. Dressing optimisé. Styles partagés. Communauté engagée.</p>
+        <a class="footer-brand" href="index.html"><span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo.svg" alt=""></span><span class="site-name">Styleme.fr</span></a>
+        <p data-i18n="footer_tagline">Matin simplifié. Dressing optimisé. Styles partagés. Communauté engagée.</p>
         <p class="powered-line"><span>Propulsé par</span><img class="footer-logo" src="assets/vimb-logo-custom.png" alt="Vimb"><em>une création de Mehtap Keles</em><span>à Argelès-sur-Mer</span><img class="footer-logo footer-flag footer-signature-image" src="assets/styleme-global-style.jpeg" alt="Couple élégant en tenue traditionnelle"></p>
       </div>
       <div>
-        <span class="footer-label">Pages</span>
-        <a href="comment-ca-marche.html">Comment ça marche</a>
-        <a href="conseils.html">Conseils</a>
-        <a href="comparaison.html">Comparaison</a>
-        <a href="rejoindre.html">Rejoindre</a>
+        <span class="footer-label" data-i18n="footer_pages">Pages</span>
+        <a href="comment-ca-marche.html" data-i18n="nav_how">Comment ça marche</a>
+        <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
+        <a href="comparaison.html" data-i18n="nav_compare">Comparaison</a>
+        <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
       </div>
       <div>
-        <span class="footer-label">Contact</span>
+        <span class="footer-label" data-i18n="footer_contact">Contact</span>
         <a href="mailto:bonjour@styleme.fr">bonjour@styleme.fr</a>
         <a href="mailto:mehtap.keles@icloud.com">mehtap.keles@icloud.com</a>
       </div>
     </div>
     <div class="shell footer-bottom">© 2026 <span class="site-name">Styleme.fr</span></div>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
