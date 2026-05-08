@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="SM">
+  <defs>
+    <linearGradient id="base" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#128d73"/>
+      <stop offset="1" stop-color="#0d5f51"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="120" fill="#fff"/>
+  <path d="M0 158c42 20 78 23 120 10s75-18 120 2v70H0z" fill="url(#base)"/>
+  <circle cx="120" cy="120" r="111" fill="none" stroke="#128d73" stroke-width="5"/>
+  <text x="120" y="134" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="700" fill="#163f35" letter-spacing="-9">SM</text>
+</svg>

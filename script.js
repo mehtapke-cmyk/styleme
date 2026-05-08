@@ -63,8 +63,6 @@ const translations = {
     diff_3_right: "Zéro pub.",
     diff_4_left: "Oublient coiffure et maquillage.",
     diff_4_right: "Les intègre progressivement.",
-    diff_5_left: "Sont souvent en anglais.",
-    diff_5_right: "En français, pour ta vraie vie.",
     community_eyebrow: "Communauté engagée",
     community_title: "Des styles partagés, sans pression.",
     community_text: "Inspire-toi de personnes qui te ressemblent, crée ta propre tribu pour vous conseiller, vous montrer vos tenues, échanger des idées et partager des vêtements avec des personnes autour de toi.",
@@ -80,6 +78,16 @@ const translations = {
     profile_placeholder: "Ton besoin style du moment",
     faq_eyebrow: "Questions fréquentes",
     faq_title: "Les réponses avant de tester.",
+    faq_1_q: "C'est gratuit ?",
+    faq_1_a: "La bêta est gratuite. Ensuite, l'idée est un petit abonnement mensuel abordable, avec une version gratuite qui reste disponible.",
+    faq_2_q: "Est-ce que mes photos sont en sécurité ?",
+    faq_2_a: "Oui. Tes photos restent privées, ne sont pas partagées avec des marques et doivent pouvoir être supprimées facilement.",
+    faq_3_q: "Faut-il photographier toute ma garde-robe ?",
+    faq_3_a: "Non. Tu peux commencer avec une seule photo de ta tenue du jour. Le dressing se construit naturellement au fil du temps.",
+    faq_4_q: "Est-ce une application à télécharger ?",
+    faq_4_a: "Pour commencer, c'est un site web accessible depuis ton téléphone. Pas besoin de télécharger quoi que ce soit.",
+    faq_5_q: "Et pour les conseils coiffure et maquillage ?",
+    faq_5_a: "C'est prévu progressivement. Les premiers testeurs pourront dire exactement ce dont ils ont besoin.",
     faq_last_q: "Un site adapté à tous ?",
     faq_answer: "Oui, <strong class=\"site-name\">Styleme.fr</strong> fonctionne pour tous les adultes, quels que soient votre style, votre genre ou vos goûts : votre styliste personnel s’adapte à vous.",
     footer_tagline: "Matin simplifié. Dressing optimisé. Styles partagés. Communauté engagée.",
@@ -156,8 +164,6 @@ const translations = {
     diff_3_right: "Zero ads.",
     diff_4_left: "Forget hair and makeup.",
     diff_4_right: "Adds them progressively.",
-    diff_5_left: "Are often in English.",
-    diff_5_right: "In French, for real life.",
     community_eyebrow: "Engaged community",
     community_title: "Shared styles, without pressure.",
     community_text: "Get inspired by people like you, create your own tribe to advise each other, show outfits, exchange ideas and share clothes with people nearby.",
@@ -173,6 +179,16 @@ const translations = {
     profile_placeholder: "Your current style need",
     faq_eyebrow: "Frequently asked",
     faq_title: "Answers before you test.",
+    faq_1_q: "Is it free?",
+    faq_1_a: "The beta is free. After that, the idea is a small affordable monthly subscription, with a free version that remains available.",
+    faq_2_q: "Are my photos safe?",
+    faq_2_a: "Yes. Your photos stay private, are not shared with brands, and should be easy to delete.",
+    faq_3_q: "Do I need to photograph my whole wardrobe?",
+    faq_3_a: "No. You can start with one photo of today’s outfit. Your wardrobe builds naturally over time.",
+    faq_4_q: "Is it an app to download?",
+    faq_4_a: "To start, it is a website you can use from your phone. No download needed.",
+    faq_5_q: "What about hair and makeup advice?",
+    faq_5_a: "That will be added progressively. Early testers will be able to say exactly what they need.",
     faq_last_q: "A site for everyone?",
     faq_answer: "Yes, <strong class=\"site-name\">Styleme.fr</strong> works for all adults, whatever your style, gender or taste: your personal stylist adapts to you.",
     footer_tagline: "Simpler mornings. Smarter wardrobe. Shared styles. Engaged community.",
@@ -249,8 +265,6 @@ const translations = {
     diff_3_right: "Cero publicidad.",
     diff_4_left: "Olvidan peinado y maquillaje.",
     diff_4_right: "Los integra progresivamente.",
-    diff_5_left: "Suelen estar en inglés.",
-    diff_5_right: "En francés, para tu vida real.",
     community_eyebrow: "Comunidad comprometida",
     community_title: "Estilos compartidos, sin presión.",
     community_text: "Inspírate en personas parecidas a ti, crea tu propia tribu para aconsejaros, mostrar vuestros looks, intercambiar ideas y compartir ropa con gente cercana.",
@@ -266,6 +280,16 @@ const translations = {
     profile_placeholder: "Tu necesidad de estilo ahora",
     faq_eyebrow: "Preguntas frecuentes",
     faq_title: "Respuestas antes de probar.",
+    faq_1_q: "¿Es gratis?",
+    faq_1_a: "La beta es gratuita. Después, la idea es una pequeña suscripción mensual asequible, con una versión gratuita que seguirá disponible.",
+    faq_2_q: "¿Mis fotos están seguras?",
+    faq_2_a: "Sí. Tus fotos siguen siendo privadas, no se comparten con marcas y deben poder eliminarse fácilmente.",
+    faq_3_q: "¿Tengo que fotografiar todo mi armario?",
+    faq_3_a: "No. Puedes empezar con una sola foto de tu look del día. El armario se construye naturalmente con el tiempo.",
+    faq_4_q: "¿Es una aplicación para descargar?",
+    faq_4_a: "Al principio es un sitio web accesible desde tu teléfono. No hace falta descargar nada.",
+    faq_5_q: "¿Y los consejos de peinado y maquillaje?",
+    faq_5_a: "Se añadirá progresivamente. Los primeros testers podrán decir exactamente lo que necesitan.",
     faq_last_q: "¿Un sitio para todos?",
     faq_answer: "Sí, <strong class=\"site-name\">Styleme.fr</strong> funciona para todos los adultos, sea cual sea tu estilo, tu género o tus gustos: tu estilista personal se adapta a ti.",
     footer_tagline: "Mañanas simples. Armario optimizado. Estilos compartidos. Comunidad comprometida.",
@@ -342,8 +366,6 @@ const translations = {
     diff_3_right: "零广告。",
     diff_4_left: "忽略发型和妆容。",
     diff_4_right: "逐步把它们纳入建议。",
-    diff_5_left: "常常只有英语。",
-    diff_5_right: "用法语，更贴近日常生活。",
     community_eyebrow: "投入的社区",
     community_title: "分享风格，没有压力。",
     community_text: "从与你相似的人身上获得灵感，创建自己的小圈子，互相建议、展示穿搭、交流想法，并和附近的人分享衣服。",
@@ -359,6 +381,16 @@ const translations = {
     profile_placeholder: "你现在的穿搭需求",
     faq_eyebrow: "常见问题",
     faq_title: "测试前先了解答案。",
+    faq_1_q: "它是免费的吗？",
+    faq_1_a: "测试版免费。之后的想法是提供价格亲民的小额月费订阅，同时保留免费版本。",
+    faq_2_q: "我的照片安全吗？",
+    faq_2_a: "是的。你的照片保持私密，不会分享给品牌，并且应该可以轻松删除。",
+    faq_3_q: "我需要拍完整个衣橱吗？",
+    faq_3_a: "不需要。你可以从当天穿搭的一张照片开始，衣橱会随着使用自然建立起来。",
+    faq_4_q: "这是需要下载的应用吗？",
+    faq_4_a: "一开始它是可以在手机上访问的网站，不需要下载任何东西。",
+    faq_5_q: "发型和妆容建议呢？",
+    faq_5_a: "这会逐步加入。第一批测试用户可以告诉我们他们真正需要什么。",
     faq_last_q: "这个网站适合所有人吗？",
     faq_answer: "是的，<strong class=\"site-name\">Styleme.fr</strong> 适合所有成年人，无论你的风格、性别或喜好如何：你的个人造型师都会适应你。",
     footer_tagline: "早晨更简单。衣橱更优化。风格可分享。社区更投入。",
@@ -435,8 +467,6 @@ const translations = {
     diff_3_right: "Ноль рекламы.",
     diff_4_left: "Забывают про волосы и макияж.",
     diff_4_right: "Постепенно учитывает их.",
-    diff_5_left: "Часто доступны только на английском.",
-    diff_5_right: "На французском, для реальной жизни.",
     community_eyebrow: "Вовлечённое сообщество",
     community_title: "Образы для обмена, без давления.",
     community_text: "Вдохновляйся людьми, похожими на тебя, создавай своё сообщество, чтобы советоваться, показывать образы, обмениваться идеями и делиться одеждой с людьми рядом.",
@@ -452,6 +482,16 @@ const translations = {
     profile_placeholder: "Твоя текущая задача по стилю",
     faq_eyebrow: "Частые вопросы",
     faq_title: "Ответы перед тестом.",
+    faq_1_q: "Это бесплатно?",
+    faq_1_a: "Бета-версия бесплатна. Затем идея — небольшой доступный ежемесячный абонемент, при этом бесплатная версия останется доступной.",
+    faq_2_q: "Мои фотографии в безопасности?",
+    faq_2_a: "Да. Твои фотографии остаются приватными, не передаются брендам и должны легко удаляться.",
+    faq_3_q: "Нужно фотографировать весь гардероб?",
+    faq_3_a: "Нет. Можно начать с одной фотографии образа дня. Гардероб постепенно формируется сам.",
+    faq_4_q: "Это приложение нужно скачивать?",
+    faq_4_a: "На старте это сайт, доступный с телефона. Ничего скачивать не нужно.",
+    faq_5_q: "А советы по прическе и макияжу?",
+    faq_5_a: "Это будет добавляться постепенно. Первые тестировщики смогут сказать, что именно им нужно.",
     faq_last_q: "Сайт подходит всем?",
     faq_answer: "Да, <strong class=\"site-name\">Styleme.fr</strong> подходит всем взрослым, независимо от стиля, пола или вкусов: персональный стилист адаптируется к тебе.",
     footer_tagline: "Утро проще. Гардероб умнее. Стиль можно делиться. Сообщество вовлечено.",
@@ -528,8 +568,6 @@ const translations = {
     diff_3_right: "صفر إعلانات.",
     diff_4_left: "تنسى الشعر والمكياج.",
     diff_4_right: "يدمجهما تدريجياً.",
-    diff_5_left: "غالباً تكون بالإنجليزية فقط.",
-    diff_5_right: "بالفرنسية، لحياتك الحقيقية.",
     community_eyebrow: "مجتمع ملتزم",
     community_title: "أنماط مشتركة بلا ضغط.",
     community_text: "استلهمي من أشخاص يشبهونك، وأنشئي قبيلتك الخاصة لتبادل النصائح، عرض الإطلالات، مشاركة الأفكار وتبادل الملابس مع أشخاص قريبين منك.",
@@ -545,6 +583,16 @@ const translations = {
     profile_placeholder: "حاجتك الحالية في الأناقة",
     faq_eyebrow: "أسئلة شائعة",
     faq_title: "إجابات قبل التجربة.",
+    faq_1_q: "هل هو مجاني؟",
+    faq_1_a: "النسخة التجريبية مجانية. بعد ذلك، الفكرة هي اشتراك شهري بسيط وبسعر مناسب، مع بقاء نسخة مجانية متاحة.",
+    faq_2_q: "هل صوري آمنة؟",
+    faq_2_a: "نعم. تبقى صورك خاصة، ولا تتم مشاركتها مع العلامات التجارية، ويجب أن يكون حذفها سهلاً.",
+    faq_3_q: "هل يجب تصوير خزانة ملابسي كاملة؟",
+    faq_3_a: "لا. يمكنك البدء بصورة واحدة لإطلالة اليوم، ثم تُبنى الخزانة تدريجياً مع الوقت.",
+    faq_4_q: "هل هو تطبيق يجب تحميله؟",
+    faq_4_a: "في البداية، هو موقع يمكن استخدامه من الهاتف. لا حاجة إلى تحميل أي شيء.",
+    faq_5_q: "وماذا عن نصائح الشعر والمكياج؟",
+    faq_5_a: "ستُضاف تدريجياً. سيتمكن أوائل المختبرين من إخبارنا بما يحتاجونه تحديداً.",
     faq_last_q: "هل الموقع مناسب للجميع؟",
     faq_answer: "نعم، <strong class=\"site-name\">Styleme.fr</strong> يعمل لكل البالغين، أياً كان أسلوبك أو جنسك أو ذوقك: مستشارك الشخصي يتكيف معك.",
     footer_tagline: "صباح أبسط. خزانة أفضل. أنماط مشتركة. مجتمع ملتزم.",
@@ -557,6 +605,15 @@ const translations = {
     footer_legal: "الإشعارات القانونية",
     toast: "تم تجهيز البريد في تطبيق البريد."
   }
+};
+
+const languageLabels = {
+  fr: "FR",
+  en: "EN",
+  es: "ES",
+  zh: "中文",
+  ru: "RU",
+  ar: "AR"
 };
 
 function applyLanguage(lang) {
@@ -585,12 +642,32 @@ function applyLanguage(lang) {
     button.setAttribute("aria-pressed", String(active));
   });
 
+  document.querySelectorAll(".lang-select").forEach((select) => {
+    select.value = lang;
+  });
+
   document.querySelectorAll("[data-fr-only]").forEach((row) => {
     row.hidden = lang === "en";
   });
 
   styleBrandNameMarks(document.body);
   localStorage.setItem("styleme-language", lang);
+}
+
+function initLanguageSelects() {
+  document.querySelectorAll(".lang-switch").forEach((switcher) => {
+    if (switcher.nextElementSibling?.classList.contains("lang-select")) return;
+    const select = document.createElement("select");
+    select.className = "lang-select";
+    select.setAttribute("aria-label", switcher.getAttribute("aria-label") || "Changer la langue");
+    Object.entries(languageLabels).forEach(([value, label]) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = label;
+      select.appendChild(option);
+    });
+    switcher.insertAdjacentElement("afterend", select);
+  });
 }
 
 function styleBrandNameMarks(root) {
@@ -624,6 +701,12 @@ function styleBrandNameMarks(root) {
 
 document.querySelectorAll(".lang-btn").forEach((button) => {
   button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+});
+
+initLanguageSelects();
+
+document.querySelectorAll(".lang-select").forEach((select) => {
+  select.addEventListener("change", () => applyLanguage(select.value));
 });
 
 const signupForm = document.getElementById("signupForm");
