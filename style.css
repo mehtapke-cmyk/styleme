@@ -25,7 +25,7 @@
   --font-cool:var(--font-subtitle);
   --font-fact:var(--font-subtitle);
   --meursault-variable:'wdth' 1,'wght' 100;
-  --type-title:clamp(2.25rem,4vw,3.9rem);
+  --type-title:clamp(2.5rem,4vw,3.9rem);
   --type-hero:clamp(2.85rem,5.9vw,5.45rem);
   --type-eyebrow:clamp(.78rem,.85vw,.95rem);
   --type-subtitle:clamp(1.12rem,1.2vw,1.32rem);
