@@ -25,11 +25,11 @@
   --font-cool:var(--font-subtitle);
   --font-fact:var(--font-subtitle);
   --meursault-variable:'wdth' 1,'wght' 100;
-  --type-title:clamp(2.5rem,4vw,3.9rem);
-  --type-hero:clamp(2.95rem,5.9vw,5.45rem);
-  --type-eyebrow:clamp(.78rem,.85vw,.95rem);
-  --type-subtitle:clamp(1.12rem,1.2vw,1.32rem);
-  --type-paragraph:1.2rem;
+  --type-title:clamp(2.8rem,4.3vw,4.4rem);
+  --type-hero:clamp(3.3rem,6.6vw,5.9rem);
+  --type-eyebrow:clamp(.8rem,.96vw,1.02rem);
+  --type-subtitle:clamp(1.24rem,1.35vw,1.5rem);
+  --type-paragraph:1.24rem;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -68,11 +68,25 @@ a{color:inherit;text-decoration:none}
 .eyebrow{display:inline-flex;align-items:center;gap:.55rem;margin:0 0 .9rem;font-family:var(--font-subtitle);font-variation-settings:var(--meursault-variable);font-weight:700;font-size:var(--type-eyebrow);line-height:1.12;letter-spacing:.05em;text-transform:uppercase;color:var(--subtitle)}
 .hero .eyebrow{color:var(--subtitle);justify-content:center;text-shadow:0 2px 16px rgba(255,255,255,.78);font-size:var(--type-eyebrow)}
 .eyebrow::before{content:none}
-h1,h2{margin:0;font-family:var(--font-display);font-variation-settings:var(--meursault-variable);font-weight:700;line-height:1.04;letter-spacing:.01em;color:var(--headline);text-wrap:balance;overflow-wrap:break-word}
-h3{margin:0;font-family:var(--font-subtitle);font-variation-settings:var(--meursault-variable);font-weight:700;line-height:1.1;letter-spacing:.01em;color:var(--subtitle);text-wrap:balance;overflow-wrap:break-word}
+h1,h2{margin:0;font-family:var(--font-display);font-variation-settings:var(--meursault-variable);font-weight:700;line-height:1.06;letter-spacing:.012em;color:var(--headline);text-wrap:balance;overflow-wrap:break-word}
+h2{font-size:var(--type-title)}
+margin-top:2.6rem;
+margin-bottom:1.35rem;
+}
+h3{
+  margin-top:1.5rem;
+  margin-bottom:.9rem;
+  font-family:var(--font-subtitle);
+  font-variation-settings:var(--meursault-variable);
+  font-weight:700;
+  line-height:1.12;
+  letter-spacing:.012em;
+  color:var(--subtitle);
+  text-wrap:balance;
+  overflow-wrap:break-word;
+}
 h1{max-width:1000px;font-size:var(--type-title)}
 h1 em{color:var(--subtitle);font-style:italic}
-h2{font-size:var(--type-title)}
 h2 span:not(.site-name){color:var(--subtitle)}
 .site-name{font-family:var(--font-brand);font-weight:750;font-style:italic;letter-spacing:.015em;color:#1f6fae}
 .brand .site-name,.footer-brand .site-name{color:var(--headline)}
@@ -277,8 +291,19 @@ html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)
   .lang-btn{padding:.22rem .29rem}
   .hero{min-height:690px}
   .hero-inner{padding-bottom:3.2rem;transform:translateY(-.6rem)}
-  h1{max-width:100%;font-size:clamp(1.75rem,7vw,2.2rem);line-height:1.08;overflow-wrap:break-word}
-  .hero h1{max-width:min(345px,calc(100vw - 36px));font-size:clamp(1.48rem,7vw,1.82rem);line-height:1;letter-spacing:0;word-spacing:0}
+h1{
+    max-width:100%;
+    font-size:clamp(1.95rem, 7.4vw, 2.35rem);
+    line-height:1.08;
+    overflow-wrap:break-word;
+  }
+  .hero h1{
+    max-width:min(360px,calc(100vw - 32px));
+    font-size:clamp(1.72rem, 7.6vw, 2.05rem);
+    line-height:1.02;
+    letter-spacing:0;
+    word-spacing:0;
+  }
   .hero h1 .site-name,.hero-title-text{display:block}
   .hero-title-separator{display:none}
   .hero-sub{font-size:.98rem;max-width:min(31ch,calc(100vw - 34px));overflow-wrap:break-word}
