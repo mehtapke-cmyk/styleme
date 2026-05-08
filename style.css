@@ -32,7 +32,7 @@
   --type-paragraph:1.6rem;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:fixed}
 body{margin:0.20px;font-family:var(--font-body);color:var(--body-copy);background:var(--bg);line-height:1.55}
 body{overflow-x:hidden}
 img{display:block;max-width:100%}
