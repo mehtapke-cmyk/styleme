@@ -38,7 +38,7 @@ const translations = {
     step_3_text: "Ton styliste personnel retient ce que tu aimes et ressort les bonnes idées au bon moment.",
     advice_eyebrow: "Conseil de style",
     advice_title: "Des conseils précis, pas des leçons de mode.",
-    advice_text: "Mon assistant beauté peut varier selon ton besoin : ton styliste personnel, styliste personnelle, assistant mode ou miroir bienveillant. Le ton reste simple, direct et adapté à toi.",
+    advice_text: "Ton assistant beauté peut varier selon tes besoins. Il te tiendra au courant des tendances les plus récentes, celles que tu choisis, et s'adaptera à tes goûts comme à tes humeurs. Il sera ton miroir bienveillant, celui qui te rassure avant de partir au travail, à un rendez-vous ou à une soirée. Son ton et ses conseils seront toujours adaptés à tes goûts et à tes désirs.",
     advice_1: "Harmoniser une couleur avec ton teint ou ton humeur.",
     advice_2: "Transformer une tenue basique avec un seul détail.",
     advice_3: "Préparer une silhouette pour le travail, un dîner ou une sortie.",
