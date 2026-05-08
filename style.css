@@ -24,12 +24,12 @@
   --font-editorial:var(--font-subtitle);
   --font-cool:var(--font-subtitle);
   --font-fact:var(--font-subtitle);
-  --meursault-variable:'wdth' 1,'wght' 100;
-  --type-title:clamp(2.8rem,4.3vw,4.4rem);
-  --type-hero:clamp(3.3rem,6.6vw,5.9rem);
-  --type-eyebrow:clamp(.8rem,.96vw,1.02rem);
-  --type-subtitle:clamp(1.24rem,1.35vw,1.5rem);
-  --type-paragraph:1.24rem;
+  --meursault-variable:'wdth' 1,5,'wght' 150;
+  --type-title:clamp(3rem,4.3vw,4.7rem);
+  --type-hero:clamp(3.6rem,6.6vw,6.3rem);
+  --type-eyebrow:clamp(.10rem,.96vw,1.06rem);
+  --type-subtitle:clamp(1.30rem,1.35vw,2rem);
+  --type-paragraph:1.3rem;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -68,18 +68,18 @@ a{color:inherit;text-decoration:none}
 .eyebrow{display:inline-flex;align-items:center;gap:.55rem;margin:0 0 .9rem;font-family:var(--font-subtitle);font-variation-settings:var(--meursault-variable);font-weight:700;font-size:var(--type-eyebrow);line-height:1.12;letter-spacing:.05em;text-transform:uppercase;color:var(--subtitle)}
 .hero .eyebrow{color:var(--subtitle);justify-content:center;text-shadow:0 2px 16px rgba(255,255,255,.78);font-size:var(--type-eyebrow)}
 .eyebrow::before{content:none}
-h1,h2{margin:0;font-family:var(--font-display);font-variation-settings:var(--meursault-variable);font-weight:700;line-height:1.06;letter-spacing:.012em;color:var(--headline);text-wrap:balance;overflow-wrap:break-word}
+h1,h2{margin:0;font-family:var(--font-display);font-variation-settings:var(--meursault-variable);font-weight:900;line-height:1.2;letter-spacing:.012em;color:var(--headline);text-wrap:balance;overflow-wrap:break-word}
 h2{font-size:var(--type-title)}
-margin-top:2.6rem;
-margin-bottom:1.35rem;
+margin-top:3rem;
+margin-bottom:1.5rem;
 }
 h3{
-  margin-top:1.5rem;
-  margin-bottom:.9rem;
+  margin-top: 2.7rem;
+  margin-bottom:.10rem;
   font-family:var(--font-subtitle);
   font-variation-settings:var(--meursault-variable);
-  font-weight:700;
-  line-height:1.12;
+  font-weight:900;
+  line-height:1.2;
   letter-spacing:.012em;
   color:var(--subtitle);
   text-wrap:balance;
