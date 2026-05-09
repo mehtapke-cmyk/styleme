@@ -98,8 +98,8 @@ a{color:inherit;text-decoration:none}
   box-shadow:none;
 }
 .site-header .brand-mark{
-  width:84px;
-  height:84px;
+  width:90px;
+  height:90px;
 }
 .brand-mark img{
   width:100%;
@@ -170,10 +170,10 @@ a{color:inherit;text-decoration:none}
 .hero-diptych{display:grid;grid-template-columns:1fr 1fr}
 .hero-panel{margin:0;min-width:0;overflow:hidden}
 .hero-panel img{width:100%;height:100%;object-fit:cover;filter:saturate(1.14) contrast(1.05) brightness(1.02)}
-.hero-panel--left img{object-position:52% center}
-.hero-panel--right img{object-position:center}
+.hero-panel--left img{object-position:52% center; opacity:0.5}
+.hero-panel--right img{object-position:center;opacity:0.5}
 .hero-overlay{background:linear-gradient(90deg,rgba(247,251,255,.04),rgba(255,255,255,.26) 34%,rgba(255,255,255,.34) 50%,rgba(255,255,255,.26) 66%,rgba(247,251,255,.04)),linear-gradient(180deg,rgba(247,251,255,0),rgba(247,251,255,.05) 74%,rgba(247,251,255,.86))}
-.hero-inner{position:relative;display:grid;justify-items:center;padding:clamp(3rem,5vw,4.8rem) 0 clamp(3.4rem,5vw,4.6rem);color:var(--body-copy);text-align:center;transform:translateY(clamp(-2.8rem,-4vh,-1.4rem))}
+.hero-inner{position:relative;display:grid;justify-items:center;padding:clamp(3rem,5vw,4.8rem) 0 clamp(3.4rem,5vw,4.6rem);color:var(--body-copy);text-align:center;transform:translateY(clamp(-2.6rem,-4vh,-1.2rem))}
 .eyebrow{
   display:inline-flex;
   align-items:center;
