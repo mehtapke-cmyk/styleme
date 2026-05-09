@@ -32,10 +32,10 @@
   --font-editorial:var(--font-subtitle);
   --font-cool:var(--font-subtitle);
   --font-fact:var(--font-subtitle);
-  --type-title:clamp(2.60rem,4vw,4.2rem);
-  --type-hero:clamp(3rem,5.9vw,5.7rem);
+  --type-title:clamp(3rem,4.5vw,4.6rem);
+  --type-hero:clamp(3.6rem,7vw,6.2rem);
   --type-eyebrow:clamp(.78rem,.85vw,.95rem);
-  --type-subtitle:clamp(1.12rem,1.2vw,1.32rem);
+  --type-subtitle:clamp(1.22rem,1.4vw,1.48rem);
   --type-paragraph:1.06rem;
 }
 *{box-sizing:border-box}
@@ -107,21 +107,20 @@ a{color:inherit;text-decoration:none}
   object-fit:contain;
   filter:drop-shadow(0 10px 16px rgba(13,71,104,.16));
 }
-.nav-links{
-  flex:1 1 auto;
-  min-width:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:clamp(14px,1.35vw,22px);
-  padding-top:0;
-  margin:0;
-  font-family:var(--font-subtitle);
-  font-variation-settings:var(--meursault-variable);
-  font-size:clamp(.100rem,1vw,1.10rem);
-  font-weight:800;
-  color:var(--body-copy);
-  white-space:nowrap;
+.nav-links {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(14px, 1.35vw, 22px);
+  padding-top: 0;
+  margin: 0;
+  font-family: var(--font-subtitle);
+  font-size: clamp(0.82rem, 1vw, 1.10rem); /* corrigé : min était .100rem */
+  font-weight: 800;
+  color: var(--body-copy);
+  white-space: nowrap;
 }
 .nav-links a{
   display:inline-block;
@@ -141,7 +140,7 @@ a{color:inherit;text-decoration:none}
   display:flex;
   flex-wrap:nowrap;
   align-items:center;
-  justify-content:flex-end;
+  justify-content:flex-start;
   gap:2px;
   margin-top:0;
   padding:4px 6px;
@@ -400,10 +399,27 @@ html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{font-family:"Noto Naskh
 html[lang="ar"] .hero-inner{text-align:right}
 html[lang="ar"] .lang-switch{direction:ltr}
 html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)}
-@media (max-width:920px){
-  .nav{height:auto;min-height:74px;padding:.7rem 0;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start}
+@media (max-width: 920px) {
+  .nav {
+    height: auto;
+    min-height: 74px;
+    padding: .7rem 0;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+  }
   .lang-switch{grid-column:2;grid-row:1;justify-self:end;transform:scale(.92);transform-origin:top right;margin-top:.25rem}
-  .nav-links{grid-column:1/-1;order:3;width:100%;justify-content:center;flex-wrap:wrap;gap:12px;overflow:hidden;padding-top:.25rem}
+  .nav-links {
+    grid-column: 1 / -1;   /* pleine largeur */
+    order: 3;
+    width: 100%;
+    justify-content: center; /* centrage forcé */
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: clamp(0.82rem, 2vw, 1rem); /* plus lisible sur tablette */
+    padding-top: .25rem;
+  }
+}
   .hero{min-height:720px}
   .hero-inner{transform:translateY(-1.4rem)}
   .hero-overlay{background:linear-gradient(90deg,rgba(247,251,255,.1),rgba(255,255,255,.42) 31%,rgba(255,255,255,.52) 50%,rgba(255,255,255,.42) 69%,rgba(247,251,255,.1)),linear-gradient(180deg,rgba(247,251,255,.01),rgba(247,251,255,.12) 68%,var(--bg))}
@@ -477,8 +493,25 @@ html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)
   .site-header .brand-mark{width:54px;height:54px}
   .site-header .brand .site-name{display:none}
   .nav{position:relative;display:block;min-height:122px;padding:.55rem 0 .6rem}
-  .nav-links{display:grid;grid-template-columns:1fr;width:100%;margin-top:.55rem;font-size:.7rem;justify-content:center;overflow:visible;padding:.1rem 0 .25rem;gap:6px;line-height:1.1;scrollbar-width:none}
-  .nav-links a{display:block;min-width:0;overflow-wrap:anywhere;word-break:break-word;text-align:center}
+ {
+  .nav-links {
+    display: flex;            /* flex au lieu de grid pour centrage */
+    flex-wrap: wrap;
+    justify-content: center;  /* centrage horizontal */
+    align-items: center;
+    width: 100%;
+    font-size: clamp(0.78rem, 3.5vw, 0.92rem); /* lisible sur petit écran */
+    gap: 8px 14px;
+    margin-top: .55rem;
+    padding: .1rem 0 .25rem;
+  }  
+ .nav-links a {
+    display: inline-block;  /* inline pour que flex-wrap centre correctement */
+    text-align: center;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+}  
   .nav-links::-webkit-scrollbar{display:none}
   .lang-switch{
     position:static;
