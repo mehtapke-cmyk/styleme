@@ -56,14 +56,14 @@ a{color:inherit;text-decoration:none}
   z-index:10;
   background:rgba(247,251,255,.82);
   border-bottom:1px solid var(--line);
-  backdrop-filter:blur(16px);
+  backdrop-filter:blur(18px);
 }
 .nav{
   min-height:86px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:12px;
+  gap:14px;
   padding:.3rem 0;
   flex-wrap:nowrap;
 }
@@ -85,8 +85,8 @@ a{color:inherit;text-decoration:none}
   margin-left:0;
 }
 .brand-mark{
-  width:70px;
-  height:70px;
+  width:90px;
+  height:90px;
   display:inline-grid;
   place-items:center;
   flex:none;
@@ -98,8 +98,8 @@ a{color:inherit;text-decoration:none}
   box-shadow:none;
 }
 .site-header .brand-mark{
-  width:74px;
-  height:74px;
+  width:84px;
+  height:84px;
 }
 .brand-mark img{
   width:100%;
@@ -113,13 +113,13 @@ a{color:inherit;text-decoration:none}
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:clamp(12px,1.35vw,20px);
+  gap:clamp(14px,1.35vw,22px);
   padding-top:0;
   margin:0;
   font-family:var(--font-subtitle);
   font-variation-settings:var(--meursault-variable);
-  font-size:clamp(.96rem,1vw,1.08rem);
-  font-weight:700;
+  font-size:clamp(.100rem,1vw,1.10rem);
+  font-weight:800;
   color:var(--body-copy);
   white-space:nowrap;
 }
@@ -208,8 +208,8 @@ a{color:inherit;text-decoration:none}
   line-height:1;
   backdrop-filter:blur(6px);
 }
-h1,h2{margin:0;font-family:var(--font-display);font-weight:700;line-height:1.04;letter-spacing:.01em;color:var(--headline);text-wrap:balance;overflow-wrap:break-word}
-h3{margin:0;font-family:var(--font-subtitle);font-weight:700;line-height:1.1;letter-spacing:.01em;color:var(--subtitle);text-wrap:balance;overflow-wrap:break-word}
+h1,h2{margin:0;font-family:var(--font-display);font-weight:900;line-height:1.06;letter-spacing:.01em;color:var(--headline);text-wrap:balance;overflow-wrap:break-word}
+h3{margin:0;font-family:var(--font-subtitle);font-weight:900;line-height:1.1;letter-spacing:.01em;color:var(--subtitle);text-wrap:balance;overflow-wrap:break-word}
 h1{max-width:1000px;font-size:var(--type-title)}
 h1 em{color:var(--subtitle);font-style:italic}
 h2{font-size:var(--type-title)}
