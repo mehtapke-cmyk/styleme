@@ -215,7 +215,7 @@ h3{margin:0;font-family:var(--font-display);font-weight:900;line-height:1.1;lett
 h1{max-width:820px;font-size:var(--type-section)}
 h1 em{color:var(--subtitle);font-style:italic}
 h2{font-size:var(--type-section);max-width:820px}
-.page-hero h1,.difference h1,.advice h1,.steps h1,.signup h1,.story h1{font-size:var(--type-section)!important;font-family:var(--font-display)!important;font-weight:900!important;color:var(--headline)!important;line-height:1.06;max-width:820px;margin-inline:auto}
+.page-hero h1,.difference h1,.advice h1,.steps h1,.signup h1,.story h1,.page-signup h1{font-size:var(--type-section)!important;font-family:var(--font-display)!important;font-weight:900!important;color:var(--headline)!important;line-height:1.06;max-width:820px;margin-inline:auto;text-align:center}
 h2 span:not(.site-name){color:var(--subtitle)}
 .site-name{font-family:var(--font-brand);font-weight:750;font-style:italic;letter-spacing:.015em;color:#1f6fae}
 .brand .site-name,.footer-brand .site-name{color:var(--headline)}
