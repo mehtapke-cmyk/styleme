@@ -1,11 +1,3 @@
-@font-face{
-  font-family:"Intro Head R Base";
-  src:url("assets/fonts/intro-script-rust/introheadr-base-webfont.woff2") format("woff2"),
-      url("assets/fonts/intro-script-rust/introheadr-base-webfont.woff") format("woff");
-  font-weight:900;
-  font-style:normal;
-  font-display:swap;
-}
 :root{
   --ink:#17212b;
   --muted:#8d7412;
@@ -24,7 +16,7 @@
   --subtitle:#d11a6f;
   --body-copy:#8d7412;
   --accent-alt:#d11a60;
-  --font-title:"Intro Head R Base","Fraunces","Playfair Display",Georgia,serif;
+  --font-title:"Fraunces","Playfair Display",Georgia,serif;
   --font-display:var(--font-title);
   --font-subtitle:var(--font-title);
   --font-body:"Packard New Style Regular","Packard New Style","Avenir Next","Inter",Arial,sans-serif;
