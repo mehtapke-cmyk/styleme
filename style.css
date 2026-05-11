@@ -385,6 +385,7 @@ section{padding:clamp(2.8rem,5vw,4.75rem) 0}
 .footer-bottom{margin-top:.55rem;padding-top:.45rem;border-top:1px solid rgba(141,116,18,.16);color:#686868;font-size:.8rem}
 .powered-line{display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:.28rem .5rem;margin:.28rem 0 0;color:#666;font-family:var(--font-body);font-size:.86rem}
 .powered-line .footer-logo{width:30px;height:30px;object-fit:contain;border-radius:8px;background:transparent;padding:0;filter:drop-shadow(0 5px 8px rgba(141,116,18,.16))}
+.footer-logo-mk{width:auto;height:44px;background:transparent;border-radius:0;filter:none;object-fit:contain}
 .powered-line{display:grid;grid-template-columns:auto 64px auto 34px;align-items:center;gap:0 .35rem;font-size:.92rem}
 .powered-line .footer-logo--mk{width:64px;height:42px}
 .powered-line .footer-flag{width:34px;height:23px}
