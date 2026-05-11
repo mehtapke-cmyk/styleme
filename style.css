@@ -495,7 +495,6 @@ html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)
   .site-header .brand-mark{width:54px;height:54px}
   .site-header .brand .site-name{display:none}
   .nav{position:relative;display:block;min-height:122px;padding:.55rem 0 .6rem}
- {
   .nav-links {
     display: flex;            /* flex au lieu de grid pour centrage */
     flex-wrap: wrap;
@@ -513,7 +512,6 @@ html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)
     word-break: normal;
     overflow-wrap: normal;
   }
-}  
   .nav-links::-webkit-scrollbar{display:none}
   .lang-switch{
     position:static;
