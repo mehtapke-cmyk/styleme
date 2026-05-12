@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Notre engagement chez Styleme.fr : contre la fast-fashion, pour une mode lente, juste et familiale. Le manifeste complet.">
+  <title>Notre engagement — Styleme.fr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style-v2.css">
+  <style>
+    /* Page-specific styles */
+    .engagement-hero {
+      padding: 9rem 0 6rem;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .engagement-hero::before {
+      content: "";
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(196,90,60,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .engagement-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      position: relative;
+      z-index: 1;
+    }
+    .engagement-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      font-weight: 500;
+      margin: 1.2rem 0 2rem;
+      max-width: 16ch;
+    }
+    .engagement-hero h1 .accent {
+      font-style: italic;
+      color: var(--terracotta);
+      font-weight: 400;
+    }
+    .engagement-hero p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+      line-height: 1.5;
+      color: var(--ink-soft);
+      max-width: 640px;
+      margin: 0;
+    }
+
+    /* Sections du manifeste */
+    .engagement-section {
+      padding: 6rem 0;
+      border-top: 1px solid rgba(30, 25, 20, 0.10);
+    }
+    .engagement-section--ink {
+      background: var(--ink);
+      color: var(--cream);
+      border-top: 0;
+    }
+    .engagement-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: start;
+    }
+    .engagement-label {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      position: sticky;
+      top: 6rem;
+    }
+    .engagement-section--ink .engagement-label {
+      color: #e7a89a;
+    }
+    .engagement-label-num {
+      display: block;
+      font-style: normal;
+      font-size: 3.5rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .engagement-section--ink .engagement-label-num {
+      color: var(--cream);
+    }
+    .engagement-body h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.018em;
+      color: inherit;
+      font-weight: 500;
+      margin: 0 0 1.8rem;
+      max-width: 22ch;
+    }
+    .engagement-body h2 em {
+      font-style: italic;
+      color: var(--terracotta);
+      font-weight: 400;
+    }
+    .engagement-section--ink .engagement-body h2 em {
+      color: #e7a89a;
+    }
+    .engagement-body p {
+      font-size: clamp(1.05rem, 1.25vw, 1.15rem);
+      line-height: 1.75;
+      color: inherit;
+      margin: 0 0 1.3rem;
+      max-width: 620px;
+      opacity: 0.92;
+    }
+    .engagement-body p strong {
+      font-weight: 600;
+      color: inherit;
+      opacity: 1;
+    }
+    .engagement-body p em {
+      font-style: italic;
+    }
+
+    .engagement-pullquote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      line-height: 1.3;
+      color: var(--terracotta);
+      margin: 2.5rem 0;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--terracotta);
+      max-width: 600px;
+    }
+    .engagement-section--ink .engagement-pullquote {
+      color: #e7a89a;
+      border-left-color: #e7a89a;
+    }
+
+    /* Chiffres clés */
+    .engagement-figures {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+    .engagement-fig {
+      padding: 1.8rem;
+      background: rgba(245, 235, 220, 0.05);
+      border: 1px solid rgba(245, 235, 220, 0.12);
+      border-radius: 4px;
+    }
+    .engagement-fig strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+      color: #e7a89a;
+      margin-bottom: 0.6rem;
+      font-weight: 500;
+      line-height: 1.1;
+    }
+    .engagement-fig span {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: rgba(245, 235, 220, 0.75);
+    }
+
+    /* CTA final */
+    .engagement-cta {
+      padding: 6rem 0;
+      text-align: center;
+      background: linear-gradient(180deg, var(--cream) 0%, #faf3e7 100%);
+    }
+    .engagement-cta h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+      color: var(--ink);
+      margin: 0 0 1.5rem;
+      max-width: 20ch;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 500;
+    }
+    .engagement-cta h2 em { font-style: italic; color: var(--terracotta); }
+    .engagement-cta p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--ink-soft);
+      margin: 0 0 2.5rem;
+    }
+    .engagement-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1.1rem 2.4rem;
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      transition: all 0.3s cubic-bezier(.2,.8,.2,1);
+    }
+    .engagement-cta-link:hover {
+      background: var(--terracotta);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 900px) {
+      .engagement-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+      .engagement-label { position: static; }
+      .engagement-label-num { font-size: 2.5rem; margin-bottom: 0.5rem; }
+      .engagement-figures { grid-template-columns: 1fr; }
+      .engagement-section { padding: 4rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Aller au contenu</a>
+
+  <div data-partial="header"></div>
+
+  <main id="content">
+
+    <!-- HERO de la page Engagement -->
+    <section class="engagement-hero">
+      <div class="engagement-hero-inner">
+        <p class="eyebrow">Notre manifeste</p>
+        <h1>Une autre mode est <span class="accent">déjà</span> dans ton placard.</h1>
+        <p>
+          Styleme.fr n'est pas une appli de plus pour t'aider à acheter.
+          C'est une appli pour t'aider à <em>arrêter</em>.
+        </p>
+      </div>
+    </section>
+
+    <!-- 01 — Pourquoi -->
+    <section class="engagement-section">
+      <div class="engagement-inner">
+        <div class="engagement-label">
+          <span class="engagement-label-num">01</span>
+          Pourquoi
+        </div>
+        <div class="engagement-body">
+          <h2>Parce que <em>la mode rapide</em> coûte cher à tout le monde.</h2>
+          <p>
+            On a tous vu les images. Les montagnes de vêtements jetés dans le désert d'Atacama.
+            Les fleuves teints en rouge au Bangladesh. Les ouvrières qui gagnent 30 centimes
+            pour coudre un t-shirt que nous porterons trois fois.
+          </p>
+          <p>
+            La <strong>fast-fashion</strong>, c'est ça. Une industrie qui produit
+            <strong>100 milliards de vêtements</strong> par an dans le monde —
+            deux fois plus qu'il y a vingt ans. Pour des gens qui n'ont pas deux fois plus de corps.
+          </p>
+          <blockquote class="engagement-pullquote">
+            « Nous achetons des vêtements 60 % plus souvent qu'en 2000. Et nous les gardons deux fois moins longtemps. »
+          </blockquote>
+          <p>
+            Le textile représente aujourd'hui <strong>2 à 8 %</strong> des émissions mondiales
+            de gaz à effet de serre. Plus que l'aviation et le transport maritime <em>réunis</em>.
+            Et chaque seconde, l'équivalent d'<strong>un camion de vêtements</strong>
+            est brûlé ou enfoui quelque part dans le monde.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — Notre réponse (fond noir) -->
+    <section class="engagement-section engagement-section--ink">
+      <div class="engagement-inner">
+        <div class="engagement-label">
+          <span class="engagement-label-num">02</span>
+          Notre réponse
+        </div>
+        <div class="engagement-body">
+          <h2>Te faire <em>aimer</em> ce que tu as déjà.</h2>
+          <p>
+            Styleme.fr ne te montrera jamais 50 nouvelles tenues à acheter.
+            On part de l'inverse&nbsp;: <strong>ton dressing actuel</strong>.
+            Ces pièces oubliées au fond du placard, ces associations
+            que tu n'as jamais osées, ce pull que tu avais oublié.
+          </p>
+          <p>
+            Notre IA regarde la météo, ton agenda, ton humeur du matin —
+            et te propose <strong>2 ou 3 idées maximum</strong>. Pas cinquante.
+            Trois. Parce que choisir, c'est aussi renoncer.
+          </p>
+          <div class="engagement-figures">
+            <div class="engagement-fig">
+              <strong>0 pub</strong>
+              <span>Aucun annonceur, aucune marque sponsorisée. Tu paies l'app, pas tes données.</span>
+            </div>
+            <div class="engagement-fig">
+              <strong>0 like</strong>
+              <span>Pas de classement, pas de comparaison. La mode n'est pas un sport.</span>
+            </div>
+            <div class="engagement-fig">
+              <strong>2 ou 3</strong>
+              <span>Propositions par jour, maximum. On t'aide à choisir, pas à scroller.</span>
+            </div>
+          </div>
+          <blockquote class="engagement-pullquote">
+            « Acheter moins, porter mieux, partager plus. »
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 — Le troc -->
+    <section class="engagement-section">
+      <div class="engagement-inner">
+        <div class="engagement-label">
+          <span class="engagement-label-num">03</span>
+          Le troc, vraiment
+        </div>
+        <div class="engagement-body">
+          <h2>Un t-shirt à <em>2 €</em>, d'un bout de la France à l'autre.</h2>
+          <p>
+            Sur Styleme.fr, les inscrits peuvent s'échanger leurs vêtements.
+            Pas <em>vendre</em>. Pas <em>revendre</em>. <strong>Échanger</strong>.
+            Frais minimes, marge zéro, intermédiaire zéro.
+          </p>
+          <p>
+            Tu ne mets plus cette robe&nbsp;? Quelqu'un, quelque part en France,
+            l'attend. Tu cherches un manteau pour la saison&nbsp;?
+            Quelqu'un l'a peut-être dans son armoire en train de prendre la poussière.
+          </p>
+          <p>
+            C'est ça, notre alternative à la fast-fashion&nbsp;:
+            <strong>la circulation</strong>. Un vêtement qui vit trois,
+            quatre, cinq vies, plutôt qu'un vêtement neuf à chaque envie.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 — La famille -->
+    <section class="engagement-section">
+      <div class="engagement-inner">
+        <div class="engagement-label">
+          <span class="engagement-label-num">04</span>
+          En famille
+        </div>
+        <div class="engagement-body">
+          <h2>Quand l'enfant est <em>ailleurs</em>, le lien reste.</h2>
+          <p>
+            Styleme.fr peut être utilisé en famille. Si un enfant s'inscrit
+            <strong>avec ses parents</strong>, ces derniers peuvent voir
+            sa tenue du matin — où qu'il soit.
+          </p>
+          <p>
+            Chez son autre parent un week-end sur deux. Chez les grands-parents
+            pour les vacances. En colonie au mois de juillet.
+            Le matin, le parent inscrit peut voir, à distance,
+            que son enfant est habillé chaudement, joliment, bien.
+          </p>
+          <blockquote class="engagement-pullquote">
+            « Ce n'est pas de la surveillance. C'est un lien doux, à distance. »
+          </blockquote>
+          <p>
+            On a pensé Styleme.fr pour les familles recomposées,
+            pour les parents éloignés, pour tous ceux qui se demandent
+            <em>« est-ce qu'il a pensé à mettre son pull&nbsp;? »</em>
+            à 8h du matin. Pas pour contrôler.
+            Pour <strong>rester proche</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 — Pour qui -->
+    <section class="engagement-section">
+      <div class="engagement-inner">
+        <div class="engagement-label">
+          <span class="engagement-label-num">05</span>
+          Pour qui
+        </div>
+        <div class="engagement-body">
+          <h2>Pour tout le monde, <em>vraiment</em>.</h2>
+          <p>
+            La plupart des applis de mode visent les filles de 25 ans urbaines,
+            connectées, qui veulent des likes. Styleme.fr regarde ailleurs.
+          </p>
+          <p>
+            Pour l'<strong>homme de 67 ans</strong> qui ne sait pas comment
+            assortir sa nouvelle chemise. Pour la <strong>mère de famille</strong>
+            qui n'a plus le temps de réfléchir à elle-même. Pour le
+            <strong>jeune adulte</strong> en stage qui veut faire bonne impression
+            sans dépenser une fortune. Pour les <strong>enfants</strong>
+            qui apprennent à s'habiller seuls.
+          </p>
+          <p>
+            Toutes les générations. Tous les corps. Tous les budgets.
+            <em>C'est ça, la vraie mode.</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="engagement-cta">
+      <div class="shell">
+        <h2>Tu veux <em>en être</em>&nbsp;?</h2>
+        <p>Rejoins une mode plus lente, plus juste, plus partagée.</p>
+        <a href="rejoindre.html" class="engagement-cta-link">
+          Rejoindre Styleme.fr
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <div data-partial="footer"></div>
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+  <script src="partials-v2.js"></script>
+  <script src="script.js"></script>
+  <script src="interactions-v2.js"></script>
+</body>
+</html>
