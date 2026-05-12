@@ -44,6 +44,17 @@
   </header>
 
   <main id="content">
+    <!-- BANDEAU SLOGAN — sous le header, au-dessus du hero -->
+    <div class="slogan-banner" role="region" aria-label="Slogan Styleme.fr">
+      <div class="shell slogan-banner-inner">
+        <p class="slogan-banner-text" data-i18n="brand_slogan">
+          <em>L'élégance est déjà dans ton armoire.</em>
+          <span class="slogan-banner-sep" aria-hidden="true">·</span>
+          <span class="slogan-banner-action">Achète moins, porte mieux avec ton conseiller mode <strong>Styleme.fr</strong></span>
+        </p>
+      </div>
+    </div>
+
     <!-- HERO (intact — taille/forme conservées) -->
     <section class="hero" id="top">
       <div class="hero-media hero-diptych" aria-hidden="true">
@@ -308,19 +319,48 @@
     </section>
   </main>
 
-  <!-- FOOTER — logo Styleme à la place de MK -->
+  <!-- FOOTER ENRICHI — centré, manifeste, drapeau filigrane, MK -->
   <footer class="site-footer">
     <div class="shell">
+
+      <!-- Bloc marque centré -->
       <div class="footer-brand-row">
-        <a class="footer-brand brand" href="index.html" aria-label="Styleme.fr">
+        <a class="footer-brand" href="index.html" aria-label="Styleme.fr">
           <span class="brand-mark"><img src="assets/styleme-logo-transparent.png" alt="Styleme.fr"></span>
           <span class="site-name">Styleme.fr</span>
         </a>
-        <p class="footer-tagline" data-i18n="footer_tagline">Matin simplifié. Dressing optimisé. Styles partagés. Communauté engagée.</p>
+        <p class="footer-tagline" data-i18n="footer_tagline">L'élégance est déjà dans ton armoire. Achète moins, porte mieux avec ton conseiller mode Styleme.fr</p>
       </div>
+
+      <!-- Propulsé par MK -->
+      <div class="footer-powered">
+        <span class="footer-powered-label" data-i18n="footer_powered">Propulsé par</span>
+        <a class="footer-powered-logo" href="https://mkcreations.fr" target="_blank" rel="noopener" aria-label="MK Créations Originales">
+          <img src="assets/logo-mk-transparent.png" alt="MK Créations Originales">
+        </a>
+      </div>
+
+      <!-- Manifeste -->
+      <div class="footer-manifesto">
+        <h3 class="footer-manifesto-title" data-i18n="footer_manifesto_title">Manifeste du style durable</h3>
+        <ul class="footer-manifesto-list">
+          <li><span class="manifesto-icon" aria-hidden="true">🍃</span><span data-i18n="footer_manifesto_1">Rien ne se jette. Tout se réinvente.</span></li>
+          <li><span class="manifesto-icon" aria-hidden="true">🪐</span><span data-i18n="footer_manifesto_2">On change de tenue, pas de planète.</span></li>
+          <li><span class="manifesto-icon" aria-hidden="true">🕐</span><span data-i18n="footer_manifesto_3">Le matin retrouve sa douceur.</span></li>
+        </ul>
+      </div>
+
+      <!-- Localisation avec drapeau filigrane -->
+      <div class="footer-location-block">
+        <span class="footer-location-label" data-i18n="footer_location_label">Conçu en France</span>
+        <p class="footer-location-city">Argelès-sur-Mer</p>
+      </div>
+
+      <!-- Navigation complète -->
       <div class="footer-grid">
         <div>
           <span class="footer-label" data-i18n="footer_pages">Navigation</span>
+          <a href="index.html" data-i18n="nav_home">Accueil</a>
           <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
           <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
           <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
@@ -328,8 +368,8 @@
         </div>
         <div>
           <span class="footer-label" data-i18n="footer_legal_label">Légal</span>
-          <a href="confidentialite.html" data-i18n="footer_privacy">Confidentialité</a>
           <a href="mentions-legales.html" data-i18n="footer_legal">Mentions légales</a>
+          <a href="confidentialite.html" data-i18n="footer_privacy">Politique de confidentialité</a>
         </div>
         <div>
           <span class="footer-label" data-i18n="footer_contact">Contact</span>
@@ -337,10 +377,13 @@
           <span class="footer-location" data-i18n="footer_location">Argelès-sur-Mer, France</span>
         </div>
       </div>
+
+      <!-- Bas de page -->
       <div class="footer-bottom">
         <span class="site-name">Styleme.fr</span>
-        <span>© 2026 · Propulsé par MK Créations Originales</span>
+        <span data-i18n="footer_copy">© 2026 · Tous droits réservés</span>
       </div>
+
     </div>
   </footer>
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
