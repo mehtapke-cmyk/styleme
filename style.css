@@ -228,7 +228,7 @@ h2 span:not(.site-name){color:var(--subtitle)}
   background:linear-gradient(90deg,var(--subtitle),var(--headline));
   opacity:.9;
 }
-..hero-sub{
+.hero-sub{
   max-width:min(32ch, calc(100vw - 48px));
   margin:1.4rem auto 0;
   font-size:clamp(1.1rem, 1.4vw, 1.35rem);
@@ -422,7 +422,8 @@ html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)
     padding-top: .25rem;
   }
 }
-  .hero{min-height:720px}
+@media (max-width:920px){
+.hero{min-height:720px}
   .hero-inner{transform:translateY(-1.4rem)}
   .hero-overlay{background:linear-gradient(90deg,rgba(247,251,255,.1),rgba(255,255,255,.42) 31%,rgba(255,255,255,.52) 50%,rgba(255,255,255,.42) 69%,rgba(247,251,255,.1)),linear-gradient(180deg,rgba(247,251,255,.01),rgba(247,251,255,.12) 68%,var(--bg))}
   .thought-bubbles,.story-grid,.steps-grid,.advice-grid,.community-grid,.sustainable-grid,.footer-grid,.faq-list{grid-template-columns:1fr}
@@ -437,6 +438,8 @@ html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)
   .steps-carousel .step-card{min-width:min(82vw,360px);scroll-snap-align:center;transform:none}
   .signup-form{grid-template-columns:1fr}
 }
+}
+
 @media (min-width:921px){
   .hero h1{white-space:normal;max-width:min(1260px,calc(100vw - 44px))}
   .hero-sub{white-space:normal}
@@ -466,7 +469,8 @@ html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)
     transform-origin:right center;
   }
 }
-  .lang-switch{position:static;display:flex;flex-wrap:wrap;width:100%;justify-content:center;margin:.35rem auto 0;padding:2px;border:0;background:transparent;box-shadow:none;gap:2px;font-size:.68rem}
+@media (max-width:560px){
+.lang-switch{position:static;display:flex;flex-wrap:wrap;width:100%;justify-content:center;margin:.35rem auto 0;padding:2px;border:0;background:transparent;box-shadow:none;gap:2px;font-size:.68rem}
   .lang-select{display:none!important}
   .lang-select:focus-visible{outline:3px solid rgba(63,182,204,.38);outline-offset:2px}
   .lang-btn{padding:.22rem .29rem}
@@ -487,6 +491,8 @@ html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)
   .powered-line .footer-logo-mk{width:64px;height:42px}
   .powered-line .footer-flag{width:34px;height:23px}
 }
+}
+
 @media (max-width:560px){
   .shell{width:min(100% - 22px,1160px)}
   .brand{font-size:1.08rem}
@@ -532,149 +538,132 @@ html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)
 }
 
 
-/* ===================================================
-   UNIFORMISATION TYPOGRAPHIQUE GLOBALE — override final
-   Tous les h2 = bleu --headline | taille --type-section
-   Tous les h3 = rose --subtitle
-   Eyebrows = gold --muted
-   =================================================== */
-h2{
-  color:var(--headline) !important;
-  font-size:var(--type-section) !important;
-  font-family:var(--font-display) !important;
-  font-weight:900 !important;
-  text-align:center;
-  max-width:860px;
-  margin-left:auto;
-  margin-right:auto;
-}
-h3{
-  color:var(--subtitle) !important;
-  font-family:var(--font-display) !important;
-  font-weight:700 !important;
-}
-.eyebrow,.section-eyebrow,.label-eyebrow,[data-eyebrow]{
-  color:var(--muted) !important;
-  font-family:var(--font-body) !important;
-  font-size:var(--type-eyebrow) !important;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  font-weight:600;
-}
 
-.impact-stats article{
-  background:var(--surface);
-  border:1.5px solid var(--mint-strong);
-  border-radius:var(--radius);
-  min-height:160px;
-  height:160px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:1rem;
-}
-.impact-stats strong{
-  color:var(--headline) !important;
-  font-size:clamp(1.6rem,2.2vw,2.1rem) !important;
-  display:block;
-}
-.impact-stats span{
-  color:var(--body-copy) !important;
-  font-size:.9rem !important;
-}
-.how-step,.how-card{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-}
-/* Centre les titres de section */
-.problem .section-head,
-.story .section-head,
-.steps .section-head,
-.advice .section-head,
-.difference .section-head,
-.community .section-head,
-.sustainable .section-head,
-.signup .section-head,
-.faq-head{
-  text-align:center;
-}
+/* ═══════════════════════════════════════════════════════════════
+   TYPOGRAPHIE GLOBALE UNIFIÉE — styleme.fr
+   ─ h1 : taille héro / bleu --headline / Fraunces
+   ─ h2 : taille section / bleu --headline / Fraunces / centré
+   ─ h3 : taille subtitle / rose --subtitle / Fraunces
+   ─ p  : 1.06rem / or-brun --body-copy / --font-body / lh 1.6
+   ─ .eyebrow : uppercase / gold --muted / petite taille
+═══════════════════════════════════════════════════════════════ */
 
-
-/* ============================================================
-   CENTRAGE UNIVERSEL — tous les titres h2 + eyebrows centrés
-   quelle que soit la section parente
-   ============================================================ */
-.community-grid > div,
-.community-grid > div p.eyebrow {
-  text-align: center;
-}
-.sustainable .shell > p.eyebrow,
-.sustainable .shell > h2 {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-section > .shell > p.eyebrow,
-section > .shell > h2 {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-/* ============================================================
-   GLOBAL TYPOGRAPHY OVERRIDE — force uniforme sur tout le site
-   h2 = bleu (--headline), h3 = rose (--subtitle), p = or/brun (--body-copy)
-   Doit rester EN DERNIER pour surcharger tous les blocs précédents
-   ============================================================ */
-h2,
-h2 span:not(.site-name),
-section h2,
-.section-head h2,
-.problem h2,
-.story h2,
-.steps h2,
-.advice h2,
-.difference h2,
-.community h2,
-.sustainable h2,
-.signup h2,
-.faq-head h2 {
+/* H1 ─── uniquement dans le héro */
+h1 {
+  font-family: var(--font-display) !important;
+  font-weight: 900 !important;
   color: var(--headline) !important;
+  line-height: 1.06;
+  text-wrap: balance;
 }
-h3,
-.step-card h3,
-.faq-card h3,
-section h3,
-.section-head h3 {
+
+/* H2 ─── titres de section, toujours centrés */
+h2 {
+  font-family: var(--font-display) !important;
+  font-weight: 900 !important;
+  font-size: var(--type-section) !important;
+  color: var(--headline) !important;
+  text-align: center;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+/* Spans colorés dans h2 (ex: <span>ce moment</span>) */
+h2 span:not(.site-name) {
   color: var(--subtitle) !important;
 }
-p {
-  color: var(--body-copy) !important;
+
+/* H3 ─── sous-titres de carte/étape */
+h3 {
+  font-family: var(--font-display) !important;
+  font-weight: 700 !important;
+  color: var(--subtitle) !important;
+  font-size: var(--type-subtitle) !important;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* Paragraphes ─── uniformes partout */
+p:not(.eyebrow):not(.section-eyebrow) {
   font-family: var(--font-body) !important;
   font-size: var(--type-paragraph) !important;
+  color: var(--body-copy) !important;
+  line-height: 1.6;
 }
 
-/* ===== HEADER NAV FINAL FIX — logo 48px, padding suffisant ===== */
-.site-header .brand-mark,
-.site-header .brand .brand-mark {
-  width: 48px !important;
-  height: 48px !important;
-  flex: 0 0 48px !important;
-}
-.nav.shell {
-  padding-left: max(16px, 1.5vw) !important;
-  padding-right: max(16px, 1.5vw) !important;
-  overflow: visible;
-}
-.nav-links a {
-  padding: .18rem .3rem;
-  font-size: clamp(0.82rem, 1vw, 1rem);
-  white-space: nowrap;
-}
-.lang-switch {
-  flex-shrink: 0;
+/* Eyebrow / labels de section */
+.eyebrow,
+.section-eyebrow,
+.label-eyebrow,
+[data-eyebrow] {
+  font-family: var(--font-body) !important;
+  font-size: var(--type-eyebrow) !important;
+  color: var(--muted) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  line-height: 1;
 }
 
+/* Centrage des eyebrows de section */
+.section-head.centered .eyebrow,
+section > .shell > .eyebrow {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* Impact stats — chiffres et labels */
+.impact-stats strong {
+  color: var(--headline) !important;
+  font-size: clamp(1.6rem, 2.2vw, 2.1rem) !important;
+  font-family: var(--font-display) !important;
+  display: block;
+  font-weight: 900 !important;
+}
+.impact-stats span {
+  color: var(--body-copy) !important;
+  font-size: 0.9rem !important;
+}
+
+/* Step cards h3 */
+.step-card h3 {
+  color: var(--subtitle) !important;
+  font-size: var(--type-subtitle) !important;
+}
+
+/* FAQ cards */
+.faq-card h3 {
+  color: var(--subtitle) !important;
+  font-size: var(--type-subtitle) !important;
+}
+.faq-card p {
+  color: var(--muted) !important;
+}
+
+/* Advice / story muted paragraphs */
+.story-copy p:not(.eyebrow),
+.advice-copy p,
+.community p,
+.sustainable p,
+.signup p {
+  color: var(--muted) !important;
+}
+
+/* ── IMPACT STATS CARD ─────────────────────────── */
+.impact-stats article {
+  background: var(--surface);
+  border: 1.5px solid var(--mint-strong);
+  border-radius: var(--radius);
+  min-height: 160px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
