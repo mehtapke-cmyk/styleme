@@ -18,6 +18,7 @@
           <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
           <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
           <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
+          <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
           <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
         </div>
         <div class="lang-dropdown" role="navigation" aria-label="Sélection de langue">
@@ -84,6 +85,7 @@
             <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
             <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
             <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
+            <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
             <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
           </div>
           <div>
