@@ -145,6 +145,44 @@
       <img src="assets/horizontal-style-atelier.jpeg" alt="Sélection de vêtements et accessoires dans un esprit mode">
     </figure>
 
+    <!-- ============================================================
+         MANIFESTO — "Le matin, autrement."
+         Qui sommes-nous / Notre objectif — scène éditoriale split-screen
+         avec parallax doux au scroll.
+         ============================================================ -->
+    <section class="manifesto" id="qui-sommes-nous" aria-labelledby="manifesto-title">
+      <div class="manifesto-grid">
+        <figure class="manifesto-visual" data-parallax="0.15">
+          <img src="assets/senior-manteau-matin.jpg"
+               alt="Rituel matinal — un homme boutonne son manteau avec soin"
+               loading="lazy">
+        </figure>
+        <div class="manifesto-copy">
+          <p class="eyebrow">Qui sommes-nous</p>
+          <h2 id="manifesto-title" class="manifesto-title">
+            Le matin, <span class="accent">autrement</span>.
+          </h2>
+          <p class="manifesto-lede">
+            Avant de sortir, un geste. Boutonner son manteau, ajuster l'écharpe,
+            regarder par la fenêtre.
+          </p>
+          <p class="manifesto-text">
+            Styleme.fr commence là — dans le silence du matin,
+            quand on choisit qui l'on sera aujourd'hui.
+          </p>
+          <p class="manifesto-text manifesto-text--muted">
+            Pas une appli de plus. Un compagnon discret qui part de
+            ta vraie vie — tes vêtements, ton agenda, la météo, ton humeur —
+            pour te répondre simplement&nbsp;: <em>qu'est-ce que je porte aujourd'hui ?</em>
+          </p>
+          <div class="manifesto-signature">
+            <span class="manifesto-sign-line"></span>
+            <span class="manifesto-sign-text">Notre objectif chez Styleme.fr</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- STEPS — titre : "Trois gestes. Une tenue." -->
     <section class="steps" id="comment-ca-marche">
       <div class="shell">
@@ -234,18 +272,68 @@
       </div>
     </section>
 
-    <!-- COMMUNITY — titre : "Une tribu, pas une vitrine." -->
-    <section class="community">
-      <div class="shell community-grid">
-        <figure class="community-image">
-          <img src="assets/community.jpeg" alt="Communauté de styles partagés">
-        </figure>
-        <div>
-          <p class="eyebrow" data-i18n="community_eyebrow">Communauté engagée</p>
-          <h2 data-i18n="community_title">Une tribu, pas une vitrine.</h2>
-          <p data-i18n="community_text">Inspire-toi de personnes qui te ressemblent. Crée ta tribu pour vous conseiller, vous montrer vos tenues, échanger des pièces avec celles et ceux qui vivent près de toi.</p>
-          <p data-i18n="community_text_2">Pas de likes, pas de classement. Juste des regards bienveillants, et des vêtements qui passent de main en main au lieu de finir au fond d'un placard.</p>
+    <!-- ============================================================
+         COMMUNITY — "Une tribu, pas une vitrine."
+         Vidéo immersive + manifeste contre la fast-fashion + troc inscrits
+         ============================================================ -->
+    <section class="community community--immersive" id="communaute">
+      <!-- Vidéo en background pleine largeur -->
+      <div class="community-video-wrap" data-parallax="0.1">
+        <video
+          class="community-video"
+          src="assets/video/styleme-troc-morning.mp4"
+          poster="assets/video/styleme-troc-morning-poster.jpg"
+          autoplay muted loop playsinline preload="metadata"
+          aria-hidden="true"></video>
+        <div class="community-video-overlay"></div>
+      </div>
+
+      <div class="shell community-content">
+        <p class="eyebrow" data-i18n="community_eyebrow">Communauté engagée</p>
+        <h2 class="community-title" data-i18n="community_title">
+          Une tribu, <span class="accent">pas une vitrine</span>.
+        </h2>
+        <p class="community-lede">
+          Chez Styleme.fr, on croit qu'un vêtement vit plusieurs vies.
+          Qu'un t-shirt envoyé à 2€ d'un bout de la France à l'autre
+          vaut mieux qu'un t-shirt neuf commandé à l'autre bout du monde.
+        </p>
+
+        <div class="community-pillars">
+          <article class="community-pillar">
+            <span class="pillar-num">01</span>
+            <h3 class="pillar-title">Le troc entre inscrits</h3>
+            <p class="pillar-text">
+              Tu n'aimes plus une pièce&nbsp;? Quelqu'un, quelque part,
+              l'attend. Échange direct, frais minimes, pas de marge,
+              pas de revente déguisée.
+            </p>
+          </article>
+
+          <article class="community-pillar">
+            <span class="pillar-num">02</span>
+            <h3 class="pillar-title">Contre la fast-fashion</h3>
+            <p class="pillar-text">
+              On ne propose jamais d'acheter neuf en premier réflexe.
+              Styleme.fr regarde d'abord ce que tu as déjà
+              — et te le fait redécouvrir.
+            </p>
+          </article>
+
+          <article class="community-pillar">
+            <span class="pillar-num">03</span>
+            <h3 class="pillar-title">Une autre mode</h3>
+            <p class="pillar-text">
+              Pas de likes, pas de classement. Juste des regards bienveillants,
+              et des vêtements qui passent de main en main au lieu de finir
+              au fond d'un placard.
+            </p>
+          </article>
         </div>
+
+        <p class="community-signature">
+          <em>« Acheter moins, porter mieux, partager plus. »</em>
+        </p>
       </div>
     </section>
 
