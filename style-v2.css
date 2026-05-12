@@ -1317,3 +1317,235 @@ section {
   .slogan-banner-sep { display: none; }
 }
 
+
+
+/* ============================================================
+   POSTERS — Section "L'inspiration de la semaine" (conseils.html)
+   3 affiches verticales côte à côte, non superposées
+   ============================================================ */
+.posters-section {
+  padding: 7rem 0;
+  background: linear-gradient(180deg, var(--cream) 0%, #f7f1e7 100%);
+  position: relative;
+  overflow: hidden;
+}
+.posters-section::before {
+  content: "";
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(196,90,60,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.section-head--centered {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 4rem;
+}
+.section-head--centered .section-lede {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.posters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+.poster-card {
+  position: relative;
+  transition: transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.poster-card a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.poster-frame {
+  position: relative;
+  margin: 0 0 1.5rem;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px -25px rgba(30,25,20,0.35), 0 8px 20px -10px rgba(30,25,20,0.18);
+  background: var(--cream);
+  aspect-ratio: 9 / 16;
+  transition: transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .6s ease;
+}
+.poster-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  transition: transform .8s cubic-bezier(.2,.8,.2,1);
+}
+.poster-card:hover .poster-frame {
+  transform: translateY(-10px) rotate(-0.5deg);
+  box-shadow: 0 40px 80px -30px rgba(30,25,20,0.45), 0 15px 30px -15px rgba(30,25,20,0.25);
+}
+.poster-card:hover .poster-frame img {
+  transform: scale(1.04);
+}
+.poster-card:nth-child(2) .poster-frame { transform: translateY(20px); }
+.poster-card:nth-child(2):hover .poster-frame { transform: translateY(10px) rotate(0.5deg); }
+
+.poster-meta {
+  text-align: center;
+  padding: 0 0.5rem;
+}
+.poster-eyebrow {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--terracotta);
+  font-weight: 600;
+}
+.poster-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+  color: var(--ink);
+  margin: 0.6rem 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+.poster-text {
+  font-size: 0.93rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .posters-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .poster-card:nth-child(2) .poster-frame { transform: none; }
+  .poster-card:nth-child(3) { grid-column: 1 / -1; max-width: 360px; margin: 0 auto; }
+}
+@media (max-width: 560px) {
+  .posters-section { padding: 4rem 0; }
+  .posters-grid { grid-template-columns: 1fr; gap: 2rem; max-width: 360px; margin: 0 auto; }
+  .poster-card:nth-child(3) { grid-column: auto; max-width: none; }
+}
+
+
+/* ============================================================
+   MOSAÏQUE ANIMÉE — Adobe loops inspired (home)
+   Grille asymétrique + Ken Burns subtil + hover reveal
+   ============================================================ */
+.mosaic-section {
+  padding: 7rem 0;
+  background: var(--cream);
+  position: relative;
+}
+
+.mosaic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 1.25rem;
+}
+.mosaic-item {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 10px 30px -15px rgba(30,25,20,0.25);
+  transition: transform .6s cubic-bezier(.2,.8,.2,1), box-shadow .6s ease;
+}
+.mosaic-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.08);
+  transition: transform 8s ease-out, filter .6s ease;
+  filter: saturate(0.95) brightness(0.96);
+}
+
+/* Variations de tailles asymétriques */
+.mosaic-item--tall  { grid-row: span 2; }
+.mosaic-item--wide  { grid-column: span 2; }
+
+/* Animations Ken Burns à vitesses variées */
+@keyframes kenburns-slow {
+  0%   { transform: scale(1.08) translate(0, 0); }
+  50%  { transform: scale(1.15) translate(-1.5%, -1%); }
+  100% { transform: scale(1.08) translate(0, 0); }
+}
+@keyframes kenburns-medium {
+  0%   { transform: scale(1.08) translate(0, 0); }
+  50%  { transform: scale(1.18) translate(1.5%, 1%); }
+  100% { transform: scale(1.08) translate(0, 0); }
+}
+@keyframes kenburns-fast {
+  0%   { transform: scale(1.08) translate(0, 0); }
+  50%  { transform: scale(1.2) translate(-1%, 1.5%); }
+  100% { transform: scale(1.08) translate(0, 0); }
+}
+.mosaic-item--anim-slow img   { animation: kenburns-slow 18s ease-in-out infinite; }
+.mosaic-item--anim-medium img { animation: kenburns-medium 14s ease-in-out infinite; }
+.mosaic-item--anim-fast img   { animation: kenburns-fast 11s ease-in-out infinite; }
+
+/* Hover effect : zoom + brightness + reveal caption */
+.mosaic-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px -20px rgba(30,25,20,0.45);
+  z-index: 2;
+}
+.mosaic-item:hover img {
+  animation-play-state: paused;
+  transform: scale(1.25);
+  filter: saturate(1.15) brightness(1);
+  transition: transform 2.2s cubic-bezier(.2,.8,.2,1), filter .6s ease;
+}
+
+.mosaic-item figcaption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 1.5rem;
+  background: linear-gradient(0deg, rgba(20,18,14,0.85) 0%, rgba(20,18,14,0) 55%);
+  opacity: 0;
+  transition: opacity .5s ease;
+  pointer-events: none;
+}
+.mosaic-item figcaption span {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--cream);
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  letter-spacing: -0.01em;
+  transform: translateY(10px);
+  transition: transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.mosaic-item:hover figcaption {
+  opacity: 1;
+}
+.mosaic-item:hover figcaption span {
+  transform: translateY(0);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .mosaic-item img { animation: none !important; }
+  .mosaic-item:hover img { transform: scale(1.08); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .mosaic-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 180px; }
+  .mosaic-item--wide { grid-column: span 2; }
+  .mosaic-item--tall { grid-row: span 2; }
+}
+@media (max-width: 600px) {
+  .mosaic-section { padding: 4rem 0; }
+  .mosaic-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; gap: 0.75rem; }
+  .mosaic-item--wide { grid-column: span 2; }
+  .mosaic-item--tall { grid-row: span 2; }
+}
