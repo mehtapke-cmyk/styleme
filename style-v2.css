@@ -1549,3 +1549,253 @@ section {
   .mosaic-item--wide { grid-column: span 2; }
   .mosaic-item--tall { grid-row: span 2; }
 }
+
+
+/* ============================================================
+   MANIFESTO — "Le matin, autrement."
+   Scène éditoriale split-screen avec parallax doux
+   ============================================================ */
+.manifesto {
+  padding: 8rem 0;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.manifesto::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: -10%;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(196,90,60,0.07) 0%, transparent 70%);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.manifesto-grid {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.manifesto-visual {
+  position: relative;
+  margin: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  box-shadow:
+    0 40px 80px -30px rgba(30,25,20,0.45),
+    0 15px 30px -15px rgba(30,25,20,0.20);
+  will-change: transform;
+}
+.manifesto-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: saturate(0.96) contrast(1.02);
+  transition: transform 1.2s cubic-bezier(.2,.8,.2,1);
+}
+.manifesto-visual:hover img {
+  transform: scale(1.03);
+}
+
+.manifesto-copy { padding-left: 0.25rem; }
+
+.manifesto-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 1rem 0 1.8rem;
+  font-weight: 500;
+}
+.manifesto-title .accent {
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 400;
+}
+.manifesto-lede {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0 0 1.5rem;
+  max-width: 520px;
+}
+.manifesto-text {
+  font-size: clamp(1rem, 1.15vw, 1.08rem);
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+  max-width: 520px;
+}
+.manifesto-text--muted {
+  color: var(--ink-soft);
+  opacity: 0.85;
+}
+.manifesto-signature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.2rem;
+}
+.manifesto-sign-line {
+  display: inline-block;
+  width: 48px;
+  height: 1px;
+  background: var(--terracotta);
+}
+.manifesto-sign-text {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .manifesto { padding: 5rem 0; }
+  .manifesto-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .manifesto-visual { aspect-ratio: 4/5; max-width: 480px; margin: 0 auto; }
+}
+
+
+/* ============================================================
+   COMMUNITY IMMERSIVE — vidéo + manifeste anti-fast-fashion
+   ============================================================ */
+.community--immersive {
+  position: relative;
+  padding: 9rem 0;
+  overflow: hidden;
+  background: #1a1612;       /* fallback foncé */
+  color: var(--cream);
+  isolation: isolate;
+}
+.community-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.community-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.05);    /* léger zoom pour parallax */
+  will-change: transform;
+}
+.community-video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(26,22,18,0.55) 0%,
+      rgba(26,22,18,0.78) 40%,
+      rgba(26,22,18,0.88) 100%
+    );
+}
+
+.community-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  text-align: center;
+}
+.community--immersive .eyebrow {
+  color: rgba(245, 235, 220, 0.7);
+}
+.community-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 1rem auto 2rem;
+  font-weight: 500;
+  color: var(--cream);
+  max-width: 18ch;
+}
+.community-title .accent {
+  font-style: italic;
+  color: #e7a89a;            /* terracotta clair pour contraste sur fond sombre */
+  font-weight: 400;
+}
+.community-lede {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  line-height: 1.55;
+  color: rgba(245, 235, 220, 0.92);
+  max-width: 680px;
+  margin: 0 auto 4.5rem;
+}
+
+.community-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  text-align: left;
+  margin-bottom: 4rem;
+}
+.community-pillar {
+  position: relative;
+  padding: 2rem 1.5rem 2rem 0;
+  border-top: 1px solid rgba(245, 235, 220, 0.18);
+}
+.pillar-num {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #e7a89a;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.02em;
+}
+.pillar-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--cream);
+  margin: 0 0 0.8rem;
+  letter-spacing: -0.01em;
+}
+.pillar-text {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(245, 235, 220, 0.78);
+  margin: 0;
+}
+
+.community-signature {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  color: rgba(245, 235, 220, 0.95);
+  margin: 0;
+  letter-spacing: -0.005em;
+}
+.community-signature em {
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .community--immersive { padding: 5rem 0; }
+  .community-pillars { grid-template-columns: 1fr; gap: 0; }
+  .community-pillar { padding: 1.8rem 0; }
+  .community-lede { margin-bottom: 2.5rem; }
+}
+
+/* Reduced motion : on coupe la vidéo autoplay */
+@media (prefers-reduced-motion: reduce) {
+  .community-video { display: none; }
+  .community-video-wrap {
+    background: url("assets/video/styleme-troc-morning-poster.jpg") center/cover no-repeat;
+  }
+}

@@ -59,18 +59,35 @@
 
   // ---------- Subtle parallax on photos ----------
   if (!reduced) {
-    const parallaxEls = document.querySelectorAll('.photo-break img, .story-photo img, .step-card img, .community-image img');
-    parallaxEls.forEach(img => img.classList.add('parallax-img'));
+    const legacyEls = document.querySelectorAll('.photo-break img, .story-photo img, .step-card img, .community-image img');
+    legacyEls.forEach(img => img.classList.add('parallax-img'));
+
+    // Nouveaux éléments avec [data-parallax="0.15"] : amplitude custom
+    const customEls = Array.from(document.querySelectorAll('[data-parallax]')).map(el => {
+      const target = el.matches('video, img') ? el : (el.querySelector('img, video') || el);
+      const strength = parseFloat(el.dataset.parallax) || 0.12;
+      return { el: target, strength };
+    });
 
     let ticking = false;
     const applyParallax = () => {
       const vh = window.innerHeight;
-      parallaxEls.forEach(img => {
+      // Legacy : translate Y ±30px + scale 1.08
+      legacyEls.forEach(img => {
         const rect = img.getBoundingClientRect();
         if (rect.bottom < 0 || rect.top > vh) return;
         const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
         const translate = Math.max(-30, Math.min(30, progress * -20));
         img.style.transform = `translate3d(0, ${translate}px, 0) scale(1.08)`;
+      });
+      // Custom : amplitude proportionnelle à data-parallax
+      customEls.forEach(({ el, strength }) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom < -100 || rect.top > vh + 100) return;
+        const progress = (rect.top + rect.height / 2 - vh / 2) / vh;
+        const translate = progress * -100 * strength;
+        const baseScale = el.tagName === 'VIDEO' ? 1.05 : 1.04;
+        el.style.transform = `translate3d(0, ${translate.toFixed(2)}px, 0) scale(${baseScale})`;
       });
       ticking = false;
     };
