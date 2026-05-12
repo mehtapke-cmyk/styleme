@@ -3,112 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comment cela fonctionne ? — Styleme.fr</title>
+  <meta name="description" content="Comment fonctionne Styleme.fr : trois gestes, une tenue. Le styliste IA qui part de ce que tu as déjà.">
+  <title>Comment ça marche — Styleme.fr</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Fraunces:opsz,wght@9..144,600;9..144,750;9..144,900&family=Inter:wght@400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&family=Playfair+Display:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style-v2.css">
 </head>
 <body>
-    <header class="site-header">
-    <nav class="nav shell" aria-label="Navigation principale">
-      <a class="brand" href="index.html" aria-label="Styleme.fr accueil">
-        <span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo-transparent.png" alt=""></span>
-        <span class="site-name">Styleme.fr</span>
-      </a>
-      <div class="nav-links">
-        <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
-        <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
-        <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
-        <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
-      </div>
-      <div class="lang-dropdown" role="navigation" aria-label="Sélection de langue">
-        <button class="lang-dropdown-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
-          <span class="lang-flag">🇫🇷</span>
-          <span class="lang-code">FR</span>
-          <span class="lang-chevron" aria-hidden="true">▾</span>
-        </button>
-        <ul class="lang-dropdown-menu" role="listbox" aria-label="Choisir la langue">
-          <li role="option" data-lang="fr"><button type="button" data-lang="fr"><span>🇫🇷</span> FR — Français</button></li>
-          <li role="option" data-lang="en"><button type="button" data-lang="en"><span>🇬🇧</span> EN — English</button></li>
-          <li role="option" data-lang="es"><button type="button" data-lang="es"><span>🇪🇸</span> ES — Español</button></li>
-          <li role="option" data-lang="zh"><button type="button" data-lang="zh"><span>🇨🇳</span> 中文</button></li>
-          <li role="option" data-lang="ru"><button type="button" data-lang="ru"><span>🇷🇺</span> RU — Русский</button></li>
-          <li role="option" data-lang="ar"><button type="button" data-lang="ar"><span>🇸🇦</span> AR — عربي</button></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <section class="page-hero section-band">
-      <div class="shell section-head centered">
-        <p class="eyebrow" data-i18n="steps_eyebrow">Comment cela fonctionne ?</p>
-        <h1 data-i18n-html="steps_title">Simple, visuel, utile tout de suite.</h1>
-        <p data-i18n-html="page_how_intro"><span class="site-name">Styleme.fr</span> part de ta vraie vie : tes vêtements, ton agenda, la météo et ton humeur du matin.</p>
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <div data-partial="header"></div>
+
+  <main id="content">
+    <section class="page-hero">
+      <div class="shell">
+        <p class="eyebrow" data-i18n="steps_eyebrow">Comment ça marche</p>
+        <h1 data-i18n-html="steps_page_title">Trois gestes. <em>Une tenue.</em></h1>
+        <p data-i18n="page_how_intro">Styleme.fr part de ta vraie vie : tes vêtements, ton agenda, la météo et ton humeur du matin. Pas d'application à télécharger, pas de quiz interminable. Tu ouvres le site, tu montres ce que tu as, tu reçois un avis. C'est tout.</p>
       </div>
     </section>
-    <figure class="photo-break"><img src="assets/horizontal-style-atelier.jpeg" alt="Sélection de vêtements et accessoires"></figure>
+
+    <figure class="photo-break photo-break--editorial">
+      <img src="assets/horizontal-style-atelier.jpeg" alt="Sélection de vêtements et accessoires">
+    </figure>
+
     <section>
-      <div class="shell steps-grid">
-        <article class="step-card">
-          <img src="assets/closet-choice.jpeg" alt="Choix dans une garde-robe">
-          <div class="step-pill">01</div>
-          <h3 data-i18n="step_1_title">Tu montres ta tenue</h3>
-          <p data-i18n="step_1_text">Une photo de ta tenue, de ton armoire ou d'une pièce que tu veux porter.</p>
-        </article>
-        <article class="step-card">
-          <img src="assets/mobile-style.jpeg" alt="Conseil mode sur téléphone">
-          <div class="step-pill">02</div>
-          <h3 data-i18n="step_2_title">Ton assistant mode répond</h3>
-          <p data-i18n="step_2_text">Un avis court, concret et bienveillant : couleur, chaussure, veste, accessoire.</p>
-        </article>
-        <article class="step-card">
-          <img src="assets/outfit-flatlay-denim.jpeg" alt="Tenue préparée à plat">
-          <div class="step-pill">03</div>
-          <h3 data-i18n="step_3_title">Ton dressing apprend</h3>
-          <p data-i18n="step_3_text">Ton styliste personnel retient ce que tu aimes et ressort les bonnes idées au bon moment.</p>
-        </article>
+      <div class="shell">
+        <div class="steps-grid">
+          <article class="step-card">
+            <img src="assets/closet-choice.jpeg" alt="Choix dans une garde-robe">
+            <div class="step-pill">01</div>
+            <h3 data-i18n="step_1_title">Tu montres ta tenue</h3>
+            <p data-i18n="step_1_text_long">Une photo. C'est tout ce qu'il faut. Ta tenue du jour posée sur le lit, l'intérieur de ton armoire, ou simplement la pièce que tu hésites à porter. Pas besoin de lumière de studio, pas besoin de poser. Le naturel suffit.</p>
+          </article>
+          <article class="step-card">
+            <img src="assets/mobile-style.jpeg" alt="Conseil mode sur téléphone">
+            <div class="step-pill">02</div>
+            <h3 data-i18n="step_2_title">Ton styliste répond</h3>
+            <p data-i18n="step_2_text_long">Un avis court, concret, bienveillant. La couleur qui va réveiller ton teint, la chaussure qui équilibre la silhouette, l'accessoire qui structure l'ensemble. Pas de blabla, pas de leçon — juste la bonne idée, au bon moment.</p>
+          </article>
+          <article class="step-card">
+            <img src="assets/outfit-flatlay-denim.jpeg" alt="Tenue préparée à plat">
+            <div class="step-pill">03</div>
+            <h3 data-i18n="step_3_title">Ton dressing apprend</h3>
+            <p data-i18n="step_3_text_long">Au fil des matins, il retient ce que tu aimes porter, ce qui te va vraiment, les associations qui marchent pour toi. Plus tu l'utilises, plus ses suggestions deviennent justes. Comme un styliste qui te connaîtrait par cœur.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <figure class="photo-break photo-break--editorial">
+      <img src="assets/styleme-editorial-portrait.jpeg" alt="Portrait éditorial mode">
+    </figure>
+
+    <section class="advice section-band">
+      <div class="shell advice-grid">
+        <div class="advice-copy">
+          <p class="eyebrow">Et concrètement ?</p>
+          <h2>Une réponse en moins d'une minute.</h2>
+          <p>Tu n'as pas dix minutes le matin. On le sait. Le temps que ton café passe, ta tenue est validée. Si tu veux changer un détail, tu demandes — il propose une alternative.</p>
+          <p>Et si tu n'aimes pas l'idée ? Tu le dis. Il retient. La prochaine fois, ce sera plus juste.</p>
+          <ul class="advice-list">
+            <li>Une photo, une réponse, une tenue.</li>
+            <li>Des alternatives sur demande.</li>
+            <li>Un dressing qui s'affine semaine après semaine.</li>
+            <li>Aucune publicité, aucune pression d'achat.</li>
+          </ul>
+        </div>
+        <figure class="advice-image">
+          <img src="assets/styleme-closet-rack.jpeg" alt="Dressing organisé">
+        </figure>
+      </div>
+    </section>
+
+    <section class="signup">
+      <div class="shell signup-box">
+        <p class="eyebrow">Prêt à essayer ?</p>
+        <h2>Demande ton accès <span>en avant-première</span>.</h2>
+        <p>Les premiers testeurs reçoivent un accès gratuit et nous aident à façonner l'outil.</p>
+        <div class="hero-actions" style="justify-content:center;margin-top:2rem;">
+          <a class="btn btn-primary" href="rejoindre.html">Rejoindre la bêta</a>
+        </div>
       </div>
     </section>
   </main>
-    <footer class="site-footer">
-    <div class="shell">
-      <div class="footer-brand-row">
-        <a class="footer-brand brand" href="index.html" aria-label="Styleme.fr">
-          <span class="brand-mark"><img src="assets/styleme-logo-sm.svg" alt=""></span>
-          <span class="site-name">Styleme.fr</span>
-        </a>
-        <p class="footer-tagline" data-i18n="footer_tagline">Matin simplifié. Dressing optimisé. Styles partagés. Communauté engagée.</p>
-      </div>
-      <div class="footer-powered-mk">
-        <span class="powered-label" data-i18n="footer_powered">Propulsé par</span>
-        <img class="mk-logo-footer" src="assets/logo-mk-transparent.png" alt="MK Créations Originales">
-        <span class="mk-name">MK Créations Originales</span>
-        <span class="footer-separator">·</span>
-        <span class="footer-location" data-i18n="footer_location">à Argelès-sur-Mer</span>
-        <img class="footer-flag-fr" src="assets/drapeau-france-new.png" alt="France">
-      </div>
-      <div class="footer-grid">
-        <div>
-          <span class="footer-label" data-i18n="footer_pages">Pages</span>
-          <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
-          <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
-          <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
-          <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
-          <a href="confidentialite.html" data-i18n="footer_privacy">Confidentialité</a>
-          <a href="mentions-legales.html" data-i18n="footer_legal">Mentions légales</a>
-        </div>
-        <div>
-          <span class="footer-label" data-i18n="footer_contact">Contact</span>
-          <a href="mailto:bonjour@styleme.fr">bonjour@styleme.fr</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="site-name">Styleme.fr</span> © 2026
-      </div>
-    </div>
-  </footer>
+
+  <div data-partial="footer"></div>
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+  <script src="partials-v2.js"></script>
   <script src="script.js"></script>
+  <script src="interactions-v2.js"></script>
 </body>
 </html>

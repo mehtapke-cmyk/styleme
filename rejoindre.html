@@ -3,96 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rejoindre — Styleme.fr</title>
+  <meta name="description" content="Rejoins l'avant-première de Styleme.fr. Accès gratuit pour les premiers testeurs.">
+  <title>Rejoindre la bêta — Styleme.fr</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Fraunces:opsz,wght@9..144,600;9..144,750;9..144,900&family=Inter:wght@400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&family=Playfair+Display:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style-v2.css">
+  <style>
+    .join-hero {
+      min-height: 80vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: stretch;
+    }
+    .join-hero .join-copy {
+      padding: 10rem var(--shell-px) 4rem;
+      background: var(--cream);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .join-hero .join-photo {
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+    .join-hero .join-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 1.5s cubic-bezier(.2,.6,.2,1);
+    }
+    .join-hero:hover .join-photo img { transform: scale(1.04); }
+    .join-form {
+      max-width: 520px;
+      margin-top: 2.5rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .join-form input {
+      width: 100%;
+      padding: 1.1rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: border-color .3s ease;
+    }
+    .join-form input:focus { outline: none; border-color: var(--ink); }
+    .join-form input::placeholder { color: var(--ink-muted); }
+    .join-form .btn-primary { align-self: flex-start; }
+    .join-privacy { font-size: 0.85rem; color: var(--ink-muted); margin-top: 1rem; }
+
+    .perks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    .perk {
+      padding: 2rem 0;
+      border-top: 2px solid var(--ink);
+    }
+    .perk strong {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.5rem, 2.2vw, 2rem);
+      font-weight: 500;
+      color: var(--terracotta);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .perk p { color: var(--ink-soft); line-height: 1.55; margin: 0; }
+
+    @media (max-width: 960px) {
+      .join-hero { grid-template-columns: 1fr; }
+      .join-hero .join-photo { min-height: 380px; }
+      .join-hero .join-copy { padding-top: 8rem; }
+      .perks-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <header class="site-header">
-    <nav class="nav shell" aria-label="Navigation principale">
-      <a class="brand" href="index.html" aria-label="Styleme.fr accueil">
-        <span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo-transparent.png" alt=""></span>
-        <span class="site-name">Styleme.fr</span>
-      </a>
-      <div class="nav-links">
-        <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
-        <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
-        <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
-        <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
-      </div>
-      <div class="lang-dropdown" role="navigation" aria-label="Sélection de langue">
-        <button class="lang-dropdown-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
-          <span class="lang-flag">🇫🇷</span>
-          <span class="lang-code">FR</span>
-          <span class="lang-chevron" aria-hidden="true">▾</span>
-        </button>
-        <ul class="lang-dropdown-menu" role="listbox" aria-label="Choisir la langue">
-          <li role="option" data-lang="fr"><button type="button" data-lang="fr"><span>🇫🇷</span> FR — Français</button></li>
-          <li role="option" data-lang="en"><button type="button" data-lang="en"><span>🇬🇧</span> EN — English</button></li>
-          <li role="option" data-lang="es"><button type="button" data-lang="es"><span>🇪🇸</span> ES — Español</button></li>
-          <li role="option" data-lang="zh"><button type="button" data-lang="zh"><span>🇨🇳</span> 中文</button></li>
-          <li role="option" data-lang="ru"><button type="button" data-lang="ru"><span>🇷🇺</span> RU — Русский</button></li>
-          <li role="option" data-lang="ar"><button type="button" data-lang="ar"><span>🇸🇦</span> AR — عربي</button></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <section class="signup page-signup page-hero section-band" id="signup">
-      <div class="shell signup-box">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <div data-partial="header"></div>
+
+  <main id="content">
+    <section class="join-hero">
+      <div class="join-copy">
         <p class="eyebrow" data-i18n="signup_eyebrow">Accès en avant-première</p>
-        <h1 data-i18n-html="signup_title">Sois parmi les premiers à tester.</h1>
-        <p data-i18n="signup_text">Laisse ton e-mail et quelques mots.</p>
-        <form id="signupForm" class="signup-form">
+        <h1 data-i18n-html="join_page_title">Sois parmi les <em>premiers</em> à tester.</h1>
+        <p class="lead" data-i18n="join_page_intro">Les premiers testeurs façonnent l'outil avec nous. Tu reçois un accès gratuit, et en échange, tu nous dis ce qui marche, ce qui manque, ce qui te ressemble.</p>
+        <form id="signupForm" class="join-form">
           <input type="email" name="email" id="emailInput" placeholder="Ton adresse e-mail" data-i18n-placeholder="email_placeholder">
           <input type="text" name="profile" id="profileInput" placeholder="Ton besoin style du moment" data-i18n-placeholder="profile_placeholder">
           <button class="btn btn-primary" type="submit" data-i18n="signup_cta">Envoyer ma demande</button>
         </form>
-        <p class="privacy" data-i18n="signup_privacy">Pas de spam. Juste une réponse quand le test ouvre.</p>
+        <p class="join-privacy" data-i18n="signup_privacy">Pas de spam. Juste une réponse quand le test ouvre.</p>
+      </div>
+      <div class="join-photo">
+        <img src="assets/hero-confident-style.jpeg" alt="Style confiant">
       </div>
     </section>
-    <figure class="photo-break"><img src="assets/footer-argeles-style.jpeg" alt="Inspiration Styleme.fr"></figure>
+
+    <section>
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Ce que tu reçois</p>
+          <h2>Pas juste un accès. Une place dans l'aventure.</h2>
+        </div>
+        <div class="perks-grid">
+          <div class="perk">
+            <strong>01 — Accès gratuit</strong>
+            <p>Toute la bêta, sans limite. Avant tout le monde, sans pub, sans abonnement.</p>
+          </div>
+          <div class="perk">
+            <strong>02 — Ton avis compte</strong>
+            <p>Ce que tu nous dis façonne l'outil. Les premières fonctionnalités, c'est toi qui les choisis.</p>
+          </div>
+          <div class="perk">
+            <strong>03 — Une tribu fondatrice</strong>
+            <p>Tu fais partie des premiers visages de Styleme.fr. Une communauté discrète, exigeante, bienveillante.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <figure class="photo-break photo-break--hero">
+      <img src="assets/footer-argeles-style.jpeg" alt="Inspiration Styleme.fr">
+    </figure>
   </main>
-    <footer class="site-footer">
-    <div class="shell">
-      <div class="footer-brand-row">
-        <a class="footer-brand brand" href="index.html" aria-label="Styleme.fr">
-          <span class="brand-mark"><img src="assets/styleme-logo-sm.svg" alt=""></span>
-          <span class="site-name">Styleme.fr</span>
-        </a>
-        <p class="footer-tagline" data-i18n="footer_tagline">Matin simplifié. Dressing optimisé. Styles partagés. Communauté engagée.</p>
-      </div>
-      <div class="footer-powered-mk">
-        <span class="powered-label" data-i18n="footer_powered">Propulsé par</span>
-        <img class="mk-logo-footer" src="assets/logo-mk-transparent.png" alt="MK Créations Originales">
-        <span class="mk-name">MK Créations Originales</span>
-        <span class="footer-separator">·</span>
-        <span class="footer-location" data-i18n="footer_location">à Argelès-sur-Mer</span>
-        <img class="footer-flag-fr" src="assets/drapeau-france-new.png" alt="France">
-      </div>
-      <div class="footer-grid">
-        <div>
-          <span class="footer-label" data-i18n="footer_pages">Pages</span>
-          <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
-          <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
-          <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
-          <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
-          <a href="confidentialite.html" data-i18n="footer_privacy">Confidentialité</a>
-          <a href="mentions-legales.html" data-i18n="footer_legal">Mentions légales</a>
-        </div>
-        <div>
-          <span class="footer-label" data-i18n="footer_contact">Contact</span>
-          <a href="mailto:bonjour@styleme.fr">bonjour@styleme.fr</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="site-name">Styleme.fr</span> © 2026
-      </div>
-    </div>
-  </footer>
+
+  <div data-partial="footer"></div>
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+  <script src="partials-v2.js"></script>
   <script src="script.js"></script>
+  <script src="interactions-v2.js"></script>
 </body>
 </html>
