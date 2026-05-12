@@ -731,3 +731,67 @@ function showToast(message) {
 }
 
 applyLanguage(localStorage.getItem("styleme-language") || "fr");
+
+
+/* ═══════════════════════════════════════════════════════════
+   MISE À JOUR — menu langue drapeau + formulaire email
+═══════════════════════════════════════════════════════════ */
+
+const langFlags = { fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', zh:'🇨🇳', ru:'🇷🇺', ar:'🇸🇦' };
+const langNames = { fr:'FR', en:'EN', es:'ES', zh:'中文', ru:'RU', ar:'AR' };
+
+function initLangDropdown() {
+  document.querySelectorAll('.lang-dropdown').forEach(dropdown => {
+    const toggle = dropdown.querySelector('.lang-dropdown-toggle');
+    const menu   = dropdown.querySelector('.lang-dropdown-menu');
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    menu.querySelectorAll('button[data-lang]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        applyLanguage(btn.dataset.lang);
+        dropdown.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.lang-dropdown.is-open').forEach(d => {
+      d.classList.remove('is-open');
+      d.querySelector('.lang-dropdown-toggle')?.setAttribute('aria-expanded','false');
+    });
+  });
+}
+
+function updateDropdownDisplay(lang) {
+  document.querySelectorAll('.lang-dropdown').forEach(dropdown => {
+    const flagEl = dropdown.querySelector('.lang-flag');
+    const codeEl = dropdown.querySelector('.lang-code');
+    if (flagEl) flagEl.textContent = langFlags[lang] || '🌐';
+    if (codeEl) codeEl.textContent = langNames[lang] || lang.toUpperCase();
+
+    dropdown.querySelectorAll('li[data-lang]').forEach(li => {
+      li.classList.toggle('is-active', li.dataset.lang === lang);
+    });
+  });
+}
+
+// Surcharger applyLanguage pour mettre à jour le dropdown
+const _origApplyLanguage = applyLanguage;
+// eslint-disable-next-line no-global-assign
+applyLanguage = function(lang) {
+  _origApplyLanguage(lang);
+  updateDropdownDisplay(lang);
+};
+
+initLangDropdown();
+
+// Appliquer la langue sauvegardée
+const savedLang = localStorage.getItem('styleme-language') || 'fr';
+updateDropdownDisplay(savedLang);
