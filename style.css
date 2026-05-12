@@ -656,3 +656,25 @@ p {
   font-family: var(--font-body) !important;
   font-size: var(--type-paragraph) !important;
 }
+
+/* ===== HEADER NAV FINAL FIX — logo 48px, padding suffisant ===== */
+.site-header .brand-mark,
+.site-header .brand .brand-mark {
+  width: 48px !important;
+  height: 48px !important;
+  flex: 0 0 48px !important;
+}
+.nav.shell {
+  padding-left: max(16px, 1.5vw) !important;
+  padding-right: max(16px, 1.5vw) !important;
+  overflow: visible;
+}
+.nav-links a {
+  padding: .18rem .3rem;
+  font-size: clamp(0.82rem, 1vw, 1rem);
+  white-space: nowrap;
+}
+.lang-switch {
+  flex-shrink: 0;
+}
+
