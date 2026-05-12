@@ -3,111 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pourquoi Styleme.fr ? — Styleme.fr</title>
+  <meta name="description" content="Pourquoi Styleme.fr est différent : moins de tenues, zéro pub, et un vrai engagement contre la fast fashion.">
+  <title>Moins. Mais mieux. — Styleme.fr</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Fraunces:opsz,wght@9..144,600;9..144,750;9..144,900&family=Inter:wght@400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&family=Playfair+Display:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style-v2.css">
+  <style>
+    .impact-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 4rem 0;
+      padding: 3rem 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .impact-stats article { display: flex; flex-direction: column; gap: 0.75rem; }
+    .impact-stats strong {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--terracotta);
+      font-style: italic;
+      line-height: 1;
+    }
+    .impact-stats span {
+      font-size: 0.98rem;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+    .impact-lede {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+      line-height: 1.4;
+      max-width: 880px;
+      color: var(--ink);
+      font-weight: 400;
+    }
+    .impact-sources {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      margin-top: 2rem;
+    }
+    .impact-sources a { color: var(--terracotta); border-bottom: 1px solid currentColor; }
+    @media (max-width: 760px) {
+      .impact-stats { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <header class="site-header">
-    <nav class="nav shell" aria-label="Navigation principale">
-      <a class="brand" href="index.html" aria-label="Styleme.fr accueil">
-        <span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo-transparent.png" alt=""></span>
-        <span class="site-name">Styleme.fr</span>
-      </a>
-      <div class="nav-links">
-        <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
-        <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
-        <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
-        <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
-      </div>
-      <div class="lang-dropdown" role="navigation" aria-label="Sélection de langue">
-        <button class="lang-dropdown-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
-          <span class="lang-flag">🇫🇷</span>
-          <span class="lang-code">FR</span>
-          <span class="lang-chevron" aria-hidden="true">▾</span>
-        </button>
-        <ul class="lang-dropdown-menu" role="listbox" aria-label="Choisir la langue">
-          <li role="option" data-lang="fr"><button type="button" data-lang="fr"><span>🇫🇷</span> FR — Français</button></li>
-          <li role="option" data-lang="en"><button type="button" data-lang="en"><span>🇬🇧</span> EN — English</button></li>
-          <li role="option" data-lang="es"><button type="button" data-lang="es"><span>🇪🇸</span> ES — Español</button></li>
-          <li role="option" data-lang="zh"><button type="button" data-lang="zh"><span>🇨🇳</span> 中文</button></li>
-          <li role="option" data-lang="ru"><button type="button" data-lang="ru"><span>🇷🇺</span> RU — Русский</button></li>
-          <li role="option" data-lang="ar"><button type="button" data-lang="ar"><span>🇸🇦</span> AR — عربي</button></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <section class="difference page-hero section-band">
+  <a class="skip-link" href="#content">Aller au contenu</a>
+  <div data-partial="header"></div>
+
+  <main id="content">
+    <section class="page-hero">
       <div class="shell">
-        <div class="shell section-head centered">
-          <p class="eyebrow" data-i18n="difference_eyebrow">Pas une appli shopping</p>
-          <h1 data-i18n-html="difference_title">Pourquoi Styleme.fr ?</h1>
-          <p class="difference-intro" data-i18n-html="difference_intro"><strong class="site-name">Styleme.fr</strong> s'engage pour une consommation de la mode plus consciente : <span>Matin simplifié.</span> <span>Dressing optimisé.</span> <span>Styles partagés.</span> <span>Communauté engagée.</span></p>
-        </div>
-        <div class="impact-panel">
-          <p class="impact-lede" data-i18n="impact_lede">Notre projet a pour ambition de révolutionner les habitudes des consommateurs : mieux utiliser ce que l'on possède déjà, limiter les achats réflexes et se positionner clairement contre la fast fashion.</p>
-          <div class="impact-stats">
-            <article><strong data-i18n="impact_stat_1_number">2,6 milliards</strong><span data-i18n="impact_stat_1_text">de vêtements vendus chaque année en France, soit 39 par personne.</span></article>
-            <article><strong data-i18n="impact_stat_2_number">2 à 8 %</strong><span data-i18n="impact_stat_2_text">des émissions mondiales de gaz à effet de serre seraient liées au textile.</span></article>
-            <article><strong data-i18n="impact_stat_3_number">1 camion/seconde</strong><span data-i18n="impact_stat_3_text">de vêtements est brûlé ou envoyé en décharge dans le monde.</span></article>
-          </div>
-        </div>
-        <div class="compare-wrap">
-          <table class="diff-table">
-            <thead><tr><th data-i18n="diff_head_1">Les autres apps</th><th data-i18n="diff_head_2"><span class="site-name">Styleme.fr</span></th></tr></thead>
-            <tbody>
-              <tr><td data-i18n="diff_1_left">Te montrent 50 tenues par jour.</td><td data-i18n="diff_1_right">Te propose 2 ou 3 idées maximum.</td></tr>
-              <tr><td data-i18n="diff_2_left">Veulent que tu achètes.</td><td data-i18n="diff_2_right">T'aide avec ce que tu as déjà.</td></tr>
-              <tr><td data-i18n="diff_3_left">Sont remplies de pubs.</td><td data-i18n="diff_3_right">Zéro pub.</td></tr>
-              <tr><td data-i18n="diff_4_left">Oublient coiffure et maquillage.</td><td data-i18n="diff_4_right">Les intègre progressivement.</td></tr>
-            </tbody>
-          </table>
-        </div>
+        <p class="eyebrow" data-i18n="difference_eyebrow">Pas une appli shopping</p>
+        <h1 data-i18n-html="difference_page_title">Moins. <em>Mais mieux.</em></h1>
+        <p data-i18n-html="difference_intro"><strong>Styleme.fr</strong> s'engage pour une mode plus consciente. Matin simplifié. Dressing optimisé. Styles partagés. Communauté engagée. Quatre promesses, une même boussole : que tu portes ce que tu as, et que tu le portes bien.</p>
       </div>
     </section>
-    <figure class="photo-break"><img src="assets/horizontal-slow-fashion.jpeg" alt="Mode durable"></figure>
+
+    <section class="comparison">
+      <div class="shell">
+        <p class="impact-lede" data-i18n="impact_lede">Notre projet veut révolutionner les habitudes : mieux utiliser ce que l'on possède déjà, limiter les achats réflexes, se positionner clairement contre la fast fashion.</p>
+        <div class="impact-stats">
+          <article>
+            <strong data-i18n="impact_stat_1_number">2,6 milliards</strong>
+            <span data-i18n="impact_stat_1_text">de vêtements vendus chaque année en France, soit 39 par personne.</span>
+          </article>
+          <article>
+            <strong data-i18n="impact_stat_2_number">2 à 8 %</strong>
+            <span data-i18n="impact_stat_2_text">des émissions mondiales de gaz à effet de serre liées au textile.</span>
+          </article>
+          <article>
+            <strong data-i18n="impact_stat_3_number">1 camion/seconde</strong>
+            <span data-i18n="impact_stat_3_text">de vêtements brûlés ou envoyés en décharge dans le monde.</span>
+          </article>
+        </div>
+        <p class="impact-sources" data-i18n-html="impact_sources">Sources : <a href="https://infos.ademe.fr/magazine-juillet-2025/quels-sont-les-enjeux-dune-mode-plus-durable/" target="_blank" rel="noreferrer">ADEME</a>, <a href="https://www.unep.org/annualreport/2025/stories/minimizing-fashions-environmental-footprint" target="_blank" rel="noreferrer">UNEP</a>, <a href="https://www.ellenmacarthurfoundation.org/fashion-and-the-circular-economy-deep-dive" target="_blank" rel="noreferrer">Ellen MacArthur Foundation</a>.</p>
+
+        <div class="section-head" style="margin-top:6rem;">
+          <p class="eyebrow">Ligne de partage</p>
+          <h2>La différence se mesure tenue par tenue.</h2>
+        </div>
+        <table class="diff-table">
+          <thead>
+            <tr>
+              <th data-i18n="diff_head_1">Les autres apps</th>
+              <th data-i18n="diff_head_2">Styleme.fr</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="diff_1_left">Te montrent 50 tenues par jour.</td>
+              <td data-i18n="diff_1_right">Te propose 2 ou 3 idées maximum.</td>
+            </tr>
+            <tr>
+              <td data-i18n="diff_2_left">Veulent que tu achètes.</td>
+              <td data-i18n="diff_2_right">T'aide avec ce que tu as déjà.</td>
+            </tr>
+            <tr>
+              <td data-i18n="diff_3_left">Sont remplies de pubs.</td>
+              <td data-i18n="diff_3_right">Zéro pub. Jamais.</td>
+            </tr>
+            <tr>
+              <td data-i18n="diff_4_left">Oublient coiffure et maquillage.</td>
+              <td data-i18n="diff_4_right">Les intègre progressivement.</td>
+            </tr>
+            <tr>
+              <td>Te poussent à comparer.</td>
+              <td>T'aide à t'apprécier.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <figure class="photo-break photo-break--hero">
+      <img src="assets/horizontal-slow-fashion.jpeg" alt="Mode durable">
+    </figure>
+
+    <section class="sustainable">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Notre engagement</p>
+          <h2>Une mode qui dure plus longtemps que la tendance.</h2>
+        </div>
+        <p style="max-width:760px;font-size:1.15rem;line-height:1.6;">Styleme.fr n'est pas neutre. Nous croyons qu'on a déjà tout ce qu'il faut dans nos placards. Notre rôle, c'est de t'aider à le voir, à le réveiller, à le faire vivre plus longtemps. C'est aussi simple — et aussi politique — que ça.</p>
+      </div>
+    </section>
   </main>
-    <footer class="site-footer">
-    <div class="shell">
-      <div class="footer-brand-row">
-        <a class="footer-brand brand" href="index.html" aria-label="Styleme.fr">
-          <span class="brand-mark"><img src="assets/styleme-logo-sm.svg" alt=""></span>
-          <span class="site-name">Styleme.fr</span>
-        </a>
-        <p class="footer-tagline" data-i18n="footer_tagline">Matin simplifié. Dressing optimisé. Styles partagés. Communauté engagée.</p>
-      </div>
-      <div class="footer-powered-mk">
-        <span class="powered-label" data-i18n="footer_powered">Propulsé par</span>
-        <img class="mk-logo-footer" src="assets/logo-mk-transparent.png" alt="MK Créations Originales">
-        <span class="mk-name">MK Créations Originales</span>
-        <span class="footer-separator">·</span>
-        <span class="footer-location" data-i18n="footer_location">à Argelès-sur-Mer</span>
-        <img class="footer-flag-fr" src="assets/drapeau-france-new.png" alt="France">
-      </div>
-      <div class="footer-grid">
-        <div>
-          <span class="footer-label" data-i18n="footer_pages">Pages</span>
-          <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
-          <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
-          <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
-          <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
-          <a href="confidentialite.html" data-i18n="footer_privacy">Confidentialité</a>
-          <a href="mentions-legales.html" data-i18n="footer_legal">Mentions légales</a>
-        </div>
-        <div>
-          <span class="footer-label" data-i18n="footer_contact">Contact</span>
-          <a href="mailto:bonjour@styleme.fr">bonjour@styleme.fr</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="site-name">Styleme.fr</span> © 2026
-      </div>
-    </div>
-  </footer>
+
+  <div data-partial="footer"></div>
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+  <script src="partials-v2.js"></script>
   <script src="script.js"></script>
+  <script src="interactions-v2.js"></script>
 </body>
 </html>
