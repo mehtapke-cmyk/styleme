@@ -557,11 +557,7 @@ h3{
   letter-spacing:.12em;
   font-weight:600;
 }
-p{
-  color:var(--body-copy) !important;
-  font-family:var(--font-body) !important;
-  font-size:var(--type-paragraph) !important;
-}
+
 .impact-stats article{
   background:var(--surface);
   border:1.5px solid var(--mint-strong);
@@ -601,4 +597,37 @@ p{
 .signup .section-head,
 .faq-head{
   text-align:center;
+}
+
+/* ============================================================
+   GLOBAL TYPOGRAPHY OVERRIDE — force uniforme sur tout le site
+   h2 = bleu (--headline), h3 = rose (--subtitle), p = or/brun (--body-copy)
+   Doit rester EN DERNIER pour surcharger tous les blocs précédents
+   ============================================================ */
+h2,
+h2 span:not(.site-name),
+section h2,
+.section-head h2,
+.problem h2,
+.story h2,
+.steps h2,
+.advice h2,
+.difference h2,
+.community h2,
+.sustainable h2,
+.signup h2,
+.faq-head h2 {
+  color: var(--headline) !important;
+}
+h3,
+.step-card h3,
+.faq-card h3,
+section h3,
+.section-head h3 {
+  color: var(--subtitle) !important;
+}
+p {
+  color: var(--body-copy) !important;
+  font-family: var(--font-body) !important;
+  font-size: var(--type-paragraph) !important;
 }
