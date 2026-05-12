@@ -664,41 +664,61 @@ section {
   width: 100%;
   aspect-ratio: 4/5;
   object-fit: cover;
+  transition: transform 1.2s cubic-bezier(.2,.6,.2,1);
 }
+.advice-image:hover img { transform: scale(1.04); }
 
 /* Duo éditorial : photo principale + médaillon (dame souriante) */
 .advice-image--duo {
   position: relative;
   overflow: visible;
   border-radius: 0;
+  cursor: default;
+}
+.advice-image__main-wrap {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 60px -25px rgba(30, 25, 20, 0.35);
 }
 .advice-image--duo .advice-image__main {
-  border-radius: var(--radius-md);
   width: 100%;
   aspect-ratio: 4/5;
   object-fit: cover;
   display: block;
-  box-shadow: 0 20px 60px -25px rgba(30, 25, 20, 0.35);
+  transition: transform 1.2s cubic-bezier(.2,.6,.2,1);
 }
-.advice-image--duo .advice-image__inset {
+.advice-image--duo:hover .advice-image__main { transform: scale(1.04); }
+.advice-image__inset-wrap {
   position: absolute;
   bottom: -32px;
   left: -32px;
   width: 44%;
   aspect-ratio: 3/4;
-  object-fit: cover;
   border-radius: var(--radius-md);
   border: 8px solid var(--cream);
   box-shadow: 0 18px 50px -18px rgba(30, 25, 20, 0.40);
   z-index: 2;
   transform: rotate(-3deg);
   transition: transform 0.6s cubic-bezier(.2,.8,.2,1);
+  overflow: hidden;
+  background: var(--cream);
 }
-.advice-image--duo:hover .advice-image__inset {
+.advice-image--duo:hover .advice-image__inset-wrap {
   transform: rotate(-1.5deg) translateY(-4px);
 }
+.advice-image--duo .advice-image__inset {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.2s cubic-bezier(.2,.6,.2,1);
+}
+.advice-image--duo:hover .advice-image__inset {
+  transform: scale(1.06);
+}
 @media (max-width: 768px) {
-  .advice-image--duo .advice-image__inset {
+  .advice-image__inset-wrap {
     width: 50%;
     left: -16px;
     bottom: -20px;
@@ -764,7 +784,9 @@ section {
   width: 100%;
   aspect-ratio: 4/3;
   object-fit: cover;
+  transition: transform 1.2s cubic-bezier(.2,.6,.2,1);
 }
+.community-image:hover img { transform: scale(1.04); }
 
 /* ============================================================
    SUSTAINABLE
