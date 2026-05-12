@@ -56,7 +56,7 @@ a{color:inherit;text-decoration:none}
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:24px;
+  gap:clamp(16px,2.5vw,36px);
   padding:.3rem 0;
   flex-wrap:nowrap;
 }
@@ -108,12 +108,12 @@ a{color:inherit;text-decoration:none}
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: clamp(14px, 1.35vw, 22px);
-  padding-top: 0;
-  margin: 0;
+  gap: clamp(20px, 2.2vw, 36px);
+  padding: 0;
+  margin: 0 auto;
   font-family: var(--font-subtitle);
-  font-size: clamp(0.82rem, 1vw, 1.10rem); /* corrigé : min était .100rem */
-  font-weight: 800;
+  font-size: clamp(0.85rem, 1.05vw, 1.05rem);
+  font-weight: 700;
   color: var(--body-copy);
   white-space: nowrap;
 }
@@ -279,7 +279,8 @@ section{padding:clamp(2.8rem,5vw,4.75rem) 0}
 .story-photo--travel{transform:rotate(1.3deg) translateY(1.2rem);border:8px solid #fff}
 .story-photo--travel{background:#fff}
 .story-photo--travel img{height:330px;object-fit:contain;object-position:center;background:#fff}
-.story-copy{padding:clamp(1.5rem,4vw,3rem)}
+.story-copy{padding:clamp(1.5rem,4vw,3rem);text-align:center}
+.advice-copy{text-align:center}
 .story-copy p:not(.eyebrow),.advice-copy p,.community p,.sustainable p,.signup p{color:var(--muted);font-size:var(--type-paragraph)}
 .story-wake{margin:1.15rem 0 0!important;color:var(--accent-alt)!important;font-family:var(--font-subtitle);font-weight:700}
 .mini-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;margin-top:.85rem}
@@ -490,7 +491,7 @@ html[lang="ar"] .advice-list li{border-left:0;border-right:5px solid var(--pink)
   .site-header .brand{margin-left:0}
   .site-header .brand-mark{width:54px;height:54px}
   .site-header .brand .site-name{display:none}
-  .nav{position:relative;display:block;min-height:122px;padding:.55rem 0 .6rem}
+  .nav{position:relative;min-height:122px;padding:.55rem 0 .6rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}
   .nav-links {
     display: flex;            /* flex au lieu de grid pour centrage */
     flex-wrap: wrap;
@@ -599,6 +600,27 @@ h3{
   text-align:center;
 }
 
+
+/* ============================================================
+   CENTRAGE UNIVERSEL — tous les titres h2 + eyebrows centrés
+   quelle que soit la section parente
+   ============================================================ */
+.community-grid > div,
+.community-grid > div p.eyebrow {
+  text-align: center;
+}
+.sustainable .shell > p.eyebrow,
+.sustainable .shell > h2 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+section > .shell > p.eyebrow,
+section > .shell > h2 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* ============================================================
    GLOBAL TYPOGRAPHY OVERRIDE — force uniforme sur tout le site
    h2 = bleu (--headline), h3 = rose (--subtitle), p = or/brun (--body-copy)
