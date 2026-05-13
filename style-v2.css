@@ -2525,3 +2525,41 @@ body.drawer-open { overflow: hidden; }
 .lang-dropdown--footer.is-open .lang-dropdown-menu {
   transform: translateX(50%) translateY(0);
 }
+
+/* ============================================================
+   MARQUE DÉPOSÉE — ™ STYLEME.FR
+   Petit, élégant, en orange. Positionné en exposant collé au .fr.
+   Apparaît partout où <span class="site-name"> est utilisé :
+   header, footer, titres, FAQ, etc. — cohérence totale.
+   ============================================================ */
+.site-name .tm {
+  display: inline-block;
+  font-family: var(--font-body, 'Inter Tight', system-ui, sans-serif);
+  font-size: 0.42em;
+  font-weight: 600;
+  color: var(--orange);
+  vertical-align: super;
+  line-height: 1;
+  margin-left: 0.12em;
+  letter-spacing: 0;
+  /* Empêche le ™ de "casser" la ligne et de paraître flottant */
+  position: relative;
+  top: -0.05em;
+  /* Légère opacité pour rester discret tout en restant lisible */
+  opacity: 0.92;
+  /* Pas d'animation, pas de transition — il doit être stable */
+  user-select: none;
+}
+
+/* Sur le hero / les très grands titres, le ™ reste proportionnel */
+h1 .site-name .tm,
+.hero-title .site-name .tm {
+  font-size: 0.38em;
+  top: -0.08em;
+}
+
+/* Footer : très subtil */
+.footer-brand .site-name .tm,
+.footer-bottom .site-name .tm {
+  opacity: 0.85;
+}

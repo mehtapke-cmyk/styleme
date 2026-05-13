@@ -27,7 +27,7 @@
       <nav class="nav shell" aria-label="Navigation principale">
         <a class="brand" href="index.html" aria-label="Styleme.fr accueil">
           <span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo-transparent.png" alt=""></span>
-          <span class="site-name">Styleme<span class="fr-suffix">.fr</span></span>
+          <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup></span>
         </a>
         <div class="nav-links">
           <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
@@ -82,7 +82,7 @@
         <div class="footer-brand-row">
           <a class="footer-brand" href="index.html" aria-label="Styleme.fr">
             <span class="brand-mark"><img src="assets/styleme-logo-transparent.png" alt="Styleme.fr"></span>
-            <span class="site-name">Styleme<span class="fr-suffix">.fr</span></span>
+            <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup></span>
           </a>
           <p class="footer-tagline" data-i18n="footer_tagline">L'élégance est déjà dans ton armoire. Achète moins, porte mieux avec ton conseiller mode Styleme<span class="fr-suffix">.fr</span></p>
         </div>
@@ -158,7 +158,7 @@
 
         <!-- Bas de page : Styleme.fr + © directement sous Argelès -->
         <div class="footer-bottom">
-          <span class="site-name">Styleme<span class="fr-suffix">.fr</span></span>
+          <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup></span>
           <span data-i18n="footer_copy">© 2026 · Tous droits réservés</span>
         </div>
 
