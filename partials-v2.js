@@ -95,9 +95,9 @@
           </a>
         </div>
 
-        <!-- Manifeste -->
-        <div class="footer-manifesto">
-          <h3 class="footer-manifesto-title" data-i18n="footer_manifesto_title">Manifeste du style durable</h3>
+        <!-- Manifeste pulsé -->
+        <div class="footer-manifesto manifeste-pulse">
+          <h3 class="footer-manifesto-title" data-i18n="footer_manifesto_title">Manifeste du Style Durable</h3>
           <ul class="footer-manifesto-list">
             <li><span class="manifesto-icon" aria-hidden="true">🍃</span><span data-i18n="footer_manifesto_1">Rien ne se jette. Tout se réinvente.</span></li>
             <li><span class="manifesto-icon" aria-hidden="true">🪐</span><span data-i18n="footer_manifesto_2">On change de tenue, pas de planète.</span></li>
@@ -132,6 +132,28 @@
         <div class="footer-location-block">
           <span class="footer-location-label" data-i18n="footer_location_label">Conçu en France</span>
           <p class="footer-location-city">Argelès-sur-Mer</p>
+        </div>
+
+        <!-- Sélecteur de langue footer (8 langues) -->
+        <div class="footer-lang">
+          <span class="footer-lang-label" data-i18n="footer_lang_label">Langue</span>
+          <div class="lang-dropdown lang-dropdown--footer" role="navigation" aria-label="Sélection de langue (footer)">
+            <button class="lang-dropdown-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span class="lang-flag">🇫🇷</span>
+              <span class="lang-code">FR</span>
+              <span class="lang-chevron" aria-hidden="true">▾</span>
+            </button>
+            <ul class="lang-dropdown-menu" role="listbox" aria-label="Choisir la langue">
+              <li role="option" data-lang="fr"><button type="button" data-lang="fr"><span>🇫🇷</span> FR — Français</button></li>
+              <li role="option" data-lang="en"><button type="button" data-lang="en"><span>🇬🇧</span> EN — English</button></li>
+              <li role="option" data-lang="es"><button type="button" data-lang="es"><span>🇪🇸</span> ES — Español</button></li>
+              <li role="option" data-lang="de"><button type="button" data-lang="de"><span>🇩🇪</span> DE — Deutsch</button></li>
+              <li role="option" data-lang="it"><button type="button" data-lang="it"><span>🇮🇹</span> IT — Italiano</button></li>
+              <li role="option" data-lang="ru"><button type="button" data-lang="ru"><span>🇷🇺</span> RU — Русский</button></li>
+              <li role="option" data-lang="zh"><button type="button" data-lang="zh"><span>🇨🇳</span> ZH — 中文</button></li>
+              <li role="option" data-lang="ar"><button type="button" data-lang="ar"><span>🇸🇦</span> AR — عربي</button></li>
+            </ul>
+          </div>
         </div>
 
         <!-- Bas de page : Styleme.fr + © directement sous Argelès -->

@@ -2459,3 +2459,69 @@ body.drawer-open { overflow: hidden; }
     gap: 2rem;
   }
 }
+
+
+/* ============================================================
+   MANIFESTE PULSÉ (footer)
+   Bannière éditoriale qui respire doucement pour attirer l'œil
+   sans agresser. Respecte prefers-reduced-motion.
+   ============================================================ */
+.footer-manifesto.manifeste-pulse {
+  position: relative;
+  padding: 1.6rem 1.8rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--orange) 35%, transparent);
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--orange) 6%, transparent),
+    color-mix(in srgb, var(--orange) 14%, transparent));
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--orange) 38%, transparent);
+  animation: manifestePulse 3.6s ease-in-out infinite;
+  max-width: 640px;
+  margin: 2rem auto;
+}
+.footer-manifesto.manifeste-pulse .footer-manifesto-title {
+  color: var(--orange);
+  letter-spacing: 0.02em;
+}
+@keyframes manifestePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--orange) 30%, transparent);
+    border-color: color-mix(in srgb, var(--orange) 30%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 12px color-mix(in srgb, var(--orange) 0%, transparent);
+    border-color: color-mix(in srgb, var(--orange) 55%, transparent);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-manifesto.manifeste-pulse { animation: none; }
+}
+
+/* ============================================================
+   SÉLECTEUR DE LANGUE DANS LE FOOTER
+   Le menu s'ouvre vers le HAUT (drop-up) puisqu'on est en bas
+   ============================================================ */
+.footer-lang {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 2rem auto 1rem;
+}
+.footer-lang-label {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lang-dropdown--footer .lang-dropdown-menu {
+  /* Ouvre vers le haut au lieu du bas */
+  top: auto;
+  bottom: calc(100% + 0.75rem);
+  right: 50%;
+  transform: translateX(50%) translateY(8px);
+}
+.lang-dropdown--footer.is-open .lang-dropdown-menu {
+  transform: translateX(50%) translateY(0);
+}
