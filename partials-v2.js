@@ -208,6 +208,11 @@
       drawer.setAttribute('aria-hidden', 'false');
       drawer.classList.add('is-open');
       document.body.classList.add('drawer-open');
+      // FIX: s'assurer que les boutons langue du drawer mobile sont bien bindés
+      // en re-déclenchant l'init des dropdowns à chaque ouverture
+      if (typeof window.__stylemeInitDropdowns === 'function') {
+        try { window.__stylemeInitDropdowns(); } catch (e) {}
+      }
     }
 
     burger.addEventListener('click', () => {
