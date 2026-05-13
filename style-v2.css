@@ -1617,6 +1617,7 @@ section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 220px;
+  grid-auto-flow: dense; /* comble automatiquement les zones vides */
   gap: 1.25rem;
 }
 .mosaic-item {
@@ -1646,17 +1647,17 @@ section {
 /* Animations Ken Burns à vitesses variées */
 @keyframes kenburns-slow {
   0%   { transform: scale(1.08) translate(0, 0); }
-  50%  { transform: scale(1.15) translate(-1.5%, -1%); }
+  50%  { transform: scale(1.22) translate(-2.5%, -2%); }
   100% { transform: scale(1.08) translate(0, 0); }
 }
 @keyframes kenburns-medium {
   0%   { transform: scale(1.08) translate(0, 0); }
-  50%  { transform: scale(1.18) translate(1.5%, 1%); }
+  50%  { transform: scale(1.26) translate(2.5%, 1.5%); }
   100% { transform: scale(1.08) translate(0, 0); }
 }
 @keyframes kenburns-fast {
   0%   { transform: scale(1.08) translate(0, 0); }
-  50%  { transform: scale(1.2) translate(-1%, 1.5%); }
+  50%  { transform: scale(1.3) translate(-2%, 2.5%); }
   100% { transform: scale(1.08) translate(0, 0); }
 }
 .mosaic-item--anim-slow img   { animation: kenburns-slow 18s ease-in-out infinite; }
@@ -2818,4 +2819,19 @@ h1 .site-name .tm,
   .footer-troc__media:hover .footer-troc__video {
     transform: none;
   }
+}
+
+
+/* ============================================================
+   Styleme.fr inline dans les paragraphes (lede, section-lede)
+   Hérite de la typo métallique du header
+   ============================================================ */
+.site-name--inline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -0.025em;
+  font-size: 1.08em; /* légèrement plus grand que le texte du lede */
+  vertical-align: baseline;
+  color: var(--ink);
 }
