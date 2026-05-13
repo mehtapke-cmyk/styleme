@@ -105,12 +105,6 @@
           </ul>
         </div>
 
-        <!-- Localisation avec drapeau filigrane -->
-        <div class="footer-location-block">
-          <span class="footer-location-label" data-i18n="footer_location_label">Conçu en France</span>
-          <p class="footer-location-city">Argelès-sur-Mer</p>
-        </div>
-
         <!-- Navigation complète -->
         <div class="footer-grid">
           <div>
@@ -134,7 +128,13 @@
           </div>
         </div>
 
-        <!-- Bas de page -->
+        <!-- Localisation avec drapeau filigrane -->
+        <div class="footer-location-block">
+          <span class="footer-location-label" data-i18n="footer_location_label">Conçu en France</span>
+          <p class="footer-location-city">Argelès-sur-Mer</p>
+        </div>
+
+        <!-- Bas de page : Styleme.fr + © directement sous Argelès -->
         <div class="footer-bottom">
           <span class="site-name">Styleme<span class="fr-suffix">.fr</span></span>
           <span data-i18n="footer_copy">© 2026 · Tous droits réservés</span>
