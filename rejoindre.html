@@ -368,6 +368,10 @@
       .sticky-cta-mobile { transition: opacity .2s ease; transform: none; }
     }
   </style>
+  <style>
+    /* Désactive le drapeau filigrane du footer UNIQUEMENT sur cette page */
+    .footer-location-block::before { background: none !important; opacity: 0 !important; }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#content">Aller au contenu</a>
