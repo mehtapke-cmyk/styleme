@@ -27,10 +27,10 @@
       <nav class="nav shell" aria-label="Navigation principale">
         <a class="brand" href="index.html" aria-label="Styleme.fr accueil">
           <span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo-transparent.png" alt=""></span>
-          <span class="site-name">Styleme.fr</span>
+          <span class="site-name">Styleme<span class="fr-suffix">.fr</span></span>
         </a>
         <div class="nav-links">
-          <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
+          <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
           <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
           <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
           <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
@@ -57,7 +57,7 @@
       <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
         <div class="mobile-drawer__inner">
           <nav class="mobile-drawer__nav" aria-label="Navigation mobile">
-            <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
+            <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
             <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
             <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
             <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
@@ -82,9 +82,9 @@
         <div class="footer-brand-row">
           <a class="footer-brand" href="index.html" aria-label="Styleme.fr">
             <span class="brand-mark"><img src="assets/styleme-logo-transparent.png" alt="Styleme.fr"></span>
-            <span class="site-name">Styleme.fr</span>
+            <span class="site-name">Styleme<span class="fr-suffix">.fr</span></span>
           </a>
-          <p class="footer-tagline" data-i18n="footer_tagline">L'élégance est déjà dans ton armoire. Achète moins, porte mieux avec ton conseiller mode Styleme.fr</p>
+          <p class="footer-tagline" data-i18n="footer_tagline">L'élégance est déjà dans ton armoire. Achète moins, porte mieux avec ton conseiller mode Styleme<span class="fr-suffix">.fr</span></p>
         </div>
 
         <!-- Propulsé par MK -->
@@ -116,7 +116,7 @@
           <div>
             <span class="footer-label" data-i18n="footer_pages">Navigation</span>
             <a href="index.html" data-i18n="nav_home">Accueil</a>
-            <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
+            <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
             <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
             <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
             <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
@@ -136,7 +136,7 @@
 
         <!-- Bas de page -->
         <div class="footer-bottom">
-          <span class="site-name">Styleme.fr</span>
+          <span class="site-name">Styleme<span class="fr-suffix">.fr</span></span>
           <span data-i18n="footer_copy">© 2026 · Tous droits réservés</span>
         </div>
 

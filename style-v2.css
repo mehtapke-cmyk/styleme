@@ -5,25 +5,40 @@
    ============================================================ */
 
 :root {
-  /* ---- Couleurs ---- */
-  --cream: #F7F2EA;
-  --cream-warm: #EFE7DA;
-  --cream-deep: #E4D9C4;
-  --ink: #1A1A1A;
-  --ink-soft: #2C2A26;
-  --ink-muted: #6B655B;
-  --paper: #FBF8F2;
+  /* ============================================================
+     PALETTE NOIR + ORANGE — palette définitive Styleme.fr
+     Noir profond, blanc cassé éditorial, orange premium signature
+     Les noms de variables historiques sont conservés pour la stabilité
+     ============================================================ */
 
-  --terracotta: #C8674A;
-  --terracotta-deep: #A3503A;
-  --moss: #4F5D3F;
-  --moss-soft: #7A8866;
-  --rose-dust: #D9B5A6;
+  /* Fonds clairs (anciennement crème) → blanc cassé chaleureux */
+  --cream: #FAF7F2;        /* Fond principal très clair */
+  --cream-warm: #F2EDE5;   /* Fond chaud légèrement plus profond */
+  --cream-deep: #E8E1D5;   /* Fond profond pour contraste subtil */
+  --paper: #FCFAF6;        /* Le plus clair, presque blanc */
 
-  --line: rgba(26, 26, 26, 0.12);
-  --line-strong: rgba(26, 26, 26, 0.22);
-  --shadow-soft: 0 30px 80px -30px rgba(26, 26, 26, 0.18);
-  --shadow-card: 0 18px 60px -24px rgba(26, 26, 26, 0.25);
+  /* Noirs (anciennement encre) → noir profond éditorial */
+  --ink: #0A0A0A;          /* Noir principal, presque pur */
+  --ink-soft: #1C1C1C;     /* Noir doux pour le texte */
+  --ink-muted: #5A5A5A;    /* Gris pour les textes secondaires */
+
+  /* Orange (anciennement terracotta) → orange signature Styleme */
+  --terracotta: #E8651A;       /* Orange principal, vif et chaud */
+  --terracotta-deep: #C45013;  /* Orange profond pour hover */
+  --orange: #E8651A;           /* Alias clair */
+  --orange-deep: #C45013;      /* Alias clair */
+  --orange-soft: #F2A472;      /* Orange doux pour accents subtils */
+  --orange-fr: #E8651A;        /* Couleur officielle du .fr */
+
+  /* Accents secondaires (anciennement moss/rose) — remappés en neutres pour rester noir/orange */
+  --moss: #2A2A2A;
+  --moss-soft: #4A4A4A;
+  --rose-dust: #F2A472;    /* Devient un orange doux */
+
+  --line: rgba(10, 10, 10, 0.12);
+  --line-strong: rgba(10, 10, 10, 0.22);
+  --shadow-soft: 0 30px 80px -30px rgba(10, 10, 10, 0.22);
+  --shadow-card: 0 18px 60px -24px rgba(10, 10, 10, 0.28);
 
   /* ---- Typographie ---- */
   --font-display: "Fraunces", "Playfair Display", Georgia, serif;
@@ -170,21 +185,22 @@ p.lead {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 68px; height: 68px;
+  width: 96px; height: 96px;
   transition: transform .4s ease, width .4s ease, height .4s ease;
 }
 .brand-mark img {
   width: 100%; height: 100%;
   object-fit: contain;
 }
-.site-header.is-scrolled .brand-mark { width: 52px; height: 52px; }
+.site-header.is-scrolled .brand-mark { width: 72px; height: 72px; }
 
 .brand .site-name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.5rem;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.7rem, 2.4vw, 2.1rem);
+  letter-spacing: -0.025em;
   font-style: italic;
+  line-height: 1;
 }
 
 .nav-links {
@@ -952,11 +968,52 @@ section {
    FOOTER ENRICHI — Centré, manifeste, drapeau filigrane, MK powered
    ============================================================ */
 .site-footer {
-  background: var(--cream);
+  background: var(--ink);
+  color: var(--cream);
   padding: 5.5rem 0 2.5rem;
-  border-top: 1px solid var(--line);
+  border-top: none;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+}
+/* Image horizontale en arrière-plan opacité 20%, SANS zoom, pour combler le vide */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/horizontal-style-atelier.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.20;
+  z-index: -1;
+  pointer-events: none;
+  /* Pas d'animation, pas de zoom — image fixe statique */
+}
+.site-footer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.75) 60%, rgba(10,10,10,0.92) 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+/* Liens et textes adaptés au fond sombre */
+.site-footer .footer-grid a,
+.site-footer .footer-grid li,
+.site-footer .footer-grid p,
+.site-footer .footer-bottom,
+.site-footer .footer-brand-row .site-name,
+.site-footer .footer-brand-row p,
+.site-footer .footer-location {
+  color: var(--cream);
+}
+.site-footer .footer-grid h4,
+.site-footer .footer-grid strong {
+  color: var(--cream);
+}
+.site-footer .footer-grid a:hover {
+  color: var(--orange);
 }
 
 /* ---- Bloc marque centré ---- */
@@ -1337,8 +1394,13 @@ section {
     padding-right: 0;
     padding-bottom: 1rem;
   }
-  .hero-media { grid-template-columns: 1fr; }
-  .hero-panel--right { display: none; }
+  /* MOBILE HERO : split horizontal — les 2 images empilées (haut/bas)
+     au lieu de gauche/droite. Les 2 images sont conservées comme en desktop. */
+  .hero-media {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .hero-panel--right { display: block; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .diff-table thead th, .diff-table tbody td { padding: 1rem 0.5rem; font-size: 0.95rem; }
 }
@@ -2254,4 +2316,63 @@ body.drawer-open { overflow: hidden; }
 @media (min-width: 881px) {
   .nav-burger { display: none !important; }
   .mobile-drawer { display: none !important; }
+}
+
+
+
+/* ============================================================
+   .FR SUFFIX — toujours en orange dans tout le site
+   Le `.fr` de "Styleme.fr" est la signature visuelle de la marque
+   ============================================================ */
+.fr-suffix {
+  color: var(--orange-fr);
+  font-weight: inherit;
+  font-style: inherit;
+}
+
+
+
+/* ============================================================
+   HERO — zoom hover éditorial sur les 2 panels (desktop + mobile)
+   Cohérent avec l'effet de zoom 1.08x présent partout ailleurs
+   ============================================================ */
+.hero-panel {
+  cursor: default;
+}
+.hero-panel img {
+  /* L'animation d'entrée (scale 1.05 → 1) reste, le hover ajoute un zoom doux */
+  will-change: transform;
+}
+.hero.is-loaded .hero-panel:hover img {
+  transform: scale(1.08);
+  transition: transform 1.2s cubic-bezier(.2, .8, .2, 1);
+}
+
+/* Mobile : ken burns plus marqué (scale 1.15) et plus rapide (14s)
+   pour donner du mouvement éditorial aux 2 images empilées */
+@media (max-width: 880px) {
+  .hero.is-loaded .hero-panel--left img {
+    animation: heroKenBurnsLeft 14s ease-in-out infinite alternate;
+  }
+  .hero.is-loaded .hero-panel--right img {
+    animation: heroKenBurnsRight 14s ease-in-out infinite alternate;
+    animation-delay: -7s;
+  }
+}
+@keyframes heroKenBurnsLeft {
+  0%   { transform: scale(1)    translate(0, 0); }
+  100% { transform: scale(1.15) translate(-2.5%, -2.5%); }
+}
+@keyframes heroKenBurnsRight {
+  0%   { transform: scale(1.15) translate(2.5%, 2.5%); }
+  100% { transform: scale(1)    translate(0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero.is-loaded .hero-panel:hover img,
+  .hero.is-loaded .hero-panel--left img,
+  .hero.is-loaded .hero-panel--right img {
+    animation: none !important;
+    transform: scale(1) !important;
+  }
 }
