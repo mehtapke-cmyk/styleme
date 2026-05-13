@@ -951,9 +951,10 @@ if (signupForm) {
     event.preventDefault();
     const email = document.getElementById("emailInput")?.value.trim() || "";
     const profile = document.getElementById("profileInput")?.value.trim() || "";
+    const motivation = document.getElementById("motivationInput")?.value.trim() || "";
     const lang = document.documentElement.lang || "fr";
     const subject = encodeURIComponent("Demande d'accès Styleme.fr");
-    const body = encodeURIComponent(`Bonjour,\n\nJe souhaite rejoindre la liste Styleme.fr.\n\nE-mail : ${email || "Non renseigné"}\nBesoin style : ${profile || "Non précisé"}\nLangue : ${lang}\n\nMerci !`);
+    const body = encodeURIComponent(`Bonjour,\n\nJe souhaite rejoindre la liste Styleme.fr.\n\nE-mail : ${email || "Non renseigné"}\nBesoin style : ${profile || "Non précisé"}\nMotivation : ${motivation || "Non précisée"}\nLangue : ${lang}\n\nMerci !`);
     window.location.href = `mailto:bonjour@styleme.fr?subject=${subject}&body=${body}`;
     showToast(translations[lang]?.toast || translations.fr.toast);
   });

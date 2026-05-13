@@ -37,7 +37,8 @@
       margin-top: 2.5rem;
       display: flex; flex-direction: column; gap: 1rem;
     }
-    .join-form input {
+    .join-form input,
+    .join-form textarea {
       width: 100%;
       padding: 1.1rem 1.4rem;
       border-radius: 999px;
@@ -48,8 +49,16 @@
       font-size: 1rem;
       transition: border-color .3s ease;
     }
-    .join-form input:focus { outline: none; border-color: var(--ink); }
-    .join-form input::placeholder { color: var(--ink-muted); }
+    .join-form input:focus,
+    .join-form textarea:focus { outline: none; border-color: var(--ink); }
+    .join-form input::placeholder,
+    .join-form textarea::placeholder { color: var(--ink-muted); }
+    .join-form textarea {
+      min-height: 120px;
+      border-radius: 28px;
+      resize: vertical;
+      line-height: 1.45;
+    }
     .join-form .btn-primary { align-self: flex-start; }
     .join-privacy { font-size: 0.85rem; color: var(--ink-muted); margin-top: 1rem; }
 
@@ -370,6 +379,10 @@
             <input type="text" name="profile" id="profileInput" placeholder="Ton besoin style du moment — en un mot" data-i18n-placeholder="profile_placeholder">
             <span class="field-optional">Optionnel</span>
           </div>
+          <div class="field-with-label">
+            <textarea name="motivation" id="motivationInput" placeholder="Qu'est-ce qui te motive à rejoindre le mouvement ?" data-i18n-placeholder="motivation_placeholder"></textarea>
+            <span class="field-optional">Optionnel</span>
+          </div>
           <button class="btn btn-primary btn-cta-large" type="submit" data-i18n="signup_cta">Je veux ma place dans la bêta <span aria-hidden="true">→</span></button>
         </form>
         <p class="join-privacy" data-i18n="signup_privacy">Pas de spam. Juste une réponse quand le test ouvre.</p>
@@ -443,7 +456,7 @@
       <div class="shell">
         <div class="section-head" style="text-align:center;">
           <p class="eyebrow">Premiers retours bêta</p>
-          <h2>Ce qu'en disent ceux qui ont déjà essayé.</h2>
+          <h2>Ce que les personnes inscrites pour la version bêta en disent.</h2>
         </div>
         <div class="testimonials-grid">
           <article class="testimonial-card">
