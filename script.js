@@ -1166,3 +1166,45 @@ window.__stylemeInitDropdowns = function() {
     applyLanguage(lang);
   }
 };
+
+
+/* ═══════════════════════════════════════════════════════════
+   Formulaire d'inscription HOME (#signupFormHome)
+   Aligné sur la version améliorée de rejoindre.html.
+   N'affecte pas le formulaire de la page rejoindre.
+═══════════════════════════════════════════════════════════ */
+const trendSelectHome = document.getElementById("trendSelectHome");
+const otherTrendInputHome = document.getElementById("otherTrendInputHome");
+if (trendSelectHome) {
+  const updateTrendFieldsHome = () => {
+    const hasValue = Boolean(trendSelectHome.value);
+    const isOther = trendSelectHome.value === "Autre";
+    trendSelectHome.classList.toggle("has-value", hasValue);
+    if (otherTrendInputHome) {
+      otherTrendInputHome.classList.toggle("is-visible", isOther);
+      if (!isOther) otherTrendInputHome.value = "";
+    }
+  };
+  trendSelectHome.addEventListener("change", updateTrendFieldsHome);
+  updateTrendFieldsHome();
+}
+
+const signupFormHome = document.getElementById("signupFormHome");
+if (signupFormHome) {
+  signupFormHome.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = document.getElementById("emailInputHome")?.value.trim() || "";
+    const firstName = document.getElementById("firstNameInputHome")?.value.trim() || "";
+    const location = document.getElementById("locationInputHome")?.value.trim() || "";
+    const trend = document.getElementById("trendSelectHome")?.value.trim() || "";
+    const otherTrend = document.getElementById("otherTrendInputHome")?.value.trim() || "";
+    const profile = document.getElementById("profileInputHome")?.value.trim() || "";
+    const lang = document.documentElement.lang || "fr";
+    const subject = encodeURIComponent("Demande d'accès Styleme.fr");
+    const body = encodeURIComponent(`Bonjour,\n\nJe souhaite rejoindre la liste Styleme.fr.\n\nE-mail : ${email || "Non renseigné"}\nPrénom : ${firstName || "Non renseigné"}\nLieu : ${location || "Non renseigné"}\nTendance mode : ${trend || "Non précisée"}\nAutre tendance : ${otherTrend || "Non précisée"}\nBesoin style : ${profile || "Non précisé"}\nLangue : ${lang}\n\nMerci !`);
+    window.location.href = `mailto:bonjour@styleme.fr?subject=${subject}&body=${body}`;
+    if (typeof showToast === "function") {
+      showToast(translations[lang]?.toast || translations.fr.toast);
+    }
+  });
+}
