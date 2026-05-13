@@ -7,6 +7,21 @@
 (() => {
   'use strict';
 
+  const LANG_ITEMS = [
+    { code: 'fr', flag: '🇫🇷', label: 'FR — Français' },
+    { code: 'en', flag: '🇬🇧', label: 'EN — English' },
+    { code: 'es', flag: '🇪🇸', label: 'ES — Español' },
+    { code: 'de', flag: '🇩🇪', label: 'DE — Deutsch' },
+    { code: 'it', flag: '🇮🇹', label: 'IT — Italiano' },
+    { code: 'ru', flag: '🇷🇺', label: 'RU — Русский' },
+    { code: 'zh', flag: '🇨🇳', label: 'ZH — 中文' },
+    { code: 'ar', flag: '🇸🇦', label: 'AR — عربي' }
+  ];
+
+  const langOptionsHTML = LANG_ITEMS
+    .map(l => `<li role="option" data-lang="${l.code}"><button type="button" data-lang="${l.code}"><span>${l.flag}</span> ${l.label}</button></li>`)
+    .join('');
+
   const HEADER = `
     <header class="site-header">
       <nav class="nav shell" aria-label="Navigation principale">
@@ -21,22 +36,41 @@
           <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
           <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
         </div>
-        <div class="lang-dropdown" role="navigation" aria-label="Sélection de langue">
+        <div class="lang-dropdown lang-dropdown--desktop" role="navigation" aria-label="Sélection de langue">
           <button class="lang-dropdown-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
             <span class="lang-flag">🇫🇷</span>
             <span class="lang-code">FR</span>
             <span class="lang-chevron" aria-hidden="true">▾</span>
           </button>
           <ul class="lang-dropdown-menu" role="listbox" aria-label="Choisir la langue">
-            <li role="option" data-lang="fr"><button type="button" data-lang="fr"><span>🇫🇷</span> FR — Français</button></li>
-            <li role="option" data-lang="en"><button type="button" data-lang="en"><span>🇬🇧</span> EN — English</button></li>
-            <li role="option" data-lang="es"><button type="button" data-lang="es"><span>🇪🇸</span> ES — Español</button></li>
-            <li role="option" data-lang="zh"><button type="button" data-lang="zh"><span>🇨🇳</span> 中文</button></li>
-            <li role="option" data-lang="ru"><button type="button" data-lang="ru"><span>🇷🇺</span> RU — Русский</button></li>
-            <li role="option" data-lang="ar"><button type="button" data-lang="ar"><span>🇸🇦</span> AR — عربي</button></li>
+            ${langOptionsHTML}
           </ul>
         </div>
+        <button class="nav-burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
       </nav>
+
+      <!-- Drawer mobile -->
+      <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+        <div class="mobile-drawer__inner">
+          <nav class="mobile-drawer__nav" aria-label="Navigation mobile">
+            <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
+            <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
+            <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
+            <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
+            <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
+          </nav>
+          <div class="mobile-drawer__lang">
+            <p class="mobile-drawer__lang-title">Langue</p>
+            <ul class="mobile-drawer__lang-list">
+              ${langOptionsHTML}
+            </ul>
+          </div>
+        </div>
+      </div>
     </header>
   `;
 
@@ -114,4 +148,52 @@
   const footerSlot = document.querySelector('[data-partial="footer"]');
   if (headerSlot) headerSlot.outerHTML = HEADER;
   if (footerSlot) footerSlot.outerHTML = FOOTER;
+
+
+  // ============================================================
+  // BURGER MENU — Toggle drawer mobile
+  // ============================================================
+  function initBurger() {
+    const burger = document.querySelector('.nav-burger');
+    const drawer = document.getElementById('mobile-drawer');
+    if (!burger || !drawer) return;
+
+    function close() {
+      burger.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+      drawer.classList.remove('is-open');
+      document.body.classList.remove('drawer-open');
+    }
+    function open() {
+      burger.setAttribute('aria-expanded', 'true');
+      drawer.setAttribute('aria-hidden', 'false');
+      drawer.classList.add('is-open');
+      document.body.classList.add('drawer-open');
+    }
+
+    burger.addEventListener('click', () => {
+      const isOpen = burger.getAttribute('aria-expanded') === 'true';
+      isOpen ? close() : open();
+    });
+
+    // Fermer au clic sur un lien du drawer
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+
+    // Fermer avec Échap
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+
+    // Fermer si on agrandit l'écran au-dessus du breakpoint
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 880) close();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBurger);
+  } else {
+    initBurger();
+  }
+
 })();
