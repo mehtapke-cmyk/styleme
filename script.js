@@ -986,10 +986,19 @@ document.querySelectorAll(".lang-select").forEach((select) => {
 });
 
 const trendSelect = document.getElementById("trendSelect");
+const otherTrendInput = document.getElementById("otherTrendInput");
 if (trendSelect) {
-  trendSelect.addEventListener("change", () => {
-    trendSelect.classList.toggle("has-value", Boolean(trendSelect.value));
-  });
+  const updateTrendFields = () => {
+    const hasValue = Boolean(trendSelect.value);
+    const isOther = trendSelect.value === "Autre";
+    trendSelect.classList.toggle("has-value", hasValue);
+    if (otherTrendInput) {
+      otherTrendInput.classList.toggle("is-visible", isOther);
+      if (!isOther) otherTrendInput.value = "";
+    }
+  };
+  trendSelect.addEventListener("change", updateTrendFields);
+  updateTrendFields();
 }
 
 const signupForm = document.getElementById("signupForm");
