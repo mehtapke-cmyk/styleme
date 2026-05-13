@@ -175,9 +175,16 @@
           </div>
         </div>
 
-        <!-- Bas de page : Styleme.fr + © directement sous Argelès -->
+        <!-- Bas de page : Styleme.fr + signature MK + © -->
         <div class="footer-bottom">
           <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup></span>
+          <span class="footer-signature">
+            <span data-i18n="footer_signature_powered">Propulsé par</span>
+            <a class="footer-signature-link" href="https://mkcreations.fr" target="_blank" rel="noopener" aria-label="MK Créations Originales by Mehtap Keles">Création Originale by Mehtap Keles</a>
+            <span class="footer-signature-sep" aria-hidden="true">·</span>
+            <span data-i18n="footer_signature_place">à Argelès-sur-Mer</span>
+            <span class="footer-signature-flag" aria-hidden="true">🇫🇷</span>
+          </span>
           <span data-i18n="footer_copy">© 2026 · Tous droits réservés</span>
         </div>
 

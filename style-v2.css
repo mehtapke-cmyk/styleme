@@ -1046,10 +1046,10 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 0 1.2rem;
-  border-bottom: 1px solid var(--line);
+  gap: 0.6rem;
+  padding: 1.6rem 0 1.8rem;
   margin-bottom: 1.2rem;
+  /* Pas de bordure : le logo doit respirer */
 }
 .footer-powered-label {
   font-size: 0.78rem;
@@ -1063,10 +1063,12 @@ section {
   align-items: center;
   justify-content: center;
   transition: opacity .3s ease, transform .3s ease;
+  /* Contraste : leger glow blanc derriere le logo violet/turquoise pour faire pop */
+  filter: drop-shadow(0 0 18px rgba(255,255,255,0.55)) drop-shadow(0 4px 12px rgba(80,40,140,0.18));
 }
 .footer-powered-logo img {
-  height: 56px; width: auto; object-fit: contain;
-  opacity: 0.95;
+  height: 140px; width: auto; object-fit: contain;
+  opacity: 1;
 }
 .footer-powered-logo:hover { transform: translateY(-2px); }
 .footer-powered-logo:hover img { opacity: 1; }
@@ -1224,7 +1226,7 @@ section {
 /* ---- Responsive ---- */
 @media (max-width: 768px) {
   .footer-brand-row .brand-mark { width: 88px; height: 88px; }
-  .footer-powered-logo img { height: 46px; }
+  .footer-powered-logo img { height: 100px; }
   .footer-manifesto-list li { font-size: 1.05rem; gap: 0.6rem; }
   .footer-location-block::before { max-width: 280px; opacity: 0.22; }
   .footer-bottom { justify-content: center; text-align: center; }
@@ -2854,4 +2856,49 @@ h1 .site-name .tm,
   font-size: 1.08em; /* légèrement plus grand que le texte du lede */
   vertical-align: baseline;
   color: var(--ink);
+}
+
+/* ============================================================
+   Footer signature MK — ajoutée le 13/05/2026
+   Format : "Propulsé par Création Originale by Mehtap Keles · à Argelès-sur-Mer 🇫🇷"
+   ============================================================ */
+.footer-bottom .footer-signature {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted, #7a6f63);
+  margin-top: 0.4rem;
+  font-family: 'Inter Tight', system-ui, sans-serif;
+}
+.footer-bottom .footer-signature-link {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--ink, #0A0A0A);
+  text-decoration: none;
+  background: linear-gradient(90deg, #5b3aa0 0%, #2dabb8 50%, #d2456b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: opacity .25s ease;
+}
+.footer-bottom .footer-signature-link:hover { opacity: 0.78; }
+.footer-bottom .footer-signature-sep {
+  opacity: 0.5;
+  margin: 0 0.1em;
+}
+.footer-bottom .footer-signature-flag {
+  font-size: 1em;
+  display: inline-block;
+  transform: translateY(-1px);
+}
+@media (max-width: 640px) {
+  .footer-bottom .footer-signature {
+    font-size: 0.76rem;
+    gap: 0.35em;
+  }
 }
