@@ -968,15 +968,15 @@ section {
    FOOTER ENRICHI — Centré, manifeste, drapeau filigrane, MK powered
    ============================================================ */
 .site-footer {
-  background: var(--ink);
-  color: var(--cream);
+  background: var(--cream);
   padding: 5.5rem 0 2.5rem;
-  border-top: none;
+  border-top: 1px solid var(--line);
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
-/* Image horizontale en arrière-plan opacité 20%, SANS zoom, pour combler le vide */
+/* Image horizontale en arrière-plan opacité 20%, SANS zoom — comble le vide
+   tout en gardant le fond crème cohérent avec le reste du site */
 .site-footer::before {
   content: "";
   position: absolute;
@@ -988,32 +988,16 @@ section {
   opacity: 0.20;
   z-index: -1;
   pointer-events: none;
-  /* Pas d'animation, pas de zoom — image fixe statique */
+  /* Image fixe : pas d'animation, pas de zoom */
 }
+/* Voile crème léger pour adoucir et garantir la lisibilité des textes */
 .site-footer::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.75) 60%, rgba(10,10,10,0.92) 100%);
+  background: linear-gradient(180deg, rgba(250,247,242,0.55) 0%, rgba(250,247,242,0.40) 50%, rgba(250,247,242,0.65) 100%);
   z-index: -1;
   pointer-events: none;
-}
-/* Liens et textes adaptés au fond sombre */
-.site-footer .footer-grid a,
-.site-footer .footer-grid li,
-.site-footer .footer-grid p,
-.site-footer .footer-bottom,
-.site-footer .footer-brand-row .site-name,
-.site-footer .footer-brand-row p,
-.site-footer .footer-location {
-  color: var(--cream);
-}
-.site-footer .footer-grid h4,
-.site-footer .footer-grid strong {
-  color: var(--cream);
-}
-.site-footer .footer-grid a:hover {
-  color: var(--orange);
 }
 
 /* ---- Bloc marque centré ---- */
