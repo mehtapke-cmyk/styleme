@@ -378,7 +378,7 @@
       <div class="join-copy">
         <span class="testers-badge" aria-label="Compteur de testeurs">
           <span class="pulse" aria-hidden="true"></span>
-          <span><strong id="testersCount">127</strong> testeurs déjà inscrits · places limitées</span>
+          <span>Rejoins les premiers qui suivent déjà le mouvement — il ne reste que <strong id="placesLeft">38</strong> places sur 50</span>
         </span>
         <p class="eyebrow" data-i18n="signup_eyebrow">Accès en avant-première</p>
         <h1 data-i18n-html="join_page_title">Sois parmi les <em>premiers</em> à tester.</h1>
@@ -536,14 +536,17 @@
   <script src="script.js"></script>
   <script src="interactions-v2.js"></script>
   <script>
-    // Compteur de testeurs : progression stable par jour
+    // Places restantes : décroît doucement de 50 vers 5 selon le jour
     (function() {
-      const el = document.getElementById("testersCount");
+      const el = document.getElementById("placesLeft");
       if (!el) return;
-      const base = 127;
+      const total = 50;
+      const minLeft = 5;
       const now = new Date();
       const dayOfYear = Math.floor((now - new Date(now.getFullYear(), 0, 0)) / 86400000);
-      el.textContent = base + (dayOfYear % 23);
+      // progression cyclique mais douce : 12 inscrits + 0..(45-12) selon le jour
+      const taken = Math.min(total - minLeft, 12 + (dayOfYear % 34));
+      el.textContent = total - taken;
     })();
 
     // Gestion soumission : affichage état succès
