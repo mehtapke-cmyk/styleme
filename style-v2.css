@@ -2410,6 +2410,22 @@ body.drawer-open { overflow: hidden; }
   background: radial-gradient(circle at top right, rgba(232,101,26,0.06), transparent 60%);
   pointer-events: none;
 }
+/* Image de fond éditoriale (silhouette sac jaune) à 60% d'opacité */
+.advisor-perso::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url('assets/styleme-city-walk.jpeg');
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+.advisor-perso > * { position: relative; z-index: 1; }
 .advisor-perso__eyebrow {
   color: var(--orange) !important;
   text-align: center;
