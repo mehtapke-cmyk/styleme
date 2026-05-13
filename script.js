@@ -977,57 +977,77 @@ const langFlags = { fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', de:'🇩🇪', 
 const langNames = { fr:'FR', en:'EN', es:'ES', de:'DE', it:'IT', ru:'RU', zh:'中文', ar:'AR' };
 
 function initLangDropdown() {
-  // Desktop : dropdown .lang-dropdown
-  document.querySelectorAll('.lang-dropdown').forEach(dropdown => {
-    const toggle = dropdown.querySelector('.lang-dropdown-toggle');
-    const menu   = dropdown.querySelector('.lang-dropdown-menu');
-    if (!toggle || !menu) return;
-    if (toggle.dataset.bound === '1') return;
-    toggle.dataset.bound = '1';
+  // ═══════════════════════════════════════════════════════════════
+  // EVENT DELEGATION — un seul handler sur document.
+  // Avantage majeur : insensible aux ré-injections de partials.
+  // Le toggle, les boutons langue et le « outside-click » sont
+  // tous gérés par un seul listener, attaché UNE SEULE FOIS.
+  // ═══════════════════════════════════════════════════════════════
+  if (document._langDelegated) return;
+  document._langDelegated = true;
 
-    toggle.addEventListener('click', (e) => {
-      e.stopPropagation();
+  document.addEventListener('click', (ev) => {
+    const target = ev.target;
+    if (!(target instanceof Element)) return;
+
+    // 1) Clic sur un bouton de langue (desktop dropdown OU mobile drawer)
+    const langBtn = target.closest('button[data-lang]');
+    if (langBtn) {
+      ev.stopPropagation();
+      applyLanguage(langBtn.dataset.lang);
+      // Fermer le dropdown desktop contenant ce bouton
+      const dropdown = langBtn.closest('.lang-dropdown');
+      if (dropdown) {
+        dropdown.classList.remove('is-open');
+        dropdown.querySelector('.lang-dropdown-toggle')?.setAttribute('aria-expanded','false');
+      }
+      // Fermer le drawer mobile si on est dedans
+      if (langBtn.closest('.mobile-drawer__lang-list')) {
+        const drawer = document.getElementById('mobile-drawer');
+        const burger = document.querySelector('.nav-burger');
+        if (drawer && burger) {
+          drawer.classList.remove('is-open');
+          drawer.setAttribute('aria-hidden', 'true');
+          burger.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('drawer-open');
+        }
+      }
+      return;
+    }
+
+    // 2) Clic sur le toggle d'un dropdown desktop : toggle is-open
+    const toggle = target.closest('.lang-dropdown-toggle');
+    if (toggle) {
+      ev.stopPropagation();
+      const dropdown = toggle.closest('.lang-dropdown');
+      if (!dropdown) return;
+      // Fermer les autres dropdowns ouverts (s'il y en a)
+      document.querySelectorAll('.lang-dropdown.is-open').forEach(d => {
+        if (d !== dropdown) {
+          d.classList.remove('is-open');
+          d.querySelector('.lang-dropdown-toggle')?.setAttribute('aria-expanded','false');
+        }
+      });
       const isOpen = dropdown.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', String(isOpen));
-    });
+      return;
+    }
 
-    menu.querySelectorAll('button[data-lang]').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        applyLanguage(btn.dataset.lang);
-        dropdown.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  });
-
-  // Mobile : boutons dans .mobile-drawer__lang-list
-  document.querySelectorAll('.mobile-drawer__lang-list button[data-lang]').forEach(btn => {
-    if (btn.dataset.bound === '1') return;
-    btn.dataset.bound = '1';
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      applyLanguage(btn.dataset.lang);
-      // Fermer le drawer après sélection
-      const drawer = document.getElementById('mobile-drawer');
-      const burger = document.querySelector('.nav-burger');
-      if (drawer && burger) {
-        drawer.classList.remove('is-open');
-        drawer.setAttribute('aria-hidden', 'true');
-        burger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('drawer-open');
+    // 3) Clic en dehors d'un dropdown ouvert : on ferme
+    document.querySelectorAll('.lang-dropdown.is-open').forEach(d => {
+      if (!d.contains(target)) {
+        d.classList.remove('is-open');
+        d.querySelector('.lang-dropdown-toggle')?.setAttribute('aria-expanded','false');
       }
     });
   });
 
-  // Click outside : ferme les dropdowns desktop — uniquement si le clic
-  // est VRAIMENT en dehors du dropdown (composedPath pour la fiabilité)
-  if (!document._langOutsideBound) {
-    document._langOutsideBound = true;
-    document.addEventListener('click', (ev) => {
-      const path = (typeof ev.composedPath === 'function') ? ev.composedPath() : [];
+  // Touche Escape : fermer tous les dropdowns ouverts
+  if (!document._langEscBound) {
+    document._langEscBound = true;
+    document.addEventListener('keydown', (ev) => {
+      if (ev.key !== 'Escape') return;
       document.querySelectorAll('.lang-dropdown.is-open').forEach(d => {
-        if (path.includes(d)) return; // clic dans le dropdown : on ne ferme pas
         d.classList.remove('is-open');
         d.querySelector('.lang-dropdown-toggle')?.setAttribute('aria-expanded','false');
       });
