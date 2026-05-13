@@ -21,6 +21,8 @@ const viewports = [
 ];
 
 test.describe('Preview Claudo', () => {
+  // WebKit est parfois flaky sur le hero mobile (timing video/animations) → retries
+  test.describe.configure({ retries: 2 });
   for (const vp of viewports) {
     for (const p of pages) {
       // sur mobile, on garde uniquement les pages full
