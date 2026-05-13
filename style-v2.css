@@ -1411,7 +1411,11 @@ section {
     grid-template-rows: 1fr 1fr;
   }
   .hero-panel--right { display: block; }
-  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  /* Footer : 3 colonnes même sur mobile (Accueil / Légal / Contact) */
+  .footer-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .footer-grid .footer-label { font-size: 0.65rem; letter-spacing: 0.18em; margin-bottom: 0.6rem; }
+  .footer-grid a, .footer-grid .footer-location { font-size: 0.78rem; line-height: 1.35; padding: 0.15rem 0; }
+  .footer-grid a[href^="mailto:"] { word-break: break-all; }
   .diff-table thead th, .diff-table tbody td { padding: 1rem 0.5rem; font-size: 0.95rem; }
 }
 
