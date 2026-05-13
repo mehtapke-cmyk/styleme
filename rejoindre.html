@@ -265,6 +265,89 @@
       margin: 0 0 0.6rem;
     }
     .form-success p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.5; }
+
+
+    /* ===== Champ optionnel ===== */
+    .field-with-label { position: relative; }
+    .field-with-label input { padding-right: 5.5rem; }
+    .field-optional {
+      position: absolute;
+      right: 1.3rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink-muted);
+      background: var(--paper);
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    /* ===== CTA principal plus engageant ===== */
+    .btn-cta-large {
+      font-size: 1.05rem;
+      padding: 1.15rem 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: transform .3s ease, gap .3s ease, box-shadow .3s ease;
+    }
+    .btn-cta-large:hover {
+      transform: translateY(-2px);
+      gap: 0.9rem;
+      box-shadow: 0 10px 30px rgba(232, 101, 26, 0.35);
+    }
+    .btn-cta-large span[aria-hidden="true"] {
+      display: inline-block;
+      transition: transform .3s ease;
+    }
+
+    /* ===== Sticky CTA mobile ===== */
+    .sticky-cta-mobile {
+      position: fixed;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 90;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 1rem 1.5rem;
+      background: var(--orange);
+      color: white;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 999px;
+      box-shadow: 0 12px 32px rgba(232, 101, 26, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15);
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity .4s ease, transform .4s cubic-bezier(.2, .8, .2, 1);
+      pointer-events: none;
+    }
+    .sticky-cta-mobile.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .sticky-cta-mobile__arrow {
+      transition: transform .3s ease;
+    }
+    .sticky-cta-mobile:active .sticky-cta-mobile__arrow {
+      transform: translateX(4px);
+    }
+    @media (max-width: 880px) {
+      .sticky-cta-mobile { display: inline-flex; }
+      /* Espace en bas pour ne pas masquer le footer sur mobile */
+      body { padding-bottom: 5rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sticky-cta-mobile { transition: opacity .2s ease; transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -283,8 +366,11 @@
         <p class="lead" data-i18n="join_page_intro">Les premiers testeurs façonnent l'outil avec nous. Tu reçois un accès gratuit, et en échange, tu nous dis ce qui marche, ce qui manque, ce qui te ressemble.</p>
         <form id="signupForm" class="join-form">
           <input type="email" name="email" id="emailInput" placeholder="Ton adresse e-mail" data-i18n-placeholder="email_placeholder">
-          <input type="text" name="profile" id="profileInput" placeholder="Ton besoin style du moment" data-i18n-placeholder="profile_placeholder">
-          <button class="btn btn-primary" type="submit" data-i18n="signup_cta">Envoyer ma demande</button>
+          <div class="field-with-label">
+            <input type="text" name="profile" id="profileInput" placeholder="Ton besoin style du moment — en un mot" data-i18n-placeholder="profile_placeholder">
+            <span class="field-optional">Optionnel</span>
+          </div>
+          <button class="btn btn-primary btn-cta-large" type="submit" data-i18n="signup_cta">Je veux ma place dans la bêta <span aria-hidden="true">→</span></button>
         </form>
         <p class="join-privacy" data-i18n="signup_privacy">Pas de spam. Juste une réponse quand le test ouvre.</p>
 
@@ -399,6 +485,12 @@
     </figure>
   </main>
 
+  <!-- Sticky CTA mobile : apparaît après 50% de scroll -->
+  <a href="#signupForm" class="sticky-cta-mobile" id="stickyCtaMobile" aria-label="Rejoindre la bêta">
+    <span>Rejoindre la bêta</span>
+    <span class="sticky-cta-mobile__arrow" aria-hidden="true">→</span>
+  </a>
+
   <div data-partial="footer"></div>
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
   <script src="partials-v2.js"></script>
@@ -426,6 +518,30 @@
           success.scrollIntoView({ behavior: "smooth", block: "center" });
         }, 200);
       });
+    })();
+
+    // Sticky CTA mobile : apparaît après 50% de scroll, se masque si form/footer visible
+    (function() {
+      const sticky = document.getElementById("stickyCtaMobile");
+      const form = document.getElementById("signupForm");
+      if (!sticky || !form) return;
+      let visible = false;
+
+      function updateSticky() {
+        const scrolled = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+        const formRect = form.getBoundingClientRect();
+        // Form visible dans le viewport ? on masque le sticky pour pas faire doublon
+        const formVisible = formRect.bottom > 0 && formRect.top < window.innerHeight;
+        const shouldShow = scrolled > 0.35 && !formVisible;
+        if (shouldShow !== visible) {
+          visible = shouldShow;
+          sticky.classList.toggle("is-visible", visible);
+        }
+      }
+
+      window.addEventListener("scroll", updateSticky, { passive: true });
+      window.addEventListener("resize", updateSticky);
+      updateSticky();
     })();
   </script>
 </body>
