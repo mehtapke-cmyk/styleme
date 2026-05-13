@@ -57,6 +57,42 @@
     .join-form textarea::placeholder { color: var(--ink-muted); }
     .join-form select { appearance: none; color: var(--ink-muted); cursor: pointer; }
     .join-form select.has-value { color: var(--ink); }
+    .trend-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .65rem;
+      margin-top: -.25rem;
+    }
+    .trend-preview-card {
+      border: 1px solid var(--line-strong);
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--paper);
+      text-decoration: none;
+      color: var(--ink);
+      transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+    }
+    .trend-preview-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--orange);
+      box-shadow: 0 14px 34px rgba(10, 10, 10, .12);
+    }
+    .trend-preview-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+    .trend-preview-card span {
+      display: block;
+      padding: .55rem .65rem .7rem;
+      font-size: .72rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    @media (max-width: 680px) {
+      .trend-preview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
     .join-form textarea {
       min-height: 120px;
       border-radius: 28px;
@@ -383,20 +419,35 @@
           <input type="text" name="location" id="locationInput" placeholder="Ta ville ou ta région" data-i18n-placeholder="location_placeholder">
           <select name="trend" id="trendSelect" aria-label="Tendance mode qui t'intéresse">
             <option value="" selected data-i18n="trend_placeholder">La tendance mode qui t'intéresse</option>
-            <option value="BCBG / preppy">BCBG / preppy</option>
-            <option value="Quiet luxury / old money">Quiet luxury / old money</option>
-            <option value="Workwear / officewear">Workwear / officewear</option>
-            <option value="Streetwear">Streetwear</option>
-            <option value="Oversize / baggy">Oversize / baggy</option>
-            <option value="Gorpcore / outdoor urbain">Gorpcore / outdoor urbain</option>
-            <option value="Normcore / minimal">Normcore / minimal</option>
-            <option value="Coquette / balletcore">Coquette / balletcore</option>
-            <option value="Y2K / années 2000">Y2K / années 2000</option>
-            <option value="Gender-fluid / queer fashion">Gender-fluid / queer fashion</option>
-            <option value="Métrosexuel / style soigné">Métrosexuel / style soigné</option>
-            <option value="Dopamine dressing / couleur">Dopamine dressing / couleur</option>
-            <option value="Vintage / seconde main">Vintage / seconde main</option>
+            <option value="BCBG chic">BCBG chic</option>
+            <option value="Élégance discrète">Élégance discrète</option>
+            <option value="Tailleur & bureau">Tailleur & bureau</option>
+            <option value="Streetwear urbain">Streetwear urbain</option>
+            <option value="Volumes oversize">Volumes oversize</option>
+            <option value="Outdoor urbain">Outdoor urbain</option>
+            <option value="Minimaliste du quotidien">Minimaliste du quotidien</option>
+            <option value="Romantique ballet">Romantique ballet</option>
+            <option value="Années 2000">Années 2000</option>
+            <option value="Mode fluide / queer">Mode fluide / queer</option>
+            <option value="Masculin soigné">Masculin soigné</option>
+            <option value="Couleurs dopamine">Couleurs dopamine</option>
+            <option value="Vintage & seconde main">Vintage & seconde main</option>
           </select>
+          <div class="trend-preview-grid" aria-label="Aperçus visuels des tendances mode">
+            <a class="trend-preview-card" href="assets/trends/bcbg-chic.svg" target="_blank" rel="noopener"><img src="assets/trends/bcbg-chic.svg" alt="Aperçu tendance BCBG chic"><span>BCBG chic</span></a>
+            <a class="trend-preview-card" href="assets/trends/elegance-discrete.svg" target="_blank" rel="noopener"><img src="assets/trends/elegance-discrete.svg" alt="Aperçu tendance élégance discrète"><span>Élégance discrète</span></a>
+            <a class="trend-preview-card" href="assets/trends/tailleur-bureau.svg" target="_blank" rel="noopener"><img src="assets/trends/tailleur-bureau.svg" alt="Aperçu tendance tailleur et bureau"><span>Tailleur & bureau</span></a>
+            <a class="trend-preview-card" href="assets/trends/streetwear-urbain.svg" target="_blank" rel="noopener"><img src="assets/trends/streetwear-urbain.svg" alt="Aperçu tendance streetwear urbain"><span>Streetwear urbain</span></a>
+            <a class="trend-preview-card" href="assets/trends/volumes-oversize.svg" target="_blank" rel="noopener"><img src="assets/trends/volumes-oversize.svg" alt="Aperçu tendance volumes oversize"><span>Volumes oversize</span></a>
+            <a class="trend-preview-card" href="assets/trends/outdoor-urbain.svg" target="_blank" rel="noopener"><img src="assets/trends/outdoor-urbain.svg" alt="Aperçu tendance outdoor urbain"><span>Outdoor urbain</span></a>
+            <a class="trend-preview-card" href="assets/trends/minimaliste-quotidien.svg" target="_blank" rel="noopener"><img src="assets/trends/minimaliste-quotidien.svg" alt="Aperçu tendance minimaliste du quotidien"><span>Minimaliste du quotidien</span></a>
+            <a class="trend-preview-card" href="assets/trends/romantique-ballet.svg" target="_blank" rel="noopener"><img src="assets/trends/romantique-ballet.svg" alt="Aperçu tendance romantique ballet"><span>Romantique ballet</span></a>
+            <a class="trend-preview-card" href="assets/trends/annees-2000.svg" target="_blank" rel="noopener"><img src="assets/trends/annees-2000.svg" alt="Aperçu tendance années 2000"><span>Années 2000</span></a>
+            <a class="trend-preview-card" href="assets/trends/mode-fluide.svg" target="_blank" rel="noopener"><img src="assets/trends/mode-fluide.svg" alt="Aperçu tendance mode fluide queer"><span>Mode fluide / queer</span></a>
+            <a class="trend-preview-card" href="assets/trends/masculin-soigne.svg" target="_blank" rel="noopener"><img src="assets/trends/masculin-soigne.svg" alt="Aperçu tendance masculin soigné"><span>Masculin soigné</span></a>
+            <a class="trend-preview-card" href="assets/trends/couleurs-dopamine.svg" target="_blank" rel="noopener"><img src="assets/trends/couleurs-dopamine.svg" alt="Aperçu tendance couleurs dopamine"><span>Couleurs dopamine</span></a>
+            <a class="trend-preview-card" href="assets/trends/vintage-seconde-main.svg" target="_blank" rel="noopener"><img src="assets/trends/vintage-seconde-main.svg" alt="Aperçu tendance vintage et seconde main"><span>Vintage & seconde main</span></a>
+          </div>
           <div class="field-with-label">
             <input type="text" name="profile" id="profileInput" placeholder="Ton besoin style du moment — en un mot" data-i18n-placeholder="profile_placeholder">
             <span class="field-optional">Optionnel</span>
