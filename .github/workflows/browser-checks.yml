@@ -25,6 +25,18 @@ jobs:
       - name: Install Playwright browsers
         run: npm run browsers:install
 
+      - name: Start local web server
+        run: |
+          python3 -m http.server 8765 >/tmp/server.log 2>&1 &
+          # Attendre que le serveur reponde (max 15s)
+          for i in $(seq 1 30); do
+            if curl -sf http://127.0.0.1:8765/index.html >/dev/null; then
+              echo "Server ready after ${i} attempts"
+              break
+            fi
+            sleep 0.5
+          done
+
       - name: Run browser screenshots and smoke checks
         run: npm run test:browser
 
