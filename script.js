@@ -76,6 +76,10 @@ const translations = {
     signup_privacy: "Pas de spam. Juste une réponse quand le test ouvre.",
     email_placeholder: "Ton adresse e-mail",
     profile_placeholder: "Ton besoin style du moment",
+    first_name_placeholder: "Ton prénom",
+    location_placeholder: "Ta ville ou ta région",
+    motivation_placeholder: "Qu'est-ce qui te motive à rejoindre le mouvement ?",
+    trend_placeholder: "La tendance mode qui t'intéresse",
     faq_eyebrow: "Questions fréquentes",
     faq_title: "Les réponses avant de tester.",
     faq_1_q: "C'est gratuit ?",
@@ -181,6 +185,10 @@ const translations = {
     signup_privacy: "No spam. Just an answer when testing opens.",
     email_placeholder: "Your email address",
     profile_placeholder: "Your current style need",
+    first_name_placeholder: "Your first name",
+    location_placeholder: "Your city or region",
+    motivation_placeholder: "What motivates you to join the movement?",
+    trend_placeholder: "The fashion trend you are interested in",
     faq_eyebrow: "Frequently asked",
     faq_title: "Answers before you test.",
     faq_1_q: "Is it free?",
@@ -286,6 +294,10 @@ const translations = {
     signup_privacy: "Sin spam. Solo una respuesta cuando empiece la prueba.",
     email_placeholder: "Tu e-mail",
     profile_placeholder: "Tu necesidad de estilo ahora",
+    first_name_placeholder: "Tu nombre",
+    location_placeholder: "Tu ciudad o región",
+    motivation_placeholder: "¿Qué te motiva a unirte al movimiento?",
+    trend_placeholder: "La tendencia de moda que te interesa",
     faq_eyebrow: "Preguntas frecuentes",
     faq_title: "Respuestas antes de probar.",
     faq_1_q: "¿Es gratis?",
@@ -391,6 +403,10 @@ const translations = {
     signup_privacy: "没有垃圾邮件。测试开放时只会给你回复。",
     email_placeholder: "你的邮箱地址",
     profile_placeholder: "你现在的穿搭需求",
+    first_name_placeholder: "你的名字",
+    location_placeholder: "你的城市或地区",
+    motivation_placeholder: "是什么促使你加入这个运动？",
+    trend_placeholder: "你感兴趣的时尚趋势",
     faq_eyebrow: "常见问题",
     faq_title: "测试前先了解答案。",
     faq_1_q: "它是免费的吗？",
@@ -496,6 +512,10 @@ const translations = {
     signup_privacy: "Без спама. Только ответ, когда тест откроется.",
     email_placeholder: "Твой e-mail",
     profile_placeholder: "Твоя текущая задача по стилю",
+    first_name_placeholder: "Твоё имя",
+    location_placeholder: "Твой город или регион",
+    motivation_placeholder: "Что мотивирует тебя присоединиться к движению?",
+    trend_placeholder: "Модное направление, которое тебе интересно",
     faq_eyebrow: "Частые вопросы",
     faq_title: "Ответы перед тестом.",
     faq_1_q: "Это бесплатно?",
@@ -601,6 +621,10 @@ const translations = {
     signup_privacy: "لا رسائل مزعجة. فقط رد عندما تبدأ التجربة.",
     email_placeholder: "بريدك الإلكتروني",
     profile_placeholder: "حاجتك الحالية في الأناقة",
+    first_name_placeholder: "اسمك الأول",
+    location_placeholder: "مدينتك أو منطقتك",
+    motivation_placeholder: "ما الذي يدفعك للانضمام إلى الحركة؟",
+    trend_placeholder: "اتجاه الموضة الذي يهمك",
     faq_eyebrow: "أسئلة شائعة",
     faq_title: "إجابات قبل التجربة.",
     faq_1_q: "هل هو مجاني؟",
@@ -706,6 +730,10 @@ const translations = {
     signup_privacy: "Kein Spam. Nur eine Antwort, wenn der Test öffnet.",
     email_placeholder: "Deine E-Mail-Adresse",
     profile_placeholder: "Dein aktueller Style-Bedarf",
+    first_name_placeholder: "Dein Vorname",
+    location_placeholder: "Deine Stadt oder Region",
+    motivation_placeholder: "Was motiviert dich, dich der Bewegung anzuschließen?",
+    trend_placeholder: "Der Modetrend, der dich interessiert",
     faq_eyebrow: "Häufige Fragen",
     faq_title: "Antworten vor dem Test.",
     faq_1_q: "Ist es kostenlos?",
@@ -811,6 +839,10 @@ const translations = {
     signup_privacy: "Niente spam. Solo una risposta quando il test si apre.",
     email_placeholder: "Il tuo indirizzo email",
     profile_placeholder: "La tua esigenza di stile del momento",
+    first_name_placeholder: "Il tuo nome",
+    location_placeholder: "La tua città o regione",
+    motivation_placeholder: "Cosa ti motiva a unirti al movimento?",
+    trend_placeholder: "La tendenza moda che ti interessa",
     faq_eyebrow: "Domande frequenti",
     faq_title: "Risposte prima di provare.",
     faq_1_q: "È gratuito?",
@@ -945,16 +977,26 @@ document.querySelectorAll(".lang-select").forEach((select) => {
   select.addEventListener("change", () => applyLanguage(select.value));
 });
 
+const trendSelect = document.getElementById("trendSelect");
+if (trendSelect) {
+  trendSelect.addEventListener("change", () => {
+    trendSelect.classList.toggle("has-value", Boolean(trendSelect.value));
+  });
+}
+
 const signupForm = document.getElementById("signupForm");
 if (signupForm) {
   signupForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const email = document.getElementById("emailInput")?.value.trim() || "";
+    const firstName = document.getElementById("firstNameInput")?.value.trim() || "";
+    const location = document.getElementById("locationInput")?.value.trim() || "";
+    const trend = document.getElementById("trendSelect")?.value.trim() || "";
     const profile = document.getElementById("profileInput")?.value.trim() || "";
     const motivation = document.getElementById("motivationInput")?.value.trim() || "";
     const lang = document.documentElement.lang || "fr";
     const subject = encodeURIComponent("Demande d'accès Styleme.fr");
-    const body = encodeURIComponent(`Bonjour,\n\nJe souhaite rejoindre la liste Styleme.fr.\n\nE-mail : ${email || "Non renseigné"}\nBesoin style : ${profile || "Non précisé"}\nMotivation : ${motivation || "Non précisée"}\nLangue : ${lang}\n\nMerci !`);
+    const body = encodeURIComponent(`Bonjour,\n\nJe souhaite rejoindre la liste Styleme.fr.\n\nE-mail : ${email || "Non renseigné"}\nPrénom : ${firstName || "Non renseigné"}\nLieu : ${location || "Non renseigné"}\nTendance mode : ${trend || "Non précisée"}\nBesoin style : ${profile || "Non précisé"}\nMotivation : ${motivation || "Non précisée"}\nLangue : ${lang}\n\nMerci !`);
     window.location.href = `mailto:bonjour@styleme.fr?subject=${subject}&body=${body}`;
     showToast(translations[lang]?.toast || translations.fr.toast);
   });
