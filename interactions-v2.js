@@ -35,8 +35,9 @@
     el.style.setProperty('--i', i % 6);
   });
 
+  let io = null;
   if (!reduced && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
+    io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
@@ -55,6 +56,16 @@
     Array.from(group.children).forEach((child, i) => {
       child.style.setProperty('--i', i);
     });
+    // Footer : pas d'animation reveal — toujours visible immédiatement
+    // (sinon les liens nav restent à opacity:0 si l'IntersectionObserver
+    // ne s'est pas branché à temps après injection dynamique du partial)
+    if (group.classList.contains('footer-grid')) {
+      group.classList.add('is-visible');
+    }
+    // Idem si déjà observé : ré-observer pour les nouveaux
+    if (!reduced && 'IntersectionObserver' in window && !group.classList.contains('is-visible')) {
+      try { io && io.observe(group); } catch(_) {}
+    }
   });
 
   // ---------- Subtle parallax on photos ----------

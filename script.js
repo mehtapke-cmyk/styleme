@@ -1020,11 +1020,14 @@ function initLangDropdown() {
     });
   });
 
-  // Click outside : ferme les dropdowns desktop
+  // Click outside : ferme les dropdowns desktop — uniquement si le clic
+  // est VRAIMENT en dehors du dropdown (composedPath pour la fiabilité)
   if (!document._langOutsideBound) {
     document._langOutsideBound = true;
-    document.addEventListener('click', () => {
+    document.addEventListener('click', (ev) => {
+      const path = (typeof ev.composedPath === 'function') ? ev.composedPath() : [];
       document.querySelectorAll('.lang-dropdown.is-open').forEach(d => {
+        if (path.includes(d)) return; // clic dans le dropdown : on ne ferme pas
         d.classList.remove('is-open');
         d.querySelector('.lang-dropdown-toggle')?.setAttribute('aria-expanded','false');
       });
