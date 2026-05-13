@@ -216,6 +216,13 @@
     const drawer = document.getElementById('mobile-drawer');
     if (!burger || !drawer) return;
 
+    // FIX: le header a un backdrop-filter qui cree un containing block,
+    // ce qui piege le drawer (position:fixed) DANS le header (~137px de haut).
+    // On deplace le drawer en fin de <body> pour qu'il s'ancre au viewport.
+    if (drawer.parentElement !== document.body) {
+      document.body.appendChild(drawer);
+    }
+
     function close() {
       burger.setAttribute('aria-expanded', 'false');
       drawer.setAttribute('aria-hidden', 'true');
