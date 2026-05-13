@@ -65,13 +65,18 @@ test('engagement.html — page complète', async ({ page }) => {
 test('navigation — lien "Notre engagement" dans header', async ({ page }) => {
   await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
   await page.waitForSelector('header.site-header', { timeout: 5000 });
-  // Sur mobile le lien est dans le drawer burger : on l'ouvre d'abord si visible.
+  // Sur mobile, le lien vit dans le drawer burger. On l'ouvre puis on cible
+  // le lien DANS le drawer pour eviter de tomber sur un autre lien cache.
   const burger = page.locator('.nav-burger');
+  let navLink;
   if (await burger.isVisible()) {
     await burger.click();
-    await page.waitForTimeout(300);
+    // Attendre que le drawer soit reellement ouvert
+    await expect(page.locator('#mobile-drawer.is-open')).toBeVisible({ timeout: 3000 });
+    navLink = page.locator('#mobile-drawer a[href="engagement.html"]').first();
+  } else {
+    navLink = page.locator('header.site-header a[href="engagement.html"]').first();
   }
-  const navLink = page.locator('a[href="engagement.html"]').first();
   await expect(navLink).toBeVisible();
   await expect(navLink).toContainText(/engagement/i);
 });
