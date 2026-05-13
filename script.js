@@ -80,6 +80,7 @@ const translations = {
     location_placeholder: "Ta ville ou ta région",
     motivation_placeholder: "Qu'est-ce qui te motive à rejoindre le mouvement ?",
     trend_placeholder: "La tendance mode qui t'intéresse",
+    other_trend_placeholder: "Vous n'avez rien compris, moi la tendance qui m'intéresse c'est…",
     faq_eyebrow: "Questions fréquentes",
     faq_title: "Les réponses avant de tester.",
     faq_1_q: "C'est gratuit ?",
@@ -189,6 +190,7 @@ const translations = {
     location_placeholder: "Your city or region",
     motivation_placeholder: "What motivates you to join the movement?",
     trend_placeholder: "The fashion trend you are interested in",
+    other_trend_placeholder: "You did not get it — the trend I care about is…",
     faq_eyebrow: "Frequently asked",
     faq_title: "Answers before you test.",
     faq_1_q: "Is it free?",
@@ -298,6 +300,7 @@ const translations = {
     location_placeholder: "Tu ciudad o región",
     motivation_placeholder: "¿Qué te motiva a unirte al movimiento?",
     trend_placeholder: "La tendencia de moda que te interesa",
+    other_trend_placeholder: "No habéis entendido nada, la tendencia que me interesa es…",
     faq_eyebrow: "Preguntas frecuentes",
     faq_title: "Respuestas antes de probar.",
     faq_1_q: "¿Es gratis?",
@@ -407,6 +410,7 @@ const translations = {
     location_placeholder: "你的城市或地区",
     motivation_placeholder: "是什么促使你加入这个运动？",
     trend_placeholder: "你感兴趣的时尚趋势",
+    other_trend_placeholder: "你们没懂，我感兴趣的趋势其实是…",
     faq_eyebrow: "常见问题",
     faq_title: "测试前先了解答案。",
     faq_1_q: "它是免费的吗？",
@@ -516,6 +520,7 @@ const translations = {
     location_placeholder: "Твой город или регион",
     motivation_placeholder: "Что мотивирует тебя присоединиться к движению?",
     trend_placeholder: "Модное направление, которое тебе интересно",
+    other_trend_placeholder: "Вы ничего не поняли, тренд, который мне интересен, это…",
     faq_eyebrow: "Частые вопросы",
     faq_title: "Ответы перед тестом.",
     faq_1_q: "Это бесплатно?",
@@ -625,6 +630,7 @@ const translations = {
     location_placeholder: "مدينتك أو منطقتك",
     motivation_placeholder: "ما الذي يدفعك للانضمام إلى الحركة؟",
     trend_placeholder: "اتجاه الموضة الذي يهمك",
+    other_trend_placeholder: "لم تفهموا شيئًا، الاتجاه الذي يهمني هو…",
     faq_eyebrow: "أسئلة شائعة",
     faq_title: "إجابات قبل التجربة.",
     faq_1_q: "هل هو مجاني؟",
@@ -734,6 +740,7 @@ const translations = {
     location_placeholder: "Deine Stadt oder Region",
     motivation_placeholder: "Was motiviert dich, dich der Bewegung anzuschließen?",
     trend_placeholder: "Der Modetrend, der dich interessiert",
+    other_trend_placeholder: "Ihr habt nichts verstanden, der Trend, der mich interessiert, ist…",
     faq_eyebrow: "Häufige Fragen",
     faq_title: "Antworten vor dem Test.",
     faq_1_q: "Ist es kostenlos?",
@@ -843,6 +850,7 @@ const translations = {
     location_placeholder: "La tua città o regione",
     motivation_placeholder: "Cosa ti motiva a unirti al movimento?",
     trend_placeholder: "La tendenza moda che ti interessa",
+    other_trend_placeholder: "Non avete capito niente, la tendenza che mi interessa è…",
     faq_eyebrow: "Domande frequenti",
     faq_title: "Risposte prima di provare.",
     faq_1_q: "È gratuito?",
@@ -992,11 +1000,12 @@ if (signupForm) {
     const firstName = document.getElementById("firstNameInput")?.value.trim() || "";
     const location = document.getElementById("locationInput")?.value.trim() || "";
     const trend = document.getElementById("trendSelect")?.value.trim() || "";
+    const otherTrend = document.getElementById("otherTrendInput")?.value.trim() || "";
     const profile = document.getElementById("profileInput")?.value.trim() || "";
     const motivation = document.getElementById("motivationInput")?.value.trim() || "";
     const lang = document.documentElement.lang || "fr";
     const subject = encodeURIComponent("Demande d'accès Styleme.fr");
-    const body = encodeURIComponent(`Bonjour,\n\nJe souhaite rejoindre la liste Styleme.fr.\n\nE-mail : ${email || "Non renseigné"}\nPrénom : ${firstName || "Non renseigné"}\nLieu : ${location || "Non renseigné"}\nTendance mode : ${trend || "Non précisée"}\nBesoin style : ${profile || "Non précisé"}\nMotivation : ${motivation || "Non précisée"}\nLangue : ${lang}\n\nMerci !`);
+    const body = encodeURIComponent(`Bonjour,\n\nJe souhaite rejoindre la liste Styleme.fr.\n\nE-mail : ${email || "Non renseigné"}\nPrénom : ${firstName || "Non renseigné"}\nLieu : ${location || "Non renseigné"}\nTendance mode : ${trend || "Non précisée"}\nAutre tendance : ${otherTrend || "Non précisée"}\nBesoin style : ${profile || "Non précisé"}\nMotivation : ${motivation || "Non précisée"}\nLangue : ${lang}\n\nMerci !`);
     window.location.href = `mailto:bonjour@styleme.fr?subject=${subject}&body=${body}`;
     showToast(translations[lang]?.toast || translations.fr.toast);
   });

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
-  <title id="title">Couleurs dopamine</title>
-  <desc id="desc">Mini visuel Styleme pour illustrer la tendance Couleurs dopamine.</desc>
+  <title id="title">Exubérance colorée</title>
+  <desc id="desc">Mini visuel Styleme pour illustrer la tendance Exubérance colorée.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#F6F1E8"/>
@@ -20,7 +20,7 @@
   <path d="M604 214 L650 304 L696 214" fill="none" stroke="#F6F1E8" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
   <rect x="830" y="250" width="160" height="248" rx="36" fill="#F59E0B" opacity="0.9"/>
   <path d="M856 304 H964 M856 358 H964 M856 412 H930" stroke="#FFFDF8" stroke-width="14" stroke-linecap="round" opacity="0.88"/>
-  <text x="176" y="630" fill="#0A0A0A" font-family="Georgia, serif" font-size="54" font-style="italic" font-weight="700">Couleurs dopamine</text>
+  <text x="176" y="630" fill="#0A0A0A" font-family="Georgia, serif" font-size="54" font-style="italic" font-weight="700">Exubérance colorée</text>
   <text x="176" y="674" fill="#5B5349" font-family="Arial, sans-serif" font-size="24" letter-spacing="2">Orange · Rose · Énergie</text>
   <text x="1000" y="642" text-anchor="end" fill="#F59E0B" font-family="Georgia, serif" font-size="38" font-style="italic">Styleme.fr</text>
 </svg>

@@ -90,6 +90,13 @@
       font-weight: 700;
       line-height: 1.1;
     }
+    .trend-preview-card--other {
+      border-style: dashed;
+    }
+    .trend-other-field {
+      font-style: italic;
+      color: rgba(10, 10, 10, .58);
+    }
     @media (max-width: 680px) {
       .trend-preview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
@@ -426,13 +433,11 @@
             <option value="Volumes oversize">Volumes oversize</option>
             <option value="Outdoor urbain">Outdoor urbain</option>
             <option value="Minimaliste du quotidien">Minimaliste du quotidien</option>
-            <option value="Romantique ballet">Romantique ballet</option>
-            <option value="Années 2000">Années 2000</option>
-            <option value="Mode fluide / queer">Mode fluide / queer</option>
-            <option value="Masculin soigné">Masculin soigné</option>
-            <option value="Couleurs dopamine">Couleurs dopamine</option>
-            <option value="Vintage & seconde main">Vintage & seconde main</option>
+            <option value="Mode non genrée">Mode non genrée</option>
+            <option value="Exubérance colorée">Exubérance colorée</option>
+            <option value="Autre">Autre</option>
           </select>
+          <input class="trend-other-field" type="text" name="otherTrend" id="otherTrendInput" placeholder="Vous n'avez rien compris, moi la tendance qui m'intéresse c'est…" data-i18n-placeholder="other_trend_placeholder">
           <div class="trend-preview-grid" aria-label="Aperçus visuels des tendances mode">
             <a class="trend-preview-card" href="assets/trends/bcbg-chic.svg" target="_blank" rel="noopener"><img src="assets/trends/bcbg-chic.svg" alt="Aperçu tendance BCBG chic"><span>BCBG chic</span></a>
             <a class="trend-preview-card" href="assets/trends/elegance-discrete.svg" target="_blank" rel="noopener"><img src="assets/trends/elegance-discrete.svg" alt="Aperçu tendance élégance discrète"><span>Élégance discrète</span></a>
@@ -441,12 +446,9 @@
             <a class="trend-preview-card" href="assets/trends/volumes-oversize.svg" target="_blank" rel="noopener"><img src="assets/trends/volumes-oversize.svg" alt="Aperçu tendance volumes oversize"><span>Volumes oversize</span></a>
             <a class="trend-preview-card" href="assets/trends/outdoor-urbain.svg" target="_blank" rel="noopener"><img src="assets/trends/outdoor-urbain.svg" alt="Aperçu tendance outdoor urbain"><span>Outdoor urbain</span></a>
             <a class="trend-preview-card" href="assets/trends/minimaliste-quotidien.svg" target="_blank" rel="noopener"><img src="assets/trends/minimaliste-quotidien.svg" alt="Aperçu tendance minimaliste du quotidien"><span>Minimaliste du quotidien</span></a>
-            <a class="trend-preview-card" href="assets/trends/romantique-ballet.svg" target="_blank" rel="noopener"><img src="assets/trends/romantique-ballet.svg" alt="Aperçu tendance romantique ballet"><span>Romantique ballet</span></a>
-            <a class="trend-preview-card" href="assets/trends/annees-2000.svg" target="_blank" rel="noopener"><img src="assets/trends/annees-2000.svg" alt="Aperçu tendance années 2000"><span>Années 2000</span></a>
-            <a class="trend-preview-card" href="assets/trends/mode-fluide.svg" target="_blank" rel="noopener"><img src="assets/trends/mode-fluide.svg" alt="Aperçu tendance mode fluide queer"><span>Mode fluide / queer</span></a>
-            <a class="trend-preview-card" href="assets/trends/masculin-soigne.svg" target="_blank" rel="noopener"><img src="assets/trends/masculin-soigne.svg" alt="Aperçu tendance masculin soigné"><span>Masculin soigné</span></a>
-            <a class="trend-preview-card" href="assets/trends/couleurs-dopamine.svg" target="_blank" rel="noopener"><img src="assets/trends/couleurs-dopamine.svg" alt="Aperçu tendance couleurs dopamine"><span>Couleurs dopamine</span></a>
-            <a class="trend-preview-card" href="assets/trends/vintage-seconde-main.svg" target="_blank" rel="noopener"><img src="assets/trends/vintage-seconde-main.svg" alt="Aperçu tendance vintage et seconde main"><span>Vintage & seconde main</span></a>
+            <a class="trend-preview-card" href="assets/trends/mode-fluide.svg" target="_blank" rel="noopener"><img src="assets/trends/mode-fluide.svg" alt="Aperçu tendance mode non genrée"><span>Mode non genrée</span></a>
+            <a class="trend-preview-card" href="assets/trends/couleurs-dopamine.svg" target="_blank" rel="noopener"><img src="assets/trends/couleurs-dopamine.svg" alt="Aperçu tendance exubérance colorée"><span>Exubérance colorée</span></a>
+            <a class="trend-preview-card trend-preview-card--other" href="#otherTrendInput"><img src="assets/trends/autre.svg" alt="Aperçu tendance autre"><span>Autre</span></a>
           </div>
           <div class="field-with-label">
             <input type="text" name="profile" id="profileInput" placeholder="Ton besoin style du moment — en un mot" data-i18n-placeholder="profile_placeholder">
