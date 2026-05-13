@@ -26,7 +26,7 @@
         <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
         <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
       </div>
-      <div class="lang-dropdown" role="navigation" aria-label="Sélection de langue">
+      <div class="lang-dropdown lang-dropdown--desktop" role="navigation" aria-label="Sélection de langue">
         <button class="lang-dropdown-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
           <span class="lang-flag">🇫🇷</span>
           <span class="lang-code">FR</span>
@@ -36,12 +36,45 @@
           <li role="option" data-lang="fr"><button type="button" data-lang="fr"><span>🇫🇷</span> FR — Français</button></li>
           <li role="option" data-lang="en"><button type="button" data-lang="en"><span>🇬🇧</span> EN — English</button></li>
           <li role="option" data-lang="es"><button type="button" data-lang="es"><span>🇪🇸</span> ES — Español</button></li>
-          <li role="option" data-lang="zh"><button type="button" data-lang="zh"><span>🇨🇳</span> 中文</button></li>
+          <li role="option" data-lang="de"><button type="button" data-lang="de"><span>🇩🇪</span> DE — Deutsch</button></li>
+          <li role="option" data-lang="it"><button type="button" data-lang="it"><span>🇮🇹</span> IT — Italiano</button></li>
           <li role="option" data-lang="ru"><button type="button" data-lang="ru"><span>🇷🇺</span> RU — Русский</button></li>
+          <li role="option" data-lang="zh"><button type="button" data-lang="zh"><span>🇨🇳</span> ZH — 中文</button></li>
           <li role="option" data-lang="ar"><button type="button" data-lang="ar"><span>🇸🇦</span> AR — عربي</button></li>
         </ul>
       </div>
+      <button class="nav-burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
     </nav>
+
+    <!-- Drawer mobile -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <div class="mobile-drawer__inner">
+        <nav class="mobile-drawer__nav" aria-label="Navigation mobile">
+          <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
+          <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
+          <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
+          <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
+          <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
+        </nav>
+        <div class="mobile-drawer__lang">
+          <p class="mobile-drawer__lang-title">Langue</p>
+          <ul class="mobile-drawer__lang-list">
+            <li role="option" data-lang="fr"><button type="button" data-lang="fr"><span>🇫🇷</span> FR — Français</button></li>
+            <li role="option" data-lang="en"><button type="button" data-lang="en"><span>🇬🇧</span> EN — English</button></li>
+            <li role="option" data-lang="es"><button type="button" data-lang="es"><span>🇪🇸</span> ES — Español</button></li>
+            <li role="option" data-lang="de"><button type="button" data-lang="de"><span>🇩🇪</span> DE — Deutsch</button></li>
+            <li role="option" data-lang="it"><button type="button" data-lang="it"><span>🇮🇹</span> IT — Italiano</button></li>
+            <li role="option" data-lang="ru"><button type="button" data-lang="ru"><span>🇷🇺</span> RU — Русский</button></li>
+            <li role="option" data-lang="zh"><button type="button" data-lang="zh"><span>🇨🇳</span> ZH — 中文</button></li>
+            <li role="option" data-lang="ar"><button type="button" data-lang="ar"><span>🇸🇦</span> AR — عربي</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main id="content">
@@ -79,8 +112,8 @@
     </section>
 
     <!-- ============================================================
-         WEEKLY MOMENT — Lundi matin, ça recommence
-         Petit interlude éditorial drôle/relatable
+         WEEKLY MOMENT — Bloc fusionné : la scène du matin + la charge mentale
+         Tous les mots originaux sont préservés, juste réorganisés en un seul flux
          ============================================================ -->
     <section class="weekly-moment" aria-labelledby="weekly-title">
       <div class="shell">
@@ -105,29 +138,25 @@
               Mais parce qu'à 7h12, ton cerveau refuse de choisir.
               Et c'est <strong>complètement</strong> normal.
             </p>
+
+            <!-- Les phrases du matin (anciennement bloc PROBLEM) -->
+            <div class="thought-bubbles thought-bubbles--inline" aria-label="Phrases du matin">
+              <div class="thought" data-i18n="thought_1">« Je n'ai rien à me mettre. »</div>
+              <div class="thought" data-i18n="thought_2">« Est-ce que ça va ensemble ? »</div>
+              <div class="thought" data-i18n="thought_3">« C'est trop habillé ? Pas assez ? »</div>
+              <div class="thought thought-wide" data-i18n="thought_4">« Bon... je ne sais pas quoi porter... Allez, je remets la même tenue que la semaine dernière. »</div>
+            </div>
+
+            <p class="weekly-text weekly-text--charge" data-i18n-html="problem_punchline">
+              Chaque matin difficile ajoute un stress avant même que la journée commence.
+              Ce n'est pas un problème de vêtements — c'est un problème de <strong>charge mentale</strong>.
+            </p>
+
             <p class="weekly-text weekly-text--punch">
               Styleme.fr, c'est l'ami qui répond à ta place.
             </p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- PROBLEM — titre réécrit : "7h12. L'armoire ouverte." -->
-    <section class="problem section-band">
-      <div class="shell">
-        <div class="section-head centered">
-          <p class="eyebrow" data-i18n="problem_eyebrow">Scène du matin</p>
-          <h2 data-i18n-html="problem_title">7h12. <span>L'armoire ouverte.</span></h2>
-          <p class="lead" data-i18n="problem_text">Tu es en retard. Tu regardes. Tu hésites. Et la même petite phrase revient, comme un disque rayé. Ce n'est pas l'envie qui manque — c'est la décision.</p>
-        </div>
-        <div class="thought-bubbles" aria-label="Phrases du matin">
-          <div class="thought" data-i18n="thought_1">« Je n'ai rien à me mettre. »</div>
-          <div class="thought" data-i18n="thought_2">« Est-ce que ça va ensemble ? »</div>
-          <div class="thought" data-i18n="thought_3">« C'est trop habillé ? Pas assez ? »</div>
-          <div class="thought thought-wide" data-i18n="thought_4">« Bon... je ne sais pas quoi porter... Allez, je remets la même tenue que la semaine dernière. »</div>
-        </div>
-        <p class="problem-punchline" data-i18n-html="problem_punchline">Chaque matin difficile ajoute un stress avant même que la journée commence. Ce n'est pas un problème de vêtements — c'est un problème de <strong>charge mentale</strong>.</p>
       </div>
     </section>
 

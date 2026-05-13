@@ -492,6 +492,45 @@ section {
 }
 .thought:hover { transform: translateY(-4px); border-color: var(--terracotta); }
 .thought-wide { grid-column: span 3; background: var(--ink); color: var(--cream); border-color: var(--ink); }
+/* ============================================================
+   THOUGHT BUBBLES — variante inline (intégré dans le bloc weekly-moment)
+   ============================================================ */
+.thought-bubbles--inline {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+  margin: 1.75rem 0 1.5rem;
+  max-width: 100%;
+}
+.thought-bubbles--inline .thought {
+  padding: 1.1rem 1.25rem;
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(4px);
+}
+.thought-bubbles--inline .thought-wide {
+  grid-column: span 2;
+  background: var(--ink);
+  color: var(--cream);
+}
+@media (max-width: 720px) {
+  .thought-bubbles--inline { grid-template-columns: 1fr; }
+  .thought-bubbles--inline .thought-wide { grid-column: span 1; }
+}
+
+.weekly-text--charge {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.45rem);
+  line-height: 1.4;
+  color: var(--ink);
+  margin-top: 1.25rem;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--terracotta);
+}
+.weekly-text--charge strong {
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
 
 .problem-punchline {
   font-family: var(--font-display);
@@ -2067,4 +2106,152 @@ section {
 }
 @media (max-width: 600px) {
   .community-pillars { grid-template-columns: 1fr; }
+}
+
+
+/* ============================================================
+   NAV BURGER + MOBILE DRAWER — mobile-first clean header
+   Sur mobile : on cache .nav-links + .lang-dropdown du header,
+   et on affiche un burger qui ouvre un drawer plein écran
+   contenant la nav + le sélecteur de langue.
+   ============================================================ */
+
+/* Burger : caché par défaut (visible seulement < 880px) */
+.nav-burger {
+  display: none;
+  position: relative;
+  width: 44px; height: 44px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: border-color .3s ease, background .3s ease;
+}
+.nav-burger:hover { border-color: var(--ink); }
+.nav-burger span {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 18px; height: 1.5px;
+  background: var(--ink);
+  transform-origin: center;
+  transition: transform .35s cubic-bezier(.7,0,.2,1), opacity .25s ease;
+}
+.nav-burger span:nth-child(1) { transform: translate(-50%, -6px); }
+.nav-burger span:nth-child(2) { transform: translate(-50%, 0); }
+.nav-burger span:nth-child(3) { transform: translate(-50%, 6px); }
+.nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translate(-50%, 0) rotate(45deg); }
+.nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translate(-50%, 0) rotate(-45deg); }
+
+/* Drawer mobile : caché par défaut, full screen sliding from top */
+.mobile-drawer {
+  position: fixed;
+  inset: 80px 0 0 0;
+  background: var(--paper);
+  z-index: 950;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px);
+  transition: opacity .35s ease, transform .45s cubic-bezier(.7,0,.2,1), visibility 0s linear .45s;
+  overflow-y: auto;
+}
+.mobile-drawer.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity .35s ease, transform .45s cubic-bezier(.7,0,.2,1), visibility 0s linear 0s;
+}
+.mobile-drawer__inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem var(--shell-px) 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.mobile-drawer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.mobile-drawer__nav a {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: color .2s ease, padding-left .3s ease;
+}
+.mobile-drawer__nav a:hover,
+.mobile-drawer__nav a:focus {
+  color: var(--terracotta);
+  padding-left: 0.5rem;
+}
+.mobile-drawer__lang-title {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-muted);
+  margin: 0 0 0.9rem;
+}
+.mobile-drawer__lang-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+.mobile-drawer__lang-list button {
+  width: 100%;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: left;
+  transition: background .25s ease, border-color .25s ease;
+}
+.mobile-drawer__lang-list button:hover {
+  background: var(--paper);
+  border-color: var(--terracotta);
+}
+.mobile-drawer__lang-list button[aria-current="true"] {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+
+/* Lock scroll when drawer is open */
+body.drawer-open { overflow: hidden; }
+
+/* ============================================================
+   BREAKPOINT MOBILE : on cache nav-links + lang-dropdown desktop,
+   on affiche le burger
+   ============================================================ */
+@media (max-width: 880px) {
+  .site-header .nav-links { display: none !important; }
+  .site-header .lang-dropdown--desktop { display: none !important; }
+  .site-header .nav-burger { display: inline-flex; align-items: center; justify-content: center; }
+  .site-header .nav { gap: 0.75rem; }
+  /* Le brand reste à gauche, le burger seul à droite */
+  .site-header .brand { flex: 1 1 auto; min-width: 0; }
+  .site-header .site-name { font-size: clamp(1.1rem, 4.5vw, 1.4rem); }
+  /* Cache le vieux nav-toggle historique s'il existe encore */
+  .site-header .nav-toggle { display: none !important; }
+}
+
+/* Sur desktop, le burger reste caché */
+@media (min-width: 881px) {
+  .nav-burger { display: none !important; }
+  .mobile-drawer { display: none !important; }
 }
