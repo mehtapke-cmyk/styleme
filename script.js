@@ -941,14 +941,17 @@ applyLanguage(localStorage.getItem("styleme-language") || "fr");
    MISE À JOUR — menu langue drapeau + formulaire email
 ═══════════════════════════════════════════════════════════ */
 
-const langFlags = { fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', zh:'🇨🇳', ru:'🇷🇺', ar:'🇸🇦' };
-const langNames = { fr:'FR', en:'EN', es:'ES', zh:'中文', ru:'RU', ar:'AR' };
+const langFlags = { fr:'🇫🇷', en:'🇬🇧', es:'🇪🇸', de:'🇩🇪', it:'🇮🇹', ru:'🇷🇺', zh:'🇨🇳', ar:'🇸🇦' };
+const langNames = { fr:'FR', en:'EN', es:'ES', de:'DE', it:'IT', ru:'RU', zh:'中文', ar:'AR' };
 
 function initLangDropdown() {
+  // Desktop : dropdown .lang-dropdown
   document.querySelectorAll('.lang-dropdown').forEach(dropdown => {
     const toggle = dropdown.querySelector('.lang-dropdown-toggle');
     const menu   = dropdown.querySelector('.lang-dropdown-menu');
     if (!toggle || !menu) return;
+    if (toggle.dataset.bound === '1') return;
+    toggle.dataset.bound = '1';
 
     toggle.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -957,7 +960,8 @@ function initLangDropdown() {
     });
 
     menu.querySelectorAll('button[data-lang]').forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         applyLanguage(btn.dataset.lang);
         dropdown.classList.remove('is-open');
         toggle.setAttribute('aria-expanded', 'false');
@@ -965,12 +969,35 @@ function initLangDropdown() {
     });
   });
 
-  document.addEventListener('click', () => {
-    document.querySelectorAll('.lang-dropdown.is-open').forEach(d => {
-      d.classList.remove('is-open');
-      d.querySelector('.lang-dropdown-toggle')?.setAttribute('aria-expanded','false');
+  // Mobile : boutons dans .mobile-drawer__lang-list
+  document.querySelectorAll('.mobile-drawer__lang-list button[data-lang]').forEach(btn => {
+    if (btn.dataset.bound === '1') return;
+    btn.dataset.bound = '1';
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      applyLanguage(btn.dataset.lang);
+      // Fermer le drawer après sélection
+      const drawer = document.getElementById('mobile-drawer');
+      const burger = document.querySelector('.nav-burger');
+      if (drawer && burger) {
+        drawer.classList.remove('is-open');
+        drawer.setAttribute('aria-hidden', 'true');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('drawer-open');
+      }
     });
   });
+
+  // Click outside : ferme les dropdowns desktop
+  if (!document._langOutsideBound) {
+    document._langOutsideBound = true;
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.lang-dropdown.is-open').forEach(d => {
+        d.classList.remove('is-open');
+        d.querySelector('.lang-dropdown-toggle')?.setAttribute('aria-expanded','false');
+      });
+    });
+  }
 }
 
 function updateDropdownDisplay(lang) {
@@ -983,6 +1010,14 @@ function updateDropdownDisplay(lang) {
     dropdown.querySelectorAll('li[data-lang]').forEach(li => {
       li.classList.toggle('is-active', li.dataset.lang === lang);
     });
+  });
+  // Drawer mobile : marquer la langue active
+  document.querySelectorAll('.mobile-drawer__lang-list button[data-lang]').forEach(btn => {
+    if (btn.dataset.lang === lang) {
+      btn.setAttribute('aria-current', 'true');
+    } else {
+      btn.removeAttribute('aria-current');
+    }
   });
 }
 
@@ -999,3 +1034,19 @@ initLangDropdown();
 // Appliquer la langue sauvegardée
 const savedLang = localStorage.getItem('styleme-language') || 'fr';
 updateDropdownDisplay(savedLang);
+
+
+/* ═══════════════════════════════════════════════════════════
+   Réinitialisation après injection des partials (header/footer)
+   appelée depuis partials-v2.js après injection DOM
+═══════════════════════════════════════════════════════════ */
+window.__stylemeInitDropdowns = function() {
+  if (typeof initLangDropdown === 'function') {
+    initLangDropdown();
+  }
+  // Réappliquer la langue stockée pour traduire le header/footer fraîchement injectés
+  const lang = localStorage.getItem('styleme-language') || 'fr';
+  if (typeof applyLanguage === 'function') {
+    applyLanguage(lang);
+  }
+};

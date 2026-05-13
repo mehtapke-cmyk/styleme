@@ -149,6 +149,23 @@
   if (headerSlot) headerSlot.outerHTML = HEADER;
   if (footerSlot) footerSlot.outerHTML = FOOTER;
 
+  // Notifier script.js qu'il doit (ré)initialiser les dropdowns langue
+  // et réappliquer la langue sur le header/footer fraîchement injectés.
+  // On laisse script.js définir window.__stylemeInitDropdowns ; on l'appelle
+  // après son chargement via un retry court (les scripts sont en bas du body
+  // donc partials-v2.js peut s'exécuter avant script.js).
+  function tryInitDropdowns(attempts) {
+    if (typeof window.__stylemeInitDropdowns === 'function') {
+      window.__stylemeInitDropdowns();
+      return;
+    }
+    if (attempts > 0) {
+      setTimeout(() => tryInitDropdowns(attempts - 1), 50);
+    }
+  }
+  // 10 tentatives × 50ms = 500ms max
+  tryInitDropdowns(10);
+
 
   // ============================================================
   // BURGER MENU — Toggle drawer mobile
