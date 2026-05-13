@@ -52,6 +52,56 @@
       .impact-stats { grid-template-columns: 1fr; gap: 2.5rem; }
     }
   </style>
+
+  <style>
+    .impact-strip {
+      padding: 6rem 0 8rem;
+      background: linear-gradient(180deg, var(--cream) 0%, white 100%);
+    }
+    .impact-strip__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto 5rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .impact-strip__item {
+      text-align: center;
+      display: flex; flex-direction: column; gap: 0.6rem;
+    }
+    .impact-strip__num {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 500;
+      color: var(--orange);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .impact-strip__label {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-soft);
+    }
+    .impact-strip__cta {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .impact-strip__cta h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      margin: 0.5rem 0 2rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+    @media (max-width: 880px) {
+      .impact-strip { padding: 4rem 0 5rem; }
+      .impact-strip__grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 3rem; padding-bottom: 3rem; }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#content">Aller au contenu</a>
@@ -133,6 +183,35 @@
           <h2>Une mode qui dure plus longtemps que la tendance.</h2>
         </div>
         <p style="max-width:760px;font-size:1.15rem;line-height:1.6;">Styleme<span class="fr-suffix">.fr</span> n'est pas neutre. Nous croyons qu'on a déjà tout ce qu'il faut dans nos placards. Notre rôle, c'est de t'aider à le voir, à le réveiller, à le faire vivre plus longtemps. C'est aussi simple — et aussi politique — que ça.</p>
+      </div>
+    </section>
+
+    <!-- Bloc chiffres-clés + CTA pour combler le blanc desktop -->
+    <section class="impact-strip">
+      <div class="shell">
+        <div class="impact-strip__grid">
+          <div class="impact-strip__item">
+            <span class="impact-strip__num">0</span>
+            <span class="impact-strip__label">Publicité dans l'app</span>
+          </div>
+          <div class="impact-strip__item">
+            <span class="impact-strip__num">100%</span>
+            <span class="impact-strip__label">Hébergé en France</span>
+          </div>
+          <div class="impact-strip__item">
+            <span class="impact-strip__num">2-3</span>
+            <span class="impact-strip__label">Idées max par jour</span>
+          </div>
+          <div class="impact-strip__item">
+            <span class="impact-strip__num">∞</span>
+            <span class="impact-strip__label">Combinaisons dans ton armoire</span>
+          </div>
+        </div>
+        <div class="impact-strip__cta">
+          <p class="eyebrow">Convaincu·e ?</p>
+          <h3>Teste avant tout le monde.</h3>
+          <a class="btn btn-primary" href="rejoindre.html">Rejoindre la bêta</a>
+        </div>
       </div>
     </section>
   </main>
