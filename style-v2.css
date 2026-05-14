@@ -1148,7 +1148,7 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('assets/drapeau-france-new.png') center/contain no-repeat;
+  background: url('assets/footer-watermark-flag.png') center/contain no-repeat;
   opacity: 0.42;
   z-index: -1;
   filter: saturate(1);
