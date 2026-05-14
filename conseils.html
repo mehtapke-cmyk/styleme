@@ -17,9 +17,28 @@
       gap: 1rem;
     }
     .advice-collage figure { margin: 0; overflow: hidden; border-radius: var(--radius-md); }
-    .advice-collage figure img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3/4; }
+    .advice-collage figure img {
+      width: 100%; height: 100%;
+      object-fit: cover; aspect-ratio: 3/4;
+      transition: transform 1.2s cubic-bezier(.2,.6,.2,1);
+      will-change: transform;
+    }
     .advice-collage figure:first-child { grid-row: span 2; aspect-ratio: 3/4; }
     .advice-collage figure:first-child img { aspect-ratio: auto; height: 100%; }
+    /* Variante duo : 2 photos côte à côte au même format */
+    .advice-collage--duo {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      align-items: stretch;
+    }
+    .advice-collage--duo figure:first-child { grid-row: auto; }
+    .advice-collage--duo figure img,
+    .advice-collage--duo figure:first-child img {
+      aspect-ratio: 3/4;
+      height: 100%;
+    }
+    /* Effet zoom éditorial sur hover */
+    .advice-collage .zoom-hover:hover img { transform: scale(1.06); }
     .mood-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -41,7 +60,8 @@
     }
     @media (max-width: 760px) {
       .mood-grid { grid-template-columns: repeat(2, 1fr); }
-      .advice-collage { grid-template-columns: 1fr; }
+      .advice-collage,
+      .advice-collage--duo { grid-template-columns: 1fr; }
       .advice-collage figure:first-child { grid-row: auto; }
     }
   
@@ -77,10 +97,9 @@
             <li>Reconnaître ce qui te va — et te le rappeler les jours où tu doutes.</li>
           </ul>
         </div>
-        <div class="advice-collage">
-          <figure><img src="assets/styleme-fashion-poster.png" alt="Conseil style — composition affirmée"></figure>
-          <figure><img src="assets/styleme-all-ages.jpeg" alt="Style joyeux"></figure>
-          <figure><img src="assets/styleme-editorial-portrait.jpeg" alt="Portrait éditorial"></figure>
+        <div class="advice-collage advice-collage--duo">
+          <figure class="zoom-hover"><img src="assets/conseil-beret-lunettes.jpg" alt="Conseil style — exprime ta personnalité avec ton conseiller Styleme.fr"></figure>
+          <figure class="zoom-hover"><img src="assets/styleme-editorial-portrait.jpeg" alt="Portrait éditorial"></figure>
         </div>
       </div>
     </section>
@@ -98,11 +117,11 @@
             <span class="mood-label">Sans tracas</span>
           </div>
           <div class="mood-card">
-            <img src="assets/moods/cool-detendu.jpeg" alt="">
+            <img src="assets/hero-street-style.jpeg" alt="">
             <span class="mood-label">Cool, détendu</span>
           </div>
           <div class="mood-card">
-            <img src="assets/moods/osez-vous-montrer.jpeg" alt="">
+            <img src="assets/styleme-pink-beauty.jpeg" alt="">
             <span class="mood-label">Osez-vous montrer</span>
           </div>
           <div class="mood-card">
