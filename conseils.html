@@ -41,16 +41,18 @@
     .advice-collage .zoom-hover:hover img { transform: scale(1.06); }
     .mood-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
       margin-top: 3rem;
     }
     .mood-card { position: relative; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 3/4; }
     .mood-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.6,.2,1); }
     .mood-card:hover img { transform: scale(1.06); }
-    /* Illustration horizontale (dressing) : on l'affiche en entier sur fond crème, sans crop */
-    .mood-card--illus { background: #f4ead7; }
-    .mood-card--illus img { object-fit: contain; padding: 1.25rem; }
+    /* Illustration détourée : fond transparent intégré au flux de la page, pas de crop */
+    .mood-card--illus { background: transparent; box-shadow: none; }
+    .mood-card--illus img { object-fit: contain; padding: 1rem; }
+    .mood-card--illus::after { display: none; } /* pas de gradient sombre sur l'illu */
+    .mood-card--illus .mood-label { color: var(--ink, #0A0A0A); }
     .mood-card--illus:hover img { transform: scale(1.04); }
     .mood-card::after {
       content: ""; position: absolute; inset: 0;
@@ -63,7 +65,7 @@
       font-size: 1.15rem;
     }
     @media (max-width: 760px) {
-      .mood-grid { grid-template-columns: repeat(2, 1fr); }
+      .mood-grid { grid-template-columns: 1fr; }
       .advice-collage,
       .advice-collage--duo { grid-template-columns: 1fr; }
       .advice-collage figure:first-child { grid-row: auto; }
@@ -119,10 +121,6 @@
           <div class="mood-card">
             <img src="assets/moods/sans-tracas.jpeg" alt="">
             <span class="mood-label">Sans tracas</span>
-          </div>
-          <div class="mood-card">
-            <img src="assets/hero-street-style.jpeg" alt="">
-            <span class="mood-label">Cool, détendu</span>
           </div>
           <div class="mood-card mood-card--illus">
             <img src="assets/dressing-illustration-osez.png" alt="">
