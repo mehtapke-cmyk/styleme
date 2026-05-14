@@ -27,11 +27,15 @@
       position: relative;
       overflow: hidden;
     }
+    .join-hero .join-photo {
+      background: var(--cream);
+    }
     .join-hero .join-photo img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 100%; object-fit: contain; object-position: center;
+      padding: 2.5rem 1.5rem;
       transition: transform 1.5s cubic-bezier(.2,.6,.2,1);
     }
-    .join-hero:hover .join-photo img { transform: scale(1.04); }
+    .join-hero:hover .join-photo img { transform: scale(1.03); }
     .join-form {
       max-width: 520px;
       margin-top: 2.5rem;
@@ -369,6 +373,22 @@
     }
   </style>
   <style>
+    /* Override illustration photo-break (rejoindre uniquement) */
+    .photo-break--hero,
+    .photo-break--mode { background: var(--cream); margin: 0; overflow: hidden; }
+    .photo-break--hero img,
+    .photo-break--mode img {
+      width: 100%;
+      object-fit: contain;
+      object-position: center;
+      height: clamp(220px, 32vh, 360px);
+      padding: 1.5rem 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .photo-break--hero img,
+      .photo-break--mode img { height: clamp(140px, 24vh, 220px); padding: 1rem; }
+    }
+
     /* Désactive le drapeau filigrane du footer UNIQUEMENT sur cette page */
     .footer-location-block::before { background: none !important; opacity: 0 !important; }
   </style>
@@ -480,6 +500,11 @@
         </div>
       </div>
     </section>
+
+    <!-- Frise femmes mode contemporaine — juste avant les témoignages -->
+    <figure class="photo-break photo-break--mode" aria-hidden="true">
+      <img src="assets/rejoindre-femmes-mode.png" alt="Diversité de styles — femmes mode contemporaine">
+    </figure>
 
     <!-- Témoignages premiers testeurs -->
     <section class="testimonials-section">
