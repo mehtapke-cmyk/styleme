@@ -12,6 +12,25 @@
   <style>
     /* Footer: masque le bandeau signature MK sur cette page uniquement */
     .footer-bottom { display: none !important; }
+
+    /* Vidéo en arrière-plan éditorial — opacité 40% pour rester lisible */
+    .photo-break--video {
+      position: relative;
+      overflow: hidden;
+      background: #0A0A0A;
+    }
+    .photo-break--video .photo-break__video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      opacity: 0.40;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .photo-break--video .photo-break__video { display: none; }
+      .photo-break--video { background-image: url('assets/video-comment-poster.jpg'); background-size: cover; background-position: center; }
+      .photo-break--video::after { content: ""; position: absolute; inset: 0; background: rgba(10,10,10,0.6); }
+    }
   </style>
 </head>
 <body>
@@ -27,8 +46,14 @@
       </div>
     </section>
 
-    <figure class="photo-break photo-break--editorial">
-      <img src="assets/styleme-global-style.jpeg" alt="Sélection délicate — chaque pièce a sa place">
+    <figure class="photo-break photo-break--editorial photo-break--video">
+      <video class="photo-break__video"
+             autoplay muted loop playsinline preload="metadata"
+             poster="assets/video-comment-poster.jpg"
+             aria-label="Sélection délicate — chaque pièce a sa place">
+        <source src="assets/video-comment-bg.webm" type="video/webm">
+        <source src="assets/video-comment-bg.mp4" type="video/mp4">
+      </video>
     </figure>
 
     <section>
