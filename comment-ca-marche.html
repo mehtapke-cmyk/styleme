@@ -19,12 +19,16 @@
       overflow: hidden;
       background: #0A0A0A;
     }
+    .photo-break--video {
+      border-radius: var(--radius-md);
+    }
     .photo-break--video .photo-break__video {
       width: 100%;
-      height: 100%;
+      height: clamp(320px, 50vh, 560px);
       display: block;
       object-fit: cover;
       opacity: 0.40;
+      border-radius: var(--radius-md);
     }
     @media (prefers-reduced-motion: reduce) {
       .photo-break--video .photo-break__video { display: none; }
