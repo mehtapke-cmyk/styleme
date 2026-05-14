@@ -21,14 +21,30 @@
     }
     .photo-break--video {
       border-radius: var(--radius-md);
+      overflow: hidden;
+      max-width: 720px;
+      margin-inline: auto;
     }
     .photo-break--video .photo-break__video {
       width: 100%;
-      height: clamp(320px, 50vh, 560px);
+      height: auto;
+      aspect-ratio: 1280 / 1810;
       display: block;
-      object-fit: cover;
+      object-fit: contain;
       opacity: 0.40;
       border-radius: var(--radius-md);
+    }
+    /* Mobile : vidéo plein cadre, ratio portrait préservé */
+    @media (max-width: 720px) {
+      .photo-break--video {
+        max-width: 100%;
+        margin-inline: 0;
+        border-radius: 0;
+      }
+      .photo-break--video .photo-break__video {
+        border-radius: 0;
+        opacity: 0.45;
+      }
     }
     @media (prefers-reduced-motion: reduce) {
       .photo-break--video .photo-break__video { display: none; }
