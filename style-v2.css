@@ -785,6 +785,37 @@ section {
    COMPARAISON — Moins de vêtements. Plus de styles.
    ============================================================ */
 .comparison { background: var(--paper); }
+
+/* ============================================================
+   COMPARAISON — Filigrane (rouquine au laptop dans son chaos)
+   Image en background, opacité légère, cantonnée à .comparison
+   ============================================================ */
+.comparison--with-bg { position: relative; isolation: isolate; overflow: hidden; }
+.comparison--with-bg .comparison-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/comparison-bg-redhead.jpg');
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  z-index: 0;
+  pointer-events: none;
+  /* fondu doux haut & bas pour intégration éditoriale */
+  mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+.comparison--with-bg > .shell { position: relative; z-index: 1; }
+@media (max-width: 760px) {
+  .comparison--with-bg .comparison-bg {
+    opacity: 0.10;
+    background-position: center 30%;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .comparison--with-bg .comparison-bg { transition: opacity 0.8s ease; }
+}
+
 .diff-table {
   width: 100%;
   border-collapse: collapse;
