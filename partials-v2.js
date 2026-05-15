@@ -30,7 +30,7 @@
           <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup></span>
         </a>
         <div class="nav-links">
-          <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
+          <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
           <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
           <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
           <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
@@ -57,7 +57,7 @@
       <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
         <div class="mobile-drawer__inner">
           <nav class="mobile-drawer__nav" aria-label="Navigation mobile">
-            <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
+            <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
             <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
             <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
             <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
@@ -110,7 +110,7 @@
           <div>
             <span class="footer-label" data-i18n="footer_pages">Navigation</span>
             <a href="index.html" data-i18n="nav_home">Accueil</a>
-            <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
+            <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
             <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
             <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
             <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
