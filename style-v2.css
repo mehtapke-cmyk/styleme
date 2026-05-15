@@ -798,7 +798,7 @@ section {
   background-size: cover;
   background-position: center 35%;
   background-repeat: no-repeat;
-  opacity: 0.12;
+  opacity: 0.22;
   z-index: 0;
   pointer-events: none;
   /* fondu doux haut & bas pour intégration éditoriale */
@@ -808,7 +808,7 @@ section {
 .comparison--with-bg > .shell { position: relative; z-index: 1; }
 @media (max-width: 760px) {
   .comparison--with-bg .comparison-bg {
-    opacity: 0.10;
+    opacity: 0.18;
     background-position: center 30%;
   }
 }
