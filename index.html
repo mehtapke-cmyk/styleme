@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style-v2.css?v=filigrane">
+  <link rel="stylesheet" href="style-v2.css?v=age01">
   <style>
     .signup-form select { width: 100%; padding: .9rem 1rem; border: 1px solid var(--line-strong, #e7e1d5); border-radius: 999px; background: transparent; font-family: inherit; font-size: 1rem; color: var(--ink-muted, #8b8175); appearance: none; cursor: pointer; }
     .signup-form select.has-value { color: var(--ink, #0A0A0A); }
@@ -26,7 +26,7 @@
         <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup></span>
       </a>
       <div class="nav-links">
-        <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
+        <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
         <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
         <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
         <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
@@ -60,7 +60,7 @@
     <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
       <div class="mobile-drawer__inner">
         <nav class="mobile-drawer__nav" aria-label="Navigation mobile">
-          <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
+          <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
           <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
           <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
           <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
@@ -191,9 +191,9 @@
         <div class="story-copy">
           <p class="eyebrow" data-i18n="story_eyebrow">Dressing optimisé</p>
           <h2 data-i18n="story_title">Ton dressing connaît déjà la réponse.</h2>
-          <p data-i18n="story_text">Pas besoin de refaire ta garde-robe. Styleme<span class="fr-suffix">.fr</span> part de ce que tu as déjà — tes habitudes, tes essentiels, tes pièces marquantes. Ta tenue s'adapte à la météo, au rythme de ta journée, à ton agenda.</p>
+          <p data-i18n-html="story_text">Pas besoin de refaire ta garde-robe. Styleme<span class="fr-suffix">.fr</span> part de ce que tu as déjà — tes habitudes, tes essentiels, tes pièces marquantes. Ta tenue s'adapte à la météo, au rythme de ta journée, à ton agenda.</p>
           <p data-i18n="story_text_2">Il propose toujours une silhouette stylée et facile à porter. Pas de jugement, pas de pression. Juste la bonne idée, au bon moment.</p>
-          <p class="story-wake" data-i18n="story_wake">Ce que ton dressing fait pour toi :</p>
+          <p class="story-wake" data-i18n-html="story_wake">Ce que ton dressing fait pour toi :</p>
           <div class="mini-metrics">
             <span data-i18n="metric_1">+ de variété dans tes tenues</span>
             <span data-i18n="metric_2">− d'usure sur tes pièces préférées</span>
@@ -360,7 +360,7 @@
           <thead>
             <tr>
               <th data-i18n="diff_head_1">Les autres apps</th>
-              <th data-i18n="diff_head_2">Styleme<span class="fr-suffix">.fr</span></th>
+              <th data-i18n-html="diff_head_2">Styleme<span class="fr-suffix">.fr</span></th>
             </tr>
           </thead>
           <tbody>
@@ -466,7 +466,7 @@
         <div>
           <p class="eyebrow" data-i18n="sustainable_eyebrow">Slow fashion</p>
           <h2 data-i18n="sustainable_title">Acheter moins. Porter mieux.</h2>
-          <p data-i18n="sustainable_text">Styleme<span class="fr-suffix">.fr</span> encourage les associations inattendues, les répétitions intelligentes, les pièces qui durent. L'idée n'est pas de t'empêcher d'acheter, mais de te faire redécouvrir ce que tu as déjà.</p>
+          <p data-i18n-html="sustainable_text">Styleme<span class="fr-suffix">.fr</span> encourage les associations inattendues, les répétitions intelligentes, les pièces qui durent. L'idée n'est pas de t'empêcher d'acheter, mais de te faire redécouvrir ce que tu as déjà.</p>
           <p data-i18n="sustainable_text_2">Une garde-robe respectée, c'est une planète moins essoufflée.</p>
         </div>
         <figure>
@@ -577,6 +577,7 @@
         <form id="signupFormHome" class="signup-form">
           <input type="email" name="email" id="emailInputHome" placeholder="Ton adresse e-mail" data-i18n-placeholder="email_placeholder">
           <input type="text" name="firstName" id="firstNameInputHome" placeholder="Ton prénom" data-i18n-placeholder="first_name_placeholder">
+          <input type="number" name="age" id="ageInputHome" min="14" max="120" placeholder="Ton âge" data-i18n-placeholder="age_placeholder">
           <input type="text" name="location" id="locationInputHome" placeholder="Ta ville ou ta région" data-i18n-placeholder="location_placeholder">
           <select name="trend" id="trendSelectHome" aria-label="Tendance mode qui t'intéresse">
             <option value="" selected data-i18n="trend_placeholder">La tendance mode qui t'intéresse</option>
@@ -636,7 +637,7 @@
         <div>
           <span class="footer-label" data-i18n="footer_pages">Navigation</span>
           <a href="index.html" data-i18n="nav_home">Accueil</a>
-          <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
+          <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
           <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
           <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
           <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
@@ -688,7 +689,7 @@
   </footer>
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
   <script src="partials-v2.js?v=20260513-2316"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=age01"></script>
   <script src="interactions-v2.js"></script>
 </body>
 </html>
