@@ -2933,3 +2933,9 @@ h1 .site-name .tm,
     gap: 0.35em;
   }
 }
+
+
+/* Prevent space before question marks */
+body {
+  white-space: normal;
+}
