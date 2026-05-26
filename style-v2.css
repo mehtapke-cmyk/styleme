@@ -2979,3 +2979,47 @@ h1 .site-name .tm,
   /* Masquer dans nav desktop sur mobile, visible dans drawer */
   .nav-links + .nav-cta-pulse { display: none; }
 }
+
+/* ============================================================
+   MOBILE FIXES — Titre hero, espacement, scroll-snap
+   ============================================================ */
+
+/* 1. "ce matin ?" ne se coupe jamais */
+.hero-title-snap { white-space: nowrap; }
+
+/* 2. Titre hero sur 2 lignes max mobile */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: clamp(2rem, 9vw, 2.6rem);
+    line-height: 1.18;
+    max-width: 100%;
+  }
+}
+
+/* 3. Réduire espacement sections sur mobile */
+@media (max-width: 880px) {
+  :root { --space-section: clamp(2.5rem, 6vw, 4rem); }
+}
+
+/* 4. Scroll-snap : chaque section = sa propre page */
+@media (max-width: 880px) {
+  html { scroll-snap-type: y proximity; }
+  .hero,
+  .weekly-moment,
+  .image-story,
+  .steps-section,
+  .advice-section,
+  .comparison,
+  .mosaic-section,
+  .manifesto-section,
+  .community-section,
+  .sustainable-section,
+  .signup-section,
+  .posters-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+}
+
+/* 5. Fix Formspree success — priorité sur inline style display:none */
+.signup-success.is-visible { display: block !important; }

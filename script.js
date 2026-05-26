@@ -1027,6 +1027,8 @@ async function submitToFormspree(formEl, data, successEl) {
       // Masquer le formulaire, afficher le message de succès
       formEl.style.display = 'none';
       if (successEl) {
+        successEl.style.removeProperty('display'); // lève le display:none inline
+        successEl.style.display = 'block';          // force visible
         successEl.classList.add('is-visible');
         successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
