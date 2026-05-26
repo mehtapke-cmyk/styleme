@@ -1023,21 +1023,24 @@ async function submitToFormspree(formEl, data, successEl) {
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
+    const json = await res.json().catch(() => ({}));
     if (res.ok) {
-      // Masquer le formulaire, afficher le message de succès
       formEl.style.display = 'none';
       if (successEl) {
-        successEl.style.removeProperty('display'); // lève le display:none inline
-        successEl.style.display = 'block';          // force visible
+        successEl.style.removeProperty('display');
+        successEl.style.display = 'block';
         successEl.classList.add('is-visible');
         successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     } else {
-      alert('Une erreur est survenue. Écris-nous directement à bonjour@styleme.fr 💌');
+      const msg = json?.errors?.map(e => e.message).join(', ') || 'Erreur inconnue';
+      console.error('[Formspree] Erreur:', res.status, msg);
+      alert('Une erreur est survenue (' + res.status + '). Écris-nous à bonjour@styleme.fr 💌');
       if (btn) { btn.disabled = false; btn.textContent = originalText; }
     }
   } catch (err) {
-    alert('Pas de connexion internet ? Écris-nous à bonjour@styleme.fr 💌');
+    console.error('[Formspree] Exception:', err);
+    alert('Problème de connexion. Écris-nous à bonjour@styleme.fr 💌');
     if (btn) { btn.disabled = false; btn.textContent = originalText; }
   }
 }
@@ -1233,6 +1236,11 @@ if (signupFormHome) {
   signupFormHome.addEventListener("submit", (event) => {
     event.preventDefault();
     const email = document.getElementById("emailInputHome")?.value.trim() || "";
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert("Merci d'entrer une adresse e-mail valide.");
+      document.getElementById("emailInputHome")?.focus();
+      return;
+    }
     const firstName = document.getElementById("firstNameInputHome")?.value.trim() || "";
     const location = document.getElementById("locationInputHome")?.value.trim() || "";
     const trend = document.getElementById("trendSelectHome")?.value.trim() || "";
