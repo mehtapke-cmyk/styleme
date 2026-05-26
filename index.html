@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-G-JW5GNM9Q2Y
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -18,6 +17,14 @@ G-JW5GNM9Q2Y
     .signup-success.is-visible { display: block !important; animation: fadeUp .5s ease both; }
     @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
   </style>
+<!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW5GNM9Q2Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JW5GNM9Q2Y');
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#content">Aller au contenu</a>
@@ -28,6 +35,8 @@ G-JW5GNM9Q2Y
         <span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo-transparent.png" alt=""></span>
         <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup></span>
       </a>
+      <!-- Indicateur de section courante (mobile scroll) -->
+      <span class="nav-section-label" id="navSectionLabel" aria-hidden="true"></span>
       <div class="nav-links">
         <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
         <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
@@ -102,7 +111,7 @@ G-JW5GNM9Q2Y
     </div>
 
     <!-- HERO (intact — taille/forme conservées) -->
-    <section class="hero" id="top">
+    <section class="hero" data-section="Accueil" id="top">
       <div class="hero-media hero-diptych" aria-hidden="true">
         <figure class="hero-panel hero-panel--left">
           <img src="assets/hero-agent-morning-left.jpeg" alt="">
@@ -128,7 +137,7 @@ G-JW5GNM9Q2Y
          WEEKLY MOMENT — Bloc fusionné : la scène du matin + la charge mentale
          Tous les mots originaux sont préservés, juste réorganisés en un seul flux
          ============================================================ -->
-    <section class="weekly-moment" aria-labelledby="weekly-title">
+    <section class="weekly-moment" data-section="La scène du matin" aria-labelledby="weekly-title">
       <div class="shell">
         <div class="weekly-grid">
           <div class="weekly-stamp" aria-hidden="true">
@@ -193,7 +202,7 @@ G-JW5GNM9Q2Y
     </div>
 
     <!-- STORY — titre : "Ton dressing connaît déjà la réponse." -->
-    <section class="image-story">
+    <section class="image-story" data-section="Notre histoire">
       <div class="shell story-grid">
         <div class="story-copy">
           <p class="eyebrow" data-i18n="story_eyebrow">Dressing optimisé</p>
@@ -225,7 +234,7 @@ G-JW5GNM9Q2Y
          Qui sommes-nous / Notre objectif — scène éditoriale split-screen
          avec parallax doux au scroll.
          ============================================================ -->
-    <section class="manifesto" id="qui-sommes-nous" aria-labelledby="manifesto-title">
+    <section class="manifesto" data-section="Qui sommes-nous" id="qui-sommes-nous" aria-labelledby="manifesto-title">
       <div class="manifesto-grid">
         <figure class="manifesto-visual" data-parallax="0.15">
           <img src="assets/senior-manteau-matin.jpg"
@@ -259,7 +268,7 @@ G-JW5GNM9Q2Y
     </section>
 
     <!-- STEPS — titre : "Trois gestes. Une tenue." -->
-    <section class="steps" id="comment-ca-marche">
+    <section class="steps" data-section="Comment ça marche" id="comment-ca-marche">
       <div class="shell">
         <div class="section-head centered">
           <p class="eyebrow" data-i18n="steps_eyebrow">Comment ça marche?</p>
@@ -312,7 +321,7 @@ G-JW5GNM9Q2Y
     </section>
 
     <!-- ADVICE — titre : "Un miroir bienveillant." -->
-    <section class="advice section-band" id="conseils">
+    <section class="advice section-band" data-section="Conseils" id="conseils">
       <div class="shell advice-grid">
         <div class="advice-copy">
           <p class="eyebrow" data-i18n="advice_eyebrow">Conseil de style</p>
@@ -338,7 +347,7 @@ G-JW5GNM9Q2Y
     </section>
 
     <!-- COMPARISON — titre : "Moins. Mais mieux." -->
-    <section class="comparison comparison--with-bg">
+    <section class="comparison comparison--with-bg" data-section="Comparaison">
       <div class="comparison-bg" aria-hidden="true"></div>
       <div class="shell">
         <div class="section-head">
@@ -396,7 +405,7 @@ G-JW5GNM9Q2Y
          COMMUNITY — "Une tribu, pas une vitrine."
          Vidéo immersive + manifeste contre la fast-fashion + troc inscrits
          ============================================================ -->
-    <section class="community community--immersive" id="communaute">
+    <section class="community community--immersive" data-section="Communauté" id="communaute">
       <!-- Vidéo en background pleine largeur -->
       <div class="community-video-wrap" data-parallax="0.1">
         <video
@@ -468,7 +477,7 @@ G-JW5GNM9Q2Y
     </section>
 
     <!-- SUSTAINABLE — titre : "Acheter moins. Porter mieux." -->
-    <section class="sustainable">
+    <section class="sustainable" data-section="Mode durable">
       <div class="shell sustainable-grid">
         <div>
           <p class="eyebrow" data-i18n="sustainable_eyebrow">Slow fashion</p>

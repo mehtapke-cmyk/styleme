@@ -1243,3 +1243,42 @@ if (signupFormHome) {
     submitToFormspree(signupFormHome, { email, firstName, location, trend, otherTrend, profile, lang }, successEl2);
   });
 }
+
+/* ============================================================
+   NAV SECTION LABEL — affiche le titre de la section en cours
+   dans le header lors du scroll (mobile uniquement)
+   ============================================================ */
+(function() {
+  const label = document.getElementById('navSectionLabel');
+  if (!label) return;
+
+  const sections = Array.from(document.querySelectorAll('section[data-section]'));
+  if (!sections.length) return;
+
+  let ticking = false;
+  let lastSection = null;
+
+  function updateLabel() {
+    const scrollY = window.scrollY + 100; // offset header
+    let current = null;
+    for (const s of sections) {
+      if (s.offsetTop <= scrollY) current = s;
+    }
+    if (current !== lastSection) {
+      lastSection = current;
+      const title = current ? current.dataset.section : '';
+      label.textContent = title;
+      label.classList.toggle('is-visible', !!title);
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateLabel);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateLabel();
+})();
