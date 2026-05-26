@@ -1018,7 +1018,7 @@ async function submitToFormspree(formEl, data, successEl) {
   const originalText = btn ? btn.textContent : '';
   if (btn) { btn.disabled = true; btn.textContent = '✈ Envoi…'; }
   try {
-    const res = await fetch('https://formspree.io/f/xpwzgrkr', {
+    const res = await fetch('https://formspree.io/f/xojrvwzk', {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
