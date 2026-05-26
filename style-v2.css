@@ -2990,8 +2990,8 @@ h1 .site-name .tm,
 /* 2. Titre hero sur 2 lignes max mobile */
 @media (max-width: 600px) {
   .hero h1 {
-    font-size: clamp(2rem, 9vw, 2.6rem);
-    line-height: 1.18;
+    font-size: clamp(1.6rem, 7.5vw, 2.2rem);
+    line-height: 1.15;
     max-width: 100%;
   }
 }
@@ -3125,6 +3125,67 @@ h1 .site-name .tm,
   /* Section comparison : cacher le fond image lourd */
   .comparison--with-bg::before { display: none; }
 
-  /* Footer troc vidéo : poster statique uniquement */
-  .footer-troc__video { display: none; }
+  /* Footer troc vidéo : visible sur mobile (mais poster en premier) */
+  .footer-troc__video { display: block; }
+}
+
+/* ============================================================
+   CONTOUR DÉGRADÉ ROSE — encadrement sections mobile
+   ============================================================ */
+@media (max-width: 880px) {
+  .hero,
+  .weekly-moment,
+  .steps,
+  .advice,
+  .comparison,
+  .community,
+  .sustainable,
+  .signup {
+    position: relative;
+  }
+
+  /* Cadre dégradé autour de chaque section */
+  .weekly-moment::after,
+  .steps::after,
+  .advice::after,
+  .comparison::after,
+  .community::after,
+  .sustainable::after,
+  .signup::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 1.5rem;
+    pointer-events: none;
+    z-index: 0;
+    background: transparent;
+    border: 1.5px solid transparent;
+    background-image: linear-gradient(var(--paper, #fdf8f2), var(--paper, #fdf8f2)),
+      linear-gradient(135deg,
+        rgba(212, 165, 165, 0.55) 0%,
+        rgba(232, 190, 172, 0.35) 30%,
+        rgba(247, 220, 210, 0.15) 60%,
+        rgba(212, 165, 165, 0.45) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  /* Les sections sombres (community, hero) : dégradé adapté */
+  .community::after {
+    background-image: linear-gradient(rgba(26,26,26,1), rgba(26,26,26,1)),
+      linear-gradient(135deg,
+        rgba(212, 165, 165, 0.4) 0%,
+        rgba(232, 190, 172, 0.2) 50%,
+        rgba(212, 165, 165, 0.4) 100%);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  /* Footer allégé sur mobile */
+  .footer-brand-row { text-align: center; }
+  .footer-tagline { display: none; }
+  .footer-powered { display: none; }
+  .footer-manifesto { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: .75rem; }
+  .footer-location-block { display: none; }
 }

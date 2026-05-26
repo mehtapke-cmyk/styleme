@@ -1253,7 +1253,7 @@ if (signupFormHome) {
 }
 
 /* ============================================================
-   NAV SECTION LABEL — affiche le titre de la section en cours
+   NAV SECTION LABEL — affiche le titre + lien de section
    dans le header lors du scroll (mobile uniquement)
    ============================================================ */
 (function() {
@@ -1263,11 +1263,18 @@ if (signupFormHome) {
   const sections = Array.from(document.querySelectorAll('section[data-section]'));
   if (!sections.length) return;
 
+  const SECTION_URLS = {
+    'Comment ça marche': 'comment-ca-marche.html',
+    'Conseils': 'conseils.html',
+    'Communauté': 'rejoindre.html',
+    'Rejoindre': 'rejoindre.html',
+  };
+
   let ticking = false;
   let lastSection = null;
 
   function updateLabel() {
-    const scrollY = window.scrollY + 100; // offset header
+    const scrollY = window.scrollY + 100;
     let current = null;
     for (const s of sections) {
       if (s.offsetTop <= scrollY) current = s;
@@ -1275,7 +1282,10 @@ if (signupFormHome) {
     if (current !== lastSection) {
       lastSection = current;
       const title = current ? current.dataset.section : '';
-      label.textContent = title;
+      const url = title ? SECTION_URLS[title] : null;
+      label.innerHTML = url
+        ? `<a href="${url}" style="color:inherit;text-decoration:none;">${title}</a>`
+        : title;
       label.classList.toggle('is-visible', !!title);
     }
     ticking = false;
