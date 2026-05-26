@@ -2352,28 +2352,39 @@ body.drawer-open { overflow: hidden; }
   .site-header .nav-links { display: none !important; }
   .site-header .lang-dropdown--desktop { display: none !important; }
   .site-header .nav-burger { display: inline-flex; align-items: center; justify-content: center; }
-  .site-header .nav { gap: 0.75rem; }
-  .site-header .brand { flex: 1 1 auto; min-width: 0; }
-  .site-header .site-name { font-size: clamp(1.1rem, 4.5vw, 1.4rem); }
+  .site-header .nav { gap: 0.4rem; }
   .site-header .nav-toggle { display: none !important; }
 
-  /* Navigation rapide mobile — liens pages dans le header */
+  /* Logo — taille réduite mais toujours visible */
+  .site-header .brand-mark {
+    width: 44px !important;
+    height: 44px !important;
+    flex-shrink: 0;
+  }
+  .site-header .brand {
+    flex-shrink: 0;
+    gap: 0.4rem;
+  }
+  .site-header .site-name { font-size: clamp(0.9rem, 3.5vw, 1.1rem); }
+
+  /* Navigation rapide mobile — 3 boutons compacts */
   .nav-mobile-pages {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.3rem;
     flex: 1;
     justify-content: center;
+    overflow: hidden;
   }
   .nav-mobile-pages a {
-    font-size: 0.68rem;
+    font-size: 0.6rem;
     font-family: var(--font-body);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--ink-muted);
     text-decoration: none;
     white-space: nowrap;
-    padding: 0.25rem 0.5rem;
+    padding: 0.2rem 0.4rem;
     border-radius: 999px;
     border: 1px solid var(--line);
     transition: background 0.2s, color 0.2s;
@@ -2384,7 +2395,6 @@ body.drawer-open { overflow: hidden; }
     color: #fff;
     border-color: var(--terracotta);
   }
-  /* Cacher le label dynamique si on a les liens directs */
   .nav-section-label { display: none; }
 }
 
@@ -3017,11 +3027,16 @@ h1 .site-name .tm,
 .hero-title-snap { white-space: nowrap; }
 
 /* 2. Titre hero sur 2 lignes max mobile */
-@media (max-width: 600px) {
+@media (max-width: 880px) {
   .hero h1 {
-    font-size: clamp(1.6rem, 7.5vw, 2.2rem);
+    font-size: clamp(1.45rem, 6.5vw, 2rem);
     line-height: 1.15;
     max-width: 100%;
+    word-break: keep-all;
+  }
+  .hero-title-snap {
+    display: inline;
+    white-space: nowrap;
   }
 }
 
