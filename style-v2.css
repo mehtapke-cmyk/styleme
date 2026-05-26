@@ -3027,15 +3027,33 @@ h1 .site-name .tm,
 
 /* 3. Réduire espacement sections sur mobile */
 @media (max-width: 880px) {
-  :root { --space-section: clamp(2.5rem, 6vw, 4rem); }
+  :root { --space-section: clamp(2rem, 5vw, 3rem); }
 
-  /* Step-cards : limiter la hauteur des images sur mobile */
-  .step-card { max-height: 340px; overflow: hidden; }
-  .step-card img, .step-visual { 
-    max-height: 220px; 
-    width: 100%; 
-    object-fit: cover; 
+  /* Steps : réduire le padding global et la section-head */
+  .steps { padding: 2rem 0; }
+  .steps .section-head { padding: 1.5rem 0 1rem; }
+  .step-card { max-height: 300px; overflow: hidden; }
+  .step-card img, .step-visual, .parallax-img {
+    max-height: 180px;
+    width: 100%;
+    object-fit: cover;
   }
+
+  /* Advice : limiter la hauteur de l'image */
+  .advice-image, .advice-image__main-wrap {
+    max-height: 300px;
+    overflow: hidden;
+  }
+  .advice-image img { max-height: 300px; object-fit: cover; width: 100%; }
+  .advice-image__inset-wrap { display: none; }
+
+  /* Community vidéo : limiter la hauteur */
+  .community-video-wrap {
+    max-height: 420px;
+    overflow: hidden;
+  }
+  .community-video { max-height: 420px; object-fit: cover; }
+  .community-pillars { grid-template-columns: 1fr; }
 }
 
 /* 4. Scroll-snap DÉSACTIVÉ — causait des pages vides entre sections */
