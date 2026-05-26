@@ -2353,17 +2353,46 @@ body.drawer-open { overflow: hidden; }
   .site-header .lang-dropdown--desktop { display: none !important; }
   .site-header .nav-burger { display: inline-flex; align-items: center; justify-content: center; }
   .site-header .nav { gap: 0.75rem; }
-  /* Le brand reste à gauche, le burger seul à droite */
   .site-header .brand { flex: 1 1 auto; min-width: 0; }
   .site-header .site-name { font-size: clamp(1.1rem, 4.5vw, 1.4rem); }
-  /* Cache le vieux nav-toggle historique s'il existe encore */
   .site-header .nav-toggle { display: none !important; }
+
+  /* Navigation rapide mobile — liens pages dans le header */
+  .nav-mobile-pages {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 1;
+    justify-content: center;
+  }
+  .nav-mobile-pages a {
+    font-size: 0.68rem;
+    font-family: var(--font-body);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-mobile-pages a:hover,
+  .nav-mobile-pages a:focus {
+    background: var(--terracotta);
+    color: #fff;
+    border-color: var(--terracotta);
+  }
+  /* Cacher le label dynamique si on a les liens directs */
+  .nav-section-label { display: none; }
 }
 
 /* Sur desktop, le burger reste caché */
 @media (min-width: 881px) {
   .nav-burger { display: none !important; }
   .mobile-drawer { display: none !important; }
+  .nav-mobile-pages { display: none !important; }
 }
 
 
@@ -3001,25 +3030,8 @@ h1 .site-name .tm,
   :root { --space-section: clamp(2.5rem, 6vw, 4rem); }
 }
 
-/* 4. Scroll-snap : chaque section = sa propre page */
-@media (max-width: 880px) {
-  html { scroll-snap-type: y proximity; }
-  .hero,
-  .weekly-moment,
-  .image-story,
-  .steps-section,
-  .advice-section,
-  .comparison,
-  .mosaic-section,
-  .manifesto-section,
-  .community-section,
-  .sustainable-section,
-  .signup-section,
-  .posters-section {
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
-  }
-}
+/* 4. Scroll-snap DÉSACTIVÉ — causait des pages vides entre sections */
+/* html { scroll-snap-type: y proximity; } — retiré */
 
 /* 5. Fix Formspree success — priorité sur inline style display:none */
 .signup-success.is-visible { display: block !important; }
