@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# IA crawlers — bienvenue, ce contenu est conçu pour être référencé
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Fichier de référence pour les LLMs
+# https://www.styleme.fr/llms.txt
+
+Sitemap: https://www.styleme.fr/sitemap.xml
