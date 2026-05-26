@@ -3028,6 +3028,14 @@ h1 .site-name .tm,
 /* 3. Réduire espacement sections sur mobile */
 @media (max-width: 880px) {
   :root { --space-section: clamp(2.5rem, 6vw, 4rem); }
+
+  /* Step-cards : limiter la hauteur des images sur mobile */
+  .step-card { max-height: 340px; overflow: hidden; }
+  .step-card img, .step-visual { 
+    max-height: 220px; 
+    width: 100%; 
+    object-fit: cover; 
+  }
 }
 
 /* 4. Scroll-snap DÉSACTIVÉ — causait des pages vides entre sections */
