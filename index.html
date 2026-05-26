@@ -14,6 +14,8 @@
     .signup-form select.has-value { color: var(--ink, #0A0A0A); }
     .signup-form .trend-other-field { display: none; font-style: italic; color: rgba(10,10,10,.58); }
     .signup-form .trend-other-field.is-visible { display: block; }
+    .signup-success.is-visible { display: block !important; animation: fadeUp .5s ease both; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
   </style>
 </head>
 <body>
@@ -32,6 +34,9 @@
         <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
         <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
       </div>
+      <a href="#signupFormHome" class="nav-cta-pulse" onclick="event.preventDefault();document.getElementById('signupFormHome')?.scrollIntoView({behavior:'smooth',block:'center'})" aria-label="S'inscrire à la bêta">
+        <span data-i18n="nav_cta_signup">✦ Inscris-toi</span>
+      </a>
       <div class="lang-dropdown lang-dropdown--desktop" role="navigation" aria-label="Sélection de langue">
         <button class="lang-dropdown-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
           <span class="lang-flag">🇫🇷</span>
@@ -574,7 +579,7 @@
         <p class="eyebrow" data-i18n="signup_eyebrow">Accès en avant-première</p>
         <h2 data-i18n-html="signup_title">Sois parmi les <span>premiers</span> à tester.</h2>
         <p data-i18n="signup_text">Laisse ton e-mail et quelques mots sur ton besoin style du moment.</p>
-        <form id="signupFormHome" class="signup-form" action="mailto:bonjour@styleme.fr" method="POST" enctype="text/plain">
+        <form id="signupFormHome" class="signup-form" action="#">
           <input type="email" name="email" id="emailInputHome" placeholder="Ton adresse e-mail" data-i18n-placeholder="email_placeholder">
           <input type="text" name="firstName" id="firstNameInputHome" placeholder="Ton prénom" data-i18n-placeholder="first_name_placeholder">
           <input type="number" name="age" id="ageInputHome" min="14" max="120" placeholder="Ton âge" data-i18n-placeholder="age_placeholder">
@@ -596,6 +601,19 @@
           <input type="text" name="profile" id="profileInputHome" placeholder="Ton besoin style du moment" data-i18n-placeholder="profile_placeholder">
           <button class="btn btn-primary" type="submit" data-i18n="signup_cta">Envoyer ma demande</button>
         </form>
+        <div class="signup-success" id="signupSuccessHome" role="status" aria-live="polite"
+          style="display:none;padding:2rem;background:var(--surface,#fff7ef);border-radius:1.2rem;
+                 border:1.5px solid var(--line,#e7e1d5);text-align:center;margin-top:1rem;">
+          <span style="font-size:2.5rem;display:block;margin-bottom:.75rem">✨</span>
+          <h3 style="font-family:var(--font-serif);font-size:1.4rem;margin:0 0 .75rem;color:var(--ink)">
+            Merci pour ton inscription à la version bêta&nbsp;!
+          </h3>
+          <p style="color:var(--ink-muted);line-height:1.65;margin:0">
+            Ton inscription a bien été prise en compte.<br>
+            Nous te contacterons dès que l'application sera lancée.<br>
+            <em>D'ici là, garde un œil sur ta boîte mail&nbsp;!</em>
+          </p>
+        </div>
         <p class="privacy" data-i18n="signup_privacy">Pas de spam. Juste une réponse quand le test ouvre.</p>
       </div>
     </section>

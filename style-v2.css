@@ -2933,3 +2933,49 @@ h1 .site-name .tm,
     gap: 0.35em;
   }
 }
+
+/* ============================================================
+   BOUTON CTA HEADER — Inscris-toi (orange clignotant)
+   ============================================================ */
+.nav-cta-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: #ff6b35;
+  color: #fff !important;
+  font-weight: 700;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  padding: .55rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none !important;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+  animation: nav-pulse 2s ease-in-out infinite;
+  transition: background .2s, transform .2s;
+  margin-left: .75rem;
+}
+.nav-cta-pulse:hover {
+  background: #e45725;
+  transform: scale(1.04);
+  animation: none;
+  box-shadow: 0 4px 18px rgba(255, 107, 53, .45);
+}
+@keyframes nav-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255,107,53,.7); }
+  60%  { box-shadow: 0 0 0 10px rgba(255,107,53,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,107,53,0); }
+}
+.nav-cta-pulse--mobile {
+  margin: .75rem 0 0;
+  justify-content: center;
+  font-size: .95rem;
+  padding: .75rem 1.4rem;
+}
+@media (max-width: 900px) {
+  /* Masquer dans nav desktop sur mobile, visible dans drawer */
+  .nav-links + .nav-cta-pulse { display: none; }
+}

@@ -1009,6 +1009,37 @@ if (trendSelect) {
   updateTrendFields();
 }
 
+
+/* ============================================================
+   STYLEME — SOUMISSION FORMULAIRE VIA FORMSPREE (sans ouvrir Gmail)
+   ============================================================ */
+async function submitToFormspree(formEl, data, successEl) {
+  const btn = formEl.querySelector('[type="submit"]');
+  const originalText = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = '✈ Envoi…'; }
+  try {
+    const res = await fetch('https://formspree.io/f/xpwzgrkr', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (res.ok) {
+      // Masquer le formulaire, afficher le message de succès
+      formEl.style.display = 'none';
+      if (successEl) {
+        successEl.classList.add('is-visible');
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    } else {
+      alert('Une erreur est survenue. Écris-nous directement à bonjour@styleme.fr 💌');
+      if (btn) { btn.disabled = false; btn.textContent = originalText; }
+    }
+  } catch (err) {
+    alert('Pas de connexion internet ? Écris-nous à bonjour@styleme.fr 💌');
+    if (btn) { btn.disabled = false; btn.textContent = originalText; }
+  }
+}
+
 const signupForm = document.getElementById("signupForm");
 if (signupForm) {
   signupForm.addEventListener("submit", (event) => {
@@ -1021,10 +1052,8 @@ if (signupForm) {
     const profile = document.getElementById("profileInput")?.value.trim() || "";
     const motivation = document.getElementById("motivationInput")?.value.trim() || "";
     const lang = document.documentElement.lang || "fr";
-    const subject = encodeURIComponent("Demande d'accès Styleme<span class=\"fr-suffix\">.fr</span>");
-    const body = encodeURIComponent(`Bonjour,\n\nJe souhaite rejoindre la liste Styleme<span class=\"fr-suffix\">.fr</span>.\n\nE-mail : ${email || "Non renseigné"}\nPrénom : ${firstName || "Non renseigné"}\nLieu : ${location || "Non renseigné"}\nTendance mode : ${trend || "Non précisée"}\nAutre tendance : ${otherTrend || "Non précisée"}\nBesoin style : ${profile || "Non précisé"}\nMotivation : ${motivation || "Non précisée"}\nLangue : ${lang}\n\nMerci !`);
-    window.location.href = `mailto:bonjour@styleme.fr?subject=${subject}&body=${body}`;
-    showToast(translations[lang]?.toast || translations.fr.toast);
+    const successEl1 = document.getElementById("formSuccess") || document.getElementById("signupSuccess");
+    submitToFormspree(signupForm, { email, firstName, location, trend, otherTrend, profile, motivation, lang }, successEl1);
   });
 }
 
@@ -1208,11 +1237,7 @@ if (signupFormHome) {
     const otherTrend = document.getElementById("otherTrendInputHome")?.value.trim() || "";
     const profile = document.getElementById("profileInputHome")?.value.trim() || "";
     const lang = document.documentElement.lang || "fr";
-    const subject = encodeURIComponent("Demande d'accès Styleme<span class=\"fr-suffix\">.fr</span>");
-    const body = encodeURIComponent(`Bonjour,\n\nJe souhaite rejoindre la liste Styleme<span class=\"fr-suffix\">.fr</span>.\n\nE-mail : ${email || "Non renseigné"}\nPrénom : ${firstName || "Non renseigné"}\nLieu : ${location || "Non renseigné"}\nTendance mode : ${trend || "Non précisée"}\nAutre tendance : ${otherTrend || "Non précisée"}\nBesoin style : ${profile || "Non précisé"}\nLangue : ${lang}\n\nMerci !`);
-    window.location.href = `mailto:bonjour@styleme.fr?subject=${subject}&body=${body}`;
-    if (typeof showToast === "function") {
-      showToast(translations[lang]?.toast || translations.fr.toast);
-    }
+    const successEl2 = document.getElementById("signupSuccessHome");
+    submitToFormspree(signupFormHome, { email, firstName, location, trend, otherTrend, profile, lang }, successEl2);
   });
 }

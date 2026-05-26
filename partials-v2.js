@@ -36,6 +36,9 @@
           <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
           <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
         </div>
+        <a href="rejoindre.html#signupForm" class="nav-cta-pulse" aria-label="S'inscrire à la bêta">
+          <span data-i18n="nav_cta_signup">✦ Inscris-toi</span>
+        </a>
         <div class="lang-dropdown lang-dropdown--desktop" role="navigation" aria-label="Sélection de langue">
           <button class="lang-dropdown-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
             <span class="lang-flag">🇫🇷</span>
@@ -62,6 +65,7 @@
             <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
             <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
             <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
+            <a href="rejoindre.html#signupForm" class="nav-cta-pulse nav-cta-pulse--mobile" data-i18n="nav_cta_signup">✦ Inscris-toi</a>
           </nav>
           <div class="mobile-drawer__lang">
             <p class="mobile-drawer__lang-title">Langue</p>

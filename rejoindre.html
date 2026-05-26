@@ -407,7 +407,7 @@
         <p class="eyebrow" data-i18n="signup_eyebrow">Accès en avant-première</p>
         <h1 data-i18n-html="join_page_title">Sois parmi les <em>premiers</em> à tester.</h1>
         <p class="lead" data-i18n="join_page_intro">Les premiers testeurs façonnent l'outil avec nous. Tu reçois un accès gratuit, et en échange, tu nous dis ce qui marche, ce qui manque, ce qui te ressemble.</p>
-        <form id="signupForm" class="join-form" action="mailto:bonjour@styleme.fr" method="POST" enctype="text/plain">
+        <form id="signupForm" class="join-form" action="#">
           <input type="email" name="email" id="emailInput" placeholder="Ton adresse e-mail" data-i18n-placeholder="email_placeholder">
           <input type="text" name="firstName" id="firstNameInput" placeholder="Ton prénom" data-i18n-placeholder="first_name_placeholder">
           <input type="number" name="age" id="ageInput" min="14" max="120" placeholder="Ton âge" data-i18n-placeholder="age_placeholder">
@@ -454,8 +454,11 @@
         </div>
 
         <div class="form-success" id="formSuccess" role="status" aria-live="polite">
-          <h3>Merci, ta demande est partie ! &#10022;</h3>
-          <p>On revient vers toi à l'ouverture de la b&ecirc;ta &mdash; d'ici l&agrave;, garde un &oelig;il sur ta bo&icirc;te mail (v&eacute;rifie aussi tes spams, parfois on s'y cache).</p>
+          <div class="form-success__icon" aria-hidden="true">✨</div>
+          <h3>Merci pour ton inscription à la version bêta&nbsp;!</h3>
+          <p>Ton inscription a bien été prise en compte.<br>
+          Nous te contacterons dès que l'application sera lancée.<br>
+          <em>D'ici là, garde un œil sur ta boîte mail&nbsp;!</em></p>
         </div>
       </div>
       <div class="join-photo">
@@ -571,7 +574,8 @@
       const form = document.getElementById("signupForm");
       const success = document.getElementById("formSuccess");
       if (!form || !success) return;
-      form.addEventListener("submit", function() {
+      // La soumission est gérée par script.js → submitToFormspree
+      form.addEventListener("submit_old_disabled", function() {
         setTimeout(function() {
           success.classList.add("is-visible");
           success.scrollIntoView({ behavior: "smooth", block: "center" });
