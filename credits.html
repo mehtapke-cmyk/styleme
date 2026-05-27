@@ -57,24 +57,7 @@
 <body>
   <a class="skip-link" href="#content">Aller au contenu</a>
 
-  <header class="site-header">
-    <nav class="nav shell" aria-label="Navigation principale">
-      <a class="brand" href="index.html" aria-label="Styleme.fr accueil">
-        <span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo-transparent.png" alt=""></span>
-        <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm">™</sup></span>
-      </a>
-      <div class="nav-links">
-        <a href="comparaison.html">Pourquoi Styleme.fr ?</a>
-        <a href="comment-ca-marche.html">Comment cela fonctionne ?</a>
-        <a href="conseils.html">Conseils</a>
-        <a href="engagement.html">Notre engagement</a>
-        <a href="rejoindre.html">Rejoindre</a>
-      </div>
-      <a href="rejoindre.html" class="nav-cta-pulse">
-        <span>✦ Inscris-toi</span>
-      </a>
-    </nav>
-  </header>
+  <div data-partial="header"></div>
 
   <main id="content">
 
@@ -100,7 +83,7 @@
             <p style="color:var(--ink-muted); line-height:1.65; margin-bottom:1.5rem;">
               Adobe Stock est une banque d'images et de vidéos professionnelle. Les contenus acquis via Adobe Stock sont couverts par la <strong>licence standard Adobe Stock</strong>, qui autorise leur utilisation sur des sites web commerciaux, des applications et des supports marketing.
             </p>
-            <a href="https://stock.adobe.com/fr/license-terms" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size:.9rem;">
+            <a href="https://stock.adobe.com/fr/license-terms" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size:.9rem; white-space:normal; max-width:100%;">
               Voir les conditions de licence Adobe Stock ↗
             </a>
           </div>
@@ -385,6 +368,8 @@
     </div>
   </footer>
 
+  <script src="partials-v2.js?v=20260526"></script>
   <script src="script.js?v=20260526"></script>
+  <script src="interactions-v2.js?v=20260526"></script>
 </body>
 </html>
