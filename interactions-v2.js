@@ -6,7 +6,28 @@
 (() => {
   'use strict';
 
+  // ---------- Feuille de retouches (langue→hamburger, lisibilité, mobile) ----------
+  // Chargée sur toutes les pages, sans doublon.
+  if (!document.querySelector('link[data-styleme-refresh]')) {
+    const refreshCss = document.createElement('link');
+    refreshCss.rel = 'stylesheet';
+    refreshCss.href = 'style-mobile-refresh.css';
+    refreshCss.setAttribute('data-styleme-refresh', '');
+    document.head.appendChild(refreshCss);
+  }
+
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---------- Dédoublonnage vidéo (accueil) ----------
+  // La section « Communauté » et le footer « Manifeste du Troc » utilisaient
+  // la même vidéo. On bascule la Communauté sur la vidéo « colis » pour ne
+  // pas répéter deux fois le même plan sur la page d'accueil.
+  const communityVideo = document.querySelector('.community-video');
+  if (communityVideo && /styleme-troc-morning/.test(communityVideo.getAttribute('src') || '')) {
+    communityVideo.setAttribute('src', 'assets/video/styleme-firefly-promesse-lite.mp4');
+    communityVideo.setAttribute('poster', 'assets/video/styleme-firefly-poster.jpg');
+    communityVideo.load();
+  }
 
   // ---------- Header scrolled state ----------
   const header = document.querySelector('.site-header');
@@ -67,6 +88,17 @@
       try { io && io.observe(group); } catch(_) {}
     }
   });
+
+  // ---------- Filet de sécurité anti « page blanche » ----------
+  // Les .reveal partent à opacity:0 et ne s'affichent qu'une fois que
+  // l'IntersectionObserver les a vus. Si l'observer rate un élément
+  // (timing, contenu injecté dynamiquement, onglet en arrière-plan),
+  // la section resterait invisible. On force donc l'affichage après un
+  // court délai : aucune section ne peut rester blanche.
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.is-visible), .reveal-stagger:not(.is-visible)')
+      .forEach(el => el.classList.add('is-visible'));
+  }, 2500);
 
   // ---------- Subtle parallax on photos ----------
   if (!reduced) {
