@@ -11,7 +11,7 @@
   if (!document.querySelector('link[data-styleme-refresh]')) {
     const refreshCss = document.createElement('link');
     refreshCss.rel = 'stylesheet';
-    refreshCss.href = 'style-mobile-refresh.css';
+    refreshCss.href = 'style-mobile-refresh.css?v=20260527';
     refreshCss.setAttribute('data-styleme-refresh', '');
     document.head.appendChild(refreshCss);
   }
