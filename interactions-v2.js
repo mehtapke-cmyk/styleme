@@ -1,7 +1,5 @@
-/* ============================================================
    STYLEME.FR — INTERACTIONS V2
    Animations scroll, micro-interactions, FAQ, menu mobile
-   ============================================================ */
 
 (() => {
   'use strict';
@@ -12,6 +10,7 @@
     const refreshCss = document.createElement('link');
     refreshCss.rel = 'stylesheet';
     refreshCss.href = 'style-mobile-refresh.css?v=20260527';
+    
     refreshCss.setAttribute('data-styleme-refresh', '');
     document.head.appendChild(refreshCss);
   }
