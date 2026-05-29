@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Rejoins l'avant-première de Styleme<span class="fr-suffix">.fr</span>. Accès gratuit pour les premiers testeurs.">
   <title>Rejoindre la bêta — Styleme.fr</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -451,6 +450,7 @@
         <p class="eyebrow" data-i18n="signup_eyebrow">Accès en avant-première</p>
         <h1 data-i18n-html="join_page_title">Sois parmi les <em>premiers</em> à tester.</h1>
         <p class="lead" data-i18n="join_page_intro">Les premiers testeurs façonnent l'outil avec nous. Tu reçois un accès gratuit, et en échange, tu nous dis ce qui marche, ce qui manque, ce qui te ressemble.</p>
+        <p class="lead">Rejoins la bêta de Styleme<span class="fr-suffix">.fr</span>, ton styliste IA gratuit : une tenue personnalisée chaque matin, composée à partir de ton propre dressing. Sans pub, sans abonnement, sans incitation à acheter.</p>
         <form id="signupForm" class="join-form" action="#">
           <input type="email" name="email" id="emailInput" placeholder="Ton adresse e-mail" data-i18n-placeholder="email_placeholder">
           <input type="text" name="firstName" id="firstNameInput" placeholder="Ton prénom" data-i18n-placeholder="first_name_placeholder">
@@ -609,10 +609,9 @@
 
   <div data-partial="footer"></div>
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
-  <script src="partials-v2.js?v=20260527"></script>
+<script src="partials-v2.js?v=20260527"></script>
   <script src="script.js?v=20260527"></script>
-  <script src="interactions-v2.js?v=20260527"></script>
-  <script>
+  <script src="interactions-v2.js?v=20260527"></script>  <script>
     // Gestion soumission : affichage état succès
     (function() {
       const form = document.getElementById("signupForm");

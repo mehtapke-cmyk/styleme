@@ -160,11 +160,15 @@ p.lead {
   backdrop-filter: blur(20px) saturate(140%);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
   border-bottom: 1px solid transparent;
-  transition: border-color .4s ease, padding .4s ease, background .4s ease;
+  transition: border-color .4s ease, padding .4s ease, background .4s ease, transform .35s ease;
 }
 .site-header.is-scrolled {
   padding: 0.85rem 0;
   border-bottom-color: var(--line);
+}
+/* Masqué quand on scrolle vers le bas, réaffiché quand on scrolle vers le haut */
+.site-header.is-hidden {
+  transform: translateY(-100%);
 }
 
 .nav {
@@ -595,9 +599,9 @@ section {
   color: var(--ink);
 }
 .mini-metrics {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.5rem;
   margin-top: 1rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
@@ -608,14 +612,12 @@ section {
   color: var(--ink-muted);
   padding: 0.35rem 0;
   position: relative;
-  padding-left: 1.5rem;
 }
-.mini-metrics span::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 50%;
-  width: 16px; height: 1px;
-  background: var(--terracotta);
+/* Signe de tête (+ / − / 0) agrandi à la place de l'ancien tiret orange */
+.mini-metrics span::first-letter {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: var(--ink);
 }
 
 /* ============================================================
@@ -3082,15 +3084,15 @@ h1 .site-name .tm,
    ============================================================ */
 @media (max-width: 880px) {
 
-  /* 1. Plus de vide sous les boutons : hero colle au contenu */
+  /* 1. Texte du hero visible dès le départ, par-dessus la photo (aligné en haut) */
   .hero {
     min-height: 100svh;
-    padding-top: 6rem;
+    padding-top: 2.5rem;
     padding-bottom: 2.5rem;
-    align-items: flex-end;
+    align-items: flex-start;
   }
 
-  /* 2. Contenu texte ancré en bas, juste au-dessus de la section suivante */
+  /* 2. Contenu texte ancré en haut, par-dessus la photo */
   .hero-inner {
     padding-bottom: 0;
     width: 100%;

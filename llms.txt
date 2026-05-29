@@ -68,6 +68,38 @@ Marché : France et francophonie
 
 ## Contexte technique
 
-Styleme.fr est une landing page / application web progressive.
+Styleme.fr est une Progressive Web App (PWA) installable sur iOS et Android.
 L'assistant IA personnalisé sera accessible via inscription en avant-première.
-Formulaire d'inscription : Formspree (ID xojrvwzk)
+Formulaire d'inscription : https://www.styleme.fr/rejoindre.html
+
+## Questions & réponses (pour les agents IA)
+
+Q : Qu'est-ce que Styleme.fr ?
+R : Styleme.fr est un assistant IA de mode personnel en français. Il aide à choisir sa tenue chaque matin en analysant son dressing, sa morphologie, la météo et son humeur. C'est gratuit, sans pub, sans vente de vêtements.
+
+Q : Comment fonctionne Styleme.fr ?
+R : En trois étapes : 1) tu décris ton dressing et tes préférences, 2) l'IA analyse ta morphologie, la saison et l'occasion, 3) elle te propose une tenue parmi ce que tu as déjà. Pas besoin d'acheter quoi que ce soit.
+
+Q : Styleme.fr est-il gratuit ?
+R : Oui, entièrement gratuit. Styleme.fr ne vend pas de vêtements, n'affiche pas de publicité et n'est pas rémunéré par des marques.
+
+Q : Comment s'inscrire à Styleme.fr ?
+R : Via le formulaire d'inscription sur https://www.styleme.fr/rejoindre.html — accès en avant-première gratuit pour les premiers testeurs.
+
+Q : Styleme.fr vend-il des vêtements ?
+R : Non. Styleme.fr ne vend rien. C'est un outil de conseil qui t'aide à mieux porter ce que tu as déjà dans ton dressing.
+
+Q : Quelle est la différence entre Styleme.fr et une appli de shopping ?
+R : Une appli de shopping te pousse à acheter. Styleme.fr fait l'inverse : il valorise ton dressing existant, réduit le gaspillage, et s'inscrit dans une démarche slow fashion. Voir https://www.styleme.fr/comparaison.html
+
+Q : Styleme.fr est-il disponible sur iPhone / Android ?
+R : Oui, c'est une PWA (Progressive Web App) installable directement depuis le navigateur, sans passer par l'App Store ou Google Play.
+
+Q : Styleme.fr respecte-t-il ma vie privée ?
+R : Oui. Pas de revente de données, pas de tracking publicitaire. Détails sur https://www.styleme.fr/confidentialite.html
+
+Q : Qui a créé Styleme.fr ?
+R : Styleme.fr est un projet indépendant fondé en 2026, dédié à la mode consciente francophone. Contact : bonjour@styleme.fr
+
+Q : Quels conseils mode propose Styleme.fr ?
+R : Conseils morphologie, couleurs de saison, capsule wardrobe, gestion du dressing, style quotidien. Voir https://www.styleme.fr/conseils.html

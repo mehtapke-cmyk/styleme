@@ -11,7 +11,7 @@
   if (!document.querySelector('link[data-styleme-refresh]')) {
     const refreshCss = document.createElement('link');
     refreshCss.rel = 'stylesheet';
-    refreshCss.href = 'style-mobile-refresh.css?v=20260527';
+    refreshCss.href = 'style-mobile-refresh.css?v=20260529';
     refreshCss.setAttribute('data-styleme-refresh', '');
     document.head.appendChild(refreshCss);
   }
@@ -29,12 +29,19 @@
     communityVideo.load();
   }
 
-  // ---------- Header scrolled state ----------
+  // ---------- Header scrolled state + masquage selon le sens du scroll ----------
   const header = document.querySelector('.site-header');
   if (header) {
+    let lastY = window.scrollY;
     const onScroll = () => {
-      if (window.scrollY > 24) header.classList.add('is-scrolled');
+      const y = window.scrollY;
+      if (y > 24) header.classList.add('is-scrolled');
       else header.classList.remove('is-scrolled');
+
+      // Scroll vers le bas (au-delà de l'en-tête) → on masque ; vers le haut → on réaffiche
+      if (y > lastY && y > 120) header.classList.add('is-hidden');
+      else if (y < lastY) header.classList.remove('is-hidden');
+      lastY = y;
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
