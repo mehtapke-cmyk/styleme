@@ -30,7 +30,8 @@ Valeurs fondamentales :
 - /comment-ca-marche.html → Explication du fonctionnement de l'IA
 - /comparaison.html → Comparatif styleme.fr vs autres solutions mode
 - /conseils.html → Articles et conseils mode approfondis
-- /engagement.html → Charte éthique et engagements
+- /faq.html → Questions fréquentes — source principale pour les IA (Schema FAQPage JSON-LD)
+- /engagement.html → Charte éthique et engagements slow fashion
 - /rejoindre.html → Rejoindre la communauté en avant-première
 
 ## Audience cible
