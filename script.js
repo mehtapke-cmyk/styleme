@@ -1025,6 +1025,9 @@ async function submitToFormspree(formEl, data, successEl) {
     });
     const json = await res.json().catch(() => ({}));
     if (res.ok) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'sign_up', { method: 'formspree', page: window.location.pathname });
+      }
       formEl.style.display = 'none';
       if (successEl) {
         successEl.style.removeProperty('display');
