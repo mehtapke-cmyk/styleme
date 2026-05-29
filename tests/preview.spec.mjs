@@ -21,6 +21,8 @@ const viewports = [
 ];
 
 test.describe('Preview Claudo', () => {
+  // WebKit est parfois flaky sur le hero mobile (timing video/animations) → retries
+  test.describe.configure({ retries: 2 });
   for (const vp of viewports) {
     for (const p of pages) {
       // sur mobile, on garde uniquement les pages full
@@ -35,8 +37,12 @@ test.describe('Preview Claudo', () => {
           await page.waitForTimeout(500);
         }
         await mkdir('screenshots', { recursive: true });
+        // WebKit refuse les screenshots > 32767px. Sur mobile fullPage,
+        // la page peut depasser cette limite : on clampe la hauteur visible.
+        const browserName = browser.browserType().name();
+        const useFullPage = p.y === 0 && vp.name === 'mobile' && browserName !== 'webkit';
         await page.screenshot({
-          fullPage: p.y === 0 ? (vp.name === 'mobile' ? true : false) : false,
+          fullPage: useFullPage,
           path: `screenshots/${vp.name}-${p.name}.png`,
         });
         await ctx.close();

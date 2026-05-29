@@ -6,14 +6,42 @@
 (() => {
   'use strict';
 
+  // ---------- Feuille de retouches (langue→hamburger, lisibilité, mobile) ----------
+  // Chargée sur toutes les pages, sans doublon.
+  if (!document.querySelector('link[data-styleme-refresh]')) {
+    const refreshCss = document.createElement('link');
+    refreshCss.rel = 'stylesheet';
+    refreshCss.href = 'style-mobile-refresh.css?v=20260529';
+    refreshCss.setAttribute('data-styleme-refresh', '');
+    document.head.appendChild(refreshCss);
+  }
+
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // ---------- Header scrolled state ----------
+  // ---------- Dédoublonnage vidéo (accueil) ----------
+  // La section « Communauté » et le footer « Manifeste du Troc » utilisaient
+  // la même vidéo. On bascule la Communauté sur la vidéo « colis » pour ne
+  // pas répéter deux fois le même plan sur la page d'accueil.
+  const communityVideo = document.querySelector('.community-video');
+  if (communityVideo && /styleme-troc-morning/.test(communityVideo.getAttribute('src') || '')) {
+    communityVideo.setAttribute('src', 'assets/video/styleme-firefly-promesse-lite.mp4');
+    communityVideo.setAttribute('poster', 'assets/video/styleme-firefly-poster.jpg');
+    communityVideo.load();
+  }
+
+  // ---------- Header scrolled state + masquage selon le sens du scroll ----------
   const header = document.querySelector('.site-header');
   if (header) {
+    let lastY = window.scrollY;
     const onScroll = () => {
-      if (window.scrollY > 24) header.classList.add('is-scrolled');
+      const y = window.scrollY;
+      if (y > 24) header.classList.add('is-scrolled');
       else header.classList.remove('is-scrolled');
+
+      // Scroll vers le bas (au-delà de l'en-tête) → on masque ; vers le haut → on réaffiche
+      if (y > lastY && y > 120) header.classList.add('is-hidden');
+      else if (y < lastY) header.classList.remove('is-hidden');
+      lastY = y;
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -35,8 +63,9 @@
     el.style.setProperty('--i', i % 6);
   });
 
+  let io = null;
   if (!reduced && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
+    io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
@@ -55,7 +84,28 @@
     Array.from(group.children).forEach((child, i) => {
       child.style.setProperty('--i', i);
     });
+    // Footer : pas d'animation reveal — toujours visible immédiatement
+    // (sinon les liens nav restent à opacity:0 si l'IntersectionObserver
+    // ne s'est pas branché à temps après injection dynamique du partial)
+    if (group.classList.contains('footer-grid')) {
+      group.classList.add('is-visible');
+    }
+    // Idem si déjà observé : ré-observer pour les nouveaux
+    if (!reduced && 'IntersectionObserver' in window && !group.classList.contains('is-visible')) {
+      try { io && io.observe(group); } catch(_) {}
+    }
   });
+
+  // ---------- Filet de sécurité anti « page blanche » ----------
+  // Les .reveal partent à opacity:0 et ne s'affichent qu'une fois que
+  // l'IntersectionObserver les a vus. Si l'observer rate un élément
+  // (timing, contenu injecté dynamiquement, onglet en arrière-plan),
+  // la section resterait invisible. On force donc l'affichage après un
+  // court délai : aucune section ne peut rester blanche.
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.is-visible), .reveal-stagger:not(.is-visible)')
+      .forEach(el => el.classList.add('is-visible'));
+  }, 800);
 
   // ---------- Subtle parallax on photos ----------
   if (!reduced) {

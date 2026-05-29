@@ -1,0 +1,27 @@
+{
+  "name": "Styleme.fr — Ton styliste personnel du matin",
+  "short_name": "Styleme.fr",
+  "description": "Assistant IA de mode personnalisé. Sans stress, sans pub, sans te pousser à acheter.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDF8F2",
+  "theme_color": "#B96A46",
+  "orientation": "portrait-primary",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/assets/styleme-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/styleme-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "fashion", "productivity"],
+  "prefer_related_applications": false
+}

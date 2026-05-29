@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Conseils style Styleme.fr : un miroir bienveillant qui s'adapte à toi, à ton humeur, à ta journée.">
   <title>Un miroir bienveillant — Conseils Styleme.fr</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style-v2.css">
+  <link rel="stylesheet" href="style-v2.css?v=20260527">
   <style>
     .advice-collage {
       display: grid;
@@ -17,18 +16,53 @@
       gap: 1rem;
     }
     .advice-collage figure { margin: 0; overflow: hidden; border-radius: var(--radius-md); }
-    .advice-collage figure img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 3/4; }
+    .advice-collage figure img {
+      width: 100%; height: 100%;
+      object-fit: cover; aspect-ratio: 3/4;
+      transition: transform 1.2s cubic-bezier(.2,.6,.2,1);
+      will-change: transform;
+    }
     .advice-collage figure:first-child { grid-row: span 2; aspect-ratio: 3/4; }
     .advice-collage figure:first-child img { aspect-ratio: auto; height: 100%; }
+    /* Variante duo : 2 photos côte à côte au même format */
+    .advice-collage--duo {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      align-items: stretch;
+    }
+    .advice-collage--duo figure:first-child { grid-row: auto; }
+    .advice-collage--duo figure img,
+    .advice-collage--duo figure:first-child img {
+      aspect-ratio: 3/4;
+      height: 100%;
+    }
+    /* Effet zoom éditorial sur hover */
+    .advice-collage .zoom-hover:hover img { transform: scale(1.06); }
     .mood-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
       margin-top: 3rem;
     }
     .mood-card { position: relative; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 3/4; }
     .mood-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(.2,.6,.2,1); }
     .mood-card:hover img { transform: scale(1.06); }
+    /* Illustration détourée : fond transparent intégré au flux de la page, pas de crop */
+    .mood-card--illus {
+      background: transparent;
+      box-shadow: none;
+      aspect-ratio: 3/4;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mood-card--illus img { object-fit: contain; padding: 1rem; }
+    .mood-card--illus::after { display: none; } /* pas de gradient sombre sur l'illu */
+    .mood-card--illus .mood-label {
+      color: #0A0A0A !important;
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-shadow: 0 1px 2px rgba(248,243,233,0.9);
+    }
+    .mood-card--illus:hover img { transform: scale(1.04); }
     .mood-card::after {
       content: ""; position: absolute; inset: 0;
       background: linear-gradient(180deg, transparent 50%, rgba(26,26,26,.7) 100%);
@@ -40,11 +74,59 @@
       font-size: 1.15rem;
     }
     @media (max-width: 760px) {
-      .mood-grid { grid-template-columns: repeat(2, 1fr); }
-      .advice-collage { grid-template-columns: 1fr; }
+      .mood-grid { grid-template-columns: 1fr; }
+      .advice-collage,
+      .advice-collage--duo { grid-template-columns: 1fr; }
       .advice-collage figure:first-child { grid-row: auto; }
     }
+  
+    /* Footer: masque le bandeau signature MK sur cette page uniquement */
+    .footer-bottom { display: none !important; }
   </style>
+<!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW5GNM9Q2Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JW5GNM9Q2Y');
+  </script>
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Conseils style personnalisés, capsule wardrobe, morphologie, couleurs de saison. Tout pour porter mieux ce que tu as déjà dans ton dressing.">
+  <meta name="author" content="Styleme.fr">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.styleme.fr/conseils.html">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#B96A46">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.styleme.fr/conseils.html">
+  <meta property="og:title" content="Conseils mode — Styleme.fr">
+  <meta property="og:description" content="Conseils style personnalisés, capsule wardrobe, morphologie, couleurs de saison. Tout pour porter mieux ce que tu as déjà dans ton dressing.">
+  <meta property="og:image" content="https://www.styleme.fr/assets/og-styleme.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Styleme.fr — Ton styliste personnel du matin">
+  <meta property="og:site_name" content="Styleme.fr">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Conseils mode — Styleme.fr">
+  <meta name="twitter:description" content="Conseils style personnalisés, capsule wardrobe, morphologie, couleurs de saison. Tout pour porter mieux ce que tu as déjà dans ton dressing.">
+  <meta name="twitter:image" content="https://www.styleme.fr/assets/og-styleme.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Styleme.fr",
+    "url": "https://www.styleme.fr/",
+    "description": "Assistant IA de mode personnalisé — sans stress, sans pub, sans te pousser à acheter.",
+    "inLanguage": ["fr", "en", "es", "de", "it", "ru", "zh", "ar"],
+    "author": {
+      "@type": "Organization",
+      "name": "Styleme.fr",
+      "url": "https://www.styleme.fr"
+    }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#content">Aller au contenu</a>
@@ -74,10 +156,9 @@
             <li>Reconnaître ce qui te va — et te le rappeler les jours où tu doutes.</li>
           </ul>
         </div>
-        <div class="advice-collage">
-          <figure><img src="assets/senior-coffee-phone.jpg" alt="Conseil style avec lunettes colorées"></figure>
-          <figure><img src="assets/joyful-style-senior.jpeg" alt="Style joyeux"></figure>
-          <figure><img src="assets/styleme-editorial-portrait.jpeg" alt="Portrait éditorial"></figure>
+        <div class="advice-collage advice-collage--duo">
+          <figure class="zoom-hover"><img src="assets/conseil-beret-lunettes.jpg" alt="Conseil style — exprime ta personnalité avec ton conseiller Styleme.fr"></figure>
+          <figure class="zoom-hover"><img src="assets/styleme-editorial-portrait.jpeg" alt="Portrait éditorial"></figure>
         </div>
       </div>
     </section>
@@ -87,23 +168,19 @@
         <div class="section-head">
           <p class="eyebrow">Humeurs & contextes</p>
           <h2>Une humeur, un style.</h2>
-          <p class="lead">Le matin où tu as besoin de te sentir solide. Le soir où tu veux être lumineuse. Le dimanche où tu veux disparaître dans ton pull. Styleme.fr capte ces moments.</p>
+          <p class="lead">Le matin où tu as besoin de te sentir solide. Le soir où tu veux être lumineuse. Le dimanche où tu veux disparaître dans ton pull. Styleme<span class="fr-suffix">.fr</span> capte ces moments.</p>
         </div>
         <div class="mood-grid">
           <div class="mood-card">
             <img src="assets/moods/sans-tracas.jpeg" alt="">
             <span class="mood-label">Sans tracas</span>
           </div>
-          <div class="mood-card">
-            <img src="assets/moods/cool-detendu.jpeg" alt="">
-            <span class="mood-label">Cool, détendu</span>
-          </div>
-          <div class="mood-card">
-            <img src="assets/moods/osez-vous-montrer.jpeg" alt="">
+          <div class="mood-card mood-card--illus">
+            <img src="assets/dressing-illu-transparent.png" alt="">
             <span class="mood-label">Osez-vous montrer</span>
           </div>
           <div class="mood-card">
-            <img src="assets/moods/slow-fashion.jpeg" alt="">
+            <img src="assets/mamie-rose-style.jpg" alt="">
             <span class="mood-label">Slow fashion</span>
           </div>
         </div>
@@ -113,6 +190,21 @@
     <figure class="photo-break photo-break--editorial">
       <img src="assets/horizontal-community-style.jpeg" alt="Styles partagés">
     </figure>
+
+    <section class="advice">
+      <div class="shell">
+        <p class="eyebrow">Le guide essentiel</p>
+        <h2>Capsule wardrobe : comment construire la tienne</h2>
+        <p class="lead">Une capsule wardrobe, c'est un dressing minimaliste de pièces polyvalentes qui se combinent toutes entre elles. Moins de vêtements, plus de tenues possibles — le cœur d'une mode consciente et de la slow fashion.</p>
+        <ul class="advice-list">
+          <li><strong>Pars de ce que tu as déjà.</strong> Ton styliste IA analyse ton dressing et repère tes essentiels — pas besoin d'acheter pour bien commencer.</li>
+          <li><strong>Choisis une palette de couleurs.</strong> Trois à quatre teintes qui s'accordent multiplient tes combinaisons de tenues sans effort.</li>
+          <li><strong>Privilégie la polyvalence.</strong> Chaque pièce doit pouvoir se porter d'au moins deux façons, du bureau au week-end.</li>
+          <li><strong>Garde les pièces qui te ressemblent.</strong> Une capsule wardrobe réussie reflète ton style, pas les tendances du moment.</li>
+        </ul>
+        <p>Avec Styleme<span class="fr-suffix">.fr</span>, construire et faire vivre ta capsule wardrobe devient simple : l'assistant IA mode t'aide à composer des tenues à partir d'un dressing réduit, intelligent et durable.</p>
+      </div>
+    </section>
 
     <!-- ============================================================
          SECTION POSTERS — L'inspiration de la semaine
@@ -126,7 +218,7 @@
             Trois affiches. <span class="accent">Une saison.</span>
           </h2>
           <p class="section-lede">
-            Chaque semaine, l'équipe Styleme.fr partage ses coups de cœur :
+            Chaque semaine, l'équipe Styleme<span class="fr-suffix">.fr</span> partage ses coups de cœur :
             un conseil pratique, une tendance forte, une question de style.
             À épingler, à partager, à porter.
           </p>
@@ -175,6 +267,46 @@
       </div>
     </section>
 
+    <!-- ============================================================
+         TRIBUS — "Trouve ta tribu de style."
+         Lien vers la communauté Styleme.fr : groupes par humeur,
+         troc d'idées, vrais conseils entre membres.
+         ============================================================ -->
+    <section class="tribus" id="tribus" aria-labelledby="tribus-title">
+      <div class="shell tribus-content">
+        <p class="eyebrow">Communauté &amp; Tribus</p>
+        <h2 id="tribus-title" class="section-title">
+          Tes conseils n'arrivent jamais seuls — <span class="accent">une tribu les enrichit.</span>
+        </h2>
+        <p class="lede">
+          Sur Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup>, chaque conseil de ton styliste personnel peut s'ouvrir vers une <strong>tribu</strong> :
+          un cercle de personnes qui partagent ton humeur du jour, ton univers, ta couleur de matin.
+          Tu y trouves des inspirations vraies, des trocs de pièces, des regards qui t'élèvent — jamais des likes vides.
+        </p>
+        <ul class="tribus-grid">
+          <li class="tribus-card">
+            <span class="tribus-icon" aria-hidden="true">🌿</span>
+            <h3>Tribus d'humeur</h3>
+            <p>Slow, joyeux, posé, audacieux… Tu rejoins ce qui te ressemble aujourd'hui, pas hier.</p>
+          </li>
+          <li class="tribus-card">
+            <span class="tribus-icon" aria-hidden="true">🔄</span>
+            <h3>Troc &amp; échanges</h3>
+            <p>Tu donnes une seconde vie à tes pièces. Tu adoptes celles des autres. Rien ne se jette.</p>
+          </li>
+          <li class="tribus-card">
+            <span class="tribus-icon" aria-hidden="true">💬</span>
+            <h3>Conseils croisés</h3>
+            <p>Ton styliste IA + les regards de la tribu : la vraie sécurité du goût.</p>
+          </li>
+        </ul>
+        <a href="rejoindre.html" class="cta cta-primary tribus-cta">
+          Rejoindre une tribu
+          <span class="cta-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
     <section class="signup">
       <div class="shell signup-box">
         <p class="eyebrow">À ton tour</p>
@@ -189,8 +321,7 @@
 
   <div data-partial="footer"></div>
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
-  <script src="partials-v2.js"></script>
-  <script src="script.js"></script>
-  <script src="interactions-v2.js"></script>
-</body>
+<script src="partials-v2.js?v=20260527"></script>
+  <script src="script.js?v=20260527"></script>
+  <script src="interactions-v2.js?v=20260527"></script></body>
 </html>

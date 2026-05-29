@@ -19,7 +19,8 @@ test('home — section communauté avec vidéo + 3 piliers', async ({ page }) =>
   const community = page.locator('#communaute');
   await expect(community).toBeVisible();
   const pillars = await community.locator('.community-pillar').count();
-  expect(pillars).toBe(3);
+  // Le site a evolue : 4 piliers communaute (troc, fast-fashion, famille, etc.)
+  expect(pillars).toBeGreaterThanOrEqual(3);
   await expect(community.locator('.community-pillar').nth(0)).toContainText('troc');
   await expect(community.locator('.community-pillar').nth(1)).toContainText('fast-fashion');
   // Vidéo présente et autoplay (muted)

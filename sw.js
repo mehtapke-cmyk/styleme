@@ -1,0 +1,36 @@
+const CACHE = 'styleme-v20260529b';
+const SHELL = [
+  '/',
+  '/index.html',
+  '/style-v2.css?v=20260529',
+  '/script.js?v=20260529',
+  '/partials-v2.js?v=20260529',
+  '/interactions-v2.js?v=20260529',
+  '/style-mobile-refresh.css?v=20260529',
+  '/site.webmanifest',
+  '/assets/styleme-logo.png',
+];
+
+self.addEventListener('install', e => {
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)));
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', e => {
+  e.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
+    )
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', e => {
+  if (e.request.method !== 'GET') return;
+  // Ne pas intercepter les requêtes externes (Google Analytics, fonts, etc.)
+  const url = new URL(e.request.url);
+  if (url.origin !== self.location.origin) return;
+  e.respondWith(
+    caches.match(e.request).then(cached => cached || fetch(e.request))
+  );
+});

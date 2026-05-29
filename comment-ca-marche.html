@@ -3,12 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Comment fonctionne Styleme.fr : trois gestes, une tenue. Le styliste IA qui part de ce que tu as déjà.">
-  <title>Comment ça marche — Styleme.fr</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Comment ça marche ? — Styleme.fr</title>  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style-v2.css">
+  <link rel="stylesheet" href="style-v2.css?v=20260527">
+  <style>
+    /* Footer: masque le bandeau signature MK sur cette page uniquement */
+    .footer-bottom { display: none !important; }
+
+    /* Vidéo en arrière-plan éditorial — opacité 40% pour rester lisible */
+    .photo-break--video {
+      position: relative;
+      overflow: hidden;
+      background: #0A0A0A;
+    }
+    .photo-break--video {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      max-width: 720px;
+      margin-inline: auto;
+    }
+    .photo-break--video .photo-break__video {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1280 / 1810;
+      display: block;
+      object-fit: contain;
+      opacity: 0.40;
+      border-radius: var(--radius-md);
+    }
+    /* Mobile : vidéo plein cadre, ratio portrait préservé */
+    @media (max-width: 720px) {
+      .photo-break--video {
+        max-width: 100%;
+        margin-inline: 0;
+        border-radius: 0;
+      }
+      .photo-break--video .photo-break__video {
+        border-radius: 0;
+        opacity: 0.45;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .photo-break--video .photo-break__video { display: none; }
+      .photo-break--video { background-image: url('assets/video-comment-poster.jpg'); background-size: cover; background-position: center; }
+      .photo-break--video::after { content: ""; position: absolute; inset: 0; background: rgba(10,10,10,0.6); }
+    }
+  </style>
+<!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW5GNM9Q2Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JW5GNM9Q2Y');
+  </script>
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Découvre comment Styleme.fr analyse ton dressing, ta météo et ton humeur pour te proposer la tenue parfaite chaque matin. Simple, rapide, sans pub.">
+  <meta name="author" content="Styleme.fr">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.styleme.fr/comment-ca-marche.html">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#B96A46">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.styleme.fr/comment-ca-marche.html">
+  <meta property="og:title" content="Comment ça marche — Styleme.fr">
+  <meta property="og:description" content="Découvre comment Styleme.fr analyse ton dressing, ta météo et ton humeur pour te proposer la tenue parfaite chaque matin. Simple, rapide, sans pub.">
+  <meta property="og:image" content="https://www.styleme.fr/assets/og-styleme.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Styleme.fr — Ton styliste personnel du matin">
+  <meta property="og:site_name" content="Styleme.fr">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Comment ça marche — Styleme.fr">
+  <meta name="twitter:description" content="Découvre comment Styleme.fr analyse ton dressing, ta météo et ton humeur pour te proposer la tenue parfaite chaque matin. Simple, rapide, sans pub.">
+  <meta name="twitter:image" content="https://www.styleme.fr/assets/og-styleme.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Styleme.fr",
+    "url": "https://www.styleme.fr/",
+    "description": "Assistant IA de mode personnalisé — sans stress, sans pub, sans te pousser à acheter.",
+    "inLanguage": ["fr", "en", "es", "de", "it", "ru", "zh", "ar"],
+    "author": {
+      "@type": "Organization",
+      "name": "Styleme.fr",
+      "url": "https://www.styleme.fr"
+    }
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#content">Aller au contenu</a>
@@ -17,33 +102,39 @@
   <main id="content">
     <section class="page-hero">
       <div class="shell">
-        <p class="eyebrow" data-i18n="steps_eyebrow">Comment ça marche</p>
+        <p class="eyebrow" data-i18n="steps_eyebrow">Comment ça marche?</p>
         <h1 data-i18n-html="steps_page_title">Trois gestes. <em>Une tenue.</em></h1>
-        <p data-i18n="page_how_intro">Styleme.fr part de ta vraie vie : tes vêtements, ton agenda, la météo et ton humeur du matin. Pas d'application à télécharger, pas de quiz interminable. Tu ouvres le site, tu montres ce que tu as, tu reçois un avis. C'est tout.</p>
+        <p data-i18n-html="page_how_intro">Styleme<span class="fr-suffix">.fr</span> part de ta vraie vie : tes vêtements, ton agenda, la météo et ton humeur du matin. Pas d'application à télécharger, pas de quiz interminable. Tu ouvres le site, tu montres ce que tu as, tu reçois un avis. C'est tout.</p>
       </div>
     </section>
 
-    <figure class="photo-break photo-break--editorial">
-      <img src="assets/portant-pastel.jpg" alt="Portant de vêtements pastel — sélection délicate">
+    <figure class="photo-break photo-break--editorial photo-break--video">
+      <video class="photo-break__video"
+             autoplay muted loop playsinline preload="metadata"
+             poster="assets/video-comment-poster.jpg"
+             aria-label="Sélection délicate — chaque pièce a sa place">
+        <source src="assets/video-comment-bg.webm" type="video/webm">
+        <source src="assets/video-comment-bg-lite.mp4" type="video/mp4">
+      </video>
     </figure>
 
     <section>
       <div class="shell">
         <div class="steps-grid">
           <article class="step-card">
-            <img src="assets/manteaux-trio.jpg" alt="Trio de manteaux soigneusement suspendus">
+            <img src="assets/style-tailored-man.jpeg" alt="Trio de manteaux soigneusement suspendus">
             <div class="step-pill">01</div>
             <h3 data-i18n="step_1_title">Tu montres ta tenue</h3>
             <p data-i18n="step_1_text_long">Une photo. C'est tout ce qu'il faut. Ta tenue du jour posée sur le lit, l'intérieur de ton armoire, ou simplement la pièce que tu hésites à porter. Pas besoin de lumière de studio, pas besoin de poser. Le naturel suffit.</p>
           </article>
           <article class="step-card">
-            <img src="assets/gentleman-manteau-rouge.jpg" alt="Élégance intemporelle dans la rue">
+            <img src="assets/morning-coat.jpeg" alt="Élégance intemporelle dans la rue">
             <div class="step-pill">02</div>
             <h3 data-i18n="step_2_title">Ton styliste répond</h3>
             <p data-i18n="step_2_text_long">Un avis court, concret, bienveillant. La couleur qui va réveiller ton teint, la chaussure qui équilibre la silhouette, l'accessoire qui structure l'ensemble. Pas de blabla, pas de leçon — juste la bonne idée, au bon moment.</p>
           </article>
           <article class="step-card">
-            <img src="assets/pulls-jeans-flatlay.jpg" alt="Tenue posée à plat — pulls, jeans, bottines">
+            <img src="assets/outfit-flatlay-classic.jpeg" alt="Tenue posée à plat — pulls, jeans, bottines">
             <div class="step-pill">03</div>
             <h3 data-i18n="step_3_title">Ton dressing apprend</h3>
             <p data-i18n="step_3_text_long">Au fil des matins, il retient ce que tu aimes porter, ce qui te va vraiment, les associations qui marchent pour toi. Plus tu l'utilises, plus ses suggestions deviennent justes. Comme un styliste qui te connaîtrait par cœur.</p>
@@ -53,7 +144,7 @@
     </section>
 
     <figure class="photo-break photo-break--editorial">
-      <img src="assets/senior-manteau-matin.jpg" alt="Rituel matinal — boutonner son manteau avec soin">
+      <img src="assets/sustainable-wardrobe.jpeg" alt="Rituel matinal — chaque pièce porte une histoire">
     </figure>
 
     <section class="advice section-band">
@@ -61,7 +152,7 @@
         <div class="advice-copy">
           <p class="eyebrow">Et concrètement ?</p>
           <h2>Une réponse en moins d'une minute.</h2>
-          <p>Tu n'as pas dix minutes le matin. On le sait. Le temps que ton café passe, ta tenue est validée. Si tu veux changer un détail, tu demandes — il propose une alternative.</p>
+          <p>Tu n'as pas dix minutes le matin. On le sait. Pendant que tu fais infuser ton thé ou couler un bon café serré, une tenue te sera proposée. Si tu veux modifier un détail, tu demandes — ton styliste personnel trouvera une alternative.</p>
           <p>Et si tu n'aimes pas l'idée ? Tu le dis. Il retient. La prochaine fois, ce sera plus juste.</p>
           <ul class="advice-list">
             <li>Une photo, une réponse, une tenue.</li>
@@ -73,6 +164,54 @@
         <figure class="advice-image">
           <img src="assets/dressing-pile.jpg" alt="Avant Styleme — un dressing en désordre">
         </figure>
+      </div>
+    </section>
+
+    <section class="advice">
+      <div class="shell">
+        <p class="eyebrow">La question du matin</p>
+        <h2>Comment s'habiller le matin sans y passer dix minutes ?</h2>
+        <p>Comment s'habiller le matin quand on a un dressing plein mais aucune idée ? C'est exactement la question que résout Styleme<span class="fr-suffix">.fr</span>. Notre styliste IA part de ta garde-robe existante et te propose une tenue adaptée à la météo, à ton agenda et à ton humeur — en moins d'une minute, sans rien acheter.</p>
+        <p>Plutôt que de te noyer sous des tendances, l'assistant IA mode apprend ce qui te va, t'aide à composer une tenue cohérente chaque jour, et te guide vers une capsule wardrobe : moins de pièces, mais des pièces qui se combinent toutes entre elles. C'est ça, s'habiller le matin sans stress.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRIBUS — "Une tribu autour de ton style."
+         Lien vers la communauté Styleme.fr.
+         ============================================================ -->
+    <section class="tribus" id="tribus" aria-labelledby="tribus-ccm-title">
+      <div class="shell tribus-content">
+        <p class="eyebrow">Communauté &amp; Tribus</p>
+        <h2 id="tribus-ccm-title" class="section-title">
+          Et autour de toi — <span class="accent">une tribu qui te ressemble.</span>
+        </h2>
+        <p class="lede">
+          Une fois ton conseiller mode nommé et tes domaines choisis, tu peux rejoindre une <strong>tribu Styleme</strong> :
+          des personnes qui partagent ton tempo du matin, ton envie de slow fashion, ton plaisir du vêtement bien porté.
+          Tu décides : silencieux, observateur, ou actif. Aucun algorithme ne pousse, c'est toi qui composes ton cercle.
+        </p>
+        <ul class="tribus-grid">
+          <li class="tribus-card">
+            <span class="tribus-icon" aria-hidden="true">🪞</span>
+            <h3>Miroirs bienveillants</h3>
+            <p>Demande un avis, donne le tien. Toujours doux, jamais jugeant.</p>
+          </li>
+          <li class="tribus-card">
+            <span class="tribus-icon" aria-hidden="true">🔄</span>
+            <h3>Troc &amp; seconde vie</h3>
+            <p>Échange tes pièces avec ceux qui partagent ton style. Le dressing devient circulaire.</p>
+          </li>
+          <li class="tribus-card">
+            <span class="tribus-icon" aria-hidden="true">✨</span>
+            <h3>Inspirations vivantes</h3>
+            <p>Pas des feeds. De vraies tenues, portées par de vraies personnes, dans de vrais matins.</p>
+          </li>
+        </ul>
+        <a href="rejoindre.html" class="cta cta-primary tribus-cta">
+          Découvrir les tribus
+          <span class="cta-arrow" aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
 
@@ -90,8 +229,7 @@
 
   <div data-partial="footer"></div>
   <div class="toast" id="toast" role="alert" aria-live="polite"></div>
-  <script src="partials-v2.js"></script>
-  <script src="script.js"></script>
-  <script src="interactions-v2.js"></script>
-</body>
+<script src="partials-v2.js?v=20260527"></script>
+  <script src="script.js?v=20260527"></script>
+  <script src="interactions-v2.js?v=20260527"></script></body>
 </html>

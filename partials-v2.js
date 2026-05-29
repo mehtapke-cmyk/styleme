@@ -27,15 +27,18 @@
       <nav class="nav shell" aria-label="Navigation principale">
         <a class="brand" href="index.html" aria-label="Styleme.fr accueil">
           <span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo-transparent.png" alt=""></span>
-          <span class="site-name">Styleme.fr</span>
+          <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup></span>
         </a>
         <div class="nav-links">
-          <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
+          <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
           <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
           <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
           <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
           <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
         </div>
+        <a href="rejoindre.html#signupForm" onclick="event.preventDefault();var f=document.getElementById('signupFormHome');if(f){f.classList.add('is-visible');f.scrollIntoView({behavior:'smooth',block:'start'});}else{window.location.href='rejoindre.html#signupForm';}" class="nav-cta-pulse" aria-label="S'inscrire à la bêta">
+          <span data-i18n="nav_cta_signup">✦ Inscris-toi</span>
+        </a>
         <div class="lang-dropdown lang-dropdown--desktop" role="navigation" aria-label="Sélection de langue">
           <button class="lang-dropdown-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
             <span class="lang-flag">🇫🇷</span>
@@ -58,10 +61,12 @@
         <div class="mobile-drawer__inner">
           <nav class="mobile-drawer__nav" aria-label="Navigation mobile">
             <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
+            <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
             <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
             <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
             <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
             <a href="rejoindre.html" data-i18n="nav_join">Rejoindre</a>
+            <a href="rejoindre.html#signupForm" onclick="event.preventDefault();var f=document.getElementById('signupFormHome');if(f){f.classList.add('is-visible');f.scrollIntoView({behavior:'smooth',block:'start'});}else{window.location.href='rejoindre.html#signupForm';}" class="nav-cta-pulse nav-cta-pulse--mobile" data-i18n="nav_cta_signup">✦ Inscris-toi</a>
           </nav>
           <div class="mobile-drawer__lang">
             <p class="mobile-drawer__lang-title">Langue</p>
@@ -82,9 +87,9 @@
         <div class="footer-brand-row">
           <a class="footer-brand" href="index.html" aria-label="Styleme.fr">
             <span class="brand-mark"><img src="assets/styleme-logo-transparent.png" alt="Styleme.fr"></span>
-            <span class="site-name">Styleme.fr</span>
+            <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup></span>
           </a>
-          <p class="footer-tagline" data-i18n="footer_tagline">L'élégance est déjà dans ton armoire. Achète moins, porte mieux avec ton conseiller mode Styleme.fr</p>
+          <p class="footer-tagline" data-i18n="footer_tagline">L'élégance est déjà dans ton armoire. Achète moins, porte mieux avec ton conseiller mode Styleme<span class="fr-suffix">.fr</span></p>
         </div>
 
         <!-- Propulsé par MK -->
@@ -95,9 +100,9 @@
           </a>
         </div>
 
-        <!-- Manifeste -->
-        <div class="footer-manifesto">
-          <h3 class="footer-manifesto-title" data-i18n="footer_manifesto_title">Manifeste du style durable</h3>
+        <!-- Manifeste pulsé -->
+        <div class="footer-manifesto manifeste-pulse">
+          <h3 class="footer-manifesto-title" data-i18n="footer_manifesto_title">Manifeste du Style Durable</h3>
           <ul class="footer-manifesto-list">
             <li><span class="manifesto-icon" aria-hidden="true">🍃</span><span data-i18n="footer_manifesto_1">Rien ne se jette. Tout se réinvente.</span></li>
             <li><span class="manifesto-icon" aria-hidden="true">🪐</span><span data-i18n="footer_manifesto_2">On change de tenue, pas de planète.</span></li>
@@ -105,18 +110,12 @@
           </ul>
         </div>
 
-        <!-- Localisation avec drapeau filigrane -->
-        <div class="footer-location-block">
-          <span class="footer-location-label" data-i18n="footer_location_label">Conçu en France</span>
-          <p class="footer-location-city">Argelès-sur-Mer</p>
-        </div>
-
         <!-- Navigation complète -->
         <div class="footer-grid">
           <div>
             <span class="footer-label" data-i18n="footer_pages">Navigation</span>
             <a href="index.html" data-i18n="nav_home">Accueil</a>
-            <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
+            <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
             <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
             <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
             <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
@@ -134,9 +133,63 @@
           </div>
         </div>
 
-        <!-- Bas de page -->
+        <!-- Manifeste du Troc — vidéo immersive présente sur toutes les pages -->
+        <section class="footer-troc" aria-labelledby="footer-troc-title">
+          <div class="footer-troc__media">
+            <video class="footer-troc__video" autoplay muted loop playsinline preload="metadata" poster="assets/video/styleme-troc-morning-poster.jpg">
+              <source src="assets/video/styleme-troc-morning.mp4" type="video/mp4">
+            </video>
+            <div class="footer-troc__overlay"></div>
+            <div class="footer-troc__content">
+              <span class="footer-troc__eyebrow" data-i18n="footer_troc_eyebrow">Manifeste du Troc</span>
+              <h3 id="footer-troc-title" class="footer-troc__title" data-i18n="footer_troc_title">Acheter moins, échanger plus.</h3>
+              <p class="footer-troc__text" data-i18n="footer_troc_text">Le style se partage, la planète respire.</p>
+              <a class="footer-troc__cta" href="rejoindre.html" data-i18n="footer_troc_cta">
+                <span>Rejoindre le mouvement</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Localisation avec drapeau filigrane -->
+        <div class="footer-location-block">
+          <span class="footer-location-label" data-i18n="footer_location_label">Conçu en France</span>
+          <p class="footer-location-city">Argelès-sur-Mer</p>
+        </div>
+
+        <!-- Sélecteur de langue footer (8 langues) -->
+        <div class="footer-lang">
+          <span class="footer-lang-label" data-i18n="footer_lang_label">Langue</span>
+          <div class="lang-dropdown lang-dropdown--footer" role="navigation" aria-label="Sélection de langue (footer)">
+            <button class="lang-dropdown-toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span class="lang-flag">🇫🇷</span>
+              <span class="lang-code">FR</span>
+              <span class="lang-chevron" aria-hidden="true">▾</span>
+            </button>
+            <ul class="lang-dropdown-menu" role="listbox" aria-label="Choisir la langue">
+              <li role="option" data-lang="fr"><button type="button" data-lang="fr"><span>🇫🇷</span> FR — Français</button></li>
+              <li role="option" data-lang="en"><button type="button" data-lang="en"><span>🇬🇧</span> EN — English</button></li>
+              <li role="option" data-lang="es"><button type="button" data-lang="es"><span>🇪🇸</span> ES — Español</button></li>
+              <li role="option" data-lang="de"><button type="button" data-lang="de"><span>🇩🇪</span> DE — Deutsch</button></li>
+              <li role="option" data-lang="it"><button type="button" data-lang="it"><span>🇮🇹</span> IT — Italiano</button></li>
+              <li role="option" data-lang="ru"><button type="button" data-lang="ru"><span>🇷🇺</span> RU — Русский</button></li>
+              <li role="option" data-lang="zh"><button type="button" data-lang="zh"><span>🇨🇳</span> ZH — 中文</button></li>
+              <li role="option" data-lang="ar"><button type="button" data-lang="ar"><span>🇸🇦</span> AR — عربي</button></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bas de page : Styleme.fr + signature MK + © -->
         <div class="footer-bottom">
-          <span class="site-name">Styleme.fr</span>
+          <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup></span>
+          <span class="footer-signature">
+            <span data-i18n="footer_signature_powered">Propulsé par</span>
+            <a class="footer-signature-link" href="https://mkcreations.fr" target="_blank" rel="noopener" aria-label="MK Créations Originales by Mehtap Keles">Création Originale by Mehtap Keles</a>
+            <span class="footer-signature-sep" aria-hidden="true">·</span>
+            <span data-i18n="footer_signature_place">à Argelès-sur-Mer</span>
+            <span class="footer-signature-flag" aria-hidden="true">🇫🇷</span>
+          </span>
           <span data-i18n="footer_copy">© 2026 · Tous droits réservés</span>
         </div>
 
@@ -149,6 +202,23 @@
   if (headerSlot) headerSlot.outerHTML = HEADER;
   if (footerSlot) footerSlot.outerHTML = FOOTER;
 
+  // Notifier script.js qu'il doit (ré)initialiser les dropdowns langue
+  // et réappliquer la langue sur le header/footer fraîchement injectés.
+  // On laisse script.js définir window.__stylemeInitDropdowns ; on l'appelle
+  // après son chargement via un retry court (les scripts sont en bas du body
+  // donc partials-v2.js peut s'exécuter avant script.js).
+  function tryInitDropdowns(attempts) {
+    if (typeof window.__stylemeInitDropdowns === 'function') {
+      window.__stylemeInitDropdowns();
+      return;
+    }
+    if (attempts > 0) {
+      setTimeout(() => tryInitDropdowns(attempts - 1), 50);
+    }
+  }
+  // 10 tentatives × 50ms = 500ms max
+  tryInitDropdowns(10);
+
 
   // ============================================================
   // BURGER MENU — Toggle drawer mobile
@@ -157,6 +227,13 @@
     const burger = document.querySelector('.nav-burger');
     const drawer = document.getElementById('mobile-drawer');
     if (!burger || !drawer) return;
+
+    // FIX: le header a un backdrop-filter qui cree un containing block,
+    // ce qui piege le drawer (position:fixed) DANS le header (~137px de haut).
+    // On deplace le drawer en fin de <body> pour qu'il s'ancre au viewport.
+    if (drawer.parentElement !== document.body) {
+      document.body.appendChild(drawer);
+    }
 
     function close() {
       burger.setAttribute('aria-expanded', 'false');
@@ -169,6 +246,11 @@
       drawer.setAttribute('aria-hidden', 'false');
       drawer.classList.add('is-open');
       document.body.classList.add('drawer-open');
+      // FIX: s'assurer que les boutons langue du drawer mobile sont bien bindés
+      // en re-déclenchant l'init des dropdowns à chaque ouverture
+      if (typeof window.__stylemeInitDropdowns === 'function') {
+        try { window.__stylemeInitDropdowns(); } catch (e) {}
+      }
     }
 
     burger.addEventListener('click', () => {

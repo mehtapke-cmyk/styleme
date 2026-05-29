@@ -1,0 +1,130 @@
+/* ============================================================
+   STYLEME.FR — RETOUCHES MOBILE & LISIBILITÉ (V2.1)
+   Chargé APRÈS style-v2.css. Regroupe les ajustements demandés :
+   1. Menu langue déplacé dans le hamburger (ordinateur + mobile)
+   2. Écriture plus lisible + arrière-plans (overlays) moins opaques
+   3. Mobile plus fluide : images en cartes arrondies, plus d'air
+   Aucune suppression de contenu : uniquement de la mise en forme.
+   ============================================================ */
+
+
+/* ============================================================
+   1. MENU LANGUE → HAMBURGER PARTOUT
+   Le sélecteur de langue (drapeau « FR ▾ ») ne s'affiche plus dans
+   le header : on le retrouve dans le drawer du burger, sur tous les
+   écrans. Le burger devient donc visible aussi sur ordinateur.
+   ============================================================ */
+.site-header .lang-dropdown--desktop { display: none !important; }
+
+/* L'ancien bouton nav-toggle historique est neutralisé (le burger le remplace) */
+.nav-toggle { display: none !important; }
+
+/* Burger visible sur tous les écrans.
+   Spécificité volontairement élevée (.site-header .nav-burger) pour
+   l'emporter sur la règle !important de style-v2.css qui le masque
+   au-dessus de 880px, quel que soit l'ordre de chargement. */
+.site-header .nav-burger {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Le drawer doit pouvoir s'ouvrir aussi sur ordinateur.
+   On cible par #id (spécificité 1,0,0) car le drawer est déplacé en
+   fin de <body> par initBurger : il n'est donc plus dans .site-header. */
+@media (min-width: 881px) {
+  #mobile-drawer { display: block !important; }
+  /* On garde la navigation inline sur ordinateur (annule le repli
+     en dropdown hérité du breakpoint 960px) */
+  .site-header .nav-links {
+    position: static !important;
+    transform: none !important;
+    flex-direction: row !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+}
+
+
+/* ============================================================
+   2. LISIBILITÉ — écriture plus visible, overlays moins opaques
+   ============================================================ */
+
+/* Hero : overlay allégé, texte plus net grâce à une ombre douce */
+.hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(26,26,26,.18) 0%, rgba(26,26,26,.42) 60%, rgba(26,26,26,.7) 100%),
+    linear-gradient(90deg, rgba(26,26,26,.4) 0%, rgba(26,26,26,.1) 50%, rgba(26,26,26,.4) 100%) !important;
+}
+.hero .eyebrow { opacity: 1 !important; }
+.hero h1 { text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45); }
+.hero-sub {
+  color: rgba(247, 242, 234, 0.96) !important;
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Sections sombres : eyebrows plus lisibles */
+.sustainable .eyebrow { color: rgba(247, 242, 234, 0.92) !important; }
+.signup .eyebrow { color: rgba(247, 242, 234, 0.92) !important; }
+
+/* Communauté : overlay vidéo allégé + texte plus net */
+.community-video-overlay {
+  background:
+    linear-gradient(180deg,
+      rgba(26,22,18,0.42) 0%,
+      rgba(26,22,18,0.62) 40%,
+      rgba(26,22,18,0.74) 100%
+    ) !important;
+}
+.community--immersive .eyebrow { color: rgba(245, 235, 220, 0.92) !important; }
+.community-title { text-shadow: 0 2px 22px rgba(0, 0, 0, 0.4); }
+.pillar-text { color: rgba(245, 235, 220, 0.92) !important; }
+
+/* Manifeste du Troc (footer) : overlay allégé */
+.footer-troc__overlay {
+  background:
+    linear-gradient(180deg, rgba(10,10,10,0.02) 0%, rgba(10,10,10,0.42) 60%, rgba(10,10,10,0.66) 100%),
+    linear-gradient(90deg, rgba(10,10,10,0.42) 0%, rgba(10,10,10,0.1) 50%, rgba(10,10,10,0.1) 100%) !important;
+}
+
+
+/* ============================================================
+   3. MOBILE — plus fluide, plus visuel, moins de blocs durs
+   Les images pleine largeur deviennent des « cartes » arrondies et
+   inset, avec des hauteurs plus douces : la page respire au lieu
+   d'enchaîner des blocs rectangulaires bord à bord.
+   ============================================================ */
+@media (max-width: 640px) {
+  /* Bandeaux photo plein cadre → cartes arrondies avec marges latérales */
+  .photo-break,
+  .photo-break--hero {
+    padding-inline: 16px;
+  }
+  .photo-break img,
+  .photo-break--hero img {
+    height: clamp(240px, 46vh, 380px) !important;
+    border-radius: 22px;
+  }
+  /* Hauteurs d'images éditoriales adoucies */
+  .story-photo--street { height: clamp(300px, 44vh, 440px) !important; }
+  .story-photo--travel { height: clamp(280px, 40vh, 400px) !important; }
+  .story-photo,
+  .community-image,
+  .advice-image img { border-radius: 22px; }
+  /* Un peu plus d'air entre les sections empilées */
+  .image-story,
+  .advice,
+  .sustainable,
+  .steps {
+    padding-top: clamp(3rem, 9vw, 4.5rem);
+    padding-bottom: clamp(3rem, 9vw, 4.5rem);
+  }
+  /* Ombre douce sur les cartes image autoportantes → rendu « flottant »,
+     plus premium et moins « bloc plat ». (overflow:hidden de ces éléments
+     ne rogne que leurs enfants, pas leur propre ombre portée.) */
+  .story-photo,
+  .community-image {
+    box-shadow: 0 22px 46px -28px rgba(26, 22, 18, 0.55);
+  }
+}

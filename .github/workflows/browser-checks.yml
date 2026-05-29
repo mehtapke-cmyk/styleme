@@ -25,6 +25,22 @@ jobs:
       - name: Install Playwright browsers
         run: npm run browsers:install
 
+      - name: Start local web servers
+        run: |
+          # Les tests utilisent historiquement deux ports : 8765 et 8767
+          python3 -m http.server 8765 >/tmp/server-8765.log 2>&1 &
+          python3 -m http.server 8767 >/tmp/server-8767.log 2>&1 &
+          # Attendre que les deux serveurs repondent (max 15s)
+          for port in 8765 8767; do
+            for i in $(seq 1 30); do
+              if curl -sf "http://127.0.0.1:${port}/index.html" >/dev/null; then
+                echo "Server :${port} ready (attempt ${i})"
+                break
+              fi
+              sleep 0.5
+            done
+          done
+
       - name: Run browser screenshots and smoke checks
         run: npm run test:browser
 
