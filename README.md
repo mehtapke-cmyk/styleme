@@ -1,58 +1,164 @@
-# StyleMe
+# StyleMe.fr — Ton styliste personnel IA 👗✨
 
-Une plateforme d'échange de vêtements anti-fast-fashion et écoresponsable.
+Un assistant IA qui simplifie ton matin, optimise ton dressing, et te reconnecte avec les vêtements que tu aimes.
 
-## Description
+## 🎯 Mission
 
-StyleMe est un site web statique qui promeut l'échange de vêtements pour réduire l'impact environnemental de la fast-fashion. Le site est disponible en français, anglais, allemand et espagnol.
+StyleMe.fr s'engage pour une **consommation mode plus consciente** :
+- 🌍 Matin simplifié
+- 👔 Dressing optimisé
+- 👥 Styles partagés
+- 💚 Communauté engagée
 
-## Fonctionnalités
+Nos conseils personnalisés ti limitent les achats réflexes et t'aident à mieux porter ce que tu possèdes déjà.
 
-- Sélecteur de langue en haut à droite
-- Bannière informative sur l'anti-fast-fashion
-- Images d'inspiration (placards modernes et échanges de vêtements)
-- Formulaire de contact envoyant un email
+## 🌐 Visite le site
 
-## Comment lancer
+→ **[styleme.fr](https://styleme.fr)**
 
-Ouvrez `index.html` dans un navigateur web.
+## 🛠️ Tech Stack
 
-## Vérification dans les navigateurs
+- **Frontend** : HTML5, CSS3 (responsive design)
+- **JavaScript** : Vanilla JS (pas de dépendances de runtime)
+- **Multi-langue** : FR, EN, DE, ES
+- **Testing** : Playwright (Chromium, Firefox, WebKit, Mobile)
+- **CI/CD** : GitHub Actions
+- **Hosting** : GitHub Pages
+- **SEO** : Open Graph, JSON-LD, sitemap.xml
 
-Le projet inclut Playwright pour vérifier les pages dans Chromium, Firefox, WebKit et un viewport mobile Chrome.
+## 🚀 Déploiement
+
+Le site est **déployé automatiquement** sur GitHub Pages à chaque push sur `main`.
+
+### Activer GitHub Pages
+
+1. Va dans **Settings** → **Pages**
+2. Choisis **Deploy from a branch**
+3. Sélectionne branche : `main`
+4. Dossier : `/ (root)`
+5. Sauvegarde
+
+Le domaine custom `styleme.fr` est configuré via `CNAME`.
+
+## 📦 Installation locale
 
 ```bash
+# Cloner le repo
+git clone git@github.com:mehtapke-cmyk/styleme.git
+cd styleme
+
+# Installer les dépendances
 npm install
+
+# Lancer un serveur local
+python3 -m http.server 8000
+# Ouvrir http://localhost:8000
+```
+
+## 🧪 Tests navigateurs
+
+```bash
+# Installer les navigateurs (une seule fois)
 npm run browsers:install
+
+# Lancer tous les tests
 npm run test:browser
-```
 
-Pour générer uniquement les captures Chromium des pages principales :
-
-```bash
-npm run test:screenshots
-```
-
-
-> `npm run browsers:install` installe Chromium, Firefox et WebKit avec les dépendances système nécessaires. Si ces dépendances système sont déjà présentes, utilisez `npm run browsers:install:no-deps`.
-
-Vous pouvez aussi lancer un navigateur précis :
-
-```bash
+# Lancer un navigateur spécifique
 npm run test:browser:chromium
 npm run test:browser:firefox
 npm run test:browser:webkit
 npm run test:browser:mobile
 ```
 
-Les captures locales sont écrites dans `screenshots/` et ne sont pas versionnées.
+### Générer les captures d'écran
 
-## Technologies
+```bash
+npm run test:screenshots
+```
 
-- HTML
-- CSS
-- JavaScript
+Les captures sont écrites dans `screenshots/` (non versionné).
 
-## Images
+## 📂 Structure du projet
 
-Les images sont chargées depuis Unsplash (libres de droits).
+```
+styleme/
+├── index.html              # Page d'accueil
+├── comment-ca-marche.html  # Page "Comment ça marche"
+├── conseils.html           # Page "Conseils"
+├── comparaison.html        # Page "Pourquoi Styleme"
+├── rejoindre.html          # Page "Rejoindre"
+├── faq.html                # FAQ
+├── credits.html            # Crédits & Team
+├── confidentialite.html    # Politique de confidentialité
+├── mentions-legales.html   # Mentions légales
+│
+├── style-v2.css            # CSS principal (responsive)
+├── style-mobile-refresh.css # Optimisations mobiles
+├── style.css               # CSS fallback
+│
+├── script.js               # Logic général
+├── interactions-v2.js      # Interactions & animations
+├── partials-v2.js          # Composants réutilisables
+│
+├── assets/                 # Images, vidéos, icônes
+│   └── video/              # Vidéos MP4
+│
+├── tests/                  # Tests Playwright
+├── screenshots/            # Captures (généré, non versionné)
+├── playwright-report/      # Rapport Playwright (généré)
+│
+├── .github/workflows/      # CI/CD GitHub Actions
+│   ├── browser-checks.yml  # Tests navigateurs
+│   └── deploy-pages.yml    # Déploiement Pages
+│
+└── README.md               # Ce fichier
+```
+
+## 🎨 Design
+
+- **Thème clair** : Fond blanc/bleu pâle, typographie élégante
+- **Palette de couleurs** : Noir, menthe, corail, rose, jaune, bleu
+- **Typographie** : Fraunces (titres), Packard/Inter (body)
+- **Responsive** : Mobile-first (testé sur 200+ configurations)
+
+## 📊 SEO & Social
+
+- ✅ Open Graph tags (og:title, og:image, etc.)
+- ✅ JSON-LD schema (WebSite, Organization)
+- ✅ Twitter Card optimisée
+- ✅ sitemap.xml pour indexation
+- ✅ robots.txt configuré
+- ✅ Google Analytics 4 intégré
+
+## 🔧 CI/CD
+
+### Browser Checks (browser-checks.yml)
+- S'exécute à chaque PR et push sur `main`/`work`
+- Lance les 200+ tests Playwright
+- Upload les captures et rapports
+
+### Deploy Pages (deploy-pages.yml)
+- S'exécute automatiquement après chaque push sur `main`
+- Déploie le site sur GitHub Pages
+- URL : `https://styleme.fr`
+
+## 🤝 Contribuer
+
+1. Crée une branche : `git checkout -b feature/ma-feature`
+2. Fais tes changements
+3. Lance les tests : `npm run test:browser`
+4. Crée une PR vers `main`
+5. Une fois approuvée, merge et le site se déploie automatiquement !
+
+## 📝 Licence
+
+Voir [LICENSE](LICENSE)
+
+## 👥 Équipe
+
+Créé par Mehtap Keles & Team 💚
+
+---
+
+**Questions ?** Consulte les pages [FAQ](faq.html), [Mentions légales](mentions-legales.html) ou [Confidentialité](confidentialite.html).
