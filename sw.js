@@ -1,4 +1,4 @@
-const CACHE = 'styleme-v20260530';
+const CACHE = 'styleme-v20260531';
 const SHELL = [
   '/',
   '/index.html',
