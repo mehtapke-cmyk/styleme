@@ -15,7 +15,114 @@
 
 <a class="back-to-site" href="../index.html">← Retour au site</a>
 
-<div class="phone-wrap">
+<!-- ============================================================
+     ONBOARDING — premier lancement de l'app
+     ============================================================ -->
+<div class="onboarding" id="onboarding" aria-label="Première utilisation">
+  <div class="onb-phone">
+    <div class="onb-progress" aria-hidden="true">
+      <span class="onb-bar is-active"></span>
+      <span class="onb-bar"></span>
+      <span class="onb-bar"></span>
+      <span class="onb-bar"></span>
+    </div>
+
+    <!-- Étape 1 — Bienvenue -->
+    <section class="onb-step is-active" data-step="1">
+      <div class="onb-hero">
+        <img class="onb-logo" src="assets/styleme-logo-transparent.png" alt="Styleme">
+        <h1 class="onb-brand">Styleme<span class="onb-tld">.fr</span></h1>
+      </div>
+      <div class="onb-body">
+        <p class="onb-eyebrow">Ton styliste personnel du matin</p>
+        <h2 class="onb-title">Et si on s'habillait mieux<br><em>avec ce qu'on a déjà&nbsp;?</em></h2>
+        <p class="onb-sub">Pas de pub. Pas d'achat poussé. Juste deux ou trois idées chaque matin, prises dans <strong>ton</strong> dressing.</p>
+      </div>
+      <div class="onb-actions">
+        <button class="btn btn-full btn-primary onb-next">Commencer</button>
+        <button class="btn btn-text onb-skip">Passer la présentation</button>
+      </div>
+    </section>
+
+    <!-- Étape 2 — Quiz de style -->
+    <section class="onb-step" data-step="2">
+      <div class="onb-body onb-body--quiz">
+        <p class="onb-eyebrow">Question <span class="onb-q-num">1</span>/3</p>
+        <h2 class="onb-title">Laquelle te ressemble<br><em>le plus&nbsp;?</em></h2>
+        <p class="onb-sub">Pas de bonne réponse — c'est juste pour apprendre ton style.</p>
+
+        <div class="quiz-pair">
+          <button class="quiz-card" data-pick="A">
+            <span class="quiz-stack">
+              <span class="quiz-p" style="--c:#d4a5a5"></span>
+              <span class="quiz-p" style="--c:#deca9f"></span>
+              <span class="quiz-p" style="--c:#f7f2ea"></span>
+            </span>
+            <span class="quiz-label">Doux et naturel</span>
+          </button>
+          <button class="quiz-card" data-pick="B">
+            <span class="quiz-stack">
+              <span class="quiz-p" style="--c:#1b1b1b"></span>
+              <span class="quiz-p" style="--c:#b96a46"></span>
+              <span class="quiz-p" style="--c:#2a2a2a"></span>
+            </span>
+            <span class="quiz-label">Affirmé et contrasté</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Étape 3 — Ville/météo -->
+    <section class="onb-step" data-step="3">
+      <div class="onb-body">
+        <p class="onb-eyebrow">Pour la météo du matin</p>
+        <h2 class="onb-title">Où es-tu<br><em>la plupart du temps&nbsp;?</em></h2>
+        <p class="onb-sub">Ton styliste tiendra compte du temps qu'il fait avant de te proposer une tenue.</p>
+
+        <label class="onb-input-wrap">
+          <span class="onb-input-icon">⌖</span>
+          <input class="onb-input" type="text" placeholder="Ta ville" value="Argelès-sur-Mer">
+        </label>
+        <button class="btn btn-text">Utiliser ma position actuelle</button>
+
+        <p class="onb-footnote">Pas d'email demandé. Pas de compte à créer. Tu décides plus tard.</p>
+      </div>
+      <div class="onb-actions">
+        <button class="btn btn-full btn-primary onb-next">Continuer</button>
+      </div>
+    </section>
+
+    <!-- Étape 4 — Première pièce -->
+    <section class="onb-step" data-step="4">
+      <div class="onb-body">
+        <p class="onb-eyebrow">Étape la plus importante</p>
+        <h2 class="onb-title">Pose ta première<br><em>pièce préférée.</em></h2>
+        <p class="onb-sub">Photographie-la à plat sur un fond uni. L'IA détecte le type, la couleur et la saison toute seule.</p>
+
+        <div class="onb-camera">
+          <div class="onb-camera-frame">
+            <span class="onb-corner onb-c-tl"></span>
+            <span class="onb-corner onb-c-tr"></span>
+            <span class="onb-corner onb-c-bl"></span>
+            <span class="onb-corner onb-c-br"></span>
+            <span class="onb-camera-hint">Centre ta pièce ici</span>
+          </div>
+          <button class="onb-shutter" aria-label="Prendre la photo"></button>
+        </div>
+
+        <p class="onb-footnote">Tu pourras ajouter le reste de ton dressing à ton rythme — 5 pièces suffisent pour commencer.</p>
+      </div>
+      <div class="onb-actions">
+        <button class="btn btn-full btn-primary onb-finish">J'ai pris ma première photo</button>
+        <button class="btn btn-text onb-finish">Je le ferai plus tard</button>
+      </div>
+    </section>
+  </div>
+
+  <p class="prototype-note">Onboarding — clique « Commencer » pour parcourir les 4 étapes.</p>
+</div>
+
+<div class="phone-wrap" id="appWrap" hidden>
   <div class="phone" role="application" aria-label="Prototype app Styleme">
 
     <!-- statusbar -->
@@ -29,7 +136,7 @@
     <!-- header -->
     <header class="app-header">
       <a class="brand" href="#">
-        <span class="brand-dot" aria-hidden="true"></span>
+        <img class="brand-logo" src="assets/styleme-logo-transparent.png" alt="">
         <span class="brand-name">Styleme<span class="brand-tld">.fr</span></span>
       </a>
       <button class="burger" aria-label="Menu">

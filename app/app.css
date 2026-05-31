@@ -438,6 +438,279 @@ body {
 .tab.is-active { color: var(--terra); }
 .tab.is-active .tab-label { font-weight: 600; }
 
+/* brand logo in header */
+.brand-logo {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+/* ============================================================
+   ONBOARDING
+   ============================================================ */
+.onboarding {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin: 0 auto;
+}
+.onb-phone {
+  width: 100%;
+  max-width: var(--phone-w);
+  height: var(--phone-h);
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 1px 0 rgba(0,0,0,0.08) inset,
+    0 30px 80px -30px rgba(40, 30, 20, 0.45),
+    0 12px 24px -12px rgba(40, 30, 20, 0.25);
+  border: 1px solid rgba(255,255,255,0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.onb-progress {
+  display: flex;
+  gap: 6px;
+  padding: 18px 24px 0;
+  flex-shrink: 0;
+}
+.onb-bar {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--line);
+  transition: background .4s;
+}
+.onb-bar.is-active { background: var(--terra); }
+
+.onb-step {
+  position: absolute;
+  inset: 0;
+  padding: 56px 28px 28px;
+  display: none;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity .35s;
+}
+.onb-step.is-active {
+  display: flex;
+  opacity: 1;
+}
+
+.onb-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 28px 0 24px;
+  flex-shrink: 0;
+}
+.onb-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  animation: logo-bloom .9s ease-out;
+}
+@keyframes logo-bloom {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.onb-brand {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.onb-tld {
+  color: var(--ink-muted);
+  font-weight: 400;
+}
+
+.onb-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+.onb-body::-webkit-scrollbar { width: 0; }
+
+.onb-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--terra);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.onb-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+.onb-title em {
+  font-style: italic;
+  font-weight: 400;
+}
+.onb-sub {
+  font-size: 14px;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+.onb-footnote {
+  font-size: 11px;
+  color: var(--ink-muted);
+  margin-top: auto;
+  text-align: center;
+  font-style: italic;
+}
+
+.onb-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 12px;
+  flex-shrink: 0;
+}
+
+.btn-text {
+  background: transparent;
+  border: 0;
+  font-family: inherit;
+  font-size: 12px;
+  color: var(--ink-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* Quiz */
+.onb-body--quiz { gap: 16px; }
+.quiz-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+.quiz-card {
+  background: var(--cream);
+  border: 2px solid transparent;
+  border-radius: 18px;
+  padding: 16px 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-family: inherit;
+  transition: border-color .2s, transform .15s, background .2s;
+}
+.quiz-card:hover { transform: translateY(-2px); }
+.quiz-card:active { transform: scale(0.97); }
+.quiz-card.is-picked {
+  border-color: var(--terra);
+  background: var(--paper);
+}
+.quiz-stack {
+  display: flex;
+  gap: 4px;
+}
+.quiz-p {
+  width: 22px;
+  height: 70px;
+  border-radius: 6px;
+  background: var(--c);
+}
+.quiz-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* Ville input */
+.onb-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-top: 8px;
+}
+.onb-input-icon {
+  font-size: 18px;
+  color: var(--terra);
+}
+.onb-input {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+/* Camera */
+.onb-camera {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.onb-camera-frame {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  background: linear-gradient(135deg, rgba(212,165,165,0.18) 0%, rgba(232,200,179,0.18) 100%);
+  border-radius: 16px;
+}
+.onb-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid var(--ink);
+}
+.onb-c-tl { top: 0; left: 0; border-right: 0; border-bottom: 0; border-top-left-radius: 6px; }
+.onb-c-tr { top: 0; right: 0; border-left: 0; border-bottom: 0; border-top-right-radius: 6px; }
+.onb-c-bl { bottom: 0; left: 0; border-right: 0; border-top: 0; border-bottom-left-radius: 6px; }
+.onb-c-br { bottom: 0; right: 0; border-left: 0; border-top: 0; border-bottom-right-radius: 6px; }
+.onb-camera-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+.onb-shutter {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 4px solid var(--ink);
+  cursor: pointer;
+  position: relative;
+  transition: transform .15s;
+}
+.onb-shutter::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.onb-shutter:active { transform: scale(0.92); }
+
 /* desktop: bigger phone */
 @media (min-width: 900px) {
   body { padding: 60px 24px; }
@@ -452,15 +725,16 @@ body {
 @media (max-width: 460px) {
   body { padding: 0; background: var(--paper); }
   .back-to-site {
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: auto;
+    bottom: 100px;
+    left: 12px;
     font-size: 11px;
-    padding: 4px 12px;
-    background: rgba(255,255,255,0.7);
+    padding: 6px 12px;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 4px 12px -4px rgba(0,0,0,0.15);
   }
-  .phone-wrap { gap: 0; }
-  .phone {
+  .phone-wrap, .onboarding { gap: 0; }
+  .phone, .onb-phone {
     max-width: 100%;
     height: 100vh;
     height: 100dvh;
