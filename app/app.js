@@ -1,8 +1,42 @@
 (() => {
   // =========================================================
   // I18N — applique les traductions à tout élément [data-i18n*]
+  // Persisté dans localStorage (clé "styleme_lang"), défaut: fr.
   // =========================================================
-  let currentLang = 'fr';
+  const LANG_KEY = 'styleme_lang';
+  let currentLang = (function () {
+    try { return localStorage.getItem(LANG_KEY) || 'fr'; }
+    catch (_) { return 'fr'; }
+  })();
+
+  // Whitelist des balises autorisées dans les valeurs i18n (typographie).
+  // Évite tout XSS si une chaîne traduite est un jour issue d'une source non
+  // de confiance (community-contributed translations, etc.).
+  const I18N_ALLOWED_TAGS = new Set(['BR', 'EM', 'STRONG']);
+
+  function setSafeI18nHTML(el, html) {
+    const tpl = document.createElement('template');
+    tpl.innerHTML = String(html);
+    (function walk(node) {
+      [...node.childNodes].forEach(child => {
+        if (child.nodeType === 1) {
+          if (!I18N_ALLOWED_TAGS.has(child.tagName)) {
+            // remplace l'élément non-whitelisté par ses enfants textuels
+            child.replaceWith(...child.childNodes);
+          } else {
+            // strip tous les attributs (pas d'event handlers, pas d'href)
+            while (child.attributes.length) child.removeAttribute(child.attributes[0].name);
+            walk(child);
+          }
+        } else if (child.nodeType !== 3) {
+          // garde uniquement éléments + texte, supprime comments etc.
+          child.remove();
+        }
+      });
+    })(tpl.content);
+    el.textContent = '';
+    el.appendChild(tpl.content);
+  }
 
   function t(key, vars) {
     const dict = (window.STYLEME_I18N || {})[currentLang] || {};
@@ -16,6 +50,7 @@
     const dict = (window.STYLEME_I18N || {})[lang];
     if (!dict) return;
     currentLang = lang;
+    try { localStorage.setItem(LANG_KEY, lang); } catch (_) { /* private mode */ }
     document.documentElement.lang = lang;
     document.documentElement.dir = dict.dir || 'ltr';
 
@@ -25,20 +60,22 @@
     });
     document.querySelectorAll('[data-i18n-html]').forEach(el => {
       const key = el.dataset.i18nHtml;
-      if (dict[key] != null) el.innerHTML = dict[key];
+      if (dict[key] != null) setSafeI18nHTML(el, dict[key]);
     });
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
       const key = el.dataset.i18nPlaceholder;
       if (dict[key] != null) el.placeholder = dict[key];
     });
 
-    // Compteur quiz (Question 1/3) — gardé séparé car dynamique
     refreshQuizCounter();
   }
 
   function refreshQuizCounter() {
     const el = document.querySelector('[data-quiz-counter]');
-    if (el) el.textContent = t('onb.quiz.qnum', { n: quizQ });
+    if (!el) return;
+    // quizQ peut ne pas être initialisé au tout premier applyI18n() — guard.
+    const n = (typeof quizQ === 'number') ? quizQ : 1;
+    el.textContent = t('onb.quiz.qnum', { n });
   }
 
   // =========================================================
@@ -216,7 +253,12 @@
       }
       const drawerSub = document.querySelector('.drawer-sub');
       if (drawerSub) {
-        drawerSub.innerHTML = `<span class="lang-flag-mini">${flag}</span> ${name}`;
+        drawerSub.textContent = '';
+        const flagSpan = document.createElement('span');
+        flagSpan.className = 'lang-flag-mini';
+        flagSpan.textContent = flag;
+        drawerSub.appendChild(flagSpan);
+        drawerSub.appendChild(document.createTextNode(' ' + name));
       }
       // 🌐 Traduction effective de toute l'interface
       applyI18n(lang);
@@ -241,6 +283,32 @@
     showStep(1);
   });
 
-  // Init i18n (fixe dir/lang sur <html> dès le chargement)
-  applyI18n('fr');
+  // Init i18n : reprend la langue choisie au dernier passage (localStorage)
+  applyI18n(currentLang);
+  // Si la langue persistée n'est pas FR, marque la lang-item correspondante
+  // active dans la sheet et met à jour la chip + le drawer.
+  if (currentLang !== 'fr') {
+    const item = document.querySelector(`.lang-item[data-lang="${currentLang}"]`);
+    if (item) {
+      document.querySelectorAll('.lang-item').forEach(i => i.classList.remove('is-active'));
+      item.classList.add('is-active');
+      const flag = item.dataset.flag;
+      const code = item.dataset.code;
+      const name = item.querySelector('.lang-name').textContent;
+      const chip = document.querySelector('.lang-chip');
+      if (chip) {
+        chip.querySelector('.lang-flag').textContent = flag;
+        chip.querySelector('.lang-code').textContent = code;
+      }
+      const drawerSub = document.querySelector('.drawer-sub');
+      if (drawerSub) {
+        drawerSub.innerHTML = '';
+        const flagSpan = document.createElement('span');
+        flagSpan.className = 'lang-flag-mini';
+        flagSpan.textContent = flag;
+        drawerSub.appendChild(flagSpan);
+        drawerSub.appendChild(document.createTextNode(' ' + name));
+      }
+    }
+  }
 })();
