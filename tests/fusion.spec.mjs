@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 test('Vérifier la fusion des 2 blocs', async ({ page }) => {
   // Desktop
   await page.setViewportSize({ width: 1280, height: 800 });
-  await page.goto('http://127.0.0.1:8767/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   
   // Capture du bloc fusionné
   const weekly = page.locator('.weekly-moment');
@@ -16,7 +16,7 @@ test('Vérifier la fusion des 2 blocs', async ({ page }) => {
   
   // Mobile
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('http://127.0.0.1:8767/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.locator('.weekly-moment').scrollIntoViewIfNeeded();
   await page.waitForTimeout(800);
   await page.screenshot({ path: 'screenshots/fusion-mobile.png', fullPage: false });

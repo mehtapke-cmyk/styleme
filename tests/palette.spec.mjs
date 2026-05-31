@@ -3,7 +3,7 @@ import { test } from '@playwright/test';
 test('palette noir orange', async ({ page }) => {
   // Desktop
   await page.setViewportSize({ width: 1280, height: 800 });
-  await page.goto('http://127.0.0.1:8767/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.waitForTimeout(500);
   
   // Header avec logo plus gros + .fr en orange
@@ -24,7 +24,7 @@ test('palette noir orange', async ({ page }) => {
   
   // Mobile
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('http://127.0.0.1:8767/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.waitForTimeout(500);
   await page.screenshot({ path: 'screenshots/palette-mobile-hero.png', clip: { x: 0, y: 0, width: 390, height: 844 } });
 });
