@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 
 test('vérifier bas de page', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
-  await page.goto('http://127.0.0.1:8767/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.waitForTimeout(800);
   
   // Aller à la fin de la page

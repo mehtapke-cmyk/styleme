@@ -4,7 +4,7 @@ test('home — weekly moment "Mardi pareil"', async ({ page }) => {
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
-  await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   const wm = page.locator('.weekly-moment');
   await expect(wm).toBeVisible();
   await expect(wm.locator('.weekly-hour')).toContainText('07:12');
@@ -16,7 +16,7 @@ test('home — weekly moment "Mardi pareil"', async ({ page }) => {
 });
 
 test('home — 3 chiffres-chocs présents', async ({ page }) => {
-  await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   const figs = page.locator('.impact-figures .impact-figure');
   await expect(figs).toHaveCount(3);
   await expect(figs.nth(0)).toContainText('2,6 milliards');
@@ -28,7 +28,7 @@ test('home — 3 chiffres-chocs présents', async ({ page }) => {
 });
 
 test('home — 4 piliers communauté avec famille + CTA', async ({ page }) => {
-  await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   const pillars = page.locator('#communaute .community-pillar');
   await expect(pillars).toHaveCount(4);
   await expect(pillars.nth(3)).toContainText('famille');
@@ -41,7 +41,7 @@ test('home — 4 piliers communauté avec famille + CTA', async ({ page }) => {
 });
 
 test('home — 4 lignes dans le tableau comparatif', async ({ page }) => {
-  await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   const rows = page.locator('.diff-table tbody tr');
   await expect(rows).toHaveCount(4);
 });
@@ -50,7 +50,7 @@ test('engagement.html — page complète', async ({ page }) => {
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
-  await page.goto('http://127.0.0.1:8765/engagement.html', { waitUntil: 'networkidle' });
+  await page.goto('/engagement.html', { waitUntil: 'networkidle' });
   await expect(page.locator('.engagement-hero h1')).toContainText('autre mode');
   const sections = page.locator('.engagement-section');
   await expect(sections).toHaveCount(5);
@@ -63,7 +63,7 @@ test('engagement.html — page complète', async ({ page }) => {
 });
 
 test('navigation — lien "Notre engagement" dans header', async ({ page }) => {
-  await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.waitForSelector('header.site-header', { timeout: 5000 });
   // Sur mobile, le lien vit dans le drawer burger. On l'ouvre puis on cible
   // le lien DANS le drawer pour eviter de tomber sur un autre lien cache.
@@ -84,11 +84,11 @@ test('navigation — lien "Notre engagement" dans header', async ({ page }) => {
 test('mobile — weekly + engagement', async ({ browser }) => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await ctx.newPage();
-  await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.locator('.weekly-moment').scrollIntoViewIfNeeded();
   await page.waitForTimeout(500);
   await page.screenshot({ path: 'screenshots/mobile-weekly.png' });
-  await page.goto('http://127.0.0.1:8765/engagement.html', { waitUntil: 'networkidle' });
+  await page.goto('/engagement.html', { waitUntil: 'networkidle' });
   await page.screenshot({ path: 'screenshots/mobile-engagement.png' });
   await ctx.close();
 });

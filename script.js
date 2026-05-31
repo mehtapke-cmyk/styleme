@@ -975,7 +975,8 @@ function styleBrandNameMarks(root) {
       if (index < parts.length - 1) {
         const mark = document.createElement("span");
         mark.className = "site-name";
-        mark.textContent = "Styleme<span class=\"fr-suffix\">.fr</span>";
+        // Insérer le HTML du nom de marque (span avec suffixe) correctement
+        mark.innerHTML = 'Styleme<span class="fr-suffix">.fr</span>';
         fragment.appendChild(mark);
       }
     });
@@ -1067,6 +1068,11 @@ if (signupForm) {
 
 function showToast(message) {
   const toast = document.getElementById("toast");
+  if (!toast) {
+    // Pas d'élément toast présent sur cette page — logguer et ignorer
+    console.warn('[showToast] #toast introuvable pour message:', message);
+    return;
+  }
   toast.textContent = message;
   toast.classList.add("is-visible");
   window.setTimeout(() => toast.classList.remove("is-visible"), 3200);

@@ -27,9 +27,30 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
-  // Ne pas intercepter les requêtes externes (Google Analytics, fonts, etc.)
   const url = new URL(e.request.url);
+  // Ne pas intercepter les requêtes externes (Google Analytics, fonts, etc.)
   if (url.origin !== self.location.origin) return;
+
+  // Stratégie : network-first pour les navigations et les ressources critiques
+  const isNavigation = e.request.mode === 'navigate' || e.request.destination === 'document';
+  const isCritical = ['script', 'style', 'document'].includes(e.request.destination);
+
+  if (isNavigation || isCritical) {
+    e.respondWith(
+      fetch(e.request).then((networkRes) => {
+        // Mettre en cache la réponse réseau pour prochaine fois
+        const copy = networkRes.clone();
+        caches.open(CACHE).then(cache => cache.put(e.request, copy));
+        return networkRes;
+      }).catch(() => {
+        // Si réseau indisponible, renvoyer le cache si présent
+        return caches.match(e.request).then(cached => cached || caches.match('/index.html'));
+      })
+    );
+    return;
+  }
+
+  // Par défaut : cache-first pour les autres assets statiques
   e.respondWith(
     caches.match(e.request).then(cached => cached || fetch(e.request))
   );

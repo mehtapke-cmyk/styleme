@@ -44,7 +44,7 @@ test('conseils — 3 posters côte à côte', async ({ page }) => {
 });
 
 test('comment-ca-marche — photo senior-manteau-matin présente, pas de portrait-editorial', async ({ page }) => {
-  await page.goto('http://127.0.0.1:8765/comment-ca-marche.html', { waitUntil: 'networkidle' });
+  await page.goto('/comment-ca-marche.html', { waitUntil: 'networkidle' });
   const srcs = await page.locator('img').evaluateAll(imgs => imgs.map(i => i.getAttribute('src') || ''));
   // L'image "senior-manteau-matin" a ete renommee en "morning-coat" lors d'une refonte editoriale.
   // On accepte l'une OU l'autre pour rester compatible.
