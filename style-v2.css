@@ -3238,9 +3238,11 @@ h1 .site-name .tm,
     background-clip: padding-box, border-box;
   }
 
-  /* Les sections sombres (community, hero) : dégradé adapté */
-  .community::after {
-    background-image: linear-gradient(rgba(26,26,26,1), rgba(26,26,26,1)),
+  /* Les sections sombres (community, sustainable) : dégradé adapté
+     pour ne pas couvrir le fond foncé d'un rectangle paper-color. */
+  .community::after,
+  .sustainable::after {
+    background-image: linear-gradient(var(--moss), var(--moss)),
       linear-gradient(135deg,
         rgba(212, 165, 165, 0.4) 0%,
         rgba(232, 190, 172, 0.2) 50%,
