@@ -734,6 +734,23 @@ body {
   box-shadow: 0 2px 8px -4px rgba(0,0,0,0.1);
   transition: transform .15s, background .2s;
 }
+[dir="rtl"] .lang-chip {
+  right: auto;
+  left: 24px;
+}
+[dir="rtl"] .onb-eyebrow,
+[dir="rtl"] .onb-title,
+[dir="rtl"] .onb-sub,
+[dir="rtl"] .onb-footnote,
+[dir="rtl"] .eyebrow,
+[dir="rtl"] .page-title,
+[dir="rtl"] .lede,
+[dir="rtl"] .footnote {
+  text-align: right;
+}
+[dir="rtl"] .mood-row,
+[dir="rtl"] .filters,
+[dir="rtl"] .outfit-actions { direction: rtl; }
 .lang-chip:hover { background: var(--cream); }
 .lang-chip:active { transform: scale(0.96); }
 .lang-flag { font-size: 14px; line-height: 1; }
