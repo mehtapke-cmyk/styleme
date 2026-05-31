@@ -711,6 +711,179 @@ body {
 }
 .onb-shutter:active { transform: scale(0.92); }
 
+/* ============================================================
+   LANGUE — chip + bottom sheet + drawer
+   ============================================================ */
+.lang-chip {
+  position: absolute;
+  top: 36px;
+  right: 24px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 2px 8px -4px rgba(0,0,0,0.1);
+  transition: transform .15s, background .2s;
+}
+.lang-chip:hover { background: var(--cream); }
+.lang-chip:active { transform: scale(0.96); }
+.lang-flag { font-size: 14px; line-height: 1; }
+.lang-chev { font-size: 10px; color: var(--ink-muted); }
+
+/* Sheets shared */
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(20, 18, 14, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: backdrop-in .25s ease;
+}
+.sheet-backdrop[hidden] { display: none; }
+@keyframes backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+
+.sheet {
+  width: 100%;
+  max-width: var(--phone-w);
+  background: var(--paper);
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  padding: 12px 0 24px;
+  animation: sheet-in .32s cubic-bezier(.2,.7,.2,1);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+@keyframes sheet-in {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.sheet-handle {
+  display: block;
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+  margin: 0 auto 16px;
+  border: 0;
+  padding: 6px 24px;
+  background-clip: content-box;
+  cursor: pointer;
+}
+.sheet-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  padding: 0 24px 12px;
+}
+
+.lang-list {
+  list-style: none;
+  padding: 0 12px;
+  margin: 0;
+}
+.lang-list li { margin: 0; }
+.lang-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: transparent;
+  border: 0;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 14px;
+  text-align: left;
+}
+.lang-item:hover { background: var(--cream); }
+.lang-item.is-active {
+  background: var(--terra-soft);
+  font-weight: 600;
+}
+.lang-item .lang-flag { font-size: 20px; }
+.lang-name { flex: 1; }
+.lang-item.is-active::after {
+  content: "✓";
+  color: var(--terra);
+  font-weight: 700;
+}
+
+/* Drawer (slide from right) */
+.sheet-backdrop--right {
+  align-items: stretch;
+  justify-content: flex-end;
+}
+.drawer {
+  width: 86%;
+  max-width: 340px;
+  background: var(--paper);
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: drawer-in .32s cubic-bezier(.2,.7,.2,1);
+}
+@keyframes drawer-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+.drawer-close {
+  align-self: flex-end;
+  background: transparent;
+  border: 0;
+  font-size: 18px;
+  padding: 8px 24px;
+  cursor: pointer;
+  color: var(--ink-muted);
+}
+.drawer-nav { display: flex; flex-direction: column; padding: 8px 12px; gap: 2px; }
+.drawer-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background: transparent;
+  border: 0;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+}
+.drawer-item:hover { background: var(--cream); }
+.drawer-icon { font-size: 18px; line-height: 1.2; flex-shrink: 0; }
+.drawer-label { display: block; font-weight: 500; }
+.drawer-sub {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-top: 2px;
+}
+.lang-flag-mini { font-size: 12px; }
+.drawer-foot {
+  margin-top: auto;
+  padding: 16px 24px 8px;
+  font-size: 11px;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
 /* desktop: bigger phone */
 @media (min-width: 900px) {
   body { padding: 60px 24px; }

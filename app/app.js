@@ -125,16 +125,75 @@
     }
   });
 
-  // Burger → recommencer la visite (utile pour démo)
+  // =========================================================
+  // BOTTOM SHEETS — langue + drawer burger
+  // =========================================================
+  const langSheet = document.getElementById('langSheet');
+  const burgerDrawer = document.getElementById('burgerDrawer');
+
+  function openSheet(el) {
+    el.hidden = false;
+  }
+  function closeSheet(el) {
+    el.hidden = true;
+  }
+
+  // Ouvrir la langue (chip + drawer item)
+  document.querySelectorAll('[data-open-lang]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      // Si on est dans le drawer, on ferme le drawer d'abord
+      if (btn.closest('.drawer')) closeSheet(burgerDrawer);
+      openSheet(langSheet);
+    });
+  });
+
+  // Fermer une sheet (clic sur backdrop ou bouton close)
+  document.querySelectorAll('.sheet-backdrop').forEach(sheet => {
+    sheet.addEventListener('click', (e) => {
+      if (e.target === sheet || e.target.matches('[data-close-sheet]')) {
+        closeSheet(sheet);
+      }
+    });
+  });
+
+  // Choix d'une langue → met à jour les chips, ferme la sheet
+  document.querySelectorAll('.lang-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const flag = item.dataset.flag;
+      const code = item.dataset.code;
+      const name = item.querySelector('.lang-name').textContent;
+      document.querySelectorAll('.lang-item').forEach(i => i.classList.remove('is-active'));
+      item.classList.add('is-active');
+      // Update onboarding chip
+      const chip = document.querySelector('.lang-chip');
+      if (chip) {
+        chip.querySelector('.lang-flag').textContent = flag;
+        chip.querySelector('.lang-code').textContent = code;
+      }
+      // Update drawer line
+      const drawerSub = document.querySelector('.drawer-sub');
+      if (drawerSub) {
+        drawerSub.innerHTML = `<span class="lang-flag-mini">${flag}</span> ${name}`;
+      }
+      setTimeout(() => closeSheet(langSheet), 250);
+    });
+  });
+
+  // Burger ouvre le drawer (au lieu de confirm())
   document.querySelector('.burger')?.addEventListener('click', () => {
-    if (confirm('Recommencer la visite ?')) {
-      appWrap.hidden = true;
-      onboarding.hidden = false;
-      onboarding.style.display = '';
-      onboarding.style.opacity = '1';
-      quizQ = 1;
-      paintQuizPair();
-      showStep(1);
-    }
+    openSheet(burgerDrawer);
+  });
+
+  // Drawer → "Recommencer la visite"
+  document.getElementById('restartOnb')?.addEventListener('click', () => {
+    closeSheet(burgerDrawer);
+    appWrap.hidden = true;
+    onboarding.hidden = false;
+    onboarding.style.display = '';
+    onboarding.style.opacity = '1';
+    quizQ = 1;
+    paintQuizPair();
+    showStep(1);
   });
 })();

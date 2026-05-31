@@ -29,6 +29,11 @@
 
     <!-- Étape 1 — Bienvenue -->
     <section class="onb-step is-active" data-step="1">
+      <button class="lang-chip" data-open-lang aria-label="Choisir la langue">
+        <span class="lang-flag">🇫🇷</span>
+        <span class="lang-code">FR</span>
+        <span class="lang-chev" aria-hidden="true">▾</span>
+      </button>
       <div class="onb-hero">
         <img class="onb-logo" src="assets/styleme-logo-transparent.png" alt="Styleme">
         <h1 class="onb-brand">Styleme<span class="onb-tld">.fr</span></h1>
@@ -347,6 +352,61 @@
   <p class="prototype-note">
     Prototype navigable · clique les 4 onglets en bas. Données fictives, l'IA n'est pas encore branchée.
   </p>
+</div>
+
+<!-- ============================================================
+     LANGUE — bottom sheet
+     ============================================================ -->
+<div class="sheet-backdrop" id="langSheet" hidden role="dialog" aria-modal="true" aria-label="Choisir la langue">
+  <div class="sheet">
+    <button class="sheet-handle" data-close-sheet aria-label="Fermer"></button>
+    <h3 class="sheet-title">Choisis ta langue</h3>
+    <ul class="lang-list">
+      <li><button class="lang-item is-active" data-lang="fr" data-flag="🇫🇷" data-code="FR"><span class="lang-flag">🇫🇷</span><span class="lang-name">Français</span></button></li>
+      <li><button class="lang-item" data-lang="en" data-flag="🇬🇧" data-code="EN"><span class="lang-flag">🇬🇧</span><span class="lang-name">English</span></button></li>
+      <li><button class="lang-item" data-lang="es" data-flag="🇪🇸" data-code="ES"><span class="lang-flag">🇪🇸</span><span class="lang-name">Español</span></button></li>
+      <li><button class="lang-item" data-lang="de" data-flag="🇩🇪" data-code="DE"><span class="lang-flag">🇩🇪</span><span class="lang-name">Deutsch</span></button></li>
+      <li><button class="lang-item" data-lang="it" data-flag="🇮🇹" data-code="IT"><span class="lang-flag">🇮🇹</span><span class="lang-name">Italiano</span></button></li>
+      <li><button class="lang-item" data-lang="ru" data-flag="🇷🇺" data-code="RU"><span class="lang-flag">🇷🇺</span><span class="lang-name">Русский</span></button></li>
+      <li><button class="lang-item" data-lang="zh" data-flag="🇨🇳" data-code="ZH"><span class="lang-flag">🇨🇳</span><span class="lang-name">中文</span></button></li>
+      <li><button class="lang-item" data-lang="ar" data-flag="🇸🇦" data-code="AR"><span class="lang-flag">🇸🇦</span><span class="lang-name">عربي</span></button></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================
+     BURGER DRAWER — accessible depuis l'app
+     ============================================================ -->
+<div class="sheet-backdrop sheet-backdrop--right" id="burgerDrawer" hidden role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="drawer">
+    <button class="drawer-close" data-close-sheet aria-label="Fermer">✕</button>
+    <nav class="drawer-nav">
+      <button class="drawer-item drawer-lang" data-open-lang>
+        <span class="drawer-icon">🌐</span>
+        <span>
+          <span class="drawer-label">Langue</span>
+          <span class="drawer-sub"><span class="lang-flag-mini">🇫🇷</span> Français</span>
+        </span>
+      </button>
+      <button class="drawer-item">
+        <span class="drawer-icon">👤</span>
+        <span class="drawer-label">Mon profil de style</span>
+      </button>
+      <button class="drawer-item">
+        <span class="drawer-icon">🔔</span>
+        <span class="drawer-label">Notifications du matin</span>
+      </button>
+      <button class="drawer-item">
+        <span class="drawer-icon">🌍</span>
+        <span class="drawer-label">Hébergement & confidentialité</span>
+      </button>
+      <button class="drawer-item" id="restartOnb">
+        <span class="drawer-icon">↻</span>
+        <span class="drawer-label">Recommencer la visite</span>
+      </button>
+    </nav>
+    <p class="drawer-foot">Styleme.fr · Slow fashion · Hébergé en France 🇫🇷</p>
+  </div>
 </div>
 
 <script src="app.js"></script>
