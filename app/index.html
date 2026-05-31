@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
+  <script src="i18n.js" defer></script>
 </head>
 <body>
 
@@ -39,22 +40,22 @@
         <h1 class="onb-brand">Styleme<span class="onb-tld">.fr</span></h1>
       </div>
       <div class="onb-body">
-        <p class="onb-eyebrow">Ton styliste personnel du matin</p>
-        <h2 class="onb-title">Et si on s'habillait mieux<br><em>avec ce qu'on a déjà&nbsp;?</em></h2>
-        <p class="onb-sub">Pas de pub. Pas d'achat poussé. Juste deux ou trois idées chaque matin, prises dans <strong>ton</strong> dressing.</p>
+        <p class="onb-eyebrow" data-i18n="onb.welcome.eyebrow">Ton styliste personnel du matin</p>
+        <h2 class="onb-title" data-i18n-html="onb.welcome.title">Et si on s'habillait mieux<br><em>avec ce qu'on a déjà&nbsp;?</em></h2>
+        <p class="onb-sub" data-i18n-html="onb.welcome.sub">Pas de pub. Pas d'achat poussé. Juste deux ou trois idées chaque matin, prises dans <strong>ton</strong> dressing.</p>
       </div>
       <div class="onb-actions">
-        <button class="btn btn-full btn-primary onb-next">Commencer</button>
-        <button class="btn btn-text onb-skip">Passer la présentation</button>
+        <button class="btn btn-full btn-primary onb-next" data-i18n="onb.welcome.start">Commencer</button>
+        <button class="btn btn-text onb-skip" data-i18n="onb.welcome.skip">Passer la présentation</button>
       </div>
     </section>
 
     <!-- Étape 2 — Quiz de style -->
     <section class="onb-step" data-step="2">
       <div class="onb-body onb-body--quiz">
-        <p class="onb-eyebrow">Question <span class="onb-q-num">1</span>/3</p>
-        <h2 class="onb-title">Laquelle te ressemble<br><em>le plus&nbsp;?</em></h2>
-        <p class="onb-sub">Pas de bonne réponse — c'est juste pour apprendre ton style.</p>
+        <p class="onb-eyebrow" data-quiz-counter>Question <span class="onb-q-num">1</span>/3</p>
+        <h2 class="onb-title" data-i18n-html="onb.quiz.title">Laquelle te ressemble<br><em>le plus&nbsp;?</em></h2>
+        <p class="onb-sub" data-i18n="onb.quiz.sub">Pas de bonne réponse — c'est juste pour apprendre ton style.</p>
 
         <div class="quiz-pair">
           <button class="quiz-card" data-pick="A">
@@ -80,29 +81,29 @@
     <!-- Étape 3 — Ville/météo -->
     <section class="onb-step" data-step="3">
       <div class="onb-body">
-        <p class="onb-eyebrow">Pour la météo du matin</p>
-        <h2 class="onb-title">Où es-tu<br><em>la plupart du temps&nbsp;?</em></h2>
-        <p class="onb-sub">Ton styliste tiendra compte du temps qu'il fait avant de te proposer une tenue.</p>
+        <p class="onb-eyebrow" data-i18n="onb.ville.eyebrow">Pour la météo du matin</p>
+        <h2 class="onb-title" data-i18n-html="onb.ville.title">Où es-tu<br><em>la plupart du temps&nbsp;?</em></h2>
+        <p class="onb-sub" data-i18n="onb.ville.sub">Ton styliste tiendra compte du temps qu'il fait avant de te proposer une tenue.</p>
 
         <label class="onb-input-wrap">
           <span class="onb-input-icon">⌖</span>
-          <input class="onb-input" type="text" placeholder="Ta ville" value="Argelès-sur-Mer">
+          <input class="onb-input" type="text" data-i18n-placeholder="onb.ville.placeholder" placeholder="Ta ville" value="Argelès-sur-Mer">
         </label>
-        <button class="btn btn-text">Utiliser ma position actuelle</button>
+        <button class="btn btn-text" data-i18n="onb.ville.location">Utiliser ma position actuelle</button>
 
-        <p class="onb-footnote">Pas d'email demandé. Pas de compte à créer. Tu décides plus tard.</p>
+        <p class="onb-footnote" data-i18n="onb.ville.foot">Pas d'email demandé. Pas de compte à créer. Tu décides plus tard.</p>
       </div>
       <div class="onb-actions">
-        <button class="btn btn-full btn-primary onb-next">Continuer</button>
+        <button class="btn btn-full btn-primary onb-next" data-i18n="onb.ville.continue">Continuer</button>
       </div>
     </section>
 
     <!-- Étape 4 — Première pièce -->
     <section class="onb-step" data-step="4">
       <div class="onb-body">
-        <p class="onb-eyebrow">Étape la plus importante</p>
-        <h2 class="onb-title">Pose ta première<br><em>pièce préférée.</em></h2>
-        <p class="onb-sub">Photographie-la à plat sur un fond uni. L'IA détecte le type, la couleur et la saison toute seule.</p>
+        <p class="onb-eyebrow" data-i18n="onb.photo.eyebrow">Étape la plus importante</p>
+        <h2 class="onb-title" data-i18n-html="onb.photo.title">Pose ta première<br><em>pièce préférée.</em></h2>
+        <p class="onb-sub" data-i18n="onb.photo.sub">Photographie-la à plat sur un fond uni. L'IA détecte le type, la couleur et la saison toute seule.</p>
 
         <div class="onb-camera">
           <div class="onb-camera-frame">
@@ -110,16 +111,16 @@
             <span class="onb-corner onb-c-tr"></span>
             <span class="onb-corner onb-c-bl"></span>
             <span class="onb-corner onb-c-br"></span>
-            <span class="onb-camera-hint">Centre ta pièce ici</span>
+            <span class="onb-camera-hint" data-i18n="onb.photo.hint">Centre ta pièce ici</span>
           </div>
           <button class="onb-shutter" aria-label="Prendre la photo"></button>
         </div>
 
-        <p class="onb-footnote">Tu pourras ajouter le reste de ton dressing à ton rythme — 5 pièces suffisent pour commencer.</p>
+        <p class="onb-footnote" data-i18n="onb.photo.foot">Tu pourras ajouter le reste de ton dressing à ton rythme — 5 pièces suffisent pour commencer.</p>
       </div>
       <div class="onb-actions">
-        <button class="btn btn-full btn-primary onb-finish">J'ai pris ma première photo</button>
-        <button class="btn btn-text onb-finish">Je le ferai plus tard</button>
+        <button class="btn btn-full btn-primary onb-finish" data-i18n="onb.photo.done">J'ai pris ma première photo</button>
+        <button class="btn btn-text onb-finish" data-i18n="onb.photo.later">Je le ferai plus tard</button>
       </div>
     </section>
   </div>
@@ -160,11 +161,11 @@
             Argelès — 22°C, ciel clair
           </div>
 
-          <p class="eyebrow">Vendredi 31 mai</p>
-          <h1 class="page-title">Ce matin,<br><em>je te propose…</em></h1>
+          <p class="eyebrow" data-i18n="matin.eyebrow">Vendredi 31 mai</p>
+          <h1 class="page-title" data-i18n-html="matin.title">Ce matin,<br><em>je te propose…</em></h1>
 
           <div class="mood-row">
-            <span class="mood-label">Humeur :</span>
+            <span class="mood-label" data-i18n="matin.humeur">Humeur :</span>
             <button class="mood-chip is-active">calme · boulot</button>
             <button class="mood-chip">sortie</button>
           </div>
@@ -178,8 +179,8 @@
             <h2>Chemise lin + jean droit</h2>
             <p>Tu l'as portée il y a 3 semaines, elle ira avec 22°. Doux et net pour le boulot.</p>
             <div class="outfit-actions">
-              <button class="btn btn-pill btn-ghost">↻ Une autre</button>
-              <button class="btn btn-pill btn-primary">J'adopte</button>
+              <button class="btn btn-pill btn-ghost" data-i18n="matin.another">↻ Une autre</button>
+              <button class="btn btn-pill btn-primary" data-i18n="matin.adopt">J'adopte</button>
             </div>
           </article>
 
@@ -192,20 +193,20 @@
             <h2>Pull crème + bermuda</h2>
             <p>Un peu plus décontracté. Tu n'as pas mis le pull crème depuis avril.</p>
             <div class="outfit-actions">
-              <button class="btn btn-pill btn-ghost">↻ Une autre</button>
-              <button class="btn btn-pill btn-primary">J'adopte</button>
+              <button class="btn btn-pill btn-ghost" data-i18n="matin.another">↻ Une autre</button>
+              <button class="btn btn-pill btn-primary" data-i18n="matin.adopt">J'adopte</button>
             </div>
           </article>
 
-          <p class="footnote">Ton styliste s'arrête à 2 ou 3 idées. <a href="#">Pourquoi&nbsp;?</a></p>
+          <p class="footnote" data-i18n="matin.footnote">Ton styliste s'arrête à 2 ou 3 idées.</p>
         </div>
       </section>
 
       <!-- ============ SCREEN: MON DRESSING ============ -->
       <section class="screen" data-screen="dressing">
         <div class="screen-scroll">
-          <p class="eyebrow">Ton dressing — 47 pièces</p>
-          <h1 class="page-title">Tout ce que tu portes,<br><em>en un coup d'œil.</em></h1>
+          <p class="eyebrow" data-i18n="dressing.eyebrow">Ton dressing — 47 pièces</p>
+          <h1 class="page-title" data-i18n-html="dressing.title">Tout ce que tu portes,<br><em>en un coup d'œil.</em></h1>
 
           <div class="filters">
             <button class="chip is-active">Tout</button>
@@ -227,16 +228,16 @@
             <figure class="item"><span class="item-img" style="--c:#dec9b0"></span><figcaption>Bombers sable</figcaption></figure>
           </div>
 
-          <button class="btn btn-full btn-primary">+ Ajouter une pièce</button>
-          <p class="footnote">Photographie une pièce, l'IA fait le reste.</p>
+          <button class="btn btn-full btn-primary" data-i18n="dressing.add">+ Ajouter une pièce</button>
+          <p class="footnote" data-i18n="dressing.foot">Photographie une pièce, l'IA fait le reste.</p>
         </div>
       </section>
 
       <!-- ============ SCREEN: MES TENUES ============ -->
       <section class="screen" data-screen="tenues">
         <div class="screen-scroll">
-          <p class="eyebrow">Mes tenues sauvées</p>
-          <h1 class="page-title">Celles que tu aimes,<br><em>à rejouer en un tap.</em></h1>
+          <p class="eyebrow" data-i18n="tenues.eyebrow">Mes tenues sauvées</p>
+          <h1 class="page-title" data-i18n-html="tenues.title">Celles que tu aimes,<br><em>à rejouer en un tap.</em></h1>
 
           <div class="outfit-list">
             <article class="outfit-row">
@@ -294,9 +295,9 @@
       <!-- ============ SCREEN: LE TROC ============ -->
       <section class="screen screen--dark" data-screen="troc">
         <div class="screen-scroll">
-          <p class="eyebrow eyebrow--soft">Le Troc — manifeste</p>
-          <h1 class="page-title page-title--light">Donne. Reçois.<br><em>Pas un centime.</em></h1>
-          <p class="lede">Les pièces que tu ne portes plus trouvent un nouveau dressing près de chez toi.</p>
+          <p class="eyebrow eyebrow--soft" data-i18n="troc.eyebrow">Le Troc — manifeste</p>
+          <h1 class="page-title page-title--light" data-i18n-html="troc.title">Donne. Reçois.<br><em>Pas un centime.</em></h1>
+          <p class="lede" data-i18n="troc.sub">Les pièces que tu ne portes plus trouvent un nouveau dressing près de chez toi.</p>
 
           <div class="grid-2">
             <article class="troc-card">
@@ -321,7 +322,7 @@
             </article>
           </div>
 
-          <button class="btn btn-full btn-terra">✦ Proposer une pièce</button>
+          <button class="btn btn-full btn-terra" data-i18n="troc.propose">✦ Proposer une pièce</button>
         </div>
       </section>
 
@@ -331,19 +332,19 @@
     <nav class="tabbar" aria-label="Navigation principale">
       <button class="tab is-active" data-target="matin">
         <span class="tab-icon">☀</span>
-        <span class="tab-label">Ce matin</span>
+        <span class="tab-label" data-i18n="tab.matin">Ce matin</span>
       </button>
       <button class="tab" data-target="dressing">
         <span class="tab-icon">▦</span>
-        <span class="tab-label">Dressing</span>
+        <span class="tab-label" data-i18n="tab.dressing">Dressing</span>
       </button>
       <button class="tab" data-target="tenues">
         <span class="tab-icon">♡</span>
-        <span class="tab-label">Mes tenues</span>
+        <span class="tab-label" data-i18n="tab.tenues">Mes tenues</span>
       </button>
       <button class="tab" data-target="troc">
         <span class="tab-icon">⇄</span>
-        <span class="tab-label">Troc</span>
+        <span class="tab-label" data-i18n="tab.troc">Troc</span>
       </button>
     </nav>
 
@@ -360,14 +361,18 @@
 <div class="sheet-backdrop" id="langSheet" hidden role="dialog" aria-modal="true" aria-label="Choisir la langue">
   <div class="sheet">
     <button class="sheet-handle" data-close-sheet aria-label="Fermer"></button>
-    <h3 class="sheet-title">Choisis ta langue</h3>
+    <h3 class="sheet-title" data-i18n="lang.sheet.title">Choisis ta langue</h3>
     <ul class="lang-list">
       <li><button class="lang-item is-active" data-lang="fr" data-flag="🇫🇷" data-code="FR"><span class="lang-flag">🇫🇷</span><span class="lang-name">Français</span></button></li>
       <li><button class="lang-item" data-lang="en" data-flag="🇬🇧" data-code="EN"><span class="lang-flag">🇬🇧</span><span class="lang-name">English</span></button></li>
       <li><button class="lang-item" data-lang="es" data-flag="🇪🇸" data-code="ES"><span class="lang-flag">🇪🇸</span><span class="lang-name">Español</span></button></li>
       <li><button class="lang-item" data-lang="de" data-flag="🇩🇪" data-code="DE"><span class="lang-flag">🇩🇪</span><span class="lang-name">Deutsch</span></button></li>
       <li><button class="lang-item" data-lang="it" data-flag="🇮🇹" data-code="IT"><span class="lang-flag">🇮🇹</span><span class="lang-name">Italiano</span></button></li>
+      <li><button class="lang-item" data-lang="tr" data-flag="🇹🇷" data-code="TR"><span class="lang-flag">🇹🇷</span><span class="lang-name">Türkçe</span></button></li>
       <li><button class="lang-item" data-lang="ru" data-flag="🇷🇺" data-code="RU"><span class="lang-flag">🇷🇺</span><span class="lang-name">Русский</span></button></li>
+      <li><button class="lang-item" data-lang="pt" data-flag="🇧🇷" data-code="PT"><span class="lang-flag">🇧🇷</span><span class="lang-name">Português</span></button></li>
+      <li><button class="lang-item" data-lang="hi" data-flag="🇮🇳" data-code="HI"><span class="lang-flag">🇮🇳</span><span class="lang-name">हिन्दी</span></button></li>
+      <li><button class="lang-item" data-lang="ja" data-flag="🇯🇵" data-code="JA"><span class="lang-flag">🇯🇵</span><span class="lang-name">日本語</span></button></li>
       <li><button class="lang-item" data-lang="zh" data-flag="🇨🇳" data-code="ZH"><span class="lang-flag">🇨🇳</span><span class="lang-name">中文</span></button></li>
       <li><button class="lang-item" data-lang="ar" data-flag="🇸🇦" data-code="AR"><span class="lang-flag">🇸🇦</span><span class="lang-name">عربي</span></button></li>
     </ul>
@@ -384,28 +389,28 @@
       <button class="drawer-item drawer-lang" data-open-lang>
         <span class="drawer-icon">🌐</span>
         <span>
-          <span class="drawer-label">Langue</span>
+          <span class="drawer-label" data-i18n="drawer.lang">Langue</span>
           <span class="drawer-sub"><span class="lang-flag-mini">🇫🇷</span> Français</span>
         </span>
       </button>
       <button class="drawer-item">
         <span class="drawer-icon">👤</span>
-        <span class="drawer-label">Mon profil de style</span>
+        <span class="drawer-label" data-i18n="drawer.profil">Mon profil de style</span>
       </button>
       <button class="drawer-item">
         <span class="drawer-icon">🔔</span>
-        <span class="drawer-label">Notifications du matin</span>
+        <span class="drawer-label" data-i18n="drawer.notifs">Notifications du matin</span>
       </button>
       <button class="drawer-item">
         <span class="drawer-icon">🌍</span>
-        <span class="drawer-label">Hébergement & confidentialité</span>
+        <span class="drawer-label" data-i18n="drawer.privacy">Hébergement & confidentialité</span>
       </button>
       <button class="drawer-item" id="restartOnb">
         <span class="drawer-icon">↻</span>
-        <span class="drawer-label">Recommencer la visite</span>
+        <span class="drawer-label" data-i18n="drawer.restart">Recommencer la visite</span>
       </button>
     </nav>
-    <p class="drawer-foot">Styleme.fr · Slow fashion · Hébergé en France 🇫🇷</p>
+    <p class="drawer-foot" data-i18n="drawer.foot">Styleme.fr · Slow fashion · Hébergé en France 🇫🇷</p>
   </div>
 </div>
 

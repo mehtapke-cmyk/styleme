@@ -1,5 +1,47 @@
 (() => {
   // =========================================================
+  // I18N — applique les traductions à tout élément [data-i18n*]
+  // =========================================================
+  let currentLang = 'fr';
+
+  function t(key, vars) {
+    const dict = (window.STYLEME_I18N || {})[currentLang] || {};
+    let str = dict[key];
+    if (str == null) return key;
+    if (vars) for (const k in vars) str = str.split('{' + k + '}').join(vars[k]);
+    return str;
+  }
+
+  function applyI18n(lang) {
+    const dict = (window.STYLEME_I18N || {})[lang];
+    if (!dict) return;
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = dict.dir || 'ltr';
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (dict[key] != null) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.dataset.i18nHtml;
+      if (dict[key] != null) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.dataset.i18nPlaceholder;
+      if (dict[key] != null) el.placeholder = dict[key];
+    });
+
+    // Compteur quiz (Question 1/3) — gardé séparé car dynamique
+    refreshQuizCounter();
+  }
+
+  function refreshQuizCounter() {
+    const el = document.querySelector('[data-quiz-counter]');
+    if (el) el.textContent = t('onb.quiz.qnum', { n: quizQ });
+  }
+
+  // =========================================================
   // ONBOARDING — 4 étapes avant l'app
   // Étape 2 = quiz × 3 questions (on reste sur le même DOM,
   // on incrémente juste le compteur jusqu'à 3)
@@ -59,9 +101,10 @@
       const data = pair[idx];
       const pieces = card.querySelectorAll('.quiz-p');
       pieces.forEach((p, i) => { p.style.setProperty('--c', data[i]); });
+      // Label du card : pour la démo on garde les étiquettes en français
       card.querySelector('.quiz-label').textContent = data[3];
     });
-    document.querySelector('.onb-q-num').textContent = String(quizQ);
+    refreshQuizCounter();
   }
   quizCards.forEach(card => {
     card.addEventListener('click', () => {
@@ -157,25 +200,26 @@
     });
   });
 
-  // Choix d'une langue → met à jour les chips, ferme la sheet
+  // Choix d'une langue → met à jour chips + drawer + applique i18n
   document.querySelectorAll('.lang-item').forEach(item => {
     item.addEventListener('click', () => {
+      const lang = item.dataset.lang;
       const flag = item.dataset.flag;
       const code = item.dataset.code;
       const name = item.querySelector('.lang-name').textContent;
       document.querySelectorAll('.lang-item').forEach(i => i.classList.remove('is-active'));
       item.classList.add('is-active');
-      // Update onboarding chip
       const chip = document.querySelector('.lang-chip');
       if (chip) {
         chip.querySelector('.lang-flag').textContent = flag;
         chip.querySelector('.lang-code').textContent = code;
       }
-      // Update drawer line
       const drawerSub = document.querySelector('.drawer-sub');
       if (drawerSub) {
         drawerSub.innerHTML = `<span class="lang-flag-mini">${flag}</span> ${name}`;
       }
+      // 🌐 Traduction effective de toute l'interface
+      applyI18n(lang);
       setTimeout(() => closeSheet(langSheet), 250);
     });
   });
@@ -196,4 +240,7 @@
     paintQuizPair();
     showStep(1);
   });
+
+  // Init i18n (fixe dir/lang sur <html> dès le chargement)
+  applyI18n('fr');
 })();
