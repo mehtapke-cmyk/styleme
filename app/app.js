@@ -9,33 +9,47 @@
     catch (_) { return 'fr'; }
   })();
 
-  // Whitelist des balises autorisées dans les valeurs i18n (typographie).
-  // Évite tout XSS si une chaîne traduite est un jour issue d'une source non
-  // de confiance (community-contributed translations, etc.).
-  const I18N_ALLOWED_TAGS = new Set(['BR', 'EM', 'STRONG']);
+  // Mini-parseur sécurisé : reconstruit le DOM via createElement uniquement.
+  // Aucun innerHTML utilisé → aucune surface d'attaque XSS. Seules les balises
+  // typographiques <br>, <em>, <strong> sont reconnues ; tout le reste est
+  // traité comme texte littéral (et donc échappé par createTextNode).
+  const I18N_ALLOWED_TAGS = { br: true, em: true, strong: true };
+  const I18N_ENTITIES = {
+    '&nbsp;': ' ', '&amp;': '&', '&lt;': '<',
+    '&gt;': '>', '&quot;': '"', '&#39;': "'",
+  };
+
+  function decodeI18nEntities(s) {
+    return s.replace(/&(?:nbsp|amp|lt|gt|quot|#39);/g, m => I18N_ENTITIES[m] || m);
+  }
 
   function setSafeI18nHTML(el, html) {
-    const tpl = document.createElement('template');
-    tpl.innerHTML = String(html);
-    (function walk(node) {
-      [...node.childNodes].forEach(child => {
-        if (child.nodeType === 1) {
-          if (!I18N_ALLOWED_TAGS.has(child.tagName)) {
-            // remplace l'élément non-whitelisté par ses enfants textuels
-            child.replaceWith(...child.childNodes);
-          } else {
-            // strip tous les attributs (pas d'event handlers, pas d'href)
-            while (child.attributes.length) child.removeAttribute(child.attributes[0].name);
-            walk(child);
-          }
-        } else if (child.nodeType !== 3) {
-          // garde uniquement éléments + texte, supprime comments etc.
-          child.remove();
-        }
-      });
-    })(tpl.content);
     el.textContent = '';
-    el.appendChild(tpl.content);
+    // Split en gardant les délimiteurs de balises.
+    const tokens = String(html).split(/(<\/?[a-z]+\s*\/?>)/i);
+    const stack = [el];
+    for (const tok of tokens) {
+      if (!tok) continue;
+      const m = tok.match(/^<(\/?)([a-z]+)\s*\/?>$/i);
+      if (m) {
+        const isClose = m[1] === '/';
+        const tag = m[2].toLowerCase();
+        if (!I18N_ALLOWED_TAGS[tag]) continue;
+        if (tag === 'br') {
+          stack[stack.length - 1].appendChild(document.createElement('br'));
+        } else if (isClose) {
+          if (stack.length > 1) stack.pop();
+        } else {
+          const node = document.createElement(tag);
+          stack[stack.length - 1].appendChild(node);
+          stack.push(node);
+        }
+      } else {
+        stack[stack.length - 1].appendChild(
+          document.createTextNode(decodeI18nEntities(tok))
+        );
+      }
+    }
   }
 
   function t(key, vars) {
@@ -302,7 +316,7 @@
       }
       const drawerSub = document.querySelector('.drawer-sub');
       if (drawerSub) {
-        drawerSub.innerHTML = '';
+        drawerSub.textContent = '';
         const flagSpan = document.createElement('span');
         flagSpan.className = 'lang-flag-mini';
         flagSpan.textContent = flag;
