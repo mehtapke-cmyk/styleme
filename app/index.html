@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Styleme — prototype app</title>
+  <meta name="description" content="Prototype navigable de l'app Styleme. 4 écrans : Ce matin, Mon dressing, Mes tenues, Le Troc.">
+  <meta name="theme-color" content="#fdf8f2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<a class="back-to-site" href="../index.html">← Retour au site</a>
+
+<div class="phone-wrap">
+  <div class="phone" role="application" aria-label="Prototype app Styleme">
+
+    <!-- statusbar -->
+    <div class="statusbar" aria-hidden="true">
+      <span class="time">9:14</span>
+      <span class="indicators">
+        <span></span><span></span><span></span>
+      </span>
+    </div>
+
+    <!-- header -->
+    <header class="app-header">
+      <a class="brand" href="#">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-name">Styleme<span class="brand-tld">.fr</span></span>
+      </a>
+      <button class="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <!-- screens -->
+    <main class="screens">
+
+      <!-- ============ SCREEN: CE MATIN (default) ============ -->
+      <section class="screen is-active" data-screen="matin">
+        <div class="screen-scroll">
+          <div class="meteo-pill">
+            <span class="meteo-dot"></span>
+            Argelès — 22°C, ciel clair
+          </div>
+
+          <p class="eyebrow">Vendredi 31 mai</p>
+          <h1 class="page-title">Ce matin,<br><em>je te propose…</em></h1>
+
+          <div class="mood-row">
+            <span class="mood-label">Humeur :</span>
+            <button class="mood-chip is-active">calme · boulot</button>
+            <button class="mood-chip">sortie</button>
+          </div>
+
+          <article class="outfit-card">
+            <div class="outfit-pieces">
+              <span class="piece" style="--c:#d4a5a5"></span>
+              <span class="piece" style="--c:#deca9f"></span>
+              <span class="piece" style="--c:#1b1b1b"></span>
+            </div>
+            <h2>Chemise lin + jean droit</h2>
+            <p>Tu l'as portée il y a 3 semaines, elle ira avec 22°. Doux et net pour le boulot.</p>
+            <div class="outfit-actions">
+              <button class="btn btn-pill btn-ghost">↻ Une autre</button>
+              <button class="btn btn-pill btn-primary">J'adopte</button>
+            </div>
+          </article>
+
+          <article class="outfit-card">
+            <div class="outfit-pieces">
+              <span class="piece" style="--c:#f7f2ea"></span>
+              <span class="piece" style="--c:#bbd1da"></span>
+              <span class="piece" style="--c:#575757"></span>
+            </div>
+            <h2>Pull crème + bermuda</h2>
+            <p>Un peu plus décontracté. Tu n'as pas mis le pull crème depuis avril.</p>
+            <div class="outfit-actions">
+              <button class="btn btn-pill btn-ghost">↻ Une autre</button>
+              <button class="btn btn-pill btn-primary">J'adopte</button>
+            </div>
+          </article>
+
+          <p class="footnote">Ton styliste s'arrête à 2 ou 3 idées. <a href="#">Pourquoi&nbsp;?</a></p>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN: MON DRESSING ============ -->
+      <section class="screen" data-screen="dressing">
+        <div class="screen-scroll">
+          <p class="eyebrow">Ton dressing — 47 pièces</p>
+          <h1 class="page-title">Tout ce que tu portes,<br><em>en un coup d'œil.</em></h1>
+
+          <div class="filters">
+            <button class="chip is-active">Tout</button>
+            <button class="chip">Hauts</button>
+            <button class="chip">Bas</button>
+            <button class="chip">Manteaux</button>
+            <button class="chip">Souliers</button>
+          </div>
+
+          <div class="grid-3">
+            <figure class="item"><span class="item-img" style="--c:#d4a5a5"></span><figcaption>Chemise lin</figcaption></figure>
+            <figure class="item"><span class="item-img" style="--c:#deca9f"></span><figcaption>Jean droit</figcaption></figure>
+            <figure class="item"><span class="item-img" style="--c:#9eb094"></span><figcaption>Veste kaki</figcaption></figure>
+            <figure class="item"><span class="item-img" style="--c:#e8c8b3"></span><figcaption>Robe terra</figcaption></figure>
+            <figure class="item"><span class="item-img" style="--c:#bbd1da"></span><figcaption>Bermuda</figcaption></figure>
+            <figure class="item"><span class="item-img" style="--c:#f7f2ea"></span><figcaption>Tshirt ivoire</figcaption></figure>
+            <figure class="item"><span class="item-img" style="--c:#2a2a2a"></span><figcaption>Pull anthra</figcaption></figure>
+            <figure class="item"><span class="item-img" style="--c:#b96a46"></span><figcaption>Veste terra</figcaption></figure>
+            <figure class="item"><span class="item-img" style="--c:#dec9b0"></span><figcaption>Bombers sable</figcaption></figure>
+          </div>
+
+          <button class="btn btn-full btn-primary">+ Ajouter une pièce</button>
+          <p class="footnote">Photographie une pièce, l'IA fait le reste.</p>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN: MES TENUES ============ -->
+      <section class="screen" data-screen="tenues">
+        <div class="screen-scroll">
+          <p class="eyebrow">Mes tenues sauvées</p>
+          <h1 class="page-title">Celles que tu aimes,<br><em>à rejouer en un tap.</em></h1>
+
+          <div class="outfit-list">
+            <article class="outfit-row">
+              <div class="row-pieces">
+                <span class="row-p" style="--c:#d4a5a5"></span>
+                <span class="row-p" style="--c:#deca9f"></span>
+                <span class="row-p" style="--c:#1b1b1b"></span>
+              </div>
+              <div class="row-text">
+                <h3>Lin + jean droit</h3>
+                <p>Portée 4 fois — la dernière le 8 mai</p>
+              </div>
+              <span class="row-icon" aria-label="Rejouer">↻</span>
+            </article>
+            <article class="outfit-row">
+              <div class="row-pieces">
+                <span class="row-p" style="--c:#f7f2ea"></span>
+                <span class="row-p" style="--c:#bbd1da"></span>
+                <span class="row-p" style="--c:#575757"></span>
+              </div>
+              <div class="row-text">
+                <h3>Pull crème + bermuda</h3>
+                <p>Portée 2 fois — la dernière le 21 avril</p>
+              </div>
+              <span class="row-icon">↻</span>
+            </article>
+            <article class="outfit-row">
+              <div class="row-pieces">
+                <span class="row-p" style="--c:#e8c8b3"></span>
+                <span class="row-p" style="--c:#9eb094"></span>
+                <span class="row-p" style="--c:#deca9f"></span>
+              </div>
+              <div class="row-text">
+                <h3>Robe terra + veste kaki</h3>
+                <p>Portée 3 fois — la dernière le 14 avril</p>
+              </div>
+              <span class="row-icon">↻</span>
+            </article>
+            <article class="outfit-row">
+              <div class="row-pieces">
+                <span class="row-p" style="--c:#2a2a2a"></span>
+                <span class="row-p" style="--c:#2a2a2a"></span>
+                <span class="row-p" style="--c:#d4a5a5"></span>
+              </div>
+              <div class="row-text">
+                <h3>Total noir + écharpe rosé</h3>
+                <p>Portée 1 fois — il y a 2 mois</p>
+              </div>
+              <span class="row-icon">↻</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN: LE TROC ============ -->
+      <section class="screen screen--dark" data-screen="troc">
+        <div class="screen-scroll">
+          <p class="eyebrow eyebrow--soft">Le Troc — manifeste</p>
+          <h1 class="page-title page-title--light">Donne. Reçois.<br><em>Pas un centime.</em></h1>
+          <p class="lede">Les pièces que tu ne portes plus trouvent un nouveau dressing près de chez toi.</p>
+
+          <div class="grid-2">
+            <article class="troc-card">
+              <span class="troc-img" style="--c:#d4a5a5"></span>
+              <h4>Chemise lin · M</h4>
+              <p>Marion, 4&nbsp;km</p>
+            </article>
+            <article class="troc-card">
+              <span class="troc-img" style="--c:#9eb094"></span>
+              <h4>Veste kaki · 38</h4>
+              <p>Lila, 2&nbsp;km</p>
+            </article>
+            <article class="troc-card">
+              <span class="troc-img" style="--c:#e8c8b3"></span>
+              <h4>Robe terra · 40</h4>
+              <p>Inès, 1&nbsp;km</p>
+            </article>
+            <article class="troc-card">
+              <span class="troc-img" style="--c:#dec9b0"></span>
+              <h4>Bombers · L</h4>
+              <p>Adèle, 8&nbsp;km</p>
+            </article>
+          </div>
+
+          <button class="btn btn-full btn-terra">✦ Proposer une pièce</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- bottom tab bar -->
+    <nav class="tabbar" aria-label="Navigation principale">
+      <button class="tab is-active" data-target="matin">
+        <span class="tab-icon">☀</span>
+        <span class="tab-label">Ce matin</span>
+      </button>
+      <button class="tab" data-target="dressing">
+        <span class="tab-icon">▦</span>
+        <span class="tab-label">Dressing</span>
+      </button>
+      <button class="tab" data-target="tenues">
+        <span class="tab-icon">♡</span>
+        <span class="tab-label">Mes tenues</span>
+      </button>
+      <button class="tab" data-target="troc">
+        <span class="tab-icon">⇄</span>
+        <span class="tab-label">Troc</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <p class="prototype-note">
+    Prototype navigable · clique les 4 onglets en bas. Données fictives, l'IA n'est pas encore branchée.
+  </p>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
