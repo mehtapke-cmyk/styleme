@@ -3199,6 +3199,19 @@ h1 .site-name .tm,
     position: relative;
   }
 
+  /* Contenu au-dessus du cadre ::after (sinon le fond paper du cadre
+     recouvre les sections en blanc sur mobile). */
+  .weekly-moment > .shell,
+  .steps > .shell,
+  .advice > .shell,
+  .comparison > .shell,
+  .community > .shell,
+  .sustainable > .shell,
+  .signup > .shell {
+    position: relative;
+    z-index: 1;
+  }
+
   /* Cadre dégradé autour de chaque section */
   .weekly-moment::after,
   .steps::after,
