@@ -135,6 +135,13 @@
     }
   }
   </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations()
+        .then(registrations => registrations.forEach(reg => reg.unregister()))
+        .catch(() => {});
+    }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#content">Aller au contenu</a>

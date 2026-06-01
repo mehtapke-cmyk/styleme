@@ -82,6 +82,13 @@
     }
     a.btn-ghost:hover { background: rgba(0,0,0,.04); }
   </style>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations()
+        .then(registrations => registrations.forEach(reg => reg.unregister()))
+        .catch(() => {});
+    }
+  </script>
 </head>
 <body>
   <main class="wrap">
