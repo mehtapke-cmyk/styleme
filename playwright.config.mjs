@@ -18,7 +18,8 @@ export default defineConfig({
   webServer: {
     command: 'python3 -m http.server 8767',
     url: baseURL,
-    reuseExistingServer: !process.env.CI,
+    // Le workflow CI pré-démarre déjà le serveur sur 8767 ; on le réutilise au lieu d'en lancer un second (qui crashe sur EADDRINUSE).
+    reuseExistingServer: true,
     timeout: 10_000,
   },
   projects: [
