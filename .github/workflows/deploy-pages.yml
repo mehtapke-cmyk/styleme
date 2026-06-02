@@ -22,6 +22,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Update service worker cache version
+        run: |
+          DATE=$(date +%Y%m%d%H%M)
+          sed -i "s/const CACHE = 'styleme-v[0-9]*'/const CACHE = 'styleme-v${DATE}'/g" sw.js
+          echo "Service worker cache updated to: styleme-v${DATE}"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
