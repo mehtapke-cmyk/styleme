@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style-v2.css?v=20260526">
+  <link rel="stylesheet" href="style-mobile-refresh.css">
 <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW5GNM9Q2Y"></script>
   <script>
@@ -20,6 +21,7 @@
   <meta name="description" content="Comment Styleme.fr protège tes données personnelles. Pas de revente, pas de tracking, juste ce qu'il faut pour te servir.">
   <meta name="author" content="Styleme.fr">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.styleme.fr/confidentialite.html">
   <link rel="canonical" href="https://www.styleme.fr/confidentialite.html">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#B96A46">
@@ -44,13 +46,20 @@
     "name": "Styleme.fr",
     "url": "https://www.styleme.fr/",
     "description": "Assistant IA de mode personnalisé — sans stress, sans pub, sans te pousser à acheter.",
-    "inLanguage": ["fr", "en", "es", "de", "it", "ru", "zh", "ar"],
+    "inLanguage": "fr",
     "author": {
       "@type": "Organization",
       "name": "Styleme.fr",
       "url": "https://www.styleme.fr"
     }
   }
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations()
+        .then(registrations => registrations.forEach(reg => reg.unregister()))
+        .catch(() => {});
+    }
   </script>
 </head>
 <body>

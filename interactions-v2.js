@@ -105,7 +105,7 @@
   setTimeout(() => {
     document.querySelectorAll('.reveal:not(.is-visible), .reveal-stagger:not(.is-visible)')
       .forEach(el => el.classList.add('is-visible'));
-  }, 2500);
+  }, 800);
 
   // ---------- Subtle parallax on photos ----------
   if (!reduced) {

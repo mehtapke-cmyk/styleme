@@ -4,10 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moins. Mais mieux. — Styleme.fr</title>
+  <meta name="description" content="Comparez Styleme.fr avec les autres stylistes IA : recommandations sans pub, sans achat, sans commission, 100% éthique.">
+  <link rel="canonical" href="https://www.styleme.fr/comparaison.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style-v2.css?v=20260527">
+  <link rel="stylesheet" href="style-mobile-refresh.css">
   <style>
     .impact-stats {
       display: grid;
@@ -140,13 +143,20 @@
     "name": "Styleme.fr",
     "url": "https://www.styleme.fr/",
     "description": "Assistant IA de mode personnalisé — sans stress, sans pub, sans te pousser à acheter.",
-    "inLanguage": ["fr", "en", "es", "de", "it", "ru", "zh", "ar"],
+    "inLanguage": "fr",
     "author": {
       "@type": "Organization",
       "name": "Styleme.fr",
       "url": "https://www.styleme.fr"
     }
   }
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations()
+        .then(registrations => registrations.forEach(reg => reg.unregister()))
+        .catch(() => {});
+    }
   </script>
 </head>
 <body>

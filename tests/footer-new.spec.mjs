@@ -2,7 +2,7 @@ import { test } from '@playwright/test';
 
 test('nouveau footer avec image bg', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
-  await page.goto('http://127.0.0.1:8767/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.waitForTimeout(800);
   
   // Aller à la fin
@@ -17,7 +17,7 @@ test('nouveau footer avec image bg', async ({ page }) => {
   
   // Mobile
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('http://127.0.0.1:8767/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.waitForTimeout(800);
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight - 2000));
   await page.waitForTimeout(500);

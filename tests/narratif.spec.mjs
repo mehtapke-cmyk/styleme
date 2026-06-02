@@ -4,7 +4,7 @@ test('home — section manifesto "Le matin, autrement"', async ({ page }) => {
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
-  await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   const manifesto = page.locator('#qui-sommes-nous');
   await expect(manifesto).toBeVisible();
   await expect(manifesto.locator('.manifesto-title')).toContainText('Le matin');
@@ -15,7 +15,7 @@ test('home — section manifesto "Le matin, autrement"', async ({ page }) => {
 });
 
 test('home — section communauté avec vidéo + 3 piliers', async ({ page }) => {
-  await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   const community = page.locator('#communaute');
   await expect(community).toBeVisible();
   const pillars = await community.locator('.community-pillar').count();
@@ -32,7 +32,7 @@ test('home — section communauté avec vidéo + 3 piliers', async ({ page }) =>
 });
 
 test('home — ordre des sections : manifesto AVANT steps', async ({ page }) => {
-  await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   const positions = await page.evaluate(() => {
     const m = document.querySelector('#qui-sommes-nous')?.getBoundingClientRect().top || 0;
     const s = document.querySelector('#comment-ca-marche')?.getBoundingClientRect().top || 0;
@@ -44,7 +44,7 @@ test('home — ordre des sections : manifesto AVANT steps', async ({ page }) => 
 test('mobile — manifesto & community', async ({ browser }) => {
   const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await ctx.newPage();
-  await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.locator('#qui-sommes-nous').scrollIntoViewIfNeeded();
   await page.waitForTimeout(500);
   await page.screenshot({ path: 'screenshots/mobile-manifesto.png' });

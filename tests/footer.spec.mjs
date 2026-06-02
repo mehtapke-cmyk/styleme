@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 const PAGES = [
-  { name: 'home', url: 'http://127.0.0.1:8765/index.html' },
-  { name: 'comment', url: 'http://127.0.0.1:8765/comment-ca-marche.html' },
-  { name: 'comparaison', url: 'http://127.0.0.1:8765/comparaison.html' },
-  { name: 'conseils', url: 'http://127.0.0.1:8765/conseils.html' },
-  { name: 'rejoindre', url: 'http://127.0.0.1:8765/rejoindre.html' },
+  { name: 'home', url: '/index.html' },
+  { name: 'comment', url: '/comment-ca-marche.html' },
+  { name: 'comparaison', url: '/comparaison.html' },
+  { name: 'conseils', url: '/conseils.html' },
+  { name: 'rejoindre', url: '/rejoindre.html' },
 ];
 
 for (const p of PAGES) {

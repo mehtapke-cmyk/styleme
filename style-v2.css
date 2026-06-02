@@ -532,6 +532,7 @@ section {
   background: var(--ink);
   color: var(--cream);
 }
+@media (max-width: 720px) {
 @media (max-width: 880px) {
   .thought-bubbles--inline { grid-template-columns: 1fr; }
   .thought-bubbles--inline .thought-wide { grid-column: span 1; }
@@ -2354,6 +2355,12 @@ body.drawer-open { overflow: hidden; }
   .site-header .nav-links { display: none !important; }
   .site-header .lang-dropdown--desktop { display: none !important; }
   .site-header .nav-burger { display: inline-flex; align-items: center; justify-content: center; }
+  .site-header .nav { gap: 0.75rem; }
+  /* Le brand reste à gauche, le burger seul à droite */
+  .site-header .brand { flex: 1 1 auto; min-width: 0; }
+  .site-header .site-name { font-size: clamp(1.1rem, 4.5vw, 1.4rem); }
+  /* Cache le vieux nav-toggle historique s'il existe encore */
+  .site-header .nav-toggle { display: none !important; }
   .site-header .nav { gap: 0.4rem; }
   .site-header .nav-toggle { display: none !important; }
 
@@ -3199,6 +3206,19 @@ h1 .site-name .tm,
     position: relative;
   }
 
+  /* Contenu au-dessus du cadre ::after (sinon le fond paper du cadre
+     recouvre les sections en blanc sur mobile). */
+  .weekly-moment > .shell,
+  .steps > .shell,
+  .advice > .shell,
+  .comparison > .shell,
+  .community > .shell,
+  .sustainable > .shell,
+  .signup > .shell {
+    position: relative;
+    z-index: 1;
+  }
+
   /* Cadre dégradé autour de chaque section */
   .weekly-moment::after,
   .steps::after,
@@ -3225,9 +3245,11 @@ h1 .site-name .tm,
     background-clip: padding-box, border-box;
   }
 
-  /* Les sections sombres (community, hero) : dégradé adapté */
-  .community::after {
-    background-image: linear-gradient(rgba(26,26,26,1), rgba(26,26,26,1)),
+  /* Les sections sombres (community, sustainable) : dégradé adapté
+     pour ne pas couvrir le fond foncé d'un rectangle paper-color. */
+  .community::after,
+  .sustainable::after {
+    background-image: linear-gradient(var(--moss), var(--moss)),
       linear-gradient(135deg,
         rgba(212, 165, 165, 0.4) 0%,
         rgba(232, 190, 172, 0.2) 50%,

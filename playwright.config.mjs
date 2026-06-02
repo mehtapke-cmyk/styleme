@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const baseURL = 'http://127.0.0.1:4173';
+const baseURL = 'http://127.0.0.1:8767';
 
 export default defineConfig({
   testDir: './tests',
@@ -16,9 +16,10 @@ export default defineConfig({
     trace: 'retain-on-failure',
   },
   webServer: {
-    command: 'python3 -m http.server 4173',
+    command: 'python3 -m http.server 8767',
     url: baseURL,
-    reuseExistingServer: !process.env.CI,
+    // Le workflow CI pré-démarre déjà le serveur sur 8767 ; on le réutilise au lieu d'en lancer un second (qui crashe sur EADDRINUSE).
+    reuseExistingServer: true,
     timeout: 10_000,
   },
   projects: [
