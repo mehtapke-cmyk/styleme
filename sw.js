@@ -1,9 +1,12 @@
-const CACHE = 'styleme-v20260601';
+const CACHE = 'styleme-v20260529b';
 const SHELL = [
   '/',
   '/index.html',
   '/style-v2.css?v=20260529',
-  '/style-mobile-refresh.css',
+  '/script.js?v=20260529',
+  '/partials-v2.js?v=20260529',
+  '/interactions-v2.js?v=20260529',
+  '/style-mobile-refresh.css?v=20260529',
   '/site.webmanifest',
   '/assets/styleme-logo.png',
 ];
@@ -26,9 +29,9 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
+  // Ne pas intercepter les requêtes externes (Google Analytics, fonts, etc.)
   const url = new URL(e.request.url);
   if (url.origin !== self.location.origin) return;
-
   e.respondWith(
     fetch(e.request)
       .then(networkRes => {
