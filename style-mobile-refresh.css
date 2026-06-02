@@ -117,8 +117,8 @@
   .advice,
   .sustainable,
   .steps {
-    padding-top: clamp(3rem, 9vw, 4.5rem);
-    padding-bottom: clamp(3rem, 9vw, 4.5rem);
+    padding-top: clamp(2rem, 6vw, 3rem);
+    padding-bottom: clamp(2rem, 6vw, 3rem);
   }
   /* Ombre douce sur les cartes image autoportantes → rendu « flottant »,
      plus premium et moins « bloc plat ». (overflow:hidden de ces éléments
