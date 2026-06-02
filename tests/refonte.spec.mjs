@@ -4,7 +4,7 @@ test('home — mosaïque animée + pas de doublons', async ({ page }) => {
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
-  await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.waitForTimeout(800);
 
   // Section mosaïque visible
@@ -30,7 +30,7 @@ test('conseils — 3 posters côte à côte', async ({ page }) => {
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
   page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
-  await page.goto('http://127.0.0.1:8765/conseils.html', { waitUntil: 'networkidle' });
+  await page.goto('/conseils.html', { waitUntil: 'networkidle' });
   await page.waitForTimeout(600);
 
   const posters = await page.locator('.poster-card').count();
@@ -44,7 +44,7 @@ test('conseils — 3 posters côte à côte', async ({ page }) => {
 });
 
 test('comment-ca-marche — photo senior-manteau-matin présente, pas de portrait-editorial', async ({ page }) => {
-  await page.goto('http://127.0.0.1:8765/comment-ca-marche.html', { waitUntil: 'networkidle' });
+  await page.goto('/comment-ca-marche.html', { waitUntil: 'networkidle' });
   const srcs = await page.locator('img').evaluateAll(imgs => imgs.map(i => i.getAttribute('src') || ''));
   // L'image "senior-manteau-matin" a ete renommee en "morning-coat" lors d'une refonte editoriale.
   // On accepte l'une OU l'autre pour rester compatible.
@@ -57,11 +57,11 @@ test('comment-ca-marche — photo senior-manteau-matin présente, pas de portrai
 test('mobile — mosaic + posters', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
-  await page.goto('http://127.0.0.1:8765/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.locator('#mosaic').scrollIntoViewIfNeeded();
   await page.waitForTimeout(500);
   await page.screenshot({ path: 'screenshots/mobile-mosaic.png' });
-  await page.goto('http://127.0.0.1:8765/conseils.html', { waitUntil: 'networkidle' });
+  await page.goto('/conseils.html', { waitUntil: 'networkidle' });
   await page.locator('#inspiration').scrollIntoViewIfNeeded();
   await page.waitForTimeout(500);
   await page.screenshot({ path: 'screenshots/mobile-posters.png' });

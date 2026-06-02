@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Comment ça marche ? — Styleme.fr</title>  <link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Comment ça marche ? — Styleme.fr</title>
+  <meta name="description" content="Découvrez comment Styleme.fr fonctionne : analyse de votre dressing, recommandations IA personnalisées, sans achat, sans pub, 100% bienveillant.">
+  <link rel="canonical" href="https://www.styleme.fr/comment-ca-marche.html">
+  <link rel="alternate" hreflang="en" href="https://www.styleme.fr/en/how-it-works.html">
+  <link rel="alternate" hreflang="fr" href="https://www.styleme.fr/comment-ca-marche.html">
+  <link rel="alternate" hreflang="de" href="https://www.styleme.fr/de/wie-es-funktioniert.html">
+  <link rel="alternate" hreflang="es" href="https://www.styleme.fr/es/como-funciona.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.styleme.fr/comment-ca-marche.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style-v2.css?v=20260527">
+  <link rel="stylesheet" href="style-mobile-refresh.css">
   <style>
     /* Footer: masque le bandeau signature MK sur cette page uniquement */
     .footer-bottom { display: none !important; }
@@ -93,6 +102,13 @@
       "url": "https://www.styleme.fr"
     }
   }
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations()
+        .then(registrations => registrations.forEach(reg => reg.unregister()))
+        .catch(() => {});
+    }
   </script>
 </head>
 <body>

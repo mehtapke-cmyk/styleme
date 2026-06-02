@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style-v2.css?v=20260526">
+  <link rel="stylesheet" href="style-mobile-refresh.css">
 <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW5GNM9Q2Y"></script>
   <script>
@@ -21,6 +22,12 @@
   <meta name="author" content="Styleme.fr">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.styleme.fr/mentions-legales.html">
+  <link rel="canonical" href="https://www.styleme.fr/mentions-legales.html">
+  <link rel="alternate" hreflang="en" href="https://www.styleme.fr/en/legal.html">
+  <link rel="alternate" hreflang="fr" href="https://www.styleme.fr/mentions-legales.html">
+  <link rel="alternate" hreflang="de" href="https://www.styleme.fr/de/impressum.html">
+  <link rel="alternate" hreflang="es" href="https://www.styleme.fr/es/legal.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.styleme.fr/mentions-legales.html">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#B96A46">
   <meta property="og:type" content="website">
@@ -51,6 +58,13 @@
       "url": "https://www.styleme.fr"
     }
   }
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations()
+        .then(registrations => registrations.forEach(reg => reg.unregister()))
+        .catch(() => {});
+    }
   </script>
 </head>
 <body>

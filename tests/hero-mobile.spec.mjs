@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('hero mobile : 2 images visibles + zoom actif', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('http://127.0.0.1:8767/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.waitForTimeout(1500); // attendre is-loaded + animations
   
   // Vérifier que les 2 panels sont visibles
@@ -29,7 +29,7 @@ test('hero mobile : 2 images visibles + zoom actif', async ({ page }) => {
 
 test('hero desktop : référence visuelle', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
-  await page.goto('http://127.0.0.1:8767/index.html', { waitUntil: 'networkidle' });
+  await page.goto('/index.html', { waitUntil: 'networkidle' });
   await page.waitForTimeout(1500);
   await page.screenshot({ path: 'screenshots/hero-desktop-ref.png', clip: { x: 0, y: 0, width: 1280, height: 800 } });
 });

@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta name="description" content="Styleme.fr, ton styliste personnel IA. Simplifie ton matin, optimise ton dressing, et rejoins une communauté mode plus consciente.">
   <title>Styleme.fr — Ton styliste personnel du matin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style-v2.css?v=20260529">
+  <link rel="stylesheet" href="style-mobile-refresh.css">
   <style>
     .signup-form select { width: 100%; padding: .9rem 1rem; border: 1px solid var(--line-strong, #e7e1d5); border-radius: 999px; background: transparent; font-family: inherit; font-size: 1rem; color: var(--ink-muted, #8b8175); appearance: none; cursor: pointer; }
     .signup-form select.has-value { color: var(--ink, #0A0A0A); }
@@ -24,12 +28,23 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-JW5GNM9Q2Y');
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations()
+        .then(registrations => registrations.forEach(reg => reg.unregister()))
+        .catch(() => {});
+    }
   </script>
   <!-- SEO & Open Graph -->
   <meta name="description" content="♻️ Styleme.fr : ton assistant IA de mode qui t'aide à t'habiller chaque matin sans stress, sans pub, sans te pousser à acheter. Rejoins le mouvement slow fashion !">
   <meta name="author" content="Styleme.fr">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.styleme.fr/">
+  <link rel="alternate" hreflang="en" href="https://www.styleme.fr/en/">
+  <link rel="alternate" hreflang="fr" href="https://www.styleme.fr/">
+  <link rel="alternate" hreflang="de" href="https://www.styleme.fr/de/">
+  <link rel="alternate" hreflang="es" href="https://www.styleme.fr/es/">
+  <link rel="alternate" hreflang="x-default" href="https://www.styleme.fr/">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#B96A46">
   <meta property="og:type" content="website">
@@ -291,9 +306,7 @@
             <span data-i18n="metric_6">+ Conseils personnalisés</span>
           </div>
         </div>
-        <figure class="story-photo story-photo--travel">
-          <img src="assets/dressing-frame-corrected-natural.jpeg" alt="Dressing élégant organisé dans un cadre textile">
-        </figure>
+
       </div>
     </section>
 
@@ -796,7 +809,10 @@
   <script src="interactions-v2.js?v=20260529"></script>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js');
+      navigator.serviceWorker.getRegistrations()
+        .then(registrations => Promise.all(registrations.map(reg => reg.unregister())))
+        .then(() => navigator.serviceWorker.register('/sw.js'))
+        .catch(() => {});
     }
-  </script></body>
-</html>
+  </script>
+</body>

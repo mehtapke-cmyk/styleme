@@ -1,5 +1,98 @@
 (() => {
   // =========================================================
+  // I18N — applique les traductions à tout élément [data-i18n*]
+  // Persisté dans localStorage (clé "styleme_lang"), défaut: fr.
+  // =========================================================
+  const LANG_KEY = 'styleme_lang';
+  let currentLang = (function () {
+    try { return localStorage.getItem(LANG_KEY) || 'fr'; }
+    catch (_) { return 'fr'; }
+  })();
+
+  // Mini-parseur sécurisé : reconstruit le DOM via createElement uniquement.
+  // Aucun innerHTML utilisé → aucune surface d'attaque XSS. Seules les balises
+  // typographiques <br>, <em>, <strong> sont reconnues ; tout le reste est
+  // traité comme texte littéral (et donc échappé par createTextNode).
+  const I18N_ALLOWED_TAGS = { br: true, em: true, strong: true };
+  const I18N_ENTITIES = {
+    '&nbsp;': ' ', '&amp;': '&', '&lt;': '<',
+    '&gt;': '>', '&quot;': '"', '&#39;': "'",
+  };
+
+  function decodeI18nEntities(s) {
+    return s.replace(/&(?:nbsp|amp|lt|gt|quot|#39);/g, m => I18N_ENTITIES[m] || m);
+  }
+
+  function setSafeI18nHTML(el, html) {
+    el.textContent = '';
+    // Split en gardant les délimiteurs de balises.
+    const tokens = String(html).split(/(<\/?[a-z]+\s*\/?>)/i);
+    const stack = [el];
+    for (const tok of tokens) {
+      if (!tok) continue;
+      const m = tok.match(/^<(\/?)([a-z]+)\s*\/?>$/i);
+      if (m) {
+        const isClose = m[1] === '/';
+        const tag = m[2].toLowerCase();
+        if (!I18N_ALLOWED_TAGS[tag]) continue;
+        if (tag === 'br') {
+          stack[stack.length - 1].appendChild(document.createElement('br'));
+        } else if (isClose) {
+          if (stack.length > 1) stack.pop();
+        } else {
+          const node = document.createElement(tag);
+          stack[stack.length - 1].appendChild(node);
+          stack.push(node);
+        }
+      } else {
+        stack[stack.length - 1].appendChild(
+          document.createTextNode(decodeI18nEntities(tok))
+        );
+      }
+    }
+  }
+
+  function t(key, vars) {
+    const dict = (window.STYLEME_I18N || {})[currentLang] || {};
+    let str = dict[key];
+    if (str == null) return key;
+    if (vars) for (const k in vars) str = str.split('{' + k + '}').join(vars[k]);
+    return str;
+  }
+
+  function applyI18n(lang) {
+    const dict = (window.STYLEME_I18N || {})[lang];
+    if (!dict) return;
+    currentLang = lang;
+    try { localStorage.setItem(LANG_KEY, lang); } catch (_) { /* private mode */ }
+    document.documentElement.lang = lang;
+    document.documentElement.dir = dict.dir || 'ltr';
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (dict[key] != null) el.textContent = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.dataset.i18nHtml;
+      if (dict[key] != null) setSafeI18nHTML(el, dict[key]);
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.dataset.i18nPlaceholder;
+      if (dict[key] != null) el.placeholder = dict[key];
+    });
+
+    refreshQuizCounter();
+  }
+
+  function refreshQuizCounter() {
+    const el = document.querySelector('[data-quiz-counter]');
+    if (!el) return;
+    // quizQ peut ne pas être initialisé au tout premier applyI18n() — guard.
+    const n = (typeof quizQ === 'number') ? quizQ : 1;
+    el.textContent = t('onb.quiz.qnum', { n });
+  }
+
+  // =========================================================
   // ONBOARDING — 4 étapes avant l'app
   // Étape 2 = quiz × 3 questions (on reste sur le même DOM,
   // on incrémente juste le compteur jusqu'à 3)
@@ -59,9 +152,10 @@
       const data = pair[idx];
       const pieces = card.querySelectorAll('.quiz-p');
       pieces.forEach((p, i) => { p.style.setProperty('--c', data[i]); });
+      // Label du card : pour la démo on garde les étiquettes en français
       card.querySelector('.quiz-label').textContent = data[3];
     });
-    document.querySelector('.onb-q-num').textContent = String(quizQ);
+    refreshQuizCounter();
   }
   quizCards.forEach(card => {
     card.addEventListener('click', () => {
@@ -157,25 +251,31 @@
     });
   });
 
-  // Choix d'une langue → met à jour les chips, ferme la sheet
+  // Choix d'une langue → met à jour chips + drawer + applique i18n
   document.querySelectorAll('.lang-item').forEach(item => {
     item.addEventListener('click', () => {
+      const lang = item.dataset.lang;
       const flag = item.dataset.flag;
       const code = item.dataset.code;
       const name = item.querySelector('.lang-name').textContent;
       document.querySelectorAll('.lang-item').forEach(i => i.classList.remove('is-active'));
       item.classList.add('is-active');
-      // Update onboarding chip
       const chip = document.querySelector('.lang-chip');
       if (chip) {
         chip.querySelector('.lang-flag').textContent = flag;
         chip.querySelector('.lang-code').textContent = code;
       }
-      // Update drawer line
       const drawerSub = document.querySelector('.drawer-sub');
       if (drawerSub) {
-        drawerSub.innerHTML = `<span class="lang-flag-mini">${flag}</span> ${name}`;
+        drawerSub.textContent = '';
+        const flagSpan = document.createElement('span');
+        flagSpan.className = 'lang-flag-mini';
+        flagSpan.textContent = flag;
+        drawerSub.appendChild(flagSpan);
+        drawerSub.appendChild(document.createTextNode(' ' + name));
       }
+      // 🌐 Traduction effective de toute l'interface
+      applyI18n(lang);
       setTimeout(() => closeSheet(langSheet), 250);
     });
   });
@@ -196,4 +296,33 @@
     paintQuizPair();
     showStep(1);
   });
+
+  // Init i18n : reprend la langue choisie au dernier passage (localStorage)
+  applyI18n(currentLang);
+  // Si la langue persistée n'est pas FR, marque la lang-item correspondante
+  // active dans la sheet et met à jour la chip + le drawer.
+  if (currentLang !== 'fr') {
+    const item = document.querySelector(`.lang-item[data-lang="${currentLang}"]`);
+    if (item) {
+      document.querySelectorAll('.lang-item').forEach(i => i.classList.remove('is-active'));
+      item.classList.add('is-active');
+      const flag = item.dataset.flag;
+      const code = item.dataset.code;
+      const name = item.querySelector('.lang-name').textContent;
+      const chip = document.querySelector('.lang-chip');
+      if (chip) {
+        chip.querySelector('.lang-flag').textContent = flag;
+        chip.querySelector('.lang-code').textContent = code;
+      }
+      const drawerSub = document.querySelector('.drawer-sub');
+      if (drawerSub) {
+        drawerSub.textContent = '';
+        const flagSpan = document.createElement('span');
+        flagSpan.className = 'lang-flag-mini';
+        flagSpan.textContent = flag;
+        drawerSub.appendChild(flagSpan);
+        drawerSub.appendChild(document.createTextNode(' ' + name));
+      }
+    }
+  }
 })();
