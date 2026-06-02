@@ -25,9 +25,7 @@ GitHub Pages (styleme.fr)
 3. Vérifie la configuration :
 
 ```
-Source: Deploy from a branch
-Branch: main
-Folder: / (root)
+Source: GitHub Actions
 ```
 
 ### 2️⃣ Domaine custom (déjà configuré)

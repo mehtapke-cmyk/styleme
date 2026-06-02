@@ -38,7 +38,7 @@ GitHub Pages est configuré avec **"Deploy from a branch"** au lieu de **"GitHub
 
 **Option B** : Via terminal
 ```bash
-cd /Users/mehtapkeles/styleme.worktrees/agents-correction-bug-version-mobile-site
+cd /chemin/vers/ton/repo/styleme
 git push origin main --force
 ```
 

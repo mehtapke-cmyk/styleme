@@ -11,7 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@500;700&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style-v2.css?v=20260529">
+  <link rel="stylesheet" href="style-desktop.css">
+  <link rel="stylesheet" href="style-mobile.css">
   <link rel="stylesheet" href="style-mobile-refresh.css">
   <style>
     .signup-form select { width: 100%; padding: .9rem 1rem; border: 1px solid var(--line-strong, #e7e1d5); border-radius: 999px; background: transparent; font-family: inherit; font-size: 1rem; color: var(--ink-muted, #8b8175); appearance: none; cursor: pointer; }
@@ -40,6 +41,11 @@
   <meta name="author" content="Styleme.fr">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.styleme.fr/">
+  <link rel="alternate" hreflang="en" href="https://www.styleme.fr/en/">
+  <link rel="alternate" hreflang="fr" href="https://www.styleme.fr/">
+  <link rel="alternate" hreflang="de" href="https://www.styleme.fr/de/">
+  <link rel="alternate" hreflang="es" href="https://www.styleme.fr/es/">
+  <link rel="alternate" hreflang="x-default" href="https://www.styleme.fr/">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#B96A46">
   <meta property="og:type" content="website">
@@ -64,7 +70,7 @@
       "name": "Styleme.fr",
       "url": "https://www.styleme.fr/",
       "description": "Assistant IA de mode personnalisé — sans stress, sans pub, sans te pousser à acheter.",
-      "inLanguage": "fr",
+      "inLanguage": ["fr", "en", "es", "de", "it", "ru", "zh", "ar"],
       "author": { "@type": "Organization", "name": "Styleme.fr", "url": "https://www.styleme.fr" }
     },
     {
@@ -80,10 +86,11 @@
         "Recommandations de tenues quotidiennes personnalisées par IA",
         "Analyse du dressing existant",
         "Conseils morphologie et couleurs de saison",
-        "Capsule wardrobe"
+        "Capsule wardrobe",
+        "Multilingue (fr, en, es, de, it, ru, zh, ar)"
       ],
       "inLanguage": "fr",
-      "availableLanguage": "fr",
+      "availableLanguage": ["fr", "en", "es", "de", "it", "ru", "zh", "ar"],
       "audience": { "@type": "Audience", "audienceType": "Francophones, slow fashion, mode consciente" }
     },
     {
@@ -107,9 +114,17 @@
   <header class="site-header">
     <nav class="nav shell" aria-label="Navigation principale">
       <a class="brand" href="index.html" aria-label="Styleme.fr accueil">
-        <span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo.png?v=20260601" alt="" width="96" height="96" loading="eager" decoding="async"></span>
+        <span class="brand-mark" aria-hidden="true"><img src="assets/styleme-logo-transparent.png" alt=""></span>
         <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup></span>
       </a>
+      <!-- Indicateur de section courante (mobile scroll) -->
+      <span class="nav-section-label" id="navSectionLabel" aria-hidden="true"></span>
+      <!-- Navigation mobile rapide : liens directs vers pages -->
+      <nav class="nav-mobile-pages" aria-label="Pages">
+        <a href="comment-ca-marche.html">Comment</a>
+        <a href="conseils.html">Conseils</a>
+        <a href="rejoindre.html">Rejoindre</a>
+      </nav>
       <div class="nav-links">
         <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
         <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
@@ -148,8 +163,7 @@
     <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
       <div class="mobile-drawer__inner">
         <nav class="mobile-drawer__nav" aria-label="Navigation mobile">
-          <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
-          <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme.fr ?<span class="fr-suffix">.fr</span> ?</a>
+          <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
           <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
           <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
           <a href="engagement.html" data-i18n="nav_engagement">Notre engagement</a>
@@ -174,7 +188,7 @@
 
   <main id="content">
     <!-- BANDEAU SLOGAN — sous le header, au-dessus du hero -->
-    <div class="slogan-banner" role="region" aria-label="Slogan Styleme<span class="fr-suffix">.fr</span>">
+    <div class="slogan-banner" role="region" aria-label="Slogan Styleme.fr">
       <div class="shell slogan-banner-inner">
         <p class="slogan-banner-text" data-i18n="brand_slogan">
           <em>L'élégance est déjà dans ton armoire.</em>
@@ -327,13 +341,13 @@
             quand on choisit qui l'on sera aujourd'hui.
           </p>
           <p class="manifesto-text manifesto-text--muted">
-            Pas une appli de plus. Ton compagnon discret oupart de
+            Pas une appli de plus. Ton compagnon discret qui part de
             ta vraie vie — tes vêtements, ton agenda, la météo, ton humeur —
             pour te répondre simplement&nbsp;: <em>qu'est-ce que je porte aujourd'hui ?</em>
           </p>
           <div class="manifesto-signature">
             <span class="manifesto-sign-line"></span>
-            <span class="manifesto-sign-text">Notre objectif chez Styleme.fr<span class="fr-suffix">.fr</span></span>
+            <span class="manifesto-sign-text">Notre objectif chez Styleme<span class="fr-suffix">.fr</span></span>
           </div>
         </div>
       </div>
@@ -709,7 +723,7 @@
       <!-- Bloc marque centré -->
       <div class="footer-brand-row">
         <a class="footer-brand" href="index.html" aria-label="Styleme.fr">
-          <span class="brand-mark"><img src="assets/styleme-logo.png?v=20260601" alt="Styleme.fr" loading="lazy" decoding="async"></span>
+          <span class="brand-mark"><img src="assets/styleme-logo-transparent.png" alt="Styleme.fr"></span>
           <span class="site-name">Styleme<span class="fr-suffix">.fr</span><sup class="tm" aria-label="marque déposée">™</sup></span>
         </a>
         <p class="footer-tagline" data-i18n="footer_tagline">L'élégance est déjà dans ton armoire. Achète moins, porte mieux avec ton conseiller mode Styleme<span class="fr-suffix">.fr</span></p>

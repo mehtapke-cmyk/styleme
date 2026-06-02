@@ -1039,12 +1039,12 @@ async function submitToFormspree(formEl, data, successEl) {
     } else {
       const msg = json?.errors?.map(e => e.message).join(', ') || 'Erreur inconnue';
       console.error('[Formspree] Erreur:', res.status, msg);
-      alert('Une erreur est survenue (' + res.status + '). Écris-nous à bonjour@styleme.fr 💌');
+      showToast('Une erreur est survenue (' + res.status + '). Écris-nous à bonjour@styleme.fr 💌');
       if (btn) { btn.disabled = false; btn.textContent = originalText; }
     }
   } catch (err) {
     console.error('[Formspree] Exception:', err);
-    alert('Problème de connexion. Écris-nous à bonjour@styleme.fr 💌');
+    showToast('Problème de connexion. Écris-nous à bonjour@styleme.fr 💌');
     if (btn) { btn.disabled = false; btn.textContent = originalText; }
   }
 }
@@ -1246,7 +1246,7 @@ if (signupFormHome) {
     event.preventDefault();
     const email = document.getElementById("emailInputHome")?.value.trim() || "";
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      alert("Merci d'entrer une adresse e-mail valide.");
+      showToast("Merci d'entrer une adresse e-mail valide.");
       document.getElementById("emailInputHome")?.focus();
       return;
     }

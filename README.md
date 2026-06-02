@@ -10,7 +10,7 @@ StyleMe.fr s'engage pour une **consommation mode plus consciente** :
 - 👥 Styles partagés
 - 💚 Communauté engagée
 
-Nos conseils personnalisés ti limitent les achats réflexes et t'aident à mieux porter ce que tu possèdes déjà.
+Nos conseils personnalisés limitent les achats réflexes et t'aident à mieux porter ce que tu possèdes déjà.
 
 ## 🌐 Visite le site
 
@@ -33,10 +33,10 @@ Le site est **déployé automatiquement** sur GitHub Pages à chaque push sur `m
 ### Activer GitHub Pages
 
 1. Va dans **Settings** → **Pages**
-2. Choisis **Deploy from a branch**
-3. Sélectionne branche : `main`
-4. Dossier : `/ (root)`
-5. Sauvegarde
+2. Choisis **GitHub Actions** comme source
+3. Sauvegarde
+
+Le workflow `deploy-pages.yml` se déclenche automatiquement à chaque push sur `main`.
 
 Le domaine custom `styleme.fr` est configuré via `CNAME`.
 
