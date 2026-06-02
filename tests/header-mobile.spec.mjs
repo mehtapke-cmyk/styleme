@@ -20,6 +20,10 @@ test('header desktop intact', async ({ page }) => {
   await page.waitForTimeout(400);
   await page.screenshot({ path: 'screenshots/desktop-header.png', clip: { x: 0, y: 0, width: 1280, height: 120 } });
   
+  // Test ouverture sélecteur langue desktop
+  await page.click('.lang-dropdown-toggle');
+  await page.waitForTimeout(400);
+  await page.screenshot({ path: 'screenshots/desktop-lang-open.png', clip: { x: 0, y: 0, width: 1280, height: 500 } });
 // Test ouverture sélecteur langue via burger (langue désormais dans le drawer)
     await page.click('.nav-burger');
     await page.waitForTimeout(400);
