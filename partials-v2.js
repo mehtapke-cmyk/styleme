@@ -60,7 +60,6 @@
       <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
         <div class="mobile-drawer__inner">
           <nav class="mobile-drawer__nav" aria-label="Navigation mobile">
-            <a href="comparaison.html" data-i18n="nav_compare">Pourquoi Styleme.fr ?</a>
             <a href="comparaison.html" data-i18n-html="nav_compare">Pourquoi Styleme<span class="fr-suffix">.fr</span> ?</a>
             <a href="comment-ca-marche.html" data-i18n="nav_how">Comment cela fonctionne ?</a>
             <a href="conseils.html" data-i18n="nav_advice">Conseils</a>
