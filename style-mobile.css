@@ -604,23 +604,22 @@
     justify-content: center;
     background: var(--terracotta);
     color: #fff;
-    font-family: var(--font-display);
-    font-size: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
     font-weight: 700;
-    font-style: italic;
-    letter-spacing: -0.01em;
+    font-style: normal;
+    letter-spacing: 0.01em;
     padding: 0.6rem 1.2rem;
     border-radius: 999px;
     text-decoration: none;
     white-space: nowrap;
     flex-shrink: 0;
-    box-shadow: 0 0 0 0 rgba(232, 101, 26, 0.7);
     animation: appPulse 2s ease-in-out infinite;
   }
   @keyframes appPulse {
-    0%   { box-shadow: 0 0 0 0 rgba(232,101,26,0.7); }
-    60%  { box-shadow: 0 0 0 10px rgba(232,101,26,0); }
-    100% { box-shadow: 0 0 0 0 rgba(232,101,26,0); }
+    0%   { box-shadow: 0 0 0 0 rgba(232,101,26,0.7); background: var(--terracotta); }
+    50%  { box-shadow: 0 0 0 10px rgba(232,101,26,0); background: var(--terracotta-deep); }
+    100% { box-shadow: 0 0 0 0 rgba(232,101,26,0); background: var(--terracotta); }
   }
 }
 
