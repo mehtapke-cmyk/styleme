@@ -1,8 +1,7 @@
 /* ============================================================
-   STYLEME.FR — STYLES DESKTOP
-   Ce fichier = styles de base + desktop uniquement.
-   Pour modifier l'affichage MOBILE/TABLETTE → editer style-mobile.css
-   Ne pas toucher ce fichier pour des changements mobiles.
+   STYLEME.FR — DESKTOP UNIQUEMENT
+   Chargé après style-base.css
+   NE PAS MODIFIER pour changer l'apparence mobile
    ============================================================ */
 
 /* ============================================================
@@ -540,7 +539,6 @@ section {
   color: var(--cream);
 }
 
-
 .weekly-text--charge {
   font-family: var(--font-display);
   font-size: clamp(1.1rem, 1.6vw, 1.45rem);
@@ -779,7 +777,6 @@ section {
   transform: scale(1.06);
 }
 
-
 /* ============================================================
    COMPARAISON — Moins de vêtements. Plus de styles.
    ============================================================ */
@@ -805,11 +802,9 @@ section {
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
 }
 .comparison--with-bg > .shell { position: relative; z-index: 1; }
-
 @media (prefers-reduced-motion: no-preference) {
   .comparison--with-bg .comparison-bg { transition: opacity 0.8s ease; }
 }
-
 
 .diff-table {
   width: 100%;
@@ -1129,7 +1124,6 @@ section {
 @media (prefers-reduced-motion: reduce) {
   .footer-manifesto { animation: none; }
 }
-
 .footer-manifesto-title {
   font-family: var(--font-display);
   font-size: clamp(1rem, 1.6vw, 1.18rem);
@@ -1251,7 +1245,6 @@ section {
 }
 
 /* ---- Responsive ---- */
-
 
 /* ============================================================
    TOAST
@@ -1395,7 +1388,6 @@ section {
    RESPONSIVE
    ============================================================ */
 
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -1405,7 +1397,6 @@ section {
   }
   .reveal, .reveal-stagger > * { opacity: 1; transform: none; }
 }
-
 
 /* ============================================================
    BANDEAU SLOGAN — sous le header, au-dessus du hero
@@ -1466,7 +1457,6 @@ section {
   color: var(--terracotta);
   font-weight: 600;
 }
-
 
 
 
@@ -1568,8 +1558,6 @@ section {
   line-height: 1.5;
   margin: 0;
 }
-
-
 
 
 
@@ -1681,10 +1669,7 @@ section {
   .mosaic-item:hover img { transform: scale(1.08); }
 }
 
-
 /* Responsive */
-
-
 
 
 /* ============================================================
@@ -1796,7 +1781,6 @@ section {
   color: var(--terracotta);
   font-weight: 600;
 }
-
 
 
 
@@ -1918,7 +1902,6 @@ section {
 }
 
 
-
 /* Reduced motion : on coupe la vidéo autoplay */
 @media (prefers-reduced-motion: reduce) {
   .community-video { display: none; }
@@ -1926,7 +1909,6 @@ section {
     background: url("assets/video/styleme-troc-morning-poster.jpg") center/cover no-repeat;
   }
 }
-
 
 
 /* ============================================================
@@ -2036,7 +2018,6 @@ section {
 
 
 
-
 /* ============================================================
    IMPACT FIGURES — 3 chiffres-chocs fast-fashion sur la home
    ============================================================ */
@@ -2080,7 +2061,6 @@ section {
 
 
 
-
 /* ============================================================
    COMMUNITY CTA — "Rejoindre la tribu →"
    Lien éditorial discret, terracotta clair sur fond sombre
@@ -2118,8 +2098,6 @@ section {
   grid-template-columns: repeat(4, 1fr);
   gap: 1.8rem;
 }
-
-
 
 
 /* ============================================================
@@ -2252,9 +2230,7 @@ body.drawer-open { overflow: hidden; }
    on affiche le burger
    ============================================================ */
 
-
 /* Sur desktop, le burger reste caché */
-
 
 
 
@@ -2288,7 +2264,6 @@ body.drawer-open { overflow: hidden; }
 
 /* Mobile : ken burns plus marqué (scale 1.15) et plus rapide (14s)
    pour donner du mouvement éditorial aux 2 images empilées */
-
 @keyframes heroKenBurnsLeft {
   0%   { transform: scale(1)    translate(0, 0); }
   100% { transform: scale(1.15) translate(-2.5%, -2.5%); }
@@ -2306,7 +2281,6 @@ body.drawer-open { overflow: hidden; }
     transform: scale(1) !important;
   }
 }
-
 
 
 /* ===== Personnalisation du conseiller mode ===== */
@@ -2389,7 +2363,6 @@ body.drawer-open { overflow: hidden; }
 }
 
 
-
 /* ============================================================
    MANIFESTE PULSÉ (footer)
    Bannière éditoriale qui respire doucement pour attirer l'œil
@@ -2425,7 +2398,6 @@ body.drawer-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .footer-manifesto.manifeste-pulse { animation: none; }
 }
-
 
 /* ============================================================
    SÉLECTEUR DE LANGUE DANS LE FOOTER
@@ -2613,7 +2585,6 @@ h1 .site-name .tm,
 }
 
 
-
 /* ============================================================
    FOOTER — MANIFESTE DU TROC (vidéo immersive)
    Présent sur toutes les pages, juste avant le bloc Argelès
@@ -2725,7 +2696,6 @@ h1 .site-name .tm,
 
 /* Mobile : ratio plus carré pour lisibilité */
 
-
 @media (prefers-reduced-motion: reduce) {
   .footer-troc__video { animation: none; }
   .footer-troc__media:hover,
@@ -2733,7 +2703,6 @@ h1 .site-name .tm,
     transform: none;
   }
 }
-
 
 
 /* ============================================================
@@ -2789,7 +2758,6 @@ h1 .site-name .tm,
   transform: translateY(-1px);
 }
 
-
 /* ============================================================
    BOUTON CTA HEADER — Inscris-toi (orange clignotant)
    ============================================================ */
@@ -2832,7 +2800,6 @@ h1 .site-name .tm,
   padding: .75rem 1.4rem;
 }
 
-
 /* ============================================================
    MOBILE FIXES — Titre hero, espacement, scroll-snap
    ============================================================ */
@@ -2842,9 +2809,7 @@ h1 .site-name .tm,
 
 /* 2. Titre hero sur 2 lignes max mobile */
 
-
 /* 3. Réduire espacement sections sur mobile */
-
 
 /* 4. Scroll-snap DÉSACTIVÉ — causait des pages vides entre sections */
 /* html { scroll-snap-type: y proximity; } — retiré */
@@ -2856,9 +2821,7 @@ h1 .site-name .tm,
    HERO MOBILE — vide supprimé, image homme, sous-titre, badge
    ============================================================ */
 
-
 /* Sur desktop, on cache le badge (déjà présent dans le bandeau) */
-
 
 /* ============================================================
    NAV SECTION LABEL — titre de section dans le header (mobile)
@@ -2883,13 +2846,10 @@ h1 .site-name .tm,
   opacity: 1;
 }
 
-
 /* ============================================================
    ALLÈGEMENT — images décoratives cachées sur mobile
    ============================================================ */
 
-
 /* ============================================================
    CONTOUR DÉGRADÉ ROSE — encadrement sections mobile
    ============================================================ */
-
