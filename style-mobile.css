@@ -582,3 +582,44 @@
     box-shadow: 0 22px 46px -28px rgba(26, 22, 18, 0.55);
   }
 }
+
+/* ============================================================
+   HEADER MOBILE — index.html uniquement
+   Logo agrandi, bouton app, hamburger
+   ============================================================ */
+@media (max-width: 880px) {
+  /* Logo plus grand sur mobile */
+  .site-header .brand-mark {
+    width: 56px !important;
+    height: 56px !important;
+  }
+  .site-header .site-name {
+    font-size: clamp(1.1rem, 4vw, 1.3rem) !important;
+  }
+
+  /* Bouton télécharger l'appli */
+  .nav-cta-app {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: var(--orange);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .nav-cta-app:hover {
+    background: var(--orange-deep);
+  }
+}
+
+/* Cacher le bouton app sur desktop */
+@media (min-width: 881px) {
+  .nav-cta-app { display: none; }
+}
