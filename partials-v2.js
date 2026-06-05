@@ -19,7 +19,7 @@
   ];
 
   const langOptionsHTML = LANG_ITEMS
-    .map(l => `<li role="option" data-lang="${l.code}"><button type="button" data-lang="${l.code}"><span>${l.flag}</span> ${l.label}</button></li>`)
+    .map(l => `<li data-lang="${l.code}"><button type="button" data-lang="${l.code}"><span>${l.flag}</span> ${l.label}</button></li>`)
     .join('');
 
   const HEADER = `
@@ -165,15 +165,15 @@
               <span class="lang-code">FR</span>
               <span class="lang-chevron" aria-hidden="true">▾</span>
             </button>
-            <ul class="lang-dropdown-menu" role="listbox" aria-label="Choisir la langue">
-              <li role="option" data-lang="fr"><button type="button" data-lang="fr"><span>🇫🇷</span> FR — Français</button></li>
-              <li role="option" data-lang="en"><button type="button" data-lang="en"><span>🇬🇧</span> EN — English</button></li>
-              <li role="option" data-lang="es"><button type="button" data-lang="es"><span>🇪🇸</span> ES — Español</button></li>
-              <li role="option" data-lang="de"><button type="button" data-lang="de"><span>🇩🇪</span> DE — Deutsch</button></li>
-              <li role="option" data-lang="it"><button type="button" data-lang="it"><span>🇮🇹</span> IT — Italiano</button></li>
-              <li role="option" data-lang="ru"><button type="button" data-lang="ru"><span>🇷🇺</span> RU — Русский</button></li>
-              <li role="option" data-lang="zh"><button type="button" data-lang="zh"><span>🇨🇳</span> ZH — 中文</button></li>
-              <li role="option" data-lang="ar"><button type="button" data-lang="ar"><span>🇸🇦</span> AR — عربي</button></li>
+            <ul class="lang-dropdown-menu" aria-label="Choisir la langue">
+              <li data-lang="fr"><button type="button" data-lang="fr"><span>🇫🇷</span> FR — Français</button></li>
+              <li data-lang="en"><button type="button" data-lang="en"><span>🇬🇧</span> EN — English</button></li>
+              <li data-lang="es"><button type="button" data-lang="es"><span>🇪🇸</span> ES — Español</button></li>
+              <li data-lang="de"><button type="button" data-lang="de"><span>🇩🇪</span> DE — Deutsch</button></li>
+              <li data-lang="it"><button type="button" data-lang="it"><span>🇮🇹</span> IT — Italiano</button></li>
+              <li data-lang="ru"><button type="button" data-lang="ru"><span>🇷🇺</span> RU — Русский</button></li>
+              <li data-lang="zh"><button type="button" data-lang="zh"><span>🇨🇳</span> ZH — 中文</button></li>
+              <li data-lang="ar"><button type="button" data-lang="ar"><span>🇸🇦</span> AR — عربي</button></li>
             </ul>
           </div>
         </div>

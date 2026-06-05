@@ -11,6 +11,7 @@
   <meta property="og:url" content="https://www.styleme.fr/faq.html">
   <meta property="og:image" content="https://www.styleme.fr/assets/og-styleme.jpg">
   <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" href="/assets/styleme-logo.png">
   <meta name="theme-color" content="#B96A46">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,6 +128,55 @@
   <link rel="stylesheet" href="style-base.css?v=20260603">
   <link rel="stylesheet" href="style-desktop.css?v=20260603">
   <link rel="stylesheet" href="style-mobile.css?v=20260603">
+  <style>
+    .faq-hero {
+      padding: 7rem 0 3rem;
+      background: var(--paper);
+    }
+    .faq-hero__title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 1rem;
+    }
+    .faq-hero__intro {
+      color: var(--ink-muted);
+      max-width: 560px;
+      font-size: 1.1rem;
+      line-height: 1.65;
+    }
+    .faq-body {
+      padding: 3rem 0 6rem;
+      background: var(--paper);
+    }
+    .faq-shell {
+      max-width: 780px;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+      padding: 2rem 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-item__q {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .faq-item__a {
+      color: var(--ink-muted);
+      line-height: 1.75;
+    }
+    .faq-item__a a {
+      color: var(--terracotta);
+    }
+    .faq-item__cta {
+      margin-top: 1.5rem;
+      display: inline-flex;
+    }
+    .footer-link--current {
+      font-weight: 600;
+      color: var(--terracotta);
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#content">Aller au contenu</a>
@@ -153,90 +203,90 @@
 
   <main id="content">
 
-    <section style="padding: 7rem 0 3rem; background: var(--paper);">
+    <section class="faq-hero">
       <div class="shell">
         <p class="eyebrow">Tout ce que tu veux savoir</p>
-        <h1 style="font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 1rem;">Questions fréquentes</h1>
-        <p style="color: var(--ink-muted); max-width: 560px; font-size: 1.1rem; line-height: 1.65;">
+        <h1 class="faq-hero__title">Questions fréquentes</h1>
+        <p class="faq-hero__intro">
           Sur Styleme.fr, l'IA de mode, la slow fashion et comment on peut t'aider à t'habiller mieux chaque matin.
         </p>
       </div>
     </section>
 
-    <section style="padding: 3rem 0 6rem; background: var(--paper);">
-      <div class="shell" style="max-width: 780px;">
+    <section class="faq-body">
+      <div class="shell faq-shell">
 
         <div class="faq-list">
 
-          <article class="faq-item" style="border-bottom: 1px solid var(--line); padding: 2rem 0;">
-            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Qu'est-ce que Styleme.fr ?</h2>
-            <p style="color: var(--ink-muted); line-height: 1.75;">
+          <article class="faq-item">
+            <h2 class="faq-item__q">Qu'est-ce que Styleme.fr ?</h2>
+            <p class="faq-item__a">
               Styleme.fr est un assistant IA de mode personnalisé qui aide chaque utilisateur à choisir sa tenue chaque matin, sans stress, sans publicité et sans incitation à acheter. Il analyse le dressing existant de l'utilisateur, la météo, l'agenda et l'humeur du jour pour proposer des suggestions adaptées.
             </p>
           </article>
 
-          <article class="faq-item" style="border-bottom: 1px solid var(--line); padding: 2rem 0;">
-            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Est-ce que Styleme.fr est gratuit ?</h2>
-            <p style="color: var(--ink-muted); line-height: 1.75;">
+          <article class="faq-item">
+            <h2 class="faq-item__q">Est-ce que Styleme.fr est gratuit ?</h2>
+            <p class="faq-item__a">
               Oui. Styleme.fr est conçu pour être accessible à tous. L'accès de base est gratuit. Styleme.fr ne vend pas de vêtements, n'affiche pas de publicités et ne perçoit aucune commission de marques.
             </p>
           </article>
 
-          <article class="faq-item" style="border-bottom: 1px solid var(--line); padding: 2rem 0;">
-            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Comment Styleme.fr est-il différent des autres apps de mode ?</h2>
-            <p style="color: var(--ink-muted); line-height: 1.75;">
+          <article class="faq-item">
+            <h2 class="faq-item__q">Comment Styleme.fr est-il différent des autres apps de mode ?</h2>
+            <p class="faq-item__a">
               La plupart des applications de mode sont des vitrines e-commerce déguisées : elles te poussent à acheter. Styleme.fr fait le contraire — il part de ce que tu possèdes déjà et t'aide à mieux le porter. Aucune marque ne paie pour apparaître dans ses recommandations.
             </p>
           </article>
 
-          <article class="faq-item" style="border-bottom: 1px solid var(--line); padding: 2rem 0;">
-            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Qu'est-ce que la slow fashion et pourquoi Styleme.fr s'y engage ?</h2>
-            <p style="color: var(--ink-muted); line-height: 1.75;">
+          <article class="faq-item">
+            <h2 class="faq-item__q">Qu'est-ce que la slow fashion et pourquoi Styleme.fr s'y engage ?</h2>
+            <p class="faq-item__a">
               La slow fashion est une approche de la mode qui privilégie la durabilité, la qualité et la réutilisation sur la fast fashion — la production rapide et jetable. Styleme.fr s'y engage car l'industrie textile est l'une des plus polluantes au monde. En aidant les gens à mieux porter ce qu'ils ont, Styleme.fr réduit les achats impulsifs et l'impact environnemental.
             </p>
           </article>
 
-          <article class="faq-item" style="border-bottom: 1px solid var(--line); padding: 2rem 0;">
-            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Comment fonctionne l'IA de Styleme.fr concrètement ?</h2>
-            <p style="color: var(--ink-muted); line-height: 1.75;">
+          <article class="faq-item">
+            <h2 class="faq-item__q">Comment fonctionne l'IA de Styleme.fr concrètement ?</h2>
+            <p class="faq-item__a">
               L'utilisateur partage des photos de son dressing ou décrit ses vêtements. L'IA analyse ensuite plusieurs paramètres : morphologie, palette de couleurs personnelle, météo du jour, agenda (réunion, sortie, sport...) et humeur. Elle propose ensuite 2 à 3 tenues complètes issues du dressing existant, avec des explications sur les choix.
             </p>
           </article>
 
-          <article class="faq-item" style="border-bottom: 1px solid var(--line); padding: 2rem 0;">
-            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Mes photos de vêtements sont-elles conservées ?</h2>
-            <p style="color: var(--ink-muted); line-height: 1.75;">
-              Styleme.fr traite les données personnelles avec le respect de la vie privée comme priorité. Les photos ne sont pas revendues ni partagées à des tiers. La <a href="confidentialite.html" style="color: var(--terracotta);">politique de confidentialité complète</a> est disponible sur le site.
+          <article class="faq-item">
+            <h2 class="faq-item__q">Mes photos de vêtements sont-elles conservées ?</h2>
+            <p class="faq-item__a">
+              Styleme.fr traite les données personnelles avec le respect de la vie privée comme priorité. Les photos ne sont pas revendues ni partagées à des tiers. La <a href="confidentialite.html">politique de confidentialité complète</a> est disponible sur le site.
             </p>
           </article>
 
-          <article class="faq-item" style="border-bottom: 1px solid var(--line); padding: 2rem 0;">
-            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Qu'est-ce qu'une capsule wardrobe et comment Styleme.fr peut m'aider à en construire une ?</h2>
-            <p style="color: var(--ink-muted); line-height: 1.75;">
+          <article class="faq-item">
+            <h2 class="faq-item__q">Qu'est-ce qu'une capsule wardrobe et comment Styleme.fr peut m'aider à en construire une ?</h2>
+            <p class="faq-item__a">
               Une capsule wardrobe est un dressing minimaliste composé de pièces polyvalentes qui se combinent toutes entre elles. L'objectif est de posséder moins de vêtements mais de les porter davantage. Styleme.fr analyse le dressing existant pour identifier les pièces essentielles, les doublons inutiles, et les quelques investissements ciblés qui maximiseraient la polyvalence de la garde-robe.
             </p>
           </article>
 
-          <article class="faq-item" style="border-bottom: 1px solid var(--line); padding: 2rem 0;">
-            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Styleme.fr fonctionne-t-il pour les hommes et les personnes de tous âges ?</h2>
-            <p style="color: var(--ink-muted); line-height: 1.75;">
+          <article class="faq-item">
+            <h2 class="faq-item__q">Styleme.fr fonctionne-t-il pour les hommes et les personnes de tous âges ?</h2>
+            <p class="faq-item__a">
               Oui. Styleme.fr est conçu pour tous les genres, toutes les morphologies et tous les âges. L'IA s'adapte aux préférences individuelles plutôt que de suivre des tendances uniformes. Il est particulièrement utile pour les personnes qui ont du mal à se décider le matin ou qui se sentent dépassées par leur dressing.
             </p>
           </article>
 
-          <article class="faq-item" style="border-bottom: 1px solid var(--line); padding: 2rem 0;">
-            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Dans quelles langues Styleme.fr est-il disponible ?</h2>
-            <p style="color: var(--ink-muted); line-height: 1.75;">
+          <article class="faq-item">
+            <h2 class="faq-item__q">Dans quelles langues Styleme.fr est-il disponible ?</h2>
+            <p class="faq-item__a">
               Styleme.fr est disponible en français, anglais, espagnol, allemand, italien, russe, chinois et arabe. La langue de l'interface s'adapte automatiquement aux préférences du navigateur.
             </p>
           </article>
 
-          <article class="faq-item" style="padding: 2rem 0;">
-            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Comment rejoindre la version bêta de Styleme.fr ?</h2>
-            <p style="color: var(--ink-muted); line-height: 1.75;">
+          <article class="faq-item faq-item--last">
+            <h2 class="faq-item__q">Comment rejoindre la version bêta de Styleme.fr ?</h2>
+            <p class="faq-item__a">
               Il suffit de s'inscrire sur Styleme.fr en laissant son adresse e-mail. Les premiers inscrits recevront un accès prioritaire à la version bêta dès le lancement. L'inscription est gratuite et sans engagement.
             </p>
-            <a href="rejoindre.html" class="btn btn-primary" style="margin-top: 1.5rem; display: inline-flex;">Je m'inscris →</a>
+            <a href="rejoindre.html" class="btn btn-primary faq-item__cta">Je m'inscris →</a>
           </article>
 
         </div>
@@ -263,7 +313,7 @@
           <a href="mentions-legales.html">Mentions légales</a>
           <a href="confidentialite.html">Politique de confidentialité</a>
           <a href="credits.html">Crédits visuels</a>
-          <a href="faq.html" aria-current="page" style="font-weight:600; color:var(--terracotta);">FAQ</a>
+          <a href="faq.html" aria-current="page" class="footer-link--current">FAQ</a>
         </div>
         <div>
           <span class="footer-label">Contact</span>

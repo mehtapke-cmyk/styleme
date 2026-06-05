@@ -60,7 +60,7 @@
    RESET & BASE
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--paper);
@@ -266,10 +266,9 @@ section {
   position: relative;
   top: -0.05em;
   opacity: 0.92;
+  -webkit-user-select: none;
   user-select: none;
 }
-h1 .site-name .tm,
-.hero-title .site-name .tm { font-size: 0.38em; top: -0.08em; }
 .footer-brand .site-name .tm,
 .footer-bottom .site-name .tm { opacity: 0.85; }
 

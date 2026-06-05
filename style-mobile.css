@@ -636,7 +636,7 @@
 @media (max-width: 880px) {
   .join-hero {
     grid-template-columns: 1fr !important;
-    min-height: auto !important;
+    min-height: 0 !important;
   }
   .join-hero .join-copy {
     padding: 7rem var(--shell-px) 3rem !important;

@@ -72,7 +72,7 @@
    RESET & BASE
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--paper);
@@ -163,8 +163,8 @@ p.lead {
   z-index: 100;
   padding: 1.25rem 0;
   background: rgba(251, 248, 242, 0.85);
-  backdrop-filter: blur(20px) saturate(140%);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
   border-bottom: 1px solid transparent;
   transition: border-color .4s ease, padding .4s ease, background .4s ease, transform .35s ease;
 }
@@ -398,6 +398,10 @@ p.lead {
   gap: 1rem;
   flex-wrap: wrap;
 }
+.hero-actions--centered {
+  justify-content: center;
+  margin-top: 2rem;
+}
 .hero .btn-primary {
   background: var(--cream);
   color: var(--ink);
@@ -531,6 +535,7 @@ section {
   padding: 1.1rem 1.25rem;
   font-size: clamp(0.95rem, 1.15vw, 1.1rem);
   background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 .thought-bubbles--inline .thought-wide {
@@ -797,9 +802,9 @@ section {
   opacity: 0.22;
   z-index: 0;
   pointer-events: none;
-  /* fondu doux haut & bas pour intégration éditoriale */
-  mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  /* mask-image doit être après -webkit-mask-image */
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
 }
 .comparison--with-bg > .shell { position: relative; z-index: 1; }
 @media (prefers-reduced-motion: no-preference) {
@@ -1104,6 +1109,7 @@ section {
   border: 1px solid rgba(232, 101, 26, 0.25);
   border-radius: 6px;
   background: linear-gradient(180deg, rgba(255,255,255,0.45) 0%, rgba(252,250,246,0.55) 100%);
+  -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   /* Pulsation subtile de la bordure orange */
   animation: manifestoPulse 4.5s ease-in-out infinite;
@@ -1483,6 +1489,9 @@ section {
   text-align: center;
   max-width: 720px;
   margin: 0 auto 4rem;
+}
+.section-head--spaced {
+  margin-top: 6rem;
 }
 .section-head--centered .section-lede {
   margin-top: 1rem;
@@ -2450,6 +2459,7 @@ body.drawer-open { overflow: hidden; }
   /* Légère opacité pour rester discret tout en restant lisible */
   opacity: 0.92;
   /* Pas d'animation, pas de transition — il doit être stable */
+  -webkit-user-select: none;
   user-select: none;
 }
 
