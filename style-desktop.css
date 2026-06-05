@@ -2381,11 +2381,11 @@ body.drawer-open { overflow: hidden; }
   position: relative;
   padding: 1.6rem 1.8rem;
   border-radius: 14px;
-  border: 1px solid color-mix(in srgb, var(--orange) 35%, transparent);
+  border: 1px solid rgba(232, 101, 26, 0.35);
   background: linear-gradient(135deg,
-    color-mix(in srgb, var(--orange) 6%, transparent),
-    color-mix(in srgb, var(--orange) 14%, transparent));
-  box-shadow: 0 0 0 0 color-mix(in srgb, var(--orange) 38%, transparent);
+    rgba(232, 101, 26, 0.06),
+    rgba(232, 101, 26, 0.14));
+  box-shadow: 0 0 0 0 rgba(232, 101, 26, 0.38);
   animation: manifestePulse 3.6s ease-in-out infinite;
   max-width: 640px;
   margin: 2rem auto;
@@ -2396,12 +2396,12 @@ body.drawer-open { overflow: hidden; }
 }
 @keyframes manifestePulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--orange) 30%, transparent);
-    border-color: color-mix(in srgb, var(--orange) 30%, transparent);
+    box-shadow: 0 0 0 0 rgba(232, 101, 26, 0.30);
+    border-color: rgba(232, 101, 26, 0.30);
   }
   50% {
-    box-shadow: 0 0 0 12px color-mix(in srgb, var(--orange) 0%, transparent);
-    border-color: color-mix(in srgb, var(--orange) 55%, transparent);
+    box-shadow: 0 0 0 12px rgba(232, 101, 26, 0);
+    border-color: rgba(232, 101, 26, 0.55);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2493,7 +2493,7 @@ h1 .site-name .tm,
   height: 1px;
   background: linear-gradient(90deg,
     transparent 0%,
-    color-mix(in srgb, var(--orange) 35%, transparent) 50%,
+    rgba(232, 101, 26, 0.35) 50%,
     transparent 100%);
 }
 .tribus-content {
@@ -2535,7 +2535,7 @@ h1 .site-name .tm,
 }
 .tribus-card {
   background: #fff;
-  border: 1px solid color-mix(in srgb, var(--ink) 8%, transparent);
+  border: 1px solid rgba(10, 10, 10, 0.08);
   border-radius: 18px;
   padding: 2rem 1.6rem;
   text-align: left;
@@ -2545,8 +2545,8 @@ h1 .site-name .tm,
 }
 .tribus-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 22px 50px -28px color-mix(in srgb, var(--orange) 35%, transparent);
-  border-color: color-mix(in srgb, var(--orange) 30%, transparent);
+  box-shadow: 0 22px 50px -28px rgba(232, 101, 26, 0.35);
+  border-color: rgba(232, 101, 26, 0.30);
 }
 .tribus-icon {
   display: inline-block;
@@ -2581,7 +2581,7 @@ h1 .site-name .tm,
 }
 .tribus-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px -10px color-mix(in srgb, var(--orange) 60%, transparent);
+  box-shadow: 0 14px 30px -10px rgba(232, 101, 26, 0.60);
 }
 .tribus-cta .cta-arrow {
   transition: transform 0.3s ease;
