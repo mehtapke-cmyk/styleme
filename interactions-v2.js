@@ -6,15 +6,8 @@
 (() => {
   'use strict';
 
-  // ---------- Feuille de retouches (langue→hamburger, lisibilité, mobile) ----------
-  // Chargée sur toutes les pages, sans doublon.
-  if (!document.querySelector('link[data-styleme-refresh]')) {
-    const refreshCss = document.createElement('link');
-    refreshCss.rel = 'stylesheet';
-    refreshCss.href = 'style-mobile-refresh.css?v=20260529';
-    refreshCss.setAttribute('data-styleme-refresh', '');
-    document.head.appendChild(refreshCss);
-  }
+  // Les styles mobile sont désormais intégrés dans style-mobile.css
+  // (style-mobile-refresh.css a été fusionné — plus besoin d'injection dynamique)
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

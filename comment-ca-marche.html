@@ -53,6 +53,15 @@
       .photo-break--video { background-image: url('assets/video-comment-poster.jpg'); background-size: cover; background-position: center; }
       .photo-break--video::after { content: ""; position: absolute; inset: 0; background: rgba(10,10,10,0.6); }
     }
+
+    /* Step cards on this page: let images breathe on mobile — no max-height cap */
+    @media (max-width: 880px) {
+      .steps-grid .step-card img {
+        max-height: none;
+        aspect-ratio: 4/5;
+        object-fit: cover;
+      }
+    }
   </style>
 <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JW5GNM9Q2Y"></script>

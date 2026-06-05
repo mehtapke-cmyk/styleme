@@ -274,9 +274,9 @@
   /* Steps : réduire le padding global et la section-head */
   .steps { padding: 2rem 0; }
   .steps .section-head { padding: 1.5rem 0 1rem; }
-  .step-card { max-height: 300px; overflow: hidden; }
+  /* step-card : pas de max-height global — les pages individuelles gèrent si nécessaire */
   .step-card img, .step-visual, .parallax-img {
-    max-height: 180px;
+    max-height: 200px;
     width: 100%;
     object-fit: cover;
   }
@@ -626,4 +626,91 @@
 /* Cacher le bouton app sur desktop */
 @media (min-width: 881px) {
   .nav-cta-app { display: none; }
+}
+
+/* ============================================================
+   CORRECTIONS MOBILES PAR PAGE
+   ============================================================ */
+
+/* ---- rejoindre.html : hero split → colonne sur mobile ---- */
+@media (max-width: 880px) {
+  .join-hero {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+  .join-hero .join-copy {
+    padding: 7rem var(--shell-px) 3rem !important;
+    order: 1;
+  }
+  .join-hero .join-photo {
+    order: 2;
+    min-height: 280px;
+  }
+  .join-hero .join-photo img {
+    height: clamp(220px, 40vw, 320px) !important;
+    object-fit: contain;
+  }
+  .perks-grid { grid-template-columns: 1fr; }
+}
+
+/* ---- rejoindre.html : section vidéo firefly ---- */
+@media (max-width: 880px) {
+  .firefly-video-wrap { border-radius: 0; }
+  .firefly-caption { padding: 1.5rem; }
+  .firefly-caption h2 { font-size: clamp(1.4rem, 5vw, 2rem); }
+  .testimonials-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+/* ---- conseils.html : grille humeurs (mood-grid) → 1 colonne ---- */
+@media (max-width: 760px) {
+  .mood-grid { grid-template-columns: 1fr !important; gap: 0.85rem; }
+  .mood-card { aspect-ratio: 4/3; }
+  /* collage photos → colonne unique */
+  .advice-collage,
+  .advice-collage--duo {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+  .advice-collage figure:first-child { grid-row: auto !important; }
+  .advice-collage figure img,
+  .advice-collage--duo figure img { aspect-ratio: 4/3; height: auto; }
+}
+
+/* ---- comparaison.html : impact-strip 4 colonnes → 2 puis 1 ---- */
+@media (max-width: 640px) {
+  .impact-strip__grid { grid-template-columns: 1fr 1fr !important; gap: 1.5rem; }
+  .impact-stats { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 400px) {
+  .impact-strip__grid { grid-template-columns: 1fr !important; }
+}
+
+/* ---- engagement.html : chiffres clés → 1 colonne ---- */
+@media (max-width: 640px) {
+  .engagement-figures { grid-template-columns: 1fr; gap: 1rem; }
+  .engagement-inner {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .engagement-label { position: static; }
+  .engagement-section { padding: 3rem 0; }
+}
+
+/* ---- page-hero : espacement réduit sur petit écran ---- */
+@media (max-width: 880px) {
+  .page-hero {
+    padding: 7rem 0 3rem;
+  }
+  .page-hero h1 { font-size: clamp(2rem, 8vw, 3.5rem); }
+}
+
+/* ---- step-card : texte toujours visible (correction globale) ---- */
+@media (max-width: 880px) {
+  .step-card {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  .step-card img {
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
 }

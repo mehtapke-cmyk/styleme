@@ -1,12 +1,13 @@
-const CACHE = 'styleme-v20260529b';
+const CACHE = 'styleme-v20260605';
 const SHELL = [
   '/',
   '/index.html',
-  '/style-v2.css?v=20260529',
+  '/style-base.css?v=20260603',
+  '/style-desktop.css?v=20260603',
+  '/style-mobile.css?v=20260603',
   '/script.js?v=20260529',
   '/partials-v2.js?v=20260529',
   '/interactions-v2.js?v=20260529',
-  '/style-mobile-refresh.css?v=20260529',
   '/site.webmanifest',
   '/assets/styleme-logo.png',
 ];
