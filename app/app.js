@@ -397,6 +397,23 @@
     j.textContent = joined ? t('tribus.joined') : t('tribus.join');
   });
 
+  // Le Troc — "Proposer une pièce" passe par le même gate (compte/18+/GPS).
+  // Si déjà membre : confirmation. Sinon : ouvre le gate.
+  document.querySelectorAll('[data-i18n="troc.propose"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!isMember()) { openSheet(tribuGate); return; }
+      const original = btn.textContent;
+      btn.textContent = t('troc.proposed');
+      btn.disabled = true;
+      btn.style.opacity = '0.75';
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.disabled = false;
+        btn.style.opacity = '';
+      }, 2200);
+    });
+  });
+
   // Init i18n : reprend la langue choisie au dernier passage (localStorage)
   applyI18n(currentLang);
   // Si la langue persistée n'est pas FR, marque la lang-item correspondante
