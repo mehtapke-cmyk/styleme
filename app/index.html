@@ -292,6 +292,60 @@
         </div>
       </section>
 
+      <!-- ============ SCREEN: TRIBUS ============ -->
+      <section class="screen" data-screen="tribus">
+        <div class="screen-scroll">
+          <p class="eyebrow" data-i18n="tribus.eyebrow">Les Tribus — près de toi</p>
+          <h1 class="page-title" data-i18n-html="tribus.title">Trouve ta tribu,<br><em>à deux pas.</em></h1>
+          <p class="lede" data-i18n="tribus.sub">Un petit cercle de personnes proches qui partagent ton humeur, ton quartier ou ton style.</p>
+
+          <!-- État NON-MEMBRE : le gate -->
+          <div class="tribu-gatecard" data-tribu-guest>
+            <span class="tribu-gate-emoji" aria-hidden="true">◎</span>
+            <h2 data-i18n="tribus.gate.title">Réservé aux membres</h2>
+            <p data-i18n="tribus.gate.text">Pour rejoindre une tribu, crée ton compte, confirme tes 18 ans et active ta localisation. On ne montre jamais ta position exacte — juste une distance approximative.</p>
+            <ul class="tribu-gate-list">
+              <li data-i18n="tribus.gate.i1">✉️ Connexion par lien email — sans mot de passe</li>
+              <li data-i18n="tribus.gate.i2">🔞 Réservé aux 18 ans et plus</li>
+              <li data-i18n="tribus.gate.i3">📍 Localisation approximative, hébergée en France</li>
+            </ul>
+            <button class="btn btn-full btn-primary" data-open-gate data-i18n="tribus.gate.cta">Rejoindre les Tribus</button>
+          </div>
+
+          <!-- État MEMBRE : créer + liste des tribus proches -->
+          <div class="tribu-member" data-tribu-member hidden>
+            <button class="btn btn-full btn-primary" data-open-create data-i18n="tribus.create.cta">+ Créer une tribu</button>
+            <div class="tribu-list" data-tribu-list>
+              <article class="tribu-card">
+                <span class="tribu-badge" aria-hidden="true">◎</span>
+                <div class="tribu-card-text">
+                  <h3>Les Lève-tôt d'Argelès</h3>
+                  <p><span class="tribu-type">Quartier</span> · 12 membres · ~0,5 km</p>
+                </div>
+                <button class="btn btn-pill btn-ghost tribu-join" data-i18n="tribus.join">Rejoindre</button>
+              </article>
+              <article class="tribu-card">
+                <span class="tribu-badge" aria-hidden="true">◎</span>
+                <div class="tribu-card-text">
+                  <h3>Slow &amp; Lin</h3>
+                  <p><span class="tribu-type">Style</span> · 28 membres · ~3 km</p>
+                </div>
+                <button class="btn btn-pill btn-ghost tribu-join" data-i18n="tribus.join">Rejoindre</button>
+              </article>
+              <article class="tribu-card">
+                <span class="tribu-badge" aria-hidden="true">◎</span>
+                <div class="tribu-card-text">
+                  <h3>Matins doux</h3>
+                  <p><span class="tribu-type">Humeur</span> · 7 membres · ~1 km</p>
+                </div>
+                <button class="btn btn-pill btn-ghost tribu-join" data-i18n="tribus.join">Rejoindre</button>
+              </article>
+            </div>
+            <p class="footnote" data-i18n="tribus.foot">Distances approximatives. Tu choisis ton niveau : silencieux, observateur ou actif.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- ============ SCREEN: LE TROC ============ -->
       <section class="screen screen--dark" data-screen="troc">
         <div class="screen-scroll">
@@ -342,6 +396,10 @@
         <span class="tab-icon">♡</span>
         <span class="tab-label" data-i18n="tab.tenues">Mes tenues</span>
       </button>
+      <button class="tab" data-target="tribus">
+        <span class="tab-icon">◎</span>
+        <span class="tab-label" data-i18n="tab.tribus">Tribus</span>
+      </button>
       <button class="tab" data-target="troc">
         <span class="tab-icon">⇄</span>
         <span class="tab-label" data-i18n="tab.troc">Troc</span>
@@ -351,7 +409,7 @@
   </div>
 
   <p class="prototype-note">
-    Prototype navigable · clique les 4 onglets en bas. Données fictives, l'IA n'est pas encore branchée.
+    Prototype navigable · clique les 5 onglets en bas. Données fictives, l'IA n'est pas encore branchée.
   </p>
 </div>
 
@@ -411,6 +469,62 @@
       </button>
     </nav>
     <p class="drawer-foot" data-i18n="drawer.foot">Styleme.fr · Slow fashion · Hébergé en France 🇫🇷</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     TRIBUS — gate (compte / 18+ / GPS)
+     ============================================================ -->
+<div class="sheet-backdrop" id="tribuGate" hidden role="dialog" aria-modal="true" aria-label="Rejoindre les Tribus">
+  <div class="sheet">
+    <button class="sheet-handle" data-close-sheet aria-label="Fermer"></button>
+    <h3 class="sheet-title" data-i18n="gate.title">Rejoindre les Tribus</h3>
+    <div class="gate-body">
+      <label class="onb-input-wrap">
+        <span class="onb-input-icon">✉</span>
+        <input class="onb-input" type="email" data-i18n-placeholder="gate.email.ph" placeholder="Ton email">
+      </label>
+      <button class="btn btn-text" data-gate-send data-i18n="gate.email.send">M'envoyer un lien de connexion</button>
+
+      <label class="gate-check">
+        <input type="checkbox" data-gate-age>
+        <span data-i18n="gate.age">J'ai 18 ans ou plus</span>
+      </label>
+
+      <button class="btn btn-full btn-ghost" data-gate-gps data-i18n="gate.gps">📍 Activer ma position</button>
+
+      <button class="btn btn-full btn-primary" data-gate-confirm disabled data-i18n="gate.confirm">Entrer dans les Tribus</button>
+      <p class="gate-foot" data-i18n="gate.foot">Position approximative seulement. Hébergé en France. Désinscription en un clic.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TRIBUS — créer une tribu
+     ============================================================ -->
+<div class="sheet-backdrop" id="tribuCreate" hidden role="dialog" aria-modal="true" aria-label="Créer une tribu">
+  <div class="sheet">
+    <button class="sheet-handle" data-close-sheet aria-label="Fermer"></button>
+    <h3 class="sheet-title" data-i18n="create.title">Créer une tribu</h3>
+    <div class="gate-body">
+      <label class="onb-input-wrap">
+        <span class="onb-input-icon">✦</span>
+        <input class="onb-input" id="newTribuName" type="text" data-i18n-placeholder="create.name.ph" placeholder="Nom de ta tribu">
+      </label>
+      <p class="create-label" data-i18n="create.type">Type</p>
+      <div class="filters create-types">
+        <button class="chip is-active" data-type="Humeur" data-i18n="create.type.mood">Humeur</button>
+        <button class="chip" data-type="Quartier" data-i18n="create.type.hood">Quartier</button>
+        <button class="chip" data-type="Style" data-i18n="create.type.style">Style</button>
+      </div>
+      <p class="create-label" data-i18n="create.radius">Rayon</p>
+      <div class="filters create-radius">
+        <button class="chip is-active" data-radius="1 km">1 km</button>
+        <button class="chip" data-radius="5 km">5 km</button>
+        <button class="chip" data-radius="20 km">20 km</button>
+      </div>
+      <button class="btn btn-full btn-primary" data-create-confirm data-i18n="create.confirm">Créer ma tribu</button>
+    </div>
   </div>
 </div>
 

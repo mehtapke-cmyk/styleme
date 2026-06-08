@@ -297,6 +297,106 @@
     showStep(1);
   });
 
+  // =========================================================
+  // TRIBUS — gate (compte / 18+ / GPS) + créer / rejoindre
+  // Persiste l'état "membre" dans localStorage (clé styleme_member).
+  // Données fictives : ni backend ni vraie géoloc branchés.
+  // =========================================================
+  const MEMBER_KEY = 'styleme_member';
+  const tribuGuest = document.querySelector('[data-tribu-guest]');
+  const tribuMember = document.querySelector('[data-tribu-member]');
+  const tribuGate = document.getElementById('tribuGate');
+  const tribuCreate = document.getElementById('tribuCreate');
+
+  function isMember() {
+    try { return localStorage.getItem(MEMBER_KEY) === '1'; } catch (_) { return false; }
+  }
+  function renderMembership() {
+    const m = isMember();
+    if (tribuGuest) tribuGuest.hidden = m;
+    if (tribuMember) tribuMember.hidden = !m;
+  }
+  renderMembership();
+
+  // Ouvrir le gate
+  document.querySelectorAll('[data-open-gate]').forEach(b =>
+    b.addEventListener('click', () => openSheet(tribuGate)));
+
+  // Case "18 ans ou plus" → active le bouton de confirmation
+  const ageBox = tribuGate ? tribuGate.querySelector('[data-gate-age]') : null;
+  const gateConfirm = tribuGate ? tribuGate.querySelector('[data-gate-confirm]') : null;
+  if (ageBox && gateConfirm) {
+    ageBox.addEventListener('change', () => { gateConfirm.disabled = !ageBox.checked; });
+  }
+  // Bouton position (simulé)
+  const gpsBtn = tribuGate ? tribuGate.querySelector('[data-gate-gps]') : null;
+  if (gpsBtn) gpsBtn.addEventListener('click', () => {
+    gpsBtn.classList.add('is-on');
+    gpsBtn.textContent = t('gate.gps.on');
+  });
+  // Lien email magique (simulé)
+  const sendBtn = tribuGate ? tribuGate.querySelector('[data-gate-send]') : null;
+  if (sendBtn) sendBtn.addEventListener('click', () => { sendBtn.textContent = t('gate.email.sent'); });
+
+  // Confirmer → devient membre
+  if (gateConfirm) gateConfirm.addEventListener('click', () => {
+    if (gateConfirm.disabled) return;
+    try { localStorage.setItem(MEMBER_KEY, '1'); } catch (_) { /* private mode */ }
+    renderMembership();
+    closeSheet(tribuGate);
+  });
+
+  // Ouvrir "créer une tribu"
+  document.querySelectorAll('[data-open-create]').forEach(b =>
+    b.addEventListener('click', () => openSheet(tribuCreate)));
+
+  // Créer la tribu → ajoute une carte en tête de liste (DOM sûr, sans innerHTML)
+  const createConfirm = tribuCreate ? tribuCreate.querySelector('[data-create-confirm]') : null;
+  if (createConfirm) createConfirm.addEventListener('click', () => {
+    const nameInput = document.getElementById('newTribuName');
+    const name = ((nameInput && nameInput.value) || '').trim() || t('create.default.name');
+    const typeChip = tribuCreate.querySelector('.create-types .chip.is-active');
+    const type = typeChip ? typeChip.dataset.type : 'Humeur';
+    const list = document.querySelector('[data-tribu-list]');
+    if (list) {
+      const card = document.createElement('article');
+      card.className = 'tribu-card tribu-card--mine';
+      const badge = document.createElement('span');
+      badge.className = 'tribu-badge';
+      badge.setAttribute('aria-hidden', 'true');
+      badge.textContent = '◎';
+      const txt = document.createElement('div');
+      txt.className = 'tribu-card-text';
+      const h = document.createElement('h3');
+      h.textContent = name;
+      const p = document.createElement('p');
+      const ty = document.createElement('span');
+      ty.className = 'tribu-type';
+      ty.textContent = type;
+      p.appendChild(ty);
+      p.appendChild(document.createTextNode(' · ' + t('tribus.you')));
+      txt.appendChild(h);
+      txt.appendChild(p);
+      const tag = document.createElement('span');
+      tag.className = 'tribu-mine-tag';
+      tag.textContent = t('tribus.mine');
+      card.appendChild(badge);
+      card.appendChild(txt);
+      card.appendChild(tag);
+      list.prepend(card);
+    }
+    if (nameInput) nameInput.value = '';
+    closeSheet(tribuCreate);
+  });
+
+  // Rejoindre / quitter une tribu (délégation → couvre les cartes ajoutées)
+  document.addEventListener('click', (e) => {
+    const j = e.target.closest ? e.target.closest('.tribu-join') : null;
+    if (!j) return;
+    const joined = j.classList.toggle('is-joined');
+    j.textContent = joined ? t('tribus.joined') : t('tribus.join');
+  });
+
   // Init i18n : reprend la langue choisie au dernier passage (localStorage)
   applyI18n(currentLang);
   // Si la langue persistée n'est pas FR, marque la lang-item correspondante
