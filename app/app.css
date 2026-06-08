@@ -964,6 +964,8 @@ body {
 }
 
 .tribu-member { display: flex; flex-direction: column; gap: 14px; margin-top: 6px; }
+/* l'attribut [hidden] doit l'emporter sur le display ci-dessus */
+.tribu-gatecard[hidden], .tribu-member[hidden] { display: none; }
 .tribu-list { display: flex; flex-direction: column; gap: 10px; }
 .tribu-card {
   background: #fff; border: 1px solid var(--line);
